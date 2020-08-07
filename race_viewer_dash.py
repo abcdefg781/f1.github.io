@@ -73,7 +73,7 @@ def plotRaceGraph(raceNum):
 	                             "gasly": "#469BFF", "kvyat" : "#469BFF",
 	                             "raikkonen" : "#9B0000", "giovinazzi" : "#9B0000",
 	                             "grosjean" : "#F0D787", "kevin_magnussen" : "#F0D787",
-	                             "latifi" : "white", "russell" : "white"})
+	                             "latifi" : "white", "russell" : "white"},width=1000,height=600)
 	return fig
 
 if __name__ == '__main__':
