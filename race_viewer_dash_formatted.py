@@ -17,7 +17,8 @@ drivers_df = pd.read_csv("./f1db_csv/drivers.csv").drop(columns = "url")
 lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
 results_df = pd.read_csv("./f1db_csv/results.csv")
 constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
-races_df = pd.read_csv("./f1db_csv/races.csv").sort_values(by='year',ascending=False)
+races_df = pd.read_csv("./f1db_csv/races.csv")
+colors_df = pd.read_csv("./colors.csv")
 
 # Clean some names and create new variables
 # drivers_df
@@ -30,6 +31,10 @@ clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
 clean_lt_df["seconds"] = clean_lt_df.milliseconds / 1000
 clean_lt_df = clean_lt_df.drop(columns = "milliseconds")
 
+# results_df
+results_df["position"] = results_df["position"].replace({r"\N": 99})
+results_df["position"] = results_df["position"].astype(int)
+
 def create_race_table(year, race_name):
     races_temp = races_df[races_df.year == year]
     race_id = int(races_temp.raceId[races_temp.name == race_name])
@@ -39,15 +44,19 @@ def create_race_table(year, race_name):
     df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
     df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
     df_3["constructorRef"] = df_3["constructorRef"].str.title()
-    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name","date"]], on = "raceId")
-    return df_4,races_temp
+    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
+    df_4 = df_4.sort_values(by = ["position", "lap"])
+    filtered_ref_df = colors_df[colors_df.year == year]
+    color_palette = pd.Series(filtered_ref_df.color.values, index = filtered_ref_df.driverName).to_dict()
+    return df_4, races_temp, color_palette
 
 class dataContainer:
     def __init__(self):
-        self.race_table,self.year_races = create_race_table(2020, "British Grand Prix")
+        self.race_table,self.year_races,self.color_palette = create_race_table(2020, "British Grand Prix")
 
     def plotRaceGraph(self):
-        fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True})
+        fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True}, 
+            color_discrete_map = self.color_palette)
         fig.update_layout(legend_title_text=None)
 
         fig.update_layout(plot_bgcolor="#323130",
@@ -171,7 +180,7 @@ def update_delta_graph(driver1,driver2):
     [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
 def update_race_graph(year, race_name):
-    dataContainer.race_table,dataContainer.year_races = create_race_table(year,race_name)
+    dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette = create_race_table(year,race_name)
     drivers = dataContainer.getDriverNames()
     race_names = dataContainer.getRaceNames()
     print(race_names)
