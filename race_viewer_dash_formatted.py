@@ -88,6 +88,31 @@ class dataContainer:
 
         return fig
 
+    def plotDeltaGraph(self):
+        df_grouped = [y for x,y in self.race_table.groupby('driverName',as_index=False)]
+        for i in range(len(df_grouped)):
+            df_driver = df_grouped[i]
+            df_grouped[i] = pd.concat([df_driver[["lap","driverName"]],df_driver["seconds"].cumsum()],axis=1)
+            df_grouped[i] = df_grouped[i].reset_index(drop=True)
+
+        #get minimum cumulative time for each lap
+
+        df_merged = pd.concat(df_grouped)
+        print(df_merged)
+
+        df_minimum = [y for x,y in df_merged.groupby('lap',as_index=False)]
+
+        for i in range(len(df_minimum)):
+            df_minimum[i]['min'] = df_minimum[i]['seconds'].min()
+            #df_minimum[i]['min'] = df_minimum[i]['milliseconds'][df_minimum[i]['driverRef']=='bottas']
+            df_minimum[i]['delta'] = df_minimum[i]['seconds']-df_minimum[i]['min']
+            df_minimum[i] = df_minimum[i][['lap','driverName','delta']]
+
+        df_deltas = pd.concat(df_minimum,ignore_index=True)
+
+        fig = px.line(df_deltas,x="lap",y="delta",color='driverName')
+        return fig
+
     def getDriverNames(self):
         return self.race_table.driverName.unique()
 
@@ -160,6 +185,7 @@ app.layout = html.Div(
                             ],
                         ),
                         dcc.Graph(id='my-output2'),
+                        dcc.Graph(id='deltaGraph',figure = dataContainer.plotDeltaGraph())
                     ],
                 ),
             ],
