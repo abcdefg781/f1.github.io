@@ -9,6 +9,7 @@ import plotly.express as px
 from plotly import tools as tls
 from dash.dependencies import Input, Output
 import datetime as dt
+import copy
 
 app = dash.Dash(__name__)
 
@@ -55,8 +56,8 @@ class dataContainer:
         self.race_table,self.year_races,self.color_palette = create_race_table(2020, "British Grand Prix")
 
     def plotRaceGraph(self):
-        fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True}, 
-            color_discrete_map = self.color_palette)
+        fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True})
+        #color_discrete_map = self.color_palette
         fig.update_layout(legend_title_text=None)
 
         fig.update_layout(plot_bgcolor="#323130",
@@ -237,7 +238,7 @@ def update_race_graph(year, race_name):
     race_names = dataContainer.getRaceNames()
     driver_dict = [{'label': i, 'value': i} for i in drivers]
     race_dict = [{'label': i, 'value': i} for i in race_names]
-    delta_dict = driver_dict
+    delta_dict = copy.deepcopy(driver_dict)
     delta_dict.extend([{'label': 'median','value': 'median'},{'label': 'min','value': 'min'},{'label': 'max','value': 'max'}])
     return dataContainer.plotRaceGraph(),driver_dict,driver_dict,race_dict,delta_dict
 
