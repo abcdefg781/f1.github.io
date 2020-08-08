@@ -26,8 +26,18 @@ app.layout = html.Div(
                         html.P(
                             """Select different races and compare drivers."""
                         ),
-                        html.Div(["Race Number: ",
-              				dcc.Input(id='my-input', value=1034, type='number')]),
+                        html.Div(
+                                    className="div-for-dropdown",
+                                    children=[
+                                        dcc.Dropdown(id='year',value=2020,clearable=False,searchable=False),
+                                    ],
+                                ),
+                        html.Div(
+                                    className="div-for-dropdown",
+                                    children=[
+                                        dcc.Dropdown(id='race_name',value='British Grand Prix',clearable=False,searchable=False),
+                                    ],
+                                ),
                         # Change to side-by-side for mobile layout
                         html.Div(
                             className="row",
@@ -71,162 +81,111 @@ app.layout = html.Div(
 
 @app.callback(
     Output(component_id='my-output2', component_property='figure'),
-    [Input(component_id='my-input', component_property='value'),Input(component_id='driver1', component_property='value'),Input(component_id='driver2', component_property='value')]
+    [Input(component_id='year', component_property='value'),Input(component_id='race_name', component_property='value'),Input(component_id='driver1', component_property='value'),Input(component_id='driver2', component_property='value')]
 )
-def update_delta_graph(race,driver1,driver2):
-    return plotRaceComparisonGraph(race,driver1,driver2)
+def update_delta_graph(year,race_name,driver1,driver2):
+    return plotRaceComparisonGraph(year,race_name,driver1,driver2)
 
 @app.callback(
     Output(component_id='my-output', component_property='figure'),
-    [Input(component_id='my-input', component_property='value')]
+    [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
-def update_output_div(input_value):
-    return plotRaceGraph(input_value)
+def update_output_div(year, race_name):
+    return plotRaceGraph(year, race_name)
 
 @app.callback(
     [Output(component_id='driver1', component_property='options'),Output(component_id='driver2', component_property='options')],
-    [Input(component_id='my-input', component_property='value')]
+    [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
-def update_output_div(input_value):
-    drivers = getDriverNames(input_value)
+def update_output_div(year, race_name):
+    drivers = getDriverNames(year, race_name)
     print(drivers)
     return [{'label': i, 'value': i} for i in drivers],[{'label': i, 'value': i} for i in drivers]
 
-def plotRaceGraph(raceNum):
-	# Load Drivers data
-	drivers_df = pd.read_csv("./f1db_csv/drivers.csv")
+# Import all the data
+drivers_df = pd.read_csv("./f1db_csv/drivers.csv").drop(columns = "url")
+lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
+results_df = pd.read_csv("./f1db_csv/results.csv")
+constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
+races_df = pd.read_csv("./f1db_csv/races.csv")
 
-	# Load lap times data
-	lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
+# Clean some names and create new variables
+# drivers_df
+drivers_df["number"] = drivers_df["number"].replace({r"\N": None})
+drivers_df["driverName"] = drivers_df["forename"].str.cat(drivers_df["surname"],sep = " ")
+drivers_df = drivers_df.drop(columns = ["forename", "surname"])
 
-	# Load results data
-	results_df = pd.read_csv("./f1db_csv/results.csv")
-
-	# Filter to race
-	results_race_df = results_df[results_df.raceId == raceNum]
-
-	# Load constructors names
-	constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
-
-	clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
-	race_df = clean_lt_df[clean_lt_df.raceId == raceNum]
-	race_df["seconds"] = race_df.milliseconds / 1000
-	race_df = race_df.drop(columns = "milliseconds")
-
-	df_1 = pd.merge(race_df, drivers_df[["driverId", "driverRef", "number"]], on = "driverId")
-	df_2 = pd.merge(df_1, results_race_df[["resultId", "driverId", "constructorId"]], on = "driverId")
-	df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
-
-	# Create table with driver, team, and team color
-	driver_ref_table = df_3[["driverRef", "constructorRef"]].drop_duplicates()
-	driver_ref_table.loc[10, :] = ["perez", "racing_point"]
-	driver_ref_table = driver_ref_table.sort_values(by = "constructorRef")
-	driver_ref_table = driver_ref_table.reset_index(drop = True)
-
-	fig = px.line(df_3, x = "lap", y = "seconds", color = "driverRef", 
-	        hover_name = "driverRef", hover_data = {"driverRef" : False, "constructorRef" : True},
-	        color_discrete_map = {"hamilton" : "#00D2BE", "bottas" : "#00D2BE", 
-	                             "max_verstappen" : "#1E41FF", "albon" : "#1E41FF",
-	                             "leclerc" : "#DC0000", "vettel" : "#DC0000",
-	                             "sainz" : "#FF8700", "norris" : "#FF8700",
-	                             "ricciardo" : "#FFF500", "ocon" : "#FFF500",
-	                             "stroll" : "#F596C8", 
-	                             "gasly": "#469BFF", "kvyat" : "#469BFF",
-	                             "raikkonen" : "#9B0000", "giovinazzi" : "#9B0000",
-	                             "grosjean" : "#F0D787", "kevin_magnussen" : "#F0D787",
-	                             "latifi" : "white", "russell" : "white"}, width = 1000, height = 600)
+# lap_times_df
+clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
+clean_lt_df["seconds"] = clean_lt_df.milliseconds / 1000
+clean_lt_df = clean_lt_df.drop(columns = "milliseconds")
 
 
-	fig.update_layout(plot_bgcolor="#323130",
+def plotRaceGraph(year, race_name):
+    races_temp = races_df[races_df.year == year]
+    race_id = int(races_temp.raceId[races_temp.name == race_name])
+    lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
+    results_1 = results_df[results_df.raceId == race_id]
+    df_1 = pd.merge(drivers_df[["driverId", "driverName", "driverRef", "number"]], lap_times_1, on = "driverId")
+    df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
+    df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
+    df_3["constructorRef"] = df_3["constructorRef"].str.title()
+    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
+
+    fig = px.line(df_4, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True})
+
+    fig.update_layout(plot_bgcolor="#323130",
         paper_bgcolor="#323130",font=dict(color="white"))
 
+    return fig
 
+def plotRaceComparisonGraph(year, race_name, driver1, driver2):
+    races_temp = races_df[races_df.year == year]
+    race_id = int(races_temp.raceId[races_temp.name == race_name])
+    lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
+    results_1 = results_df[results_df.raceId == race_id]
+    df_1 = pd.merge(drivers_df[["driverId", "driverName", "driverRef", "number"]], lap_times_1, on = "driverId")
+    df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
+    df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
+    df_3["constructorRef"] = df_3["constructorRef"].str.title()
+    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
 
-	return fig
+    df5 = df_4[df_4.driverRef==driver1]["seconds"].rename('driver1')
+    df6 = df_4[df_4.driverRef==driver2]["seconds"].rename('driver2')
+    df5 = df5.reset_index(drop=True)
+    df6 = df6.reset_index(drop=True)
 
-def plotRaceComparisonGraph(raceNum,driver1,driver2):
-	# Load Drivers data
-	drivers_df = pd.read_csv("./f1db_csv/drivers.csv")
-
-	# Load lap times data
-	lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
-
-	# Load results data
-	results_df = pd.read_csv("./f1db_csv/results.csv")
-
-	# Filter to race
-	results_race_df = results_df[results_df.raceId == raceNum]
-
-	# Load constructors names
-	constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
-
-	clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
-	race_df = clean_lt_df[clean_lt_df.raceId == raceNum]
-	race_df["seconds"] = race_df.milliseconds / 1000
-	race_df = race_df.drop(columns = "milliseconds")
-
-	df_1 = pd.merge(race_df, drivers_df[["driverId", "driverRef", "number"]], on = "driverId")
-	df_2 = pd.merge(df_1, results_race_df[["resultId", "driverId", "constructorId"]], on = "driverId")
-	df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
-
-	# Create table with driver, team, and team color
-	driver_ref_table = df_3[["driverRef", "constructorRef"]].drop_duplicates()
-	driver_ref_table.loc[10, :] = ["perez", "racing_point"]
-	driver_ref_table = driver_ref_table.sort_values(by = "constructorRef")
-	driver_ref_table = driver_ref_table.reset_index(drop = True)
-
-	df4 = df_3[df_3.driverRef==driver1]["seconds"].rename('driver1')
-	df5 = df_3[df_3.driverRef==driver2]["seconds"].rename('driver2')
-	df4 = df4.reset_index(drop=True)
-	df5 = df5.reset_index(drop=True)
-
-	df6 = pd.concat([df4,df5],axis=1)
+    df6 = pd.concat([df5,df6],axis=1)
 	# df4['driver2'] = df_3[df_3.driverRef==driver2].seconds
-	df6['delta'] = df6.driver1-df6.driver2
-	df6['lap'] = df6.index+1
+    df6['delta'] = df6.driver1-df6.driver2
+    df6['lap'] = df6.index + 1
 
-	fig = tls.make_subplots(specs=[[{"secondary_y": True}]])
+    fig = tls.make_subplots(specs=[[{"secondary_y": True}]])
 
-	fig.add_trace(go.Scatter(x = df6['lap'], y = df6['delta'],mode='lines',name='Delta'),secondary_y=False)
-	fig.add_trace(go.Scatter(x = df6['lap'], y = df6['driver1'],mode='lines',name=driver1),secondary_y=True)
-	fig.add_trace(go.Scatter(x = df6['lap'], y = df6['driver2'],mode='lines',name=driver2),secondary_y=True)
+    fig.add_trace(go.Scatter(x = df6['lap'], y = df6['delta'],mode='lines',name='Delta'),secondary_y=False)
+    fig.add_trace(go.Scatter(x = df6['lap'], y = df6['driver1'],mode='lines',name=driver1),secondary_y=True)
+    fig.add_trace(go.Scatter(x = df6['lap'], y = df6['driver2'],mode='lines',name=driver2),secondary_y=True)
 
 	#set line colors
 	#fig['data'][0]['line']['color']="#00ff00"
-	fig['layout']['yaxis2']['showgrid'] = False
+    fig['layout']['yaxis2']['showgrid'] = False
 
-	fig.update_layout(plot_bgcolor="#323130",
+    fig.update_layout(plot_bgcolor="#323130",
         paper_bgcolor="#323130",font=dict(color="white"))
 
-	return fig
+    return fig
 
-def getDriverNames(raceNum):
-	# Load Drivers data
-	drivers_df = pd.read_csv("./f1db_csv/drivers.csv")
+def getDriverNames(year, race_name):
+    races_temp = races_df[races_df.year == year]
+    race_id = int(races_temp.raceId[races_temp.name == race_name])
+    lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
+    results_1 = results_df[results_df.raceId == race_id]
+    df_1 = pd.merge(drivers_df[["driverId", "driverName", "number"]], lap_times_1, on = "driverId")
+    df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
+    df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
+    df_3["constructorRef"] = df_3["constructorRef"].str.title()
 
-	# Load lap times data
-	lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
-
-	# Load results data
-	results_df = pd.read_csv("./f1db_csv/results.csv")
-
-	# Filter to race
-	results_race_df = results_df[results_df.raceId == raceNum]
-
-	# Load constructors names
-	constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
-
-	clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
-	race_df = clean_lt_df[clean_lt_df.raceId == raceNum]
-	race_df["seconds"] = race_df.milliseconds / 1000
-	race_df = race_df.drop(columns = "milliseconds")
-
-	df_1 = pd.merge(race_df, drivers_df[["driverId", "driverRef", "number"]], on = "driverId")
-	df_2 = pd.merge(df_1, results_race_df[["resultId", "driverId", "constructorId"]], on = "driverId")
-	df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
-
-	return df_3.driverRef.unique()
-
+    return df_3.driverName.unique()
 
 if __name__ == '__main__':
     app.run_server(debug=True)
