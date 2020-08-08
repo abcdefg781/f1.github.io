@@ -29,7 +29,7 @@ def create_race_table(year, race_name):
     df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
     df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
     df_3["constructorRef"] = df_3["constructorRef"].str.title()
-    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
+    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name","date"]], on = "raceId")
     return df_4
 
 create_race_table(2020, "British Grand Prix")

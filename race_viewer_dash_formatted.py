@@ -30,6 +30,69 @@ clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
 clean_lt_df["seconds"] = clean_lt_df.milliseconds / 1000
 clean_lt_df = clean_lt_df.drop(columns = "milliseconds")
 
+def create_race_table(year, race_name):
+    races_temp = races_df[races_df.year == year]
+    race_id = int(races_temp.raceId[races_temp.name == race_name])
+    lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
+    results_1 = results_df[results_df.raceId == race_id]
+    df_1 = pd.merge(drivers_df[["driverId", "driverName", "number"]], lap_times_1, on = "driverId")
+    df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
+    df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
+    df_3["constructorRef"] = df_3["constructorRef"].str.title()
+    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name","date"]], on = "raceId")
+    return df_4,races_temp
+
+class dataContainer:
+    def __init__(self):
+        self.race_table,self.year_races = create_race_table(2020, "British Grand Prix")
+
+    def plotRaceGraph(self):
+        fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True})
+        fig.update_layout(legend_title_text=None)
+
+        fig.update_layout(plot_bgcolor="#323130",
+            paper_bgcolor="#323130",font=dict(color="white"))
+
+        return fig
+
+    def plotRaceComparisonGraph(self, driver1, driver2):
+        df_1 = self.race_table[self.race_table.driverName==driver1]["seconds"].rename('driver1')
+        df_2 = self.race_table[self.race_table.driverName==driver2]["seconds"].rename('driver2')
+        df_1 = df_1.reset_index(drop=True)
+        df_2 = df_2.reset_index(drop=True)
+
+        df_3 = pd.concat([df_1,df_2],axis=1)
+        # df4['driver2'] = df_3[df_3.driverRef==driver2].seconds
+        df_3['delta'] = df_3.driver1-df_3.driver2
+        df_3['lap'] = df_3.index + 1
+
+        fig = tls.make_subplots(specs=[[{"secondary_y": True}]])
+
+        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['delta'],mode='lines',name='Delta'),secondary_y=False)
+        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver1'],mode='lines',name=driver1),secondary_y=True)
+        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver2'],mode='lines',name=driver2),secondary_y=True)
+
+        fig['layout']['yaxis2']['showgrid'] = False
+
+        fig.update_layout(plot_bgcolor="#323130",
+            paper_bgcolor="#323130",font=dict(color="white"))
+
+        return fig
+
+    def getDriverNames(self):
+        return self.race_table.driverName.unique()
+
+    def getRaceNames(self):
+        today = pd.to_datetime('today')
+        year_races = self.year_races[["raceId","year","name","date"]]
+        year_races['datetimes'] = pd.to_datetime(year_races.date)
+        year_races = year_races[year_races.datetimes<today]
+        year_races = year_races.sort_values(by='datetimes',ascending=False)
+        return year_races['name'].unique()
+
+#dataContainer object creation
+dataContainer = dataContainer()
+
 app.layout = html.Div(
     children=[
         html.Div(
@@ -98,110 +161,21 @@ app.layout = html.Div(
 
 @app.callback(
     Output(component_id='my-output2', component_property='figure'),
-    [Input(component_id='year', component_property='value'),Input(component_id='race_name', component_property='value'),Input(component_id='driver1', component_property='value'),Input(component_id='driver2', component_property='value')]
+    [Input(component_id='driver1', component_property='value'),Input(component_id='driver2', component_property='value')]
 )
-def update_delta_graph(year,race_name,driver1,driver2):
-    return plotRaceComparisonGraph(year,race_name,driver1,driver2)
+def update_delta_graph(driver1,driver2):
+    return dataContainer.plotRaceComparisonGraph(driver1,driver2)
 
 @app.callback(
-    Output(component_id='my-output', component_property='figure'),
+    [Output(component_id='my-output', component_property='figure'),Output(component_id='driver1', component_property='options'),Output(component_id='driver2', component_property='options'),Output(component_id='race_name', component_property='options')],
     [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
 def update_race_graph(year, race_name):
-    return plotRaceGraph(year, race_name)
-
-@app.callback(
-    [Output(component_id='driver1', component_property='options'),Output(component_id='driver2', component_property='options')],
-    [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
-)
-def update_driver_names(year, race_name):
-    drivers = getDriverNames(year, race_name)
-    return [{'label': i, 'value': i} for i in drivers],[{'label': i, 'value': i} for i in drivers]
-
-@app.callback(
-    Output(component_id='race_name', component_property='options'),
-    [Input(component_id='year', component_property='value')]
-)
-def update_race_names(year):
-    race_names = getRaceNames(year)
-    return [{'label': i, 'value': i} for i in race_names]
-
-
-def plotRaceGraph(year, race_name):
-    races_temp = races_df[races_df.year == year]
-    race_id = int(races_temp.raceId[races_temp.name == race_name])
-    lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
-    results_1 = results_df[results_df.raceId == race_id]
-    df_1 = pd.merge(drivers_df[["driverId", "driverName", "driverRef", "number"]], lap_times_1, on = "driverId")
-    df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
-    df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
-    df_3["constructorRef"] = df_3["constructorRef"].str.title()
-    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
-
-    fig = px.line(df_4, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True})
-    fig.update_layout(legend_title_text=None)
-
-    fig.update_layout(plot_bgcolor="#323130",
-        paper_bgcolor="#323130",font=dict(color="white"))
-
-    return fig
-
-def plotRaceComparisonGraph(year, race_name, driver1, driver2):
-    races_temp = races_df[races_df.year == year]
-    race_id = int(races_temp.raceId[races_temp.name == race_name])
-    lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
-    results_1 = results_df[results_df.raceId == race_id]
-    df_1 = pd.merge(drivers_df[["driverId", "driverName", "driverRef", "number"]], lap_times_1, on = "driverId")
-    df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
-    df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
-    df_3["constructorRef"] = df_3["constructorRef"].str.title()
-    df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
-
-    df5 = df_4[df_4.driverName==driver1]["seconds"].rename('driver1')
-    df6 = df_4[df_4.driverName==driver2]["seconds"].rename('driver2')
-    df5 = df5.reset_index(drop=True)
-    df6 = df6.reset_index(drop=True)
-
-    df6 = pd.concat([df5,df6],axis=1)
-	# df4['driver2'] = df_3[df_3.driverRef==driver2].seconds
-    df6['delta'] = df6.driver1-df6.driver2
-    df6['lap'] = df6.index + 1
-
-    fig = tls.make_subplots(specs=[[{"secondary_y": True}]])
-
-    fig.add_trace(go.Scatter(x = df6['lap'], y = df6['delta'],mode='lines',name='Delta'),secondary_y=False)
-    fig.add_trace(go.Scatter(x = df6['lap'], y = df6['driver1'],mode='lines',name=driver1),secondary_y=True)
-    fig.add_trace(go.Scatter(x = df6['lap'], y = df6['driver2'],mode='lines',name=driver2),secondary_y=True)
-
-	#set line colors
-	#fig['data'][0]['line']['color']="#00ff00"
-    fig['layout']['yaxis2']['showgrid'] = False
-
-    fig.update_layout(plot_bgcolor="#323130",
-        paper_bgcolor="#323130",font=dict(color="white"))
-
-    return fig
-
-def getDriverNames(year, race_name):
-    races_temp = races_df[races_df.year == year]
-    race_id = int(races_temp.raceId[races_temp.name == race_name])
-    lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
-    results_1 = results_df[results_df.raceId == race_id]
-    df_1 = pd.merge(drivers_df[["driverId", "driverName", "number"]], lap_times_1, on = "driverId")
-    df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
-    df_3 = pd.merge(df_2, constructors_df[["constructorId", "constructorRef"]], on = "constructorId")
-    df_3["constructorRef"] = df_3["constructorRef"].str.title()
-
-    return df_3.driverName.unique()
-
-def getRaceNames(year):
-	year_race = races_df[races_df.year==year]
-	today = pd.to_datetime('today')
-	print(year_race.date)
-	year_race['datetimes'] = pd.to_datetime(year_race.date)
-	year_race = year_race[year_race.datetimes<today]
-	year_race = year_race.sort_values(by='datetimes',ascending=False)
-	return year_race['name'].unique()
+    dataContainer.race_table,dataContainer.year_races = create_race_table(year,race_name)
+    drivers = dataContainer.getDriverNames()
+    race_names = dataContainer.getRaceNames()
+    print(race_names)
+    return dataContainer.plotRaceGraph(),[{'label': i, 'value': i} for i in drivers],[{'label': i, 'value': i} for i in drivers],[{'label': i, 'value': i} for i in race_names]
 
 if __name__ == '__main__':
     app.run_server(debug=True)
