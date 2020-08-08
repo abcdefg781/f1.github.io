@@ -88,7 +88,7 @@ class dataContainer:
 
         return fig
 
-    def plotDeltaGraph(self):
+    def plotDeltaGraph(self,deltaType):
         df_grouped = [y for x,y in self.race_table.groupby('driverName',as_index=False)]
         for i in range(len(df_grouped)):
             df_driver = df_grouped[i]
@@ -98,19 +98,27 @@ class dataContainer:
         #get minimum cumulative time for each lap
 
         df_merged = pd.concat(df_grouped)
-        print(df_merged)
 
         df_minimum = [y for x,y in df_merged.groupby('lap',as_index=False)]
 
         for i in range(len(df_minimum)):
-            df_minimum[i]['min'] = df_minimum[i]['seconds'].min()
-            #df_minimum[i]['min'] = df_minimum[i]['milliseconds'][df_minimum[i]['driverRef']=='bottas']
+            if deltaType == 'median':
+                df_minimum[i]['min'] = df_minimum[i]['seconds'].median()
+            elif deltaType == 'min':
+                df_minimum[i]['min'] = df_minimum[i]['seconds'].min()
+            elif deltaType == 'max':
+                df_minimum[i]['min'] = df_minimum[i]['seconds'].max()
+            else:
+                df_minimum[i]['min'] = df_minimum[i]['seconds'][df_minimum[i]['driverName']==deltaType]
+
             df_minimum[i]['delta'] = df_minimum[i]['seconds']-df_minimum[i]['min']
             df_minimum[i] = df_minimum[i][['lap','driverName','delta']]
 
         df_deltas = pd.concat(df_minimum,ignore_index=True)
 
         fig = px.line(df_deltas,x="lap",y="delta",color='driverName')
+        fig.update_layout(plot_bgcolor="#323130",
+            paper_bgcolor="#323130",font=dict(color="white"))
         return fig
 
     def getDriverNames(self):
@@ -170,6 +178,17 @@ app.layout = html.Div(
                                 ),
                             ],
                         ),
+                        html.Div(
+                            className="row",
+                            children=[
+                                html.Div(
+                                    className="div-for-dropdown",
+                                    children=[
+                                        dcc.Dropdown(id='deltaType',value='median',clearable=False,searchable=False),
+                                    ],
+                                ),
+                            ],
+                        ),
                         
                     ],
                 ),
@@ -185,7 +204,7 @@ app.layout = html.Div(
                             ],
                         ),
                         dcc.Graph(id='my-output2'),
-                        dcc.Graph(id='deltaGraph',figure = dataContainer.plotDeltaGraph())
+                        dcc.Graph(id='deltaGraph')
                     ],
                 ),
             ],
@@ -196,21 +215,31 @@ app.layout = html.Div(
 
 @app.callback(
     Output(component_id='my-output2', component_property='figure'),
-    [Input(component_id='driver1', component_property='value'),Input(component_id='driver2', component_property='value')]
+    [Input(component_id='driver1', component_property='value'),Input(component_id='driver2', component_property='value'),Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
-def update_delta_graph(driver1,driver2):
+def update_comparison_graph(driver1,driver2,year,race_name):
     return dataContainer.plotRaceComparisonGraph(driver1,driver2)
 
 @app.callback(
-    [Output(component_id='my-output', component_property='figure'),Output(component_id='driver1', component_property='options'),Output(component_id='driver2', component_property='options'),Output(component_id='race_name', component_property='options')],
+    Output(component_id='deltaGraph', component_property='figure'),
+    [Input(component_id='deltaType', component_property='value'),Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
+)
+def update_delta_graph(deltaType,year,race_name):
+    return dataContainer.plotDeltaGraph(deltaType)
+
+@app.callback(
+    [Output(component_id='my-output', component_property='figure'),Output(component_id='driver1', component_property='options'),Output(component_id='driver2', component_property='options'),Output(component_id='race_name', component_property='options'),Output(component_id='deltaType', component_property='options')],
     [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
 def update_race_graph(year, race_name):
     dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette = create_race_table(year,race_name)
     drivers = dataContainer.getDriverNames()
     race_names = dataContainer.getRaceNames()
-    print(race_names)
-    return dataContainer.plotRaceGraph(),[{'label': i, 'value': i} for i in drivers],[{'label': i, 'value': i} for i in drivers],[{'label': i, 'value': i} for i in race_names]
+    driver_dict = [{'label': i, 'value': i} for i in drivers]
+    race_dict = [{'label': i, 'value': i} for i in race_names]
+    delta_dict = driver_dict
+    delta_dict.extend([{'label': 'median','value': 'median'},{'label': 'min','value': 'min'},{'label': 'max','value': 'max'}])
+    return dataContainer.plotRaceGraph(),driver_dict,driver_dict,race_dict,delta_dict
 
 if __name__ == '__main__':
     app.run_server(debug=True)
