@@ -8,10 +8,27 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly import tools as tls
 from dash.dependencies import Input, Output
+import datetime as dt
 
-#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-#external_stylesheets=external_stylesheets
 app = dash.Dash(__name__)
+
+# Import all the data
+drivers_df = pd.read_csv("./f1db_csv/drivers.csv").drop(columns = "url")
+lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
+results_df = pd.read_csv("./f1db_csv/results.csv")
+constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
+races_df = pd.read_csv("./f1db_csv/races.csv").sort_values(by='year',ascending=False)
+
+# Clean some names and create new variables
+# drivers_df
+drivers_df["number"] = drivers_df["number"].replace({r"\N": None})
+drivers_df["driverName"] = drivers_df["forename"].str.cat(drivers_df["surname"],sep = " ")
+drivers_df = drivers_df.drop(columns = ["forename", "surname"])
+
+# lap_times_df
+clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
+clean_lt_df["seconds"] = clean_lt_df.milliseconds / 1000
+clean_lt_df = clean_lt_df.drop(columns = "milliseconds")
 
 app.layout = html.Div(
     children=[
@@ -29,7 +46,7 @@ app.layout = html.Div(
                         html.Div(
                                     className="div-for-dropdown",
                                     children=[
-                                        dcc.Dropdown(id='year',value=2020,clearable=False,searchable=False),
+                                        dcc.Dropdown(id='year',value=2020,clearable=False,searchable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
                                     ],
                                 ),
                         html.Div(
@@ -45,13 +62,13 @@ app.layout = html.Div(
                                 html.Div(
                                     className="div-for-dropdown",
                                     children=[
-                                        dcc.Dropdown(id='driver1',value='hamilton',clearable=False,searchable=False),
+                                        dcc.Dropdown(id='driver1',value='Lewis Hamilton',clearable=False,searchable=False),
                                     ],
                                 ),
                                 html.Div(
                                     className="div-for-dropdown",
                                     children=[
-                                        dcc.Dropdown(id='driver2',value='bottas',clearable=False,searchable=False),
+                                        dcc.Dropdown(id='driver2',value='Valtteri Bottas',clearable=False,searchable=False),
                                     ],
                                 ),
                             ],
@@ -90,35 +107,24 @@ def update_delta_graph(year,race_name,driver1,driver2):
     Output(component_id='my-output', component_property='figure'),
     [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
-def update_output_div(year, race_name):
+def update_race_graph(year, race_name):
     return plotRaceGraph(year, race_name)
 
 @app.callback(
     [Output(component_id='driver1', component_property='options'),Output(component_id='driver2', component_property='options')],
     [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
-def update_output_div(year, race_name):
+def update_driver_names(year, race_name):
     drivers = getDriverNames(year, race_name)
-    print(drivers)
     return [{'label': i, 'value': i} for i in drivers],[{'label': i, 'value': i} for i in drivers]
 
-# Import all the data
-drivers_df = pd.read_csv("./f1db_csv/drivers.csv").drop(columns = "url")
-lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
-results_df = pd.read_csv("./f1db_csv/results.csv")
-constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
-races_df = pd.read_csv("./f1db_csv/races.csv")
-
-# Clean some names and create new variables
-# drivers_df
-drivers_df["number"] = drivers_df["number"].replace({r"\N": None})
-drivers_df["driverName"] = drivers_df["forename"].str.cat(drivers_df["surname"],sep = " ")
-drivers_df = drivers_df.drop(columns = ["forename", "surname"])
-
-# lap_times_df
-clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
-clean_lt_df["seconds"] = clean_lt_df.milliseconds / 1000
-clean_lt_df = clean_lt_df.drop(columns = "milliseconds")
+@app.callback(
+    Output(component_id='race_name', component_property='options'),
+    [Input(component_id='year', component_property='value')]
+)
+def update_race_names(year):
+    race_names = getRaceNames(year)
+    return [{'label': i, 'value': i} for i in race_names]
 
 
 def plotRaceGraph(year, race_name):
@@ -133,6 +139,7 @@ def plotRaceGraph(year, race_name):
     df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
 
     fig = px.line(df_4, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True})
+    fig.update_layout(legend_title_text=None)
 
     fig.update_layout(plot_bgcolor="#323130",
         paper_bgcolor="#323130",font=dict(color="white"))
@@ -150,8 +157,8 @@ def plotRaceComparisonGraph(year, race_name, driver1, driver2):
     df_3["constructorRef"] = df_3["constructorRef"].str.title()
     df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
 
-    df5 = df_4[df_4.driverRef==driver1]["seconds"].rename('driver1')
-    df6 = df_4[df_4.driverRef==driver2]["seconds"].rename('driver2')
+    df5 = df_4[df_4.driverName==driver1]["seconds"].rename('driver1')
+    df6 = df_4[df_4.driverName==driver2]["seconds"].rename('driver2')
     df5 = df5.reset_index(drop=True)
     df6 = df6.reset_index(drop=True)
 
@@ -186,6 +193,15 @@ def getDriverNames(year, race_name):
     df_3["constructorRef"] = df_3["constructorRef"].str.title()
 
     return df_3.driverName.unique()
+
+def getRaceNames(year):
+	year_race = races_df[races_df.year==year]
+	today = pd.to_datetime('today')
+	print(year_race.date)
+	year_race['datetimes'] = pd.to_datetime(year_race.date)
+	year_race = year_race[year_race.datetimes<today]
+	year_race = year_race.sort_values(by='datetimes',ascending=False)
+	return year_race['name'].unique()
 
 if __name__ == '__main__':
     app.run_server(debug=True)
