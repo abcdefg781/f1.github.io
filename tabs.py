@@ -80,16 +80,47 @@ class dataContainer:
 
         df_3 = pd.concat([df_1,df_2],axis=1)
         # df4['driver2'] = df_3[df_3.driverRef==driver2].seconds
-        df_3['delta'] = df_3.driver1-df_3.driver2
+        df_3['delta'] = df_3.driver2-df_3.driver1
         df_3['lap'] = df_3.index + 1
 
-        fig = tls.make_subplots(specs=[[{"secondary_y": True}]])
+        df_1_summed = df_1.cumsum()
+        df_2_summed = df_2.cumsum()
+        df_3['cumdelta'] = df_2_summed-df_1_summed
+        df_3['hovertext'] = [0]*len(df_3['cumdelta'])
+        df_3['hovertext2'] = [0]*len(df_3['delta'])
 
-        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['delta'],mode='lines',name='Delta'),secondary_y=False)
-        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver1'],mode='lines',name=driver1),secondary_y=True)
-        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver2'],mode='lines',name=driver2),secondary_y=True)
+        for i in range(len(df_3['cumdelta'])):
+            time = '%.3f' % np.abs(df_3['cumdelta'][i])
+            if df_3['cumdelta'][i]>0:
+                df_3['hovertext'][i] = driver1+' is ahead of '+driver2+' by '+ time +' seconds'
+            else:
+                df_3['hovertext'][i] = driver1+' is behind '+driver2+' by '+time+' seconds'
 
-        fig['layout']['yaxis2']['showgrid'] = False
+        for i in range(len(df_3['delta'])):
+            time = '%.3f' % np.abs(df_3['delta'][i])
+            if df_3['delta'][i]>0:
+                df_3['hovertext2'][i] = driver1+' is faster than '+driver2+' by '+ time +' seconds this lap'
+            else:
+                df_3['hovertext2'][i] = driver1+' is slower than '+driver2+' by '+time+' seconds this lap'
+
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['delta'],mode='lines',name='Lap Delta',customdata=df_3['hovertext2'],hovertemplate=
+            '<br>%{customdata}'))
+        fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['cumdelta'],mode='lines',name='Cumulative Delta',customdata=df_3['hovertext'],hovertemplate=
+            '<br>%{customdata}'))
+
+
+        fig.update_layout(
+            title='Gap from '+driver1+' to '+driver2,
+            xaxis_title="Lap",
+            yaxis_title="Delta (s)",
+            hovermode="x unified"
+            )
+        # fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['delta'],mode='lines',name='Lap Delta'),secondary_y=False)
+        # fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['cumdelta'],mode='lines',name='Cumulative Delta'),secondary_y=True)
+        # fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver1'],mode='lines',name=driver1),secondary_y=True)
+        # fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver2'],mode='lines',name=driver2),secondary_y=True)
+
 
         fig.update_layout(plot_bgcolor="#323130",
             paper_bgcolor="#323130",font=dict(color="white"))
@@ -126,7 +157,10 @@ class dataContainer:
 
         fig = px.line(df_deltas,x="lap",y="delta",color='driverName')
         fig.update_layout(plot_bgcolor="#323130",
-            paper_bgcolor="#323130",font=dict(color="white"))
+            paper_bgcolor="#323130",font=dict(color="white"),
+            xaxis_title="Lap",
+            yaxis_title="Delta (s)"
+            )
         return fig
 
     def getDriverNames(self):
