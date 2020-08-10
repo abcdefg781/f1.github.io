@@ -4,6 +4,7 @@ import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_table
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
@@ -12,10 +13,12 @@ from plotly import tools as tls
 from dash.dependencies import Input, Output
 import datetime as dt
 import copy
+import warnings
 
 BS = "https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css"
 app = dash.Dash(external_stylesheets = [dbc.themes.BOOTSTRAP])
 app.config['suppress_callback_exceptions'] = True
+warnings.filterwarnings("ignore")
 
 ################################################################
 # Import data and Functions
@@ -26,6 +29,7 @@ results_df = pd.read_csv("./f1db_csv/results.csv")
 constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
 races_df = pd.read_csv("./f1db_csv/races.csv")
 colors_df = pd.read_csv("./colors.csv")
+driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 
 # Clean some names and create new variables
 # drivers_df
@@ -57,10 +61,14 @@ def create_race_table(year, race_name):
     color_palette = pd.Series(filtered_ref_df.color.values, index = filtered_ref_df.driverName).to_dict()
     return df_4, races_temp, color_palette
 
+def create_driver_table(driver_name_1):
+    driver_1_table = driver_history_df[driver_history_df.driverName == driver_name_1].sort_values("date", ascending=False)
+    return driver_1_table
+
 class dataContainer:
     def __init__(self):
         self.race_table,self.year_races,self.color_palette = create_race_table(2020, "British Grand Prix")
-
+        self.driver_history_table = create_driver_table("Lewis Hamilton")
     def plotRaceGraph(self):
         fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True}, 
             # color_discrete_map = self.color_palette
@@ -174,6 +182,9 @@ class dataContainer:
         year_races = year_races.sort_values(by='datetimes',ascending=False)
         return year_races['name'].unique()
 
+    def getAllDriverNames(self):
+        return self.driver_history_table.driverName.unique()
+
 #dataContainer object creation
 dataContainer = dataContainer()
 
@@ -207,6 +218,15 @@ app.layout = dbc.Container(
                         dcc.Dropdown(id='deltaType',value='min',clearable=False,searchable=False),
                         dcc.Graph(id='deltaGraph')
                     ]),
+                dbc.Tab(label="Driver History", tab_id="driver_hist", children = [
+                        html.Br(),
+                        html.P("Select one driver to view their history, or two to compare the drivers."),
+                        dcc.Dropdown(id='all_drivers', clearable=False,searchable=True,value='Lewis Hamilton'),
+                        dash_table.DataTable(id='my-table',columns=[{"name": i, "id": i} for i in dataContainer.driver_history_table.columns],data=dataContainer.driver_history_table.to_dict("records"))
+                        # "number":i, "nationality":i, "year":i, "name":i, "date":i, 
+                        # "constructorName":i, "position":i, "minQualifyingTime":i, "racePosition":i, "fastestLapTime":i, "wins":i, "points":i, 
+                        # "driverStanding":i
+                    ])
             ],
             id="tabs",
             active_tab="home",
@@ -246,6 +266,18 @@ def update_comparison_graph(driver1,driver2,year,race_name):
 def update_delta_graph(deltaType,year,race_name):
     dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette = create_race_table(year,race_name)
     return dataContainer.plotDeltaGraph(deltaType)
+
+@app.callback(
+    [Output(component_id='my-table', component_property='data'),Output(component_id='all_drivers', component_property='options')],
+    [Input(component_id='all_drivers', component_property='value')]
+    )
+def update_driver_history(driver_name_1):
+    driver_names = drivers_df.driverName
+    print(driver_names)
+    all_drivers = [{'label': i, 'value': i} for i in driver_names]
+    driver_table = create_driver_table(driver_name_1).to_dict('records')
+    print(all_drivers)
+    return driver_table, all_drivers
 
 ################################################################
 # Load to Dash
