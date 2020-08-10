@@ -63,6 +63,9 @@ def create_race_table(year, race_name):
 
 def create_driver_table(driver_name_1):
     driver_1_table = driver_history_df[driver_history_df.driverName == driver_name_1].sort_values("date", ascending=False)
+    driver_1_table = driver_1_table.drop(driver_1_table.columns[0:4], axis=1)
+    driver_1_table.columns = ["Year", "Race Name", "Date", "Constructor", "Qualifying Position", "Fastest Qualifying Time", "Final Race Positiion", 
+        "Fastest Lap Time (Race)", "Cumulative Season Wins", "Cumulative Season Points", "Driver Standing After Race"]
     return driver_1_table
 
 class dataContainer:
@@ -201,31 +204,53 @@ app.layout = dbc.Container(
                 dbc.Tab(label="Home", tab_id="home", children = [
                         html.Br(),
                         html.P("Welcome to F1Data.io. The graph below shows the data from the latest race and can be changed to any race."),
-                        html.Br(),
-                        dcc.Dropdown(id='year',value=2020,clearable=False,searchable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
-                        dcc.Dropdown(id='race_name',value='British Grand Prix',clearable=False,searchable=False),
+                        dbc.Row([
+                            dbc.Col(
+                                dcc.Dropdown(id='year',value=2020,clearable=False,searchable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
+                            ),
+                            dbc.Col(
+                                dcc.Dropdown(id='race_name',value='British Grand Prix',clearable=False,searchable=False)
+                            )
+                        ]),    
                         html.Br(),
                         dcc.Graph(id='my-output')
                     ]),
                 dbc.Tab(label="Driver Comparison", tab_id="driver_comp", children = [
                         html.Br(),
                         html.P("Select two drivers to view their relative lap times for any given race."),
-                        dcc.Dropdown(id='driver1',value='Lewis Hamilton',clearable=False,searchable=False),
-                        dcc.Dropdown(id='driver2',value='Valtteri Bottas',clearable=False,searchable=False),
+                        dbc.Row([
+                            dbc.Col(
+                                dcc.Dropdown(id='driver1',value='Lewis Hamilton',clearable=False,searchable=False)
+                            ),
+                            dbc.Col(
+                                dcc.Dropdown(id='driver2',value='Valtteri Bottas',clearable=False,searchable=False)
+                            )
+                        ]),
+                        html.Br(),
                         dcc.Graph(id='my-output2'),
                         html.Br(),
                         html.P("Select a driver as the reference or median, min, or max time."),
                         dcc.Dropdown(id='deltaType',value='min',clearable=False,searchable=False),
+                        html.Br(),
                         dcc.Graph(id='deltaGraph')
                     ]),
                 dbc.Tab(label="Driver History", tab_id="driver_hist", children = [
                         html.Br(),
                         html.P("Select one driver to view their history, or two to compare the drivers."),
                         dcc.Dropdown(id='all_drivers', clearable=False,searchable=True,value='Lewis Hamilton'),
-                        dash_table.DataTable(id='my-table',columns=[{"name": i, "id": i} for i in dataContainer.driver_history_table.columns],data=dataContainer.driver_history_table.to_dict("records"))
-                        # "number":i, "nationality":i, "year":i, "name":i, "date":i, 
-                        # "constructorName":i, "position":i, "minQualifyingTime":i, "racePosition":i, "fastestLapTime":i, "wins":i, "points":i, 
-                        # "driverStanding":i
+                        html.Br(),
+                        dash_table.DataTable(id='my-table',columns=[{"name": i, "id": i} for i in dataContainer.driver_history_table.columns],data=dataContainer.driver_history_table.to_dict("records"),
+                            style_as_list_view=True,
+                            style_header={'backgroundColor': 'rgb(30, 30, 30)', 
+                                'whiteSpace': 'normal',
+                                'maxWidth': '120px',
+                                'height': 'auto'},
+                            style_cell={
+                                'backgroundColor': 'rgb(50, 50, 50)',
+                                'color': 'white',
+                            },
+                            style_table={'overflowX': 'auto'}
+                        )
                     ])
             ],
             id="tabs",
@@ -273,10 +298,9 @@ def update_delta_graph(deltaType,year,race_name):
     )
 def update_driver_history(driver_name_1):
     driver_names = drivers_df.driverName
-    print(driver_names)
     all_drivers = [{'label': i, 'value': i} for i in driver_names]
-    driver_table = create_driver_table(driver_name_1).to_dict('records')
-    print(all_drivers)
+    driver_table = create_driver_table(driver_name_1)
+    driver_table = driver_table.to_dict('records')
     return driver_table, all_drivers
 
 ################################################################
