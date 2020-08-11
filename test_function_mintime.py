@@ -18,7 +18,7 @@ for i in range(len(minracelap_df_list)):
     minlap = (minracelap_df_list[i]['milliseconds'].min())/1000 #in seconds
     minracelap.append([minracelap_df_list[i]['raceId'].iloc[0],minlap])
 
-minracelap_df = pd.DataFrame(minracelap,columns=['raceId','minRaceLap'])
+minracelap_df = pd.DataFrame(minracelap,columns=['raceId','minOverallRaceLap'])
 
 minqualilap_df_list = [y for x,y in qualifying_df.groupby('raceId',as_index=False)]
 
@@ -71,7 +71,7 @@ for i in range(len(minqualilap_df_list)):
     else:
         minqualilap.append([race_quali_df['raceId'].iloc[0],np.nanmin([minq1,minq2,minq3])])
 
-minqualilap_df = pd.DataFrame(minqualilap,columns=['raceId','minQualiLap'])
+minqualilap_df = pd.DataFrame(minqualilap,columns=['raceId','minOverallQualiLap'])
 
 minlap_df = minracelap_df.merge(minqualilap_df,on='raceId')
 minlap_df.to_csv('./f1db_csv/min_laps.csv')
