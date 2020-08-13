@@ -304,13 +304,18 @@ def update_driver_history(driver_name_1):
                     dash_table.DataTable(id='my-table'+str(i), columns=[{"name": j, "id": j} for j in driver_table_year.columns], 
                     data=driver_table_year.to_dict("records"),
                     style_header={'backgroundColor': 'rgb(30, 30, 30)', 
-                        # 'whiteSpace': 'normal',
+                        'whiteSpace': 'normal',
                         'height': 'auto',
-                        'max_width' : '10px'},
+                        'max_width' : '100px'
+                    },
                     style_cell={
                         'backgroundColor': 'rgb(50, 50, 50)',
-                        'color': 'white'
+                        'color': 'white',
+                        'max_width' : 'auto'
                     },
+                    style_cell_conditional=[{
+                        'textAlign': 'left'
+                    }]
                     # style_table={'overflowX': 'auto'},
                     # fixed_rows={'headers': True}
                     ),
