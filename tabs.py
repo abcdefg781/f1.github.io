@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly import tools as tls
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import datetime as dt
 import copy
 import warnings
@@ -46,6 +46,10 @@ clean_lt_df = clean_lt_df.drop(columns = "milliseconds")
 results_df["position"] = results_df["position"].replace({r"\N": 99})
 results_df["position"] = results_df["position"].astype(int)
 
+# driver_history_df
+driver_history_df["minQualifyingTime"] = round(driver_history_df.minQualifyingTime, 2)
+driver_history_df["fastestLapTime"] = round(driver_history_df.fastestLapTime, 2)
+
 def create_race_table(year, race_name):
     races_temp = races_df[races_df.year == year]
     race_id = int(races_temp.raceId[races_temp.name == race_name])
@@ -64,14 +68,13 @@ def create_race_table(year, race_name):
 def create_driver_table(driver_name_1):
     driver_1_table = driver_history_df[driver_history_df.driverName == driver_name_1].sort_values("date", ascending=False)
     driver_1_table = driver_1_table.drop(driver_1_table.columns[0:4], axis=1)
-    driver_1_table.columns = ["Year", "Race Name", "Date", "Constructor", "Qualifying Position", "Fastest Qualifying Time", "Final Race Positiion", 
-        "Fastest Lap Time (Race)", "Cumulative Season Wins", "Cumulative Season Points", "Driver Standing After Race"]
     return driver_1_table
 
 class dataContainer:
     def __init__(self):
         self.race_table,self.year_races,self.color_palette = create_race_table(2020, "British Grand Prix")
         self.driver_history_table = create_driver_table("Lewis Hamilton")
+        self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
     def plotRaceGraph(self):
         fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True}, 
             # color_discrete_map = self.color_palette
@@ -234,24 +237,13 @@ app.layout = dbc.Container(
                         html.Br(),
                         dcc.Graph(id='deltaGraph')
                     ]),
-                dbc.Tab(label="Driver History", tab_id="driver_hist", children = [
+                dbc.Tab(label = "Driver History", tab_id="collapses", children = [
                         html.Br(),
-                        html.P("Select one driver to view their history, or two to compare the drivers."),
+                        html.P("Select one driver to view their history."),
                         dcc.Dropdown(id='all_drivers', clearable=False,searchable=True,value='Lewis Hamilton'),
                         html.Br(),
-                        dash_table.DataTable(id='my-table',columns=[{"name": i, "id": i} for i in dataContainer.driver_history_table.columns],data=dataContainer.driver_history_table.to_dict("records"),
-                            style_as_list_view=True,
-                            style_header={'backgroundColor': 'rgb(30, 30, 30)', 
-                                'whiteSpace': 'normal',
-                                'maxWidth': '120px',
-                                'height': 'auto'},
-                            style_cell={
-                                'backgroundColor': 'rgb(50, 50, 50)',
-                                'color': 'white',
-                            },
-                            style_table={'overflowX': 'auto'}
-                        )
-                    ])
+                        html.Div(id='my-table')
+                ])
             ],
             id="tabs",
             active_tab="home",
@@ -293,15 +285,43 @@ def update_delta_graph(deltaType,year,race_name):
     return dataContainer.plotDeltaGraph(deltaType)
 
 @app.callback(
-    [Output(component_id='my-table', component_property='data'),Output(component_id='all_drivers', component_property='options')],
+    [Output(component_id='my-table', component_property='children'), Output(component_id='all_drivers', component_property='options')],
     [Input(component_id='all_drivers', component_property='value')]
-    )
+)
 def update_driver_history(driver_name_1):
-    driver_names = drivers_df.driverName
+    output = []
+    dataContainer.driver_history_table = create_driver_table(driver_name_1)
+    for i in range(len(dataContainer.driver_history_table.year.unique())): 
+        year = dataContainer.driver_history_table.year.unique()[i]
+        driver_table_year = dataContainer.driver_history_table[dataContainer.driver_history_table.year==year]
+        driver_table_year.columns = ["Year", "Race Name", "Date", "Constructor", "Qualifying Position", "Fastest Qualifying Time", "Final Race Positiion",
+            "Fastest Lap Time (Race)", "Cumulative Season Wins", "Cumulative Season Points", "Driver Standing After Race"]
+        driver_table_year = driver_table_year.drop(driver_table_year.columns[0], axis=1)
+        output.append(
+            html.Div(children = [
+                html.Details([
+                    html.Summary(year),
+                    dash_table.DataTable(id='my-table'+str(i), columns=[{"name": j, "id": j} for j in driver_table_year.columns], 
+                    data=driver_table_year.to_dict("records"),
+                    style_header={'backgroundColor': 'rgb(30, 30, 30)', 
+                        # 'whiteSpace': 'normal',
+                        'height': 'auto',
+                        'max_width' : '10px'},
+                    style_cell={
+                        'backgroundColor': 'rgb(50, 50, 50)',
+                        'color': 'white'
+                    },
+                    # style_table={'overflowX': 'auto'},
+                    # fixed_rows={'headers': True}
+                    ),
+                ]),
+
+            ])
+        )
+
+    driver_names = driver_history_df.driverName.unique()
     all_drivers = [{'label': i, 'value': i} for i in driver_names]
-    driver_table = create_driver_table(driver_name_1)
-    driver_table = driver_table.to_dict('records')
-    return driver_table, all_drivers
+    return output, all_drivers
 
 ################################################################
 # Load to Dash
