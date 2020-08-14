@@ -28,8 +28,8 @@ lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
 results_df = pd.read_csv("./f1db_csv/results.csv")
 constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
 races_df = pd.read_csv("./f1db_csv/races.csv")
-colors_df = pd.read_csv("./colors.csv")
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
+constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 
 # Clean some names and create new variables
 # drivers_df
@@ -66,8 +66,8 @@ def create_race_table(year, race_name):
 	df_3["constructorRef"] = df_3["constructorRef"].str.title()
 	df_4 = pd.merge(df_3, races_df[["raceId", "year", "name"]], on = "raceId")
 	df_4 = df_4.sort_values(by = ["position", "lap"])
-	filtered_ref_df = colors_df[colors_df.year == year]
-	color_palette = pd.Series(filtered_ref_df.color.values, index = filtered_ref_df.driverName).to_dict()
+	colored_df = pd.merge(df_4, constructor_colors_df[["constructorId", "color"]], on = "constructorId")
+	color_palette = pd.Series(colored_df.color.values, index = colored_df.driverName).to_dict()
 	return df_4, races_temp, color_palette
 
 def create_driver_table(driver_name_1):
@@ -82,7 +82,7 @@ class dataContainer:
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
 	def plotRaceGraph(self):
 		fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True}, 
-			# color_discrete_map = self.color_palette
+			color_discrete_map = self.color_palette
 			)
 		fig.update_layout(legend_title_text=None)
 
