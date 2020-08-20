@@ -175,7 +175,7 @@ class dataContainer:
 
 		df_deltas = pd.concat(df_minimum,ignore_index=True)
 
-		fig = px.line(df_deltas,x="lap",y="delta",color='driverName')
+		fig = px.line(df_deltas,x="lap",y="delta",color='driverName',color_discrete_map = self.color_palette)
 		fig.update_layout(plot_bgcolor="#323130",
 			paper_bgcolor="#323130",font=dict(color="white"),
 			xaxis_title="Lap",
@@ -213,18 +213,19 @@ app.layout = dbc.Container(
 				dbc.Tab(label="Home", tab_id="home", children = [
 						html.Br(),
 						html.P("Welcome to F1Data.io. The graph below shows the data from the latest race and can be changed to any race."),
+					]),
+				dbc.Tab(label="Driver Comparison", tab_id="driver_comp", children = [
+						html.Br(),
 						dbc.Row([
 							dbc.Col(
 								dcc.Dropdown(id='year',value=2020,clearable=False,searchable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
 							),
 							dbc.Col(
-								dcc.Dropdown(id='race_name',value='British Grand Prix',clearable=False,searchable=False)
+								dcc.Dropdown(id='race_name',value='Spanish Grand Prix',clearable=False,searchable=False)
 							)
 						]),    
 						html.Br(),
-						dcc.Graph(id='my-output')
-					]),
-				dbc.Tab(label="Driver Comparison", tab_id="driver_comp", children = [
+						dcc.Graph(id='my-output'),
 						html.Br(),
 						html.P("Select two drivers to view their relative lap times for any given race."),
 						dbc.Row([
@@ -245,7 +246,7 @@ app.layout = dbc.Container(
 					]),
 				dbc.Tab(label = "Driver History", tab_id="collapses", children = [
 						html.Br(),
-						html.P("Select one driver to view their history."),
+						html.P("Select one driver to view their history. It is possible to search the dropdown menu"),
 						dcc.Dropdown(id='all_drivers', clearable=False,searchable=True,value='Lewis Hamilton'),
 						html.Br(),
 						html.Div(id='my-table')
@@ -321,10 +322,19 @@ def update_driver_history(driver_name_1):
 		driver_table_year.columns = ["Year", "Race Name", "Date", "Constructor", "Qualifying Position", "Fastest Qualifying Time", "Final Race Position",
 			"Fastest Lap Time (Race)", "Cumulative Season Wins", "Cumulative Season Points", "Driver Standing After Race"]
 		driver_table_year = driver_table_year.drop(driver_table_year.columns[0], axis=1)
+		driver_table_year['Final Race Position'].fillna('DNF',inplace=True)
+		driver_table_year['Qualifying Position'].fillna('DNQ',inplace=True)
+		driver_table_year['Fastest Qualifying Time'].fillna('None',inplace=True)
+		driver_table_year['Fastest Lap Time (Race)'].fillna('None',inplace=True)
+		# for i in range(len(driver_table_year['Final Race Position'])):
+		# 	print(driver_table_year['Final Race Position'].iloc[i])
+		# 	if driver_table_year['Final Race Position'].iloc[i] == :
+		# 		print(i)
+		# 		driver_table_year['Final Race Position'][i] = 48903
 		output.append(
 			html.Div(children = [
 				html.Details([
-					html.Summary(year),
+					html.Summary(str(year)+' - Final Standing: '+str(driver_table_year['Driver Standing After Race'].iloc[0])+', Wins: '+str(driver_table_year['Cumulative Season Wins'].iloc[0])),
 					dash_table.DataTable(id='my-table'+str(i), columns=[{"name": j, "id": j} for j in driver_table_year.columns], 
 					data=driver_table_year.to_dict("records"),
 					style_header={'backgroundColor': 'rgb(30, 30, 30)', 
@@ -343,7 +353,7 @@ def update_driver_history(driver_name_1):
 					# style_table={'overflowX': 'auto'},
 					# fixed_rows={'headers': True}
 					),
-				]),
+				],open=None),
 
 			])
 		)
@@ -385,7 +395,11 @@ def update_form_graph(chart_switch):
 				date = df_driver_grouped[j].iloc[k].date
 				days_in_year.append((date-first_day).days)
 			df_driver_grouped[j]['days_in_year'] = days_in_year
+<<<<<<< HEAD
 			# print(chart_switch)
+=======
+			#print(chart_switch)
+>>>>>>> 25c423e4cc9e024874961a447fb26c9dc95b019a
 			if len(df_driver_grouped[j])>1:
 				if chart_switch == 0: #change logic for raw data later
 					fit = np.polyfit(x=df_driver_grouped[j]['days_in_year'],y=df_driver_grouped[j]['quali_lap_ratio'],deg=1)
