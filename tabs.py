@@ -30,6 +30,7 @@ constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
 races_df = pd.read_csv("./f1db_csv/races.csv")
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
+sp_prediction_df = pd.read_csv("./sp_2020_predictions.csv")
 
 # Clean some names and create new variables
 # drivers_df
@@ -255,7 +256,18 @@ app.layout = dbc.Container(
 						dcc.Dropdown(id='chart_switch', clearable=False,searchable=False,value=0,options=[{'label':'Linear fit','value':0},{'label':'Quadratic fit','value':1},{'label':'Raw data','value':2}]),
 						html.Br(),
 						dcc.Graph(id='qualiFormGraph')
-				])
+				]),
+				dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
+						html.Br(),
+						dcc.Markdown('''
+							**Predictions for the 2020 Spanish Grand Prix**  
+							The predictive model is updated after qualifying every week. The model uses an XGBoost algorithm to predict the total race time for each driver, which is then sorted to obtain predicted driver position for the race. The model is dependent on the weather on the day of the race, constructors (as well as constructor standing and points), qualifying results, and results from the previous races of the season.
+						'''),
+						html.Br(),
+						dcc.Markdown('''
+
+						''')
+				]),
 			],
 			id="tabs",
 			active_tab="home",
@@ -373,7 +385,7 @@ def update_form_graph(chart_switch):
 				date = df_driver_grouped[j].iloc[k].date
 				days_in_year.append((date-first_day).days)
 			df_driver_grouped[j]['days_in_year'] = days_in_year
-			print(chart_switch)
+			# print(chart_switch)
 			if len(df_driver_grouped[j])>1:
 				if chart_switch == 0: #change logic for raw data later
 					fit = np.polyfit(x=df_driver_grouped[j]['days_in_year'],y=df_driver_grouped[j]['quali_lap_ratio'],deg=1)

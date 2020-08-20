@@ -6,7 +6,7 @@ lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
 results_df = pd.read_csv("./f1db_csv/results.csv")
 constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
 races_df = pd.read_csv("./f1db_csv/races.csv")
-colors_df = pd.read_csv("./colors.csv")
+colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 qualifying_df = pd.read_csv("./f1db_csv/qualifying.csv")
 
