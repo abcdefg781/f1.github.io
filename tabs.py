@@ -69,7 +69,7 @@ def create_race_table(year, race_name):
 	df_4 = df_4.sort_values(by = ["position", "lap"])
 	colored_df = pd.merge(df_4, constructor_colors_df[["constructorId", "color"]], on = "constructorId")
 	color_palette = pd.Series(colored_df.color.values, index = colored_df.driverName).to_dict()
-	return df_4, races_temp, color_palette
+	return df_4, races_temp, color_palette, colored_df
 
 def create_driver_table(driver_name_1):
 	driver_1_table = driver_history_df[driver_history_df.driverName == driver_name_1].sort_values("date", ascending=False)
@@ -78,9 +78,10 @@ def create_driver_table(driver_name_1):
 
 class dataContainer:
 	def __init__(self):
-		self.race_table,self.year_races,self.color_palette = create_race_table(2020, "British Grand Prix")
+		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2020, "British Grand Prix")
 		self.driver_history_table = create_driver_table("Lewis Hamilton")
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
+
 	def plotRaceGraph(self):
 		fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True}, 
 			color_discrete_map = self.color_palette
@@ -136,11 +137,6 @@ class dataContainer:
 			yaxis_title="Delta (s)",
 			hovermode="x unified"
 			)
-		# fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['delta'],mode='lines',name='Lap Delta'),secondary_y=False)
-		# fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['cumdelta'],mode='lines',name='Cumulative Delta'),secondary_y=True)
-		# fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver1'],mode='lines',name=driver1),secondary_y=True)
-		# fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['driver2'],mode='lines',name=driver2),secondary_y=True)
-
 
 		fig.update_layout(plot_bgcolor="#323130",
 			paper_bgcolor="#323130",font=dict(color="white"))
@@ -174,13 +170,39 @@ class dataContainer:
 			df_minimum[i] = df_minimum[i][['lap','driverName','delta']]
 
 		df_deltas = pd.concat(df_minimum,ignore_index=True)
+		df_deltas = df_deltas.merge(self.race_table[['driverName','constructorRef']],on='driverName')
+		df_deltas = df_deltas.sort_values(by=["constructorRef","driverName"])
 
-		fig = px.line(df_deltas,x="lap",y="delta",color='driverName',color_discrete_map = self.color_palette)
+		df_team_grouped = [y for x,y in df_deltas.groupby('constructorRef',as_index=False)]
+
+		fig = go.Figure()
+		for i in range(len(df_team_grouped)):
+			df_grouped = [y for x,y in df_team_grouped[i].groupby('driverName',as_index=False)]
+			for j in range(len(df_grouped)):
+				df_driver = df_grouped[j]
+				name = df_driver['driverName'].iloc[0]
+				print(name)
+				color = self.colored_df[self.colored_df.driverName==name]['color'].iloc[0]
+				if j == 0:
+					line = go.Scatter(x=df_driver['lap'],y=df_driver['delta'],name=name,mode='lines',line=go.scatter.Line(color=color))
+				else:
+					line = go.Scatter(x=df_driver['lap'],y=df_driver['delta'],name=name,mode='lines',line=go.scatter.Line(color=color,dash='dash'))
+				fig.add_trace(line)
+		
 		fig.update_layout(plot_bgcolor="#323130",
 			paper_bgcolor="#323130",font=dict(color="white"),
 			xaxis_title="Lap",
 			yaxis_title="Delta (s)"
 			)
+		#fig.update_layout(xaxis=dict(range=[1,64.9]))
+		titleString = 'Relative to '+deltaType
+		fig.update_layout(
+			title={
+				'text': titleString,
+				'y':0.95,
+				'x':0.5,
+				'xanchor': 'center',
+				'yanchor': 'top'})
 		return fig
 
 	def getDriverNames(self):
@@ -284,7 +306,7 @@ app.layout = dbc.Container(
 	[Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
 def update_race_graph(year, race_name):
-	dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette = create_race_table(year,race_name)
+	dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette,dataContainer.colored_df = create_race_table(year,race_name)
 	drivers = dataContainer.getDriverNames()
 	race_names = dataContainer.getRaceNames()
 	driver_dict = [{'label': i, 'value': i} for i in drivers]
@@ -298,7 +320,7 @@ def update_race_graph(year, race_name):
 	[Input(component_id='driver1', component_property='value'),Input(component_id='driver2', component_property='value'),Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
 def update_comparison_graph(driver1,driver2,year,race_name):
-	dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette = create_race_table(year,race_name)
+	dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette,dataContainer.colored_df = create_race_table(year,race_name)
 	return dataContainer.plotRaceComparisonGraph(driver1,driver2)
 
 @app.callback(
@@ -306,7 +328,7 @@ def update_comparison_graph(driver1,driver2,year,race_name):
 	[Input(component_id='deltaType', component_property='value'),Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
 )
 def update_delta_graph(deltaType,year,race_name):
-	dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette = create_race_table(year,race_name)
+	dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette,dataContainer.colored_df = create_race_table(year,race_name)
 	return dataContainer.plotDeltaGraph(deltaType)
 
 @app.callback(
@@ -395,11 +417,7 @@ def update_form_graph(chart_switch):
 				date = df_driver_grouped[j].iloc[k].date
 				days_in_year.append((date-first_day).days)
 			df_driver_grouped[j]['days_in_year'] = days_in_year
-<<<<<<< HEAD
-			# print(chart_switch)
-=======
-			#print(chart_switch)
->>>>>>> 25c423e4cc9e024874961a447fb26c9dc95b019a
+
 			if len(df_driver_grouped[j])>1:
 				if chart_switch == 0: #change logic for raw data later
 					fit = np.polyfit(x=df_driver_grouped[j]['days_in_year'],y=df_driver_grouped[j]['quali_lap_ratio'],deg=1)
