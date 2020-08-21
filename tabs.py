@@ -53,7 +53,10 @@ driver_history_df["fastestLapTime"] = round(driver_history_df.fastestLapTime, 2)
 
 #df_minlaps
 minlap_df = pd.read_csv("./f1db_csv/min_laps.csv")
-quali_form_df = driver_history_df.merge(minlap_df,on='raceId')
+
+#quali form df
+quali_form_df = pd.read_csv("./f1db_csv/quali_form.csv")
+#quali_form_df = driver_history_df.merge(minlap_df,on='raceId')
 driver_history_df.drop(columns='raceId',inplace=True)
 
 def create_race_table(year, race_name):
@@ -231,67 +234,17 @@ class dataContainer:
 
 	def update_form_graph(self,chart_switch):
 		df_5 = copy.deepcopy(quali_form_df)
-		df_5['race_lap_ratio'] = df_5['fastestLapTime']/df_5['minOverallRaceLap']
-		df_5['quali_lap_ratio'] = df_5['minQualifyingTime']/df_5['minOverallQualiLap']
-		# Turn date into datetime
-		df_5["date"] = pd.to_datetime(df_5["date"])
 		df_grouped = [y for x,y in df_5.groupby('driverName',as_index=False)]
 		fig = go.Figure()
+		
 		for i in range(len(df_grouped)):
-			df_driver_grouped = [y for x,y in df_grouped[i].groupby('year',as_index=False)]
-			for j in range(len(df_driver_grouped)):
-				#df_driver_grouped[j].drop(['minOverallRaceLap','minOverallQualiLap','race_lap_ratio','number'],inplace=True,axis=1)
-				df_driver_grouped[j] = df_driver_grouped[j][['driverName','date','quali_lap_ratio']]
-				df_driver_grouped[j].dropna(inplace=True)
-				df_driver_grouped[j] = df_driver_grouped[j].sort_values(by='date')
-				#print(df_driver_grouped[j]['date'])
-				df_driver_grouped[j] = df_driver_grouped[j].reset_index(drop=True)
-				
-				if df_driver_grouped[j].empty:
-					continue
-				
-				last_row = copy.deepcopy(df_driver_grouped[j].tail(1))
-				curr_year = last_row.iloc[0]['date'].year
-				first_day = dt.datetime(curr_year,1,1)
-				
-				days_in_year = []
-				for k in range(len(df_driver_grouped[j])):
-					date = df_driver_grouped[j].iloc[k].date
-					days_in_year.append((date-first_day).days)
-				df_driver_grouped[j]['days_in_year'] = days_in_year
-
-				
-
-				if len(df_driver_grouped[j])>1:
-					df = df_driver_grouped[j]
-					df_driver_grouped[j] = df[df.quali_lap_ratio<=1.07]
-					if chart_switch == 0: #change logic for raw data later
-						fit = np.polyfit(x=df_driver_grouped[j]['days_in_year'],y=df_driver_grouped[j]['quali_lap_ratio'],deg=1)
-						linear = np.poly1d(fit)
-						df_driver_grouped[j]['fit_quali_lap_ratio'] = linear(df_driver_grouped[j]['days_in_year'])
-					elif chart_switch == 1:
-						fit = np.polyfit(x=df_driver_grouped[j]['days_in_year'],y=df_driver_grouped[j]['quali_lap_ratio'],deg=2)
-						linear = np.poly1d(fit)
-						df_driver_grouped[j]['fit_quali_lap_ratio'] = linear(df_driver_grouped[j]['days_in_year'])
-					else:
-						df_driver_grouped[j]['fit_quali_lap_ratio'] = df_driver_grouped[j]['quali_lap_ratio']
-					
-					for l in range(len(df_driver_grouped[j]['fit_quali_lap_ratio'])):
-						if df_driver_grouped[j]['fit_quali_lap_ratio'][l]<1:
-							df_driver_grouped[j]['fit_quali_lap_ratio'][l]=1.0
-
-				elif len(df_driver_grouped[j]==1):
-					df_driver_grouped[j]['fit_quali_lap_ratio'] = df_driver_grouped[j]['quali_lap_ratio'].iloc[0]
-
-				last_row.date = dt.datetime(curr_year,12,31)
-				last_row.rolling_quali_lap_ratio = None
-				last_row.quali_lap_ratio = None
-				last_row.fit_quali_lap_ratio = None
-				df_driver_grouped[j] = df_driver_grouped[j].append(last_row)
-
-			df_grouped[i] = pd.concat(df_driver_grouped)
 			name = df_grouped[i]['driverName'].iloc[0]
-			line = go.Scatter(x=df_grouped[i]['date'],y=df_grouped[i]['fit_quali_lap_ratio'],name=name,mode='lines')
+			if chart_switch == 0:
+				line = go.Scatter(x=df_grouped[i]['date'],y=df_grouped[i]['fit_quali_lap_ratio_linear'],name=name,mode='lines')
+			elif chart_switch == 1:
+				line = go.Scatter(x=df_grouped[i]['date'],y=df_grouped[i]['fit_quali_lap_ratio_quadratic'],name=name,mode='lines')
+			else:
+				line = go.Scatter(x=df_grouped[i]['date'],y=df_grouped[i]['fit_quali_lap_ratio_raw'],name=name,mode='lines')
 			fig.add_trace(line)
 
 		fig.update_layout(plot_bgcolor="#323130",
@@ -485,70 +438,6 @@ def update_driver_history(driver_name_1):
 	[Input(component_id='chart_switch', component_property='value')]
 )
 def update_form_graph(chart_switch):
-	# df_5 = copy.deepcopy(quali_form_df)
-	# df_5['race_lap_ratio'] = df_5['fastestLapTime']/df_5['minOverallRaceLap']
-	# df_5['quali_lap_ratio'] = df_5['minQualifyingTime']/df_5['minOverallQualiLap']
-	# # Turn date into datetime
-	# df_5["date"] = pd.to_datetime(df_5["date"])
-	# df_grouped = [y for x,y in df_5.groupby('driverName',as_index=False)]
-	# for i in range(len(df_grouped)):
-	# 	df_driver_grouped = [y for x,y in df_grouped[i].groupby('year',as_index=False)]
-	# 	for j in range(len(df_driver_grouped)):
-	# 		#df_driver_grouped[j].drop(['minOverallRaceLap','minOverallQualiLap','race_lap_ratio','number'],inplace=True,axis=1)
-	# 		df_driver_grouped[j] = df_driver_grouped[j][['driverName','date','quali_lap_ratio']]
-	# 		df_driver_grouped[j].dropna(inplace=True)
-	# 		df_driver_grouped[j] = df_driver_grouped[j].sort_values(by='date')
-	# 		#print(df_driver_grouped[j]['date'])
-	# 		df_driver_grouped[j] = df_driver_grouped[j].reset_index(drop=True)
-			
-	# 		if df_driver_grouped[j].empty:
-	# 			continue
-			
-	# 		last_row = copy.deepcopy(df_driver_grouped[j].tail(1))
-	# 		curr_year = last_row.iloc[0]['date'].year
-	# 		first_day = dt.datetime(curr_year,1,1)
-			
-	# 		days_in_year = []
-	# 		for k in range(len(df_driver_grouped[j])):
-	# 			date = df_driver_grouped[j].iloc[k].date
-	# 			days_in_year.append((date-first_day).days)
-	# 		df_driver_grouped[j]['days_in_year'] = days_in_year
-
-	# 		if len(df_driver_grouped[j])>1:
-	# 			if chart_switch == 0: #change logic for raw data later
-	# 				fit = np.polyfit(x=df_driver_grouped[j]['days_in_year'],y=df_driver_grouped[j]['quali_lap_ratio'],deg=1)
-	# 			else:
-	# 				fit = np.polyfit(x=df_driver_grouped[j]['days_in_year'],y=df_driver_grouped[j]['quali_lap_ratio'],deg=2)
-	# 			linear = np.poly1d(fit)
-	# 			df_driver_grouped[j]['fit_quali_lap_ratio'] = linear(df_driver_grouped[j]['days_in_year'])
-	# 			for l in range(len(df_driver_grouped[j]['fit_quali_lap_ratio'])):
-	# 				if df_driver_grouped[j]['fit_quali_lap_ratio'][l]<1:
-	# 					df_driver_grouped[j]['fit_quali_lap_ratio'][l]=1.0
-	# 		elif len(df_driver_grouped[j]==1):
-	# 			df_driver_grouped[j]['fit_quali_lap_ratio'] = df_driver_grouped[j]['quali_lap_ratio'].iloc[0]
-			
-	# 		#rolling avg
-	# 		#df_driver_grouped[j]['rolling_quali_lap_ratio']=df_driver_grouped[j]['quali_lap_ratio'].rolling(30,min_periods=1,win_type='boxcar',center=True).mean()
-			
-			
-	# 		last_row.date = dt.datetime(curr_year,12,31)
-	# 		last_row.rolling_quali_lap_ratio = None
-	# 		last_row.quali_lap_ratio = None
-	# 		last_row.fit_quali_lap_ratio = None
-	# 		df_driver_grouped[j] = df_driver_grouped[j].append(last_row)
-	# 	df_grouped[i] = pd.concat(df_driver_grouped)
-	# df_6 = pd.concat(df_grouped).sort_values(by='date')
-	# if chart_switch == 2:
-	# 	fig = px.line(df_6,x='date',y='quali_lap_ratio',color='driverName')
-	# else:
-	# 	fig = px.line(df_6,x='date',y='fit_quali_lap_ratio',color='driverName')
-
-	# fig.update_layout(plot_bgcolor="#323130",
-	# 		paper_bgcolor="#323130",font=dict(color="white"),
-	# 		xaxis_title="Date",
-	# 		yaxis_title="Qualifying lap time ratio"
-	# 		)
-
 	return dataContainer.update_form_graph(chart_switch)
 
 ################################################################
