@@ -17,7 +17,7 @@ import warnings
 import json
 
 BS = "https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css"
-app = dash.Dash(external_stylesheets = [dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__, external_stylesheets = [dbc.themes.BOOTSTRAP])
 app.config['suppress_callback_exceptions'] = True
 warnings.filterwarnings("ignore")
 
@@ -457,6 +457,56 @@ app.layout = dbc.Container(
 						],
 						style = {'width': '40%', 'margin' : 'auto'}
 						)	
+				]),
+				dbc.Tab(label = "Contact", tab_id="contact", children = [
+						html.Br(),
+						dbc.Row(
+						[
+							dbc.Col(
+								dbc.FormGroup(
+							    [
+							        dbc.Label("Name", html_for="example-name"),
+							        dbc.Input(type="text", id="example-name", placeholder="Name"),
+							    ]
+								),
+							),
+							dbc.Col(
+								dbc.FormGroup(
+							    [
+							        dbc.Label("Email", html_for="example-email"),
+							        dbc.Input(type="email", id="example-email", placeholder="Email Address"),
+							    ]
+								),
+							)
+						]
+						),
+						html.Div(
+						    [
+						    	dbc.Label("Comments", html_for="comments"),
+						        dbc.Textarea(
+						        	id="comments",
+						            bs_size="lg",
+						            className="mb-3",
+						        ),
+						    ]
+						),
+						html.Div(
+							dbc.Button("Submit", color="primary"),
+						),
+						html.Br(),
+						html.Div(children = [
+							html.Img(src=app.get_asset_url('./PieterGrad_0592.jpeg')),
+						],
+						style = {'width' : '100%', 'margin' : 'auto'}
+						),
+						html.Br(),
+						dcc.Markdown('''
+							[Pieter de Buck](http://pieterdebuck.com) is a better driver than Max Verstappen and he's also a lot cuter. He is currently a master's student in Aerospace Engineering at the University of Michigan. Prior to that, he received his B.S. in Mechanical Engineering at Carnegie Mellon University. He is passionate about anything that has to do with transportation (cars, planes, and rockets) and has always been a huge Formula 1 fan. 
+						'''),
+						html.Br(),
+						dcc.Markdown('''
+							[Adeline Shin](http://adelineshin.com) is soooooooo ugly and wack and gross. 
+						'''),
 				]),
 			],
 			id="tabs",

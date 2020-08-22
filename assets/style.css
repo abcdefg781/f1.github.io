@@ -25,6 +25,12 @@ p {
 a {
   text-decoration: none;
 }
+div > img {
+  width: 50%;
+  height : 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .bg-grey{
   background-color: #31302F;
 }
