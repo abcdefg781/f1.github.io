@@ -90,7 +90,8 @@ for i in range(len(df_grouped)):
         last_row.fit_quali_lap_ratio_quadratic = None
         last_row.fit_quali_lap_ratio_raw = None
         last_row.days_in_year = None
-        df_driver_grouped[j] = df_driver_grouped[j].append(last_row)
+        if j < len(df_driver_grouped)-1: #dont add the empty row when its the last year
+            df_driver_grouped[j] = df_driver_grouped[j].append(last_row)
 
     df_grouped[i] = pd.concat(df_driver_grouped)
 df_quali = pd.concat(df_grouped)

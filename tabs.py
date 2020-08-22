@@ -14,6 +14,7 @@ from dash.dependencies import Input, Output, State
 import datetime as dt
 import copy
 import warnings
+import json
 
 BS = "https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css"
 app = dash.Dash(external_stylesheets = [dbc.themes.BOOTSTRAP])
@@ -28,9 +29,11 @@ lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
 results_df = pd.read_csv("./f1db_csv/results.csv")
 constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
 races_df = pd.read_csv("./f1db_csv/races.csv")
+races_df.sort_values(by=['year','raceId'],inplace=True,ascending=False)
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 sp_prediction_df = pd.read_csv("./sp_2020_predictions.csv")
+standings_df = pd.read_csv("./f1db_csv/driver_standings.csv").drop(columns=['wins','position','positionText'])
 
 # Clean some names and create new variables
 # drivers_df
@@ -56,6 +59,7 @@ minlap_df = pd.read_csv("./f1db_csv/min_laps.csv")
 
 #quali form df
 quali_form_df = pd.read_csv("./f1db_csv/quali_form.csv")
+quali_form_df['date'] = pd.to_datetime(quali_form_df['date'])
 #quali_form_df = driver_history_df.merge(minlap_df,on='raceId')
 driver_history_df.drop(columns='raceId',inplace=True)
 
@@ -230,10 +234,13 @@ class dataContainer:
 				'x':0.5,
 				'xanchor': 'center',
 				'yanchor': 'top'})
+
 		return fig
 
-	def update_form_graph(self,chart_switch):
+	def update_form_graph(self,chart_switch,quali_range):
 		df_5 = copy.deepcopy(quali_form_df)
+		df_5 = df_5[df_5['date'].dt.year >= quali_range[0]]
+		df_5 = df_5[df_5['date'].dt.year <= quali_range[1]]
 		df_grouped = [y for x,y in df_5.groupby('driverName',as_index=False)]
 		fig = go.Figure()
 		
@@ -252,7 +259,39 @@ class dataContainer:
 				xaxis_title="Date",
 				yaxis_title="Qualifying lap time ratio"
 				)
+
 		return fig
+
+	def plotStandingsGraph(self,year):
+		merged_df = standings_df.merge(races_df,on='raceId')
+		merged_df = merged_df.merge(drivers_df,on='driverId')
+
+		year_races = races_df[races_df['year']==year]
+
+		merged_df = merged_df[merged_df['year']==year]
+		merged_df.drop(['driverStandingsId'],axis=1,inplace=True)
+		results_df_drops = copy.deepcopy(results_df)
+		results_df_drops.drop(['points'],axis=1,inplace=True)
+		merged_df = merged_df.merge(results_df_drops,on=['raceId','driverId'])
+		merged_df = merged_df.merge(constructor_colors_df,on='constructorId')
+		grouped_df = [y for x,y in merged_df.groupby('driverName',as_index=False)]
+		
+		fig = go.Figure()
+		for i in range(len(grouped_df)):
+			name = grouped_df[i]['driverName'].iloc[0]
+			color = grouped_df[i]['color'].iloc[0]
+			grouped_df[i].sort_values(by='round',inplace=True)
+			line = go.Scatter(x=grouped_df[i]['round'],y=grouped_df[i]['points'],name=name,mode='lines',line=go.scatter.Line(color=color))
+			fig.add_trace(line)
+
+		fig.update_layout(plot_bgcolor="#323130",
+				paper_bgcolor="#323130",font=dict(color="white"),
+				xaxis_title="Date",
+				yaxis_title="Championship Points"
+				)
+		fig.update_xaxes(ticktext=year_races['name'],tickvals=year_races['round'],tickangle=45)
+		return fig
+		
 
 	def getDriverNames(self):
 		return self.race_table.driverName.unique()
@@ -283,7 +322,11 @@ app.layout = dbc.Container(
 			[
 				dbc.Tab(label="Home", tab_id="home", children = [
 						html.Br(),
-						html.P("Welcome to F1Data.io. The graph below shows the data from the latest race and can be changed to any race."),
+						html.P("Welcome to F1Data.io. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
+						html.Br(),
+						dcc.Dropdown(id='standings_year',value=2020,clearable=False,searchable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
+						html.Br(),
+						dcc.Graph(id='standings_graph')
 					]),
 				dbc.Tab(label="Driver Comparison", tab_id="driver_comp", children = [
 						html.Br(),
@@ -298,7 +341,12 @@ app.layout = dbc.Container(
 						html.Br(),
 						dcc.Graph(id='my-output'),
 						html.Br(),
-						html.P("Select two drivers to view their relative lap times for any given race."),
+						html.P("Select a driver as the reference or median, min, or max time."),
+						dcc.Dropdown(id='deltaType',value='min',clearable=False,searchable=False),
+						html.Br(),
+						dcc.Graph(id='deltaGraph'),
+						html.Br(),
+						html.P("Select two drivers to view their relative lap times for the selected race."),
 						dbc.Row([
 							dbc.Col(
 								dcc.Dropdown(id='driver1',value='Lewis Hamilton',clearable=False,searchable=False)
@@ -308,26 +356,39 @@ app.layout = dbc.Container(
 							)
 						]),
 						html.Br(),
-						dcc.Graph(id='my-output2'),
-						html.Br(),
-						html.P("Select a driver as the reference or median, min, or max time."),
-						dcc.Dropdown(id='deltaType',value='min',clearable=False,searchable=False),
-						html.Br(),
-						dcc.Graph(id='deltaGraph')
+						dcc.Graph(id='my-output2')
 					]),
+				dbc.Tab(label = "Qualifying Form", tab_id="qualitab", children = [
+						html.Br(),
+						html.P("This chart shows trends in the qualifying performance of each driver for each season. The y-axis shows the ratio of their qualifying time to best lap time in the session. It is possible to view a linear or quadratic fit to the data, or to view the raw data for each race. Select a range of years in the slider below the graph."),
+						dcc.Dropdown(id='chart_switch', clearable=False,searchable=False,value=0,options=[{'label':'Linear fit','value':0},{'label':'Quadratic fit','value':1},{'label':'Raw data','value':2}]),
+						html.Br(),
+						dcc.Graph(id='qualiFormGraph'),
+						html.Br(),
+						dcc.RangeSlider(id='quali_range', updatemode='drag',
+							min=1996, max=2020, value=[2003, 2020],
+							marks={
+							1996: {'label': '1996'},
+							1998: {'label': '1998'},
+							2000: {'label': '2000'},
+							2002: {'label': '2002'},
+							2004: {'label': '2004'},
+							2006: {'label': '2006'},
+							2008: {'label': '2008'},
+							2010: {'label': '2010'},
+							2012: {'label': '2012'},
+							2014: {'label': '2014'},
+							2016: {'label': '2016'},
+							2018: {'label': '2018'},
+							2020: {'label': '2020'}
+							})
+				]),
 				dbc.Tab(label = "Driver History", tab_id="collapses", children = [
 						html.Br(),
 						html.P("Select one driver to view their history. It is possible to search the dropdown menu"),
 						dcc.Dropdown(id='all_drivers', clearable=False,searchable=True,value='Lewis Hamilton'),
 						html.Br(),
 						html.Div(id='my-table')
-				]),
-				dbc.Tab(label = "Qualifying Form", tab_id="qualitab", children = [
-						html.Br(),
-						html.P("Select chart style."),
-						dcc.Dropdown(id='chart_switch', clearable=False,searchable=False,value=0,options=[{'label':'Linear fit','value':0},{'label':'Quadratic fit','value':1},{'label':'Raw data','value':2}]),
-						html.Br(),
-						dcc.Graph(id='qualiFormGraph')
 				]),
 				dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
 						html.Br(),
@@ -435,10 +496,19 @@ def update_driver_history(driver_name_1):
 
 @app.callback(
 	Output(component_id='qualiFormGraph', component_property='figure'),
-	[Input(component_id='chart_switch', component_property='value')]
+	[Input(component_id='chart_switch', component_property='value'),Input(component_id='quali_range',component_property='value')]
 )
-def update_form_graph(chart_switch):
-	return dataContainer.update_form_graph(chart_switch)
+def update_form_graph(chart_switch,quali_range):
+	fig = dataContainer.update_form_graph(chart_switch,quali_range)
+	return fig
+
+@app.callback(
+	Output(component_id='standings_graph',component_property='figure'),
+	[Input(component_id='standings_year', component_property='value')]
+)
+def update_race_graph(year):
+	return dataContainer.plotStandingsGraph(year)
+
 
 ################################################################
 # Load to Dash
