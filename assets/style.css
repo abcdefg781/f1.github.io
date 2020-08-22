@@ -36,7 +36,7 @@ a {
 .div-for-charts{
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 50vh;
   width: 100%;
 }
 #histogram {
@@ -56,7 +56,6 @@ a {
 .div-for-dropdown {
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: white;
   color: #31302F;
 }
 .div-for-slider {
@@ -159,6 +158,7 @@ a {
   }
   .div-for-charts {
       padding: 0px;
+      height: 50vh;
       width: 100%;
       text-align: center;
  }
