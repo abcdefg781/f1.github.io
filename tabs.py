@@ -32,8 +32,9 @@ races_df = pd.read_csv("./f1db_csv/races.csv")
 races_df.sort_values(by=['year','raceId'],inplace=True,ascending=False)
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
-sp_prediction_df = pd.read_csv("./sp_2020_predictions.csv")
 standings_df = pd.read_csv("./f1db_csv/driver_standings.csv").drop(columns=['wins','position','positionText'])
+raw_predictions_df = pd.read_csv("./predictions/sp_2020_raw_predictions.csv").iloc[:, 1:]
+pr_predictions_df = pd.read_csv("./predictions/sp_2020_pr_predictions.csv").iloc[:, 1:]
 
 # Clean some names and create new variables
 # drivers_df
@@ -393,13 +394,69 @@ app.layout = dbc.Container(
 				dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
 						html.Br(),
 						dcc.Markdown('''
-							**Predictions for the 2020 Spanish Grand Prix**  
-							The predictive model is updated after qualifying every week. The model uses an XGBoost algorithm to predict the total race time for each driver, which is then sorted to obtain predicted driver position for the race. The model is dependent on the weather on the day of the race, constructors (as well as constructor standing and points), qualifying results, and results from the previous races of the season.
+							## Predictions for the 2020 Spanish Grand Prix   
+							The predictive models are updated every week after qualifying and before the race. There are two models, one based on raw data and the other based on processed data to utilize weighted averages over the course of the season. The two models are provided as a means of comparison. Both models use an XGBoost algorithm to predict driver results.
 						'''),
 						html.Br(),
 						dcc.Markdown('''
-
-						''')
+							*Predictions Based on Raw Data*  
+							The model based on "raw" data, or the original variables from the F1 Ergast Data, predict the average lap time in a race for each driver based on current conditions such as weather and constructor, qualifying results, and results from the previous race. Because the raw data model relies so heavily on data from the race occuring right before it, instances where drivers DNF tend to perform poorly in the model.
+						'''),
+						html.Br(),
+						html.Div(children = [
+							dash_table.DataTable(
+							id = "raw_preds",
+							columns=[{"name": i, "id": i} for i in raw_predictions_df.columns],
+    						data=raw_predictions_df.to_dict("rows"),
+    						style_table={'maxWidth': '100%'},
+    						style_header={'backgroundColor': 'rgb(30, 30, 30)', 
+								#'whiteSpace': 'normal',
+								'height': 'auto',
+								#'width' : '20px'
+							},
+							style_cell={
+								'backgroundColor': 'rgb(50, 50, 50)',
+								'color': 'white',
+								#'width' : '20px'
+							},
+							style_cell_conditional=[{
+								'textAlign': 'center'
+							}],
+							style_as_list_view=True,
+							),
+						],
+						style = {'width': '40%', 'margin' : 'auto'}
+						),	
+						html.Br(),
+						dcc.Markdown('''
+							*Predictions with Feature Engineering*  
+							For the model with "processed" data, the qualifying results and fastest lap times were turned into ratios based on the driver with pole position for that race, and the driver with the fastest lap time in the previous race. A rolling average was then created from these ratios for the previous races on the season in order to "reduce the punishment" to drivers who did not perform well in the race occuring right before the one being predicted.
+						'''),
+						html.Br(),
+						html.Div(children = [
+							dash_table.DataTable(
+							id = "pr_preds",
+							columns=[{"name": i, "id": i} for i in pr_predictions_df.columns],
+    						data=pr_predictions_df.to_dict("rows"),
+    						style_table={'maxWidth': '100%'},
+    						style_header={'backgroundColor': 'rgb(30, 30, 30)', 
+								#'whiteSpace': 'normal',
+								'height': 'auto',
+								#'width' : '20px'
+							},
+							style_cell={
+								'backgroundColor': 'rgb(50, 50, 50)',
+								'color': 'white',
+								#'width' : '20px'
+							},
+							style_cell_conditional=[{
+								'textAlign': 'center'
+							}],
+							style_as_list_view=True,
+							),
+						],
+						style = {'width': '40%', 'margin' : 'auto'}
+						)	
 				]),
 			],
 			id="tabs",
