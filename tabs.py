@@ -117,8 +117,12 @@ class dataContainer:
 		#fig.update_layout(legend_title_text=None)
 
 		fig.update_layout(plot_bgcolor="#323130",
-			paper_bgcolor="#323130",font=dict(color="white"))
+			paper_bgcolor="#323130",font=dict(color="white"),
+			xaxis_title="Lap",
+			yaxis_title="Lap time (s)")
 
+		
+		# fig.update_yaxes(automargin=True)
 		return fig
 
 	def plotRaceComparisonGraph(self, driver1, driver2):
@@ -168,7 +172,7 @@ class dataContainer:
 
 		fig.update_layout(plot_bgcolor="#323130",
 			paper_bgcolor="#323130",font=dict(color="white"))
-
+		fig.update_yaxes(automargin=True)
 		return fig
 
 	def plotDeltaGraph(self,deltaType):
@@ -235,7 +239,7 @@ class dataContainer:
 				'x':0.5,
 				'xanchor': 'center',
 				'yanchor': 'top'})
-
+		fig.update_yaxes(automargin=True)
 		return fig
 
 	def update_form_graph(self,chart_switch,quali_range):
@@ -260,7 +264,7 @@ class dataContainer:
 				xaxis_title="Date",
 				yaxis_title="Qualifying lap time ratio"
 				)
-
+		fig.update_yaxes(automargin=True)
 		return fig
 
 	def plotStandingsGraph(self,year):
@@ -291,6 +295,7 @@ class dataContainer:
 				yaxis_title="Championship Points"
 				)
 		fig.update_xaxes(ticktext=year_races['name'],tickvals=year_races['round'],tickangle=45)
+		fig.update_yaxes(automargin=True)
 		return fig
 		
 
@@ -324,49 +329,44 @@ app.layout = dbc.Container(
 				dbc.Tab(label="Home", tab_id="home", children = [
 						html.Br(),
 						html.P("Welcome to F1Data.io. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
-						html.Br(),
-						dcc.Dropdown(id='standings_year',value=2020,clearable=False,searchable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
-						html.Br(),
-						dcc.Graph(id='standings_graph')
+						dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
+						dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
 					]),
 				dbc.Tab(label="Driver Comparison", tab_id="driver_comp", children = [
 						html.Br(),
+						html.P('Select a year and race to view various charts based on that race.'),
 						dbc.Row([
 							dbc.Col(
-								dcc.Dropdown(id='year',value=2020,clearable=False,searchable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
+								dcc.Dropdown(className='div-for-dropdown',id='year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
 							),
 							dbc.Col(
-								dcc.Dropdown(id='race_name',value='Spanish Grand Prix',clearable=False,searchable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Spanish Grand Prix',clearable=False)
 							)
-						]),    
+						]),
+						dcc.Graph(className='div-for-charts',id='my-output',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
 						html.Br(),
-						dcc.Graph(id='my-output'),
-						html.Br(),
-						html.P("Select a driver as the reference or median, min, or max time."),
-						dcc.Dropdown(id='deltaType',value='min',clearable=False,searchable=False),
-						html.Br(),
-						dcc.Graph(id='deltaGraph'),
+						html.P("This chart shows the gap of all the drivers relative to a certain reference. Select a driver, first/last place, or the median driver as the reference"),
+						dcc.Dropdown(className='div-for-dropdown',id='deltaType',value='min',clearable=False,searchable=False),
+						dcc.Graph(className='div-for-charts',id='deltaGraph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
 						html.Br(),
 						html.P("Select two drivers to view their relative lap times for the selected race."),
 						dbc.Row([
 							dbc.Col(
-								dcc.Dropdown(id='driver1',value='Lewis Hamilton',clearable=False,searchable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='driver1',value='Lewis Hamilton',clearable=False)
 							),
 							dbc.Col(
-								dcc.Dropdown(id='driver2',value='Valtteri Bottas',clearable=False,searchable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='driver2',value='Valtteri Bottas',clearable=False)
 							)
 						]),
-						html.Br(),
-						dcc.Graph(id='my-output2')
+						dcc.Graph(className='div-for-charts',id='my-output2',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
 					]),
 				dbc.Tab(label = "Qualifying Form", tab_id="qualitab", children = [
 						html.Br(),
 						html.P("This chart shows trends in the qualifying performance of each driver for each season. The y-axis shows the ratio of their qualifying time to best lap time in the session. It is possible to view a linear or quadratic fit to the data, or to view the raw data for each race. Select a range of years in the slider below the graph."),
-						dcc.Dropdown(id='chart_switch', clearable=False,searchable=False,value=0,options=[{'label':'Linear fit','value':0},{'label':'Quadratic fit','value':1},{'label':'Raw data','value':2}]),
+						dcc.Dropdown(className='div-for-dropdown',id='chart_switch', clearable=False,value=0,options=[{'label':'Linear fit','value':0},{'label':'Quadratic fit','value':1},{'label':'Raw data','value':2}]),
+						dcc.Graph(className='div-for-charts',id='qualiFormGraph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
 						html.Br(),
-						dcc.Graph(id='qualiFormGraph'),
-						html.Br(),
-						dcc.RangeSlider(id='quali_range', updatemode='drag',
+						dcc.RangeSlider(id='quali_range',
 							min=1996, max=2020, value=[2003, 2020],
 							marks={
 							1996: {'label': '1996'},
@@ -387,12 +387,10 @@ app.layout = dbc.Container(
 				dbc.Tab(label = "Driver History", tab_id="collapses", children = [
 						html.Br(),
 						html.P("Select one driver to view their history. It is possible to search the dropdown menu"),
-						dcc.Dropdown(id='all_drivers', clearable=False,searchable=True,value='Lewis Hamilton'),
-						html.Br(),
+						dcc.Dropdown(className='div-for-dropdown',id='all_drivers', clearable=False,value='Lewis Hamilton'),	
 						html.Div(id='my-table')
 				]),
 				dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
-						html.Br(),
 						dcc.Markdown('''
 							## Predictions for the 2020 Spanish Grand Prix   
 							The predictive models are updated every week after qualifying and before the race. There are two models, one based on raw data and the other based on processed data to utilize weighted averages over the course of the season. The two models are provided as a means of comparison. Both models use an XGBoost algorithm to predict driver results.
