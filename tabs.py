@@ -41,8 +41,8 @@ races_df.sort_values(by=['year','raceId'],inplace=True,ascending=False)
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 standings_df = pd.read_csv("./f1db_csv/driver_standings.csv").drop(columns=['wins','position','positionText'])
-raw_predictions_df = pd.read_csv("./predictions/sp_2020_raw_predictions.csv").iloc[:, 1:]
-pr_predictions_df = pd.read_csv("./predictions/sp_2020_pr_predictions.csv").iloc[:, 1:]
+raw_predictions_df = pd.read_csv("./predictions/be_2020_raw_predictions.csv").iloc[:, 1:]
+pr_predictions_df = pd.read_csv("./predictions/be_2020_pr_predictions.csv").iloc[:, 1:]
 
 # Clean some names and create new variables
 # drivers_df
@@ -465,7 +465,7 @@ app.layout = dbc.Container(
                         ),
                         html.Br(),
                         dcc.Markdown('''
-                            There is an obvious discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
+                            There is a discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
                         '''),   
                 ]),
                 dbc.Tab(label = "Contact", tab_id="contact", children = [
