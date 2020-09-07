@@ -40,7 +40,7 @@ def create_race_table(year, race_name):
     color_palette = pd.Series(colored_df.color.values, index = colored_df.driverName).to_dict()
     return df_4, races_temp, color_palette,colored_df
 
-race_table,races_temp,color_palette,color_df = create_race_table(2020,'Spanish Grand Prix')
+race_table,races_temp,color_palette,color_df = create_race_table(2020,'Italian Grand Prix')
 print(color_df)
 def plotDeltaGraph(deltaType):
         df_grouped = [y for x,y in race_table.groupby('driverName',as_index=False)]
@@ -100,9 +100,9 @@ def plotDeltaGraph(deltaType):
                 'x':0.5,
                 'xanchor': 'center',
                 'yanchor': 'top'})
-        fig.write_image("fig1.jpg",width=1200,height=600,scale=5)
+        fig.write_image("fig2.jpg",width=1200,height=600,scale=5)
         fig.show()
         #plotly.offline.plot(fig, filename= "Deltaplot2")
 
-plotDeltaGraph('min')
+plotDeltaGraph('Lewis Hamilton')
 
