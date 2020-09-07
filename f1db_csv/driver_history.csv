@@ -7449,6 +7449,7 @@
 7447,Daniil Kvyat,26,Russian,2020,Belgian Grand Prix,2020-08-30,1037,AlphaTauri,11,102.72999999999999,11,109.832,0,2.0,16
 7448,Sergio Pérez,11,Mexican,2020,Belgian Grand Prix,2020-08-30,1037,Racing Point,8,102.532,10,108.38900000000001,0,33.0,9
 7449,Lance Stroll,18,Canadian,2020,Belgian Grand Prix,2020-08-30,1037,Racing Point,9,102.491,9,109.136,0,42.0,7
+<<<<<<< HEAD
 7450,Nick Heidfeld,,German,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,11,85.504,10,88.283,0,0.0,10
 7451,Robert Kubica,88,Polish,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,4,85.152,14,87.988,0,0.0,14
 7452,Nico Rosberg,6,German,2009,Australian Grand Prix,2009-03-29,1,Williams,5,85.123,6,87.706,0,3.0,6
@@ -7481,3 +7482,57 @@
 7479,Rubens Barrichello,,Brazilian,1999,Australian Grand Prix,1999-03-07,175,Stewart,4,92.148,5,,0,2.0,5
 7480,Pedro de la Rosa,,Spanish,1999,Australian Grand Prix,1999-03-07,175,Arrows,18,94.244,6,,0,1.0,6
 7481,Toranosuke Takagi,,Japanese,1999,Australian Grand Prix,1999-03-07,175,Arrows,17,94.182,7,,0,0.0,7
+=======
+7450,Carlos Sainz,55,Spanish,2020,Italian Grand Prix,2020-09-06,1038,McLaren,3,79.695,2,83.882,0,41.0,9
+7451,Lando Norris,4,British,2020,Italian Grand Prix,2020-09-06,1038,McLaren,6,79.82,4,84.232,0,57.0,5
+7452,Lewis Hamilton,44,British,2020,Italian Grand Prix,2020-09-06,1038,Mercedes,1,78.887,7,82.746,5,164.0,1
+7453,Valtteri Bottas,77,Finnish,2020,Italian Grand Prix,2020-09-06,1038,Mercedes,2,78.952,5,83.961,1,117.0,2
+7454,George Russell,63,British,2020,Italian Grand Prix,2020-09-06,1038,Williams,19,81.587,14,84.42099999999999,0,0.0,21
+7455,Nicholas Latifi,6,Canadian,2020,Italian Grand Prix,2020-09-06,1038,Williams,20,81.717,11,84.999,0,0.0,18
+7456,Daniel Ricciardo,3,Australian,2020,Italian Grand Prix,2020-09-06,1038,Renault,7,79.864,6,83.898,0,41.0,10
+7457,Esteban Ocon,31,French,2020,Italian Grand Prix,2020-09-06,1038,Renault,12,80.23400000000001,8,84.49,0,30.0,12
+7458,Sebastian Vettel,5,German,2020,Italian Grand Prix,2020-09-06,1038,Ferrari,17,81.151,,87.107,0,16.0,13
+7459,Charles Leclerc,16,Monegasque,2020,Italian Grand Prix,2020-09-06,1038,Ferrari,13,80.273,,86.026,0,45.0,7
+7460,Kimi Räikkönen,7,Finnish,2020,Italian Grand Prix,2020-09-06,1038,Alfa Romeo,14,80.926,13,84.83500000000001,0,0.0,19
+7461,Antonio Giovinazzi,99,Italian,2020,Italian Grand Prix,2020-09-06,1038,Alfa Romeo,18,81.206,16,84.856,0,2.0,16
+7462,Max Verstappen,33,Dutch,2020,Italian Grand Prix,2020-09-06,1038,Red Bull,5,79.78,,85.539,1,110.0,3
+7463,Alexander Albon,23,Thai,2020,Italian Grand Prix,2020-09-06,1038,Red Bull,9,80.064,15,84.926,0,48.0,6
+7464,Romain Grosjean,8,French,2020,Italian Grand Prix,2020-09-06,1038,Haas F1 Team,16,81.139,12,84.785,0,0.0,20
+7465,Kevin Magnussen,20,Danish,2020,Italian Grand Prix,2020-09-06,1038,Haas F1 Team,15,80.869,,85.787,0,1.0,17
+7466,Pierre Gasly,10,French,2020,Italian Grand Prix,2020-09-06,1038,AlphaTauri,10,79.90899999999999,1,84.037,1,43.0,8
+7467,Daniil Kvyat,26,Russian,2020,Italian Grand Prix,2020-09-06,1038,AlphaTauri,11,80.169,9,84.479,0,4.0,15
+7468,Sergio Pérez,11,Mexican,2020,Italian Grand Prix,2020-09-06,1038,Racing Point,4,79.718,10,84.336,0,34.0,11
+7469,Lance Stroll,18,Canadian,2020,Italian Grand Prix,2020-09-06,1038,Racing Point,8,79.924,3,83.89699999999999,0,57.0,4
+7470,Nick Heidfeld,,German,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,11,85.504,10,88.283,0,0.0,10
+7471,Robert Kubica,88,Polish,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,4,85.152,14,87.988,0,0.0,14
+7472,Nico Rosberg,6,German,2009,Australian Grand Prix,2009-03-29,1,Williams,5,85.123,6,87.706,0,3.0,6
+7473,Fernando Alonso,14,Spanish,2009,Australian Grand Prix,2009-03-29,1,Renault,12,85.605,5,88.712,0,4.0,5
+7474,Kimi Räikkönen,7,Finnish,2009,Australian Grand Prix,2009-03-29,1,Ferrari,9,85.38,15,88.488,0,0.0,15
+7475,Sébastien Bourdais,,French,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,20,86.964,8,89.82300000000001,0,1.0,8
+7476,Sébastien Buemi,,Swiss,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,16,86.503,7,89.23,0,2.0,7
+7477,Timo Glock,,German,2009,Australian Grand Prix,2009-03-29,1,Toyota,6,85.281,4,88.416,0,5.0,4
+7478,Jarno Trulli,,Italian,2009,Australian Grand Prix,2009-03-29,1,Toyota,8,85.265,3,88.916,0,6.0,3
+7479,Mark Webber,,Australian,2009,Australian Grand Prix,2009-03-29,1,Red Bull,10,85.241,12,88.508,0,0.0,12
+7480,Sebastian Vettel,5,German,2009,Australian Grand Prix,2009-03-29,1,Red Bull,3,85.121,13,88.14,0,0.0,13
+7481,Adrian Sutil,99,German,2009,Australian Grand Prix,2009-03-29,1,Force India,19,86.742,9,88.943,0,0.0,9
+7482,Giancarlo Fisichella,,Italian,2009,Australian Grand Prix,2009-03-29,1,Force India,18,86.67699999999999,11,89.005,0,0.0,11
+7483,Jenson Button,22,British,2009,Australian Grand Prix,2009-03-29,1,Brawn,1,84.855,1,88.02,1,10.0,1
+7484,Rubens Barrichello,,Brazilian,2009,Australian Grand Prix,2009-03-29,1,Brawn,2,84.783,2,89.066,0,8.0,2
+7485,Ralf Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Williams,11,92.22,3,,0,4.0,3
+7486,Nick Heidfeld,,German,2000,Australian Grand Prix,2000-03-12,158,Prost,15,93.024,9,,0,0.0,9
+7487,Marc Gené,,Spanish,2000,Australian Grand Prix,2000-03-12,158,Minardi,18,93.261,8,,0,0.0,8
+7488,Rubens Barrichello,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,Ferrari,4,91.102,2,,0,6.0,2
+7489,Michael Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Ferrari,3,91.075,1,,1,10.0,1
+7490,Jacques Villeneuve,,Canadian,2000,Australian Grand Prix,2000-03-12,158,BAR,8,91.968,4,,0,3.0,4
+7491,Ricardo Zonta,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,BAR,16,93.11699999999999,6,,0,1.0,6
+7492,Giancarlo Fisichella,,Italian,2000,Australian Grand Prix,2000-03-12,158,Benetton,9,91.992,5,,0,2.0,5
+7493,Alexander Wurz,,Austrian,2000,Australian Grand Prix,2000-03-12,158,Benetton,14,92.775,7,,0,0.0,7
+7494,Ralf Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Williams,8,92.691,3,,0,4.0,3
+7495,Heinz-Harald Frentzen,,German,1999,Australian Grand Prix,1999-03-07,175,Jordan,5,92.27600000000001,2,,0,6.0,2
+7496,Michael Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Ferrari,3,91.781,8,,0,0.0,8
+7497,Eddie Irvine,,British,1999,Australian Grand Prix,1999-03-07,175,Ferrari,6,92.289,1,,1,10.0,1
+7498,Giancarlo Fisichella,,Italian,1999,Australian Grand Prix,1999-03-07,175,Benetton,7,92.53999999999999,4,,0,3.0,4
+7499,Rubens Barrichello,,Brazilian,1999,Australian Grand Prix,1999-03-07,175,Stewart,4,92.148,5,,0,2.0,5
+7500,Pedro de la Rosa,,Spanish,1999,Australian Grand Prix,1999-03-07,175,Arrows,18,94.244,6,,0,1.0,6
+7501,Toranosuke Takagi,,Japanese,1999,Australian Grand Prix,1999-03-07,175,Arrows,17,94.182,7,,0,0.0,7
+>>>>>>> 3daa4218d1eb8c87d8bf70278901719e210e8789
