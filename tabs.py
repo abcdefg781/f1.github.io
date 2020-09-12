@@ -29,6 +29,33 @@ server = app.server
 app.title = "Formulae 1"
 warnings.filterwarnings("ignore")
 
+app.index_string = """<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91329217-3"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-91329217-3');
+            </script>
+        {%metas%}
+        <title>{%title%}</title>
+        {%favicon%}
+        {%css%}
+    </head>
+    <body>
+        {%app_entry%}
+        <footer>
+            {%config%}
+            {%scripts%}
+            {%renderer%}
+        </footer>
+    </body>
+</html>"""
+
 ################################################################
 # Import data and Functions
 # Import all the data
@@ -41,8 +68,8 @@ races_df.sort_values(by=['year','raceId'],inplace=True,ascending=False)
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 standings_df = pd.read_csv("./f1db_csv/driver_standings.csv").drop(columns=['wins','position','positionText'])
-raw_predictions_df = pd.read_csv("./predictions/be_2020_raw_predictions.csv").iloc[:, 1:]
-pr_predictions_df = pd.read_csv("./predictions/be_2020_pr_predictions.csv").iloc[:, 1:]
+raw_predictions_df = pd.read_csv("./predictions/it_2020_raw_predictions.csv").iloc[:, 1:]
+# pr_predictions_df = pd.read_csv("./predictions/it_2020_pr_predictions.csv").iloc[:, 1:]
 
 # Clean some names and create new variables
 # drivers_df
@@ -336,7 +363,7 @@ app.layout = dbc.Container(
             [
                 dbc.Tab(label="Home", tab_id="home", children = [
                         html.Br(),
-                        html.P("Welcome to F1Data.io. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
+                        html.P("Welcome to formulae.one. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
                         dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
                         dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
                     ]),
@@ -400,8 +427,8 @@ app.layout = dbc.Container(
                 ]),
                 dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
                         dcc.Markdown('''
-                            ## Predictions for the 2020 Spanish Grand Prix   
-                            The predictive models are updated every week after qualifying and before the race. There are two models, one based on raw data and the other based on processed data to utilize weighted averages over the course of the season. The two models are provided as a means of comparison. Both models use an XGBoost algorithm to predict driver results.
+                            ## Predictions for the 2020 Italian Grand Prix   
+                            The predictive model is updated every week after qualifying and before the race. The model uses an XGBoost algorithm to predict driver finishing position based on their qualifying performance, performance from previous races, driver and constructor standing, and weather.
                         '''),
                         html.Br(),
                         dcc.Markdown('''
@@ -433,40 +460,40 @@ app.layout = dbc.Container(
                         ],
                         style = {'width': '40%', 'margin' : 'auto'}
                         ),  
-                        html.Br(),
-                        dcc.Markdown('''
-                            *Predictions with Feature Engineering*  
-                            For the model with "processed" data, the qualifying results and fastest lap times were turned into ratios based on the driver with pole position for that race, and the driver with the fastest lap time in the previous race. A rolling average was then created from these ratios for the previous races on the season in order to "reduce the punishment" to drivers who did not perform well in the race occuring right before the one being predicted.
-                        '''),
-                        html.Br(),
-                        html.Div(children = [
-                            dash_table.DataTable(
-                            id = "pr_preds",
-                            columns=[{"name": i, "id": i} for i in pr_predictions_df.columns],
-                            data=pr_predictions_df.to_dict("rows"),
-                            style_table={'maxWidth': '100%'},
-                            style_header={'backgroundColor': 'rgb(30, 30, 30)', 
-                                #'whiteSpace': 'normal',
-                                'height': 'auto',
-                                #'width' : '20px'
-                            },
-                            style_cell={
-                                'backgroundColor': 'rgb(50, 50, 50)',
-                                'color': 'white',
-                                #'width' : '20px'
-                            },
-                            style_cell_conditional=[{
-                                'textAlign': 'center'
-                            }],
-                            style_as_list_view=True,
-                            ),
-                        ],
-                        style = {'width': '40%', 'margin' : 'auto'}
-                        ),
-                        html.Br(),
-                        dcc.Markdown('''
-                            There is a discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
-                        '''),   
+                        # html.Br(),
+                        # dcc.Markdown('''
+                        #     *Predictions with Feature Engineering*  
+                        #     For the model with "processed" data, the qualifying results and fastest lap times were turned into ratios based on the driver with pole position for that race, and the driver with the fastest lap time in the previous race. A rolling average was then created from these ratios for the previous races on the season in order to "reduce the punishment" to drivers who did not perform well in the race occuring right before the one being predicted.
+                        # '''),
+                        # html.Br(),
+                        # html.Div(children = [
+                        #     dash_table.DataTable(
+                        #     id = "pr_preds",
+                        #     columns=[{"name": i, "id": i} for i in pr_predictions_df.columns],
+                        #     data=pr_predictions_df.to_dict("rows"),
+                        #     style_table={'maxWidth': '100%'},
+                        #     style_header={'backgroundColor': 'rgb(30, 30, 30)', 
+                        #         #'whiteSpace': 'normal',
+                        #         'height': 'auto',
+                        #         #'width' : '20px'
+                        #     },
+                        #     style_cell={
+                        #         'backgroundColor': 'rgb(50, 50, 50)',
+                        #         'color': 'white',
+                        #         #'width' : '20px'
+                        #     },
+                        #     style_cell_conditional=[{
+                        #         'textAlign': 'center'
+                        #     }],
+                        #     style_as_list_view=True,
+                        #     ),
+                        # ],
+                        # style = {'width': '40%', 'margin' : 'auto'}
+                        # ),
+                        # html.Br(),
+                        # dcc.Markdown('''
+                        #     There is a discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
+                        # '''),   
                 ]),
                 dbc.Tab(label = "Contact", tab_id="contact", children = [
                         html.Br(),

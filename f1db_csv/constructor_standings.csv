@@ -12385,8 +12385,6 @@ constructorStandingsId,raceId,constructorId,points,position,positionText,wins
 27550,1037,3,0,10,"10",0
 27551,1037,9,158,2,"2",1
 27552,1037,210,1,9,"9",0
-<<<<<<< HEAD
-=======
 27553,1038,131,281,1,"1",6
 27554,1038,6,61,6,"6",0
 27555,1038,1,98,3,"3",0
@@ -12397,4 +12395,3 @@ constructorStandingsId,raceId,constructorId,points,position,positionText,wins
 27560,1038,3,0,10,"10",0
 27561,1038,9,158,2,"2",1
 27562,1038,210,1,9,"9",0
->>>>>>> 3daa4218d1eb8c87d8bf70278901719e210e8789
