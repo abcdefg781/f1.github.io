@@ -245,7 +245,7 @@ class dataContainer:
 
         fig = go.Figure()
         for i in range(len(df_team_grouped)):
-            df_team_grouped[i].loc[df_team_grouped[i]['delta'].abs()>300] = np.nan
+            df_team_grouped[i].loc[df_team_grouped[i]['delta'].abs()>500] = np.nan
             df_grouped = [y for x,y in df_team_grouped[i].groupby('driverName',as_index=False)]
             for j in range(len(df_grouped)):
                 df_driver = df_grouped[j]
