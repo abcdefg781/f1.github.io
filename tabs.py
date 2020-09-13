@@ -138,7 +138,7 @@ class dataContainer:
         df_team_grouped = [y for x,y in self.race_table.groupby('constructorRef',as_index=False)]
 
         for i in range(len(df_team_grouped)):
-            df_team_grouped[i].loc[df_team_grouped[i]['seconds']>300] = np.nan
+            df_team_grouped[i].loc[df_team_grouped[i]['seconds']>300,'seconds'] = np.nan
             df_grouped = [y for x,y in df_team_grouped[i].groupby('driverName',as_index=False)]
             for j in range(len(df_grouped)):
                 df_driver = df_grouped[j]
@@ -191,6 +191,10 @@ class dataContainer:
                 df_3['hovertext2'][i] = driver1+' is faster than '+driver2+' by '+ time +' seconds this lap'
             else:
                 df_3['hovertext2'][i] = driver1+' is slower than '+driver2+' by '+time+' seconds this lap'
+
+        df_3.loc[df_3['delta'].abs()>500,'delta'] = np.nan
+        df_3.loc[df_3['cumdelta'].abs()>500,'cumdelta'] = np.nan
+
 
         fig = go.Figure()
         fig.add_trace(go.Scatter(x = df_3['lap'], y = df_3['delta'],mode='lines',name='Lap Delta',customdata=df_3['hovertext2'],hovertemplate=
@@ -245,7 +249,7 @@ class dataContainer:
 
         fig = go.Figure()
         for i in range(len(df_team_grouped)):
-            df_team_grouped[i].loc[df_team_grouped[i]['delta'].abs()>500] = np.nan
+            df_team_grouped[i].loc[df_team_grouped[i]['delta'].abs()>500,'delta'] = np.nan
             df_grouped = [y for x,y in df_team_grouped[i].groupby('driverName',as_index=False)]
             for j in range(len(df_grouped)):
                 df_driver = df_grouped[j]

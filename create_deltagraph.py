@@ -40,7 +40,7 @@ def create_race_table(year, race_name):
     color_palette = pd.Series(colored_df.color.values, index = colored_df.driverName).to_dict()
     return df_4, races_temp, color_palette,colored_df
 
-race_table,races_temp,color_palette,color_df = create_race_table(2020,'Italian Grand Prix')
+race_table,races_temp,color_palette,color_df = create_race_table(2020,'Tuscan Grand Prix')
 print(color_df)
 def plotDeltaGraph(deltaType):
         df_grouped = [y for x,y in race_table.groupby('driverName',as_index=False)]
@@ -76,6 +76,7 @@ def plotDeltaGraph(deltaType):
 
         fig = go.Figure()
         for i in range(len(df_team_grouped)):
+            df_team_grouped[i].loc[df_team_grouped[i]['delta'].abs()>500] = np.nan
             df_grouped = [y for x,y in df_team_grouped[i].groupby('driverName',as_index=False)]
             for j in range(len(df_grouped)):
                 df_driver = df_grouped[j]
@@ -95,14 +96,14 @@ def plotDeltaGraph(deltaType):
         #fig.update_layout(xaxis=dict(range=[1,64.9]))
         fig.update_layout(
             title={
-                'text': "Relative to Hamilton",
+                'text': "Relative to Albon",
                 'y':0.95,
                 'x':0.5,
                 'xanchor': 'center',
                 'yanchor': 'top'})
-        fig.write_image("fig2.jpg",width=1200,height=600,scale=5)
+        fig.write_image("fig3.jpg",width=1200,height=600,scale=5)
         fig.show()
         #plotly.offline.plot(fig, filename= "Deltaplot2")
 
-plotDeltaGraph('Lewis Hamilton')
+plotDeltaGraph('Alexander Albon')
 
