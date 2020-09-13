@@ -68,7 +68,7 @@ races_df.sort_values(by=['year','raceId'],inplace=True,ascending=False)
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 standings_df = pd.read_csv("./f1db_csv/driver_standings.csv").drop(columns=['wins','position','positionText'])
-raw_predictions_df = pd.read_csv("./predictions/it_2020_raw_predictions.csv").iloc[:, 1:]
+raw_predictions_df = pd.read_csv("./predictions/tu_2020_predictions.csv").iloc[:, 1:]
 # pr_predictions_df = pd.read_csv("./predictions/it_2020_pr_predictions.csv").iloc[:, 1:]
 
 # Clean some names and create new variables
@@ -381,7 +381,7 @@ app.layout = dbc.Container(
                                 dcc.Dropdown(className='div-for-dropdown',id='year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
                             ),
                             dbc.Col(
-                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Spanish Grand Prix',clearable=False)
+                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Tuscan Grand Prix',clearable=False)
                             )
                         ]),
                         dcc.Graph(className='div-for-charts',id='my-output',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
@@ -433,14 +433,14 @@ app.layout = dbc.Container(
                 ]),
                 dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
                         dcc.Markdown('''
-                            ## Predictions for the 2020 Italian Grand Prix   
+                            ## Predictions for the 2020 Tuscan Grand Prix   
                             The predictive model is updated every week after qualifying and before the race. The model uses an XGBoost algorithm to predict driver finishing position based on their qualifying performance, performance from previous races, driver and constructor standing, and weather.
                         '''),
-                        html.Br(),
-                        dcc.Markdown('''
-                            *Predictions Based on Raw Data*  
-                            The model based on "raw" data, or the original variables from the F1 Ergast Data, predict the average lap time in a race for each driver based on current conditions such as weather and constructor, qualifying results, and results from the previous race. Because the raw data model relies so heavily on data from the race occuring right before it, instances where drivers DNF tend to perform poorly in the model.
-                        '''),
+                        # html.Br(),
+                        # dcc.Markdown('''
+                        #     *Predictions Based on Raw Data*  
+                        #     The model based on "raw" data, or the original variables from the F1 Ergast Data, predict the average lap time in a race for each driver based on current conditions such as weather and constructor, qualifying results, and results from the previous race. Because the raw data model relies so heavily on data from the race occuring right before it, instances where drivers DNF tend to perform poorly in the model.
+                        # '''),
                         html.Br(),
                         html.Div(children = [
                             dash_table.DataTable(
