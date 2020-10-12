@@ -373,7 +373,7 @@ app.layout = dbc.Container(
                         dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
                         dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
                     ]),
-                dbc.Tab(label="Driver Comparison", tab_id="driver_comp", children = [
+                dbc.Tab(label="Race Analysis", tab_id="driver_comp", children = [
                         html.Br(),
                         html.P('Select a year and race to view all charts on this page based on that race. The graph directly below shows the lap times in seconds for each driver as the race progresses. Slower lap times often indicate pit lane stops, safety cars, or incidents and drivers dropping out.'),
                         dbc.Row([
