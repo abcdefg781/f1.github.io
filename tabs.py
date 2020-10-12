@@ -134,14 +134,21 @@ class dataContainer:
         # for i in range(len(df_grouped)):
         #   driverName = df_grouped[i]['driverName'].iloc[0]
         #   fig.add_trace(go.Scatter(x = df_grouped[i]['lap'], y = df_grouped[i]['seconds'],mode='lines',name=driverName))
+        
 
         df_team_grouped = [y for x,y in self.race_table.groupby('constructorRef',as_index=False)]
+        avg_laptime_overall = self.race_table['seconds'].median()
 
         for i in range(len(df_team_grouped)):
             df_team_grouped[i].loc[df_team_grouped[i]['seconds']>300,'seconds'] = np.nan
+            
             df_grouped = [y for x,y in df_team_grouped[i].groupby('driverName',as_index=False)]
             for j in range(len(df_grouped)):
                 df_driver = df_grouped[j]
+                avg_laptime = df_driver['seconds'].median()
+                if self.filter == 1:
+                    df_driver.loc[df_driver['seconds']>1.02*avg_laptime,'seconds'] = np.nan
+                    df_driver.loc[df_driver['seconds']>1.2*avg_laptime_overall,'seconds'] = np.nan
                 name = df_driver['driverName'].iloc[0]
                 color = self.colored_df[self.colored_df.driverName==name]['color'].iloc[0]
                 if j == 0:
@@ -375,7 +382,7 @@ app.layout = dbc.Container(
                     ]),
                 dbc.Tab(label="Race Analysis", tab_id="driver_comp", children = [
                         html.Br(),
-                        html.P('Select a year and race to view all charts on this page based on that race. The graph directly below shows the lap times in seconds for each driver as the race progresses. Slower lap times often indicate pit lane stops, safety cars, or incidents and drivers dropping out.'),
+                        html.P('Select a year and race to view all charts on this page based on that race. The graph directly below shows the lap times in seconds for each driver as the race progresses. Slower lap times often indicate pit lane stops, safety cars, or incidents and drivers dropping out. These can be filtered out using the selection below.'),
                         dbc.Row([
                             dbc.Col(
                                 dcc.Dropdown(className='div-for-dropdown',id='year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
@@ -383,6 +390,15 @@ app.layout = dbc.Container(
                             dbc.Col(
                                 dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Eifel Grand Prix',clearable=False)
                             )
+                        ]),
+                        dbc.Row([
+                            dbc.Col(
+                                html.P("Filter out slow laps (pit stops/safety car/accidents/retirements):")),
+                            dbc.Col(
+                                dcc.Dropdown(className='div-for-dropdown',id='filter',value=0,clearable=False,options=[{'label': 'True', 'value': 1},{'label': 'False', 'value': 0}])
+                            ),
+                            dbc.Col(),
+                            dbc.Col()
                         ]),
                         dcc.Graph(className='div-for-charts',id='my-output',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
                         html.Br(),
@@ -568,10 +584,11 @@ app.layout = dbc.Container(
 # App Callback
 @app.callback(
     [Output(component_id='my-output', component_property='figure'),Output(component_id='driver1', component_property='options'),Output(component_id='driver2', component_property='options'),Output(component_id='race_name', component_property='options'), Output(component_id='deltaType', component_property='options')],
-    [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value')]
+    [Input(component_id='year', component_property='value'), Input(component_id='race_name', component_property='value'),Input(component_id='filter',component_property='value')]
 )
-def update_race_graph(year, race_name):
+def update_race_graph(year, race_name,filterVal):
     dataContainer.race_table,dataContainer.year_races,dataContainer.color_palette,dataContainer.colored_df = create_race_table(year,race_name)
+    dataContainer.filter = filterVal
     drivers = dataContainer.getDriverNames()
     race_names = dataContainer.getRaceNames()
     driver_dict = [{'label': i, 'value': i} for i in drivers]
