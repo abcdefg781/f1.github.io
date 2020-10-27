@@ -388,7 +388,7 @@ app.layout = dbc.Container(
                                 dcc.Dropdown(className='div-for-dropdown',id='year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
                             ),
                             dbc.Col(
-                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Eifel Grand Prix',clearable=False)
+                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Portuguese Grand Prix',clearable=False)
                             )
                         ]),
                         dbc.Row([
