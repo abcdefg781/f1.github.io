@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
+import plotly
 from plotly import tools as tls
 from dash.dependencies import Input, Output, State
 import datetime as dt
@@ -21,6 +22,10 @@ import os
 import copy
 import warnings
 import json
+
+#imports for lap sim
+from smt.surrogate_models import RBF
+
 
 BS = "https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css"
 app = dash.Dash(__name__, external_stylesheets = [dbc.themes.BOOTSTRAP])
@@ -99,6 +104,17 @@ quali_form_df['date'] = pd.to_datetime(quali_form_df['date'])
 #quali_form_df = driver_history_df.merge(minlap_df,on='raceId')
 driver_history_df.drop(columns='raceId',inplace=True)
 
+#rbf graph df
+#rbf_df = pd.read_csv("./rbf_csv/rbfoutput.csv",header=None)
+s_df = pd.read_csv("./rbf_csv/s.csv",header=None)
+yt = pd.read_csv("./rbf_csv/yt.csv",header=None).to_numpy()
+xt = pd.read_csv("./rbf_csv/xt.csv",header=None).to_numpy()
+
+
+#slider values
+lbounds = np.array([1.2,600000,2.0,0.8])
+ubounds = np.array([2.4,1000000,6.0,2.0])
+
 def create_race_table(year, race_name):
     races_temp = races_df[races_df.year == year]
     race_id = int(races_temp.raceId[races_temp.name == race_name])
@@ -121,9 +137,12 @@ def create_driver_table(driver_name_1):
 
 class dataContainer:
     def __init__(self):
-        self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2020, "British Grand Prix")
+        self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2020, "Turkish Grand Prix")
         self.driver_history_table = create_driver_table("Lewis Hamilton")
         self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
+        self.sm = RBF(d0=5.0)
+        self.sm.set_training_values(xt,yt)
+        self.sm.train()
 
     def plotRaceGraph(self):
         #fig = px.line(self.race_table, x = "lap", y = "seconds", color = "driverName", hover_name = "driverName", hover_data = {"driverName" : False, "constructorRef" : True}, 
@@ -162,7 +181,9 @@ class dataContainer:
         fig.update_layout(plot_bgcolor="#323130",
             paper_bgcolor="#323130",font=dict(color="white"),
             xaxis_title="Lap",
-            yaxis_title="Lap time (s)")
+            yaxis_title="Lap time (s)",
+            margin = dict(l=20,r=20,t=20,b=20)
+            )
 
         
         # fig.update_yaxes(automargin=True)
@@ -211,10 +232,16 @@ class dataContainer:
 
 
         fig.update_layout(
-            title='Gap from '+driver1+' to '+driver2,
+            title={
+                'text': 'Gap from '+driver1+' to '+driver2,
+                'y':0.95,
+                'x':0.5,
+                'xanchor': 'center',
+                'yanchor': 'top'},
             xaxis_title="Lap",
             yaxis_title="Delta (s)",
-            hovermode="x unified"
+            hovermode="x unified",
+            margin = dict(l=20,r=20,t=40,b=20)
             )
 
         fig.update_layout(plot_bgcolor="#323130",
@@ -287,6 +314,7 @@ class dataContainer:
                 'x':0.5,
                 'xanchor': 'center',
                 'yanchor': 'top'})
+        fig.update_layout(margin = dict(l=20,t=40,r=20,b=20))
         fig.update_yaxes(automargin=True)
         return fig
 
@@ -310,7 +338,8 @@ class dataContainer:
         fig.update_layout(plot_bgcolor="#323130",
                 paper_bgcolor="#323130",font=dict(color="white"),
                 xaxis_title="Date",
-                yaxis_title="Qualifying lap time ratio"
+                yaxis_title="Qualifying lap time ratio",
+                margin = dict(l=20,r=20,t=20,b=20)
                 )
         fig.update_yaxes(automargin=True)
         return fig
@@ -340,7 +369,8 @@ class dataContainer:
         fig.update_layout(plot_bgcolor="#323130",
                 paper_bgcolor="#323130",font=dict(color="white"),
                 xaxis_title="Date",
-                yaxis_title="Championship Points"
+                yaxis_title="Championship Points",
+                margin = dict(l=20,r=20,t=20,b=20)
                 )
         fig.update_xaxes(ticktext=year_races['name'],tickvals=year_races['round'],tickangle=45)
         fig.update_yaxes(automargin=True)
@@ -360,6 +390,52 @@ class dataContainer:
 
     def getAllDriverNames(self):
         return self.driver_history_table.driverName.unique()
+
+    def plotTraceGraph(self,x,state):
+        s = s_df.iloc[0]
+
+        if state == 0:
+            ylabel = 'Velocity (m/s)'
+        elif state == 1:
+            ylabel = 'Time (s)'
+        else:
+            ylabel = 'Distance from centerline (m)'
+        
+        num_nodes = len(s)
+
+        fig = go.Figure()
+
+        for i in range(yt.shape[0]):
+            y = yt[i,num_nodes*(state):num_nodes*(state+1)]
+            line = go.Scatter(x=s,y=y,opacity=0.1,line=dict(color='royalblue', width=1),hoverinfo='skip')
+            fig.add_trace(line)
+
+        # #look for row with the values of x
+        # y = rbf_df.loc[(rbf_df.iloc[:,0]==x[0]) & (rbf_df.iloc[:,1]==x[1]) & (rbf_df.iloc[:,2]==x[2]) & (rbf_df.iloc[:,3]==x[3])]
+        # y = y.iloc[0,4:].to_numpy()
+        # y = y[num_nodes*(state):num_nodes*(state+1)]
+
+        x = np.array(x)/ubounds
+        x = np.reshape(x,(1,4))
+        y = self.sm.predict_values(x)[0][num_nodes*(state):num_nodes*(state+1)]
+
+
+        line = go.Scatter(x=s,y=y,mode='lines',line=dict(color='deepskyblue', width=4),name=ylabel)
+        fig.add_trace(line)
+
+        
+        
+        fig.update_layout(plot_bgcolor="#323130",
+            paper_bgcolor="#323130",font=dict(color="white"),
+            xaxis_title="Distance along track (m)",
+            yaxis_title=ylabel,
+            showlegend=False,
+            hovermode='x unified',
+            margin = dict(l=20,r=20,t=20,b=20)
+
+            )
+        
+        return fig
 
 #dataContainer object creation
 dataContainer = dataContainer()
@@ -516,6 +592,47 @@ app.layout = dbc.Container(
                         # dcc.Markdown('''
                         #     There is a discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
                         # '''),   
+                ]),
+                dbc.Tab(label="Lap simulation",tab_id="sim",children= [
+                    html.Br(),
+                    dbc.Row([
+                        dbc.Col([
+                            html.Div(children=[
+                                html.Div(id='slider1text'),
+                                dcc.Slider(id='slider1',min=lbounds[0],max=ubounds[0],step=ubounds[0]/100,value=(ubounds[0]+lbounds[0])/2)
+                            ])
+                        ]),
+                        dbc.Col([
+                            html.Div(children=[
+                                html.Div(id='slider2text'),
+                                dcc.Slider(id='slider2',min=lbounds[1],max=ubounds[1],step=ubounds[1]/100,value=(ubounds[1]+lbounds[1])/2)
+                            ])
+                        ])
+                    ]),
+                    dbc.Row([
+                        dbc.Col([
+                            html.Div(children=[
+                                html.Div(id='slider3text'),
+                                dcc.Slider(id='slider3',min=lbounds[2],max=ubounds[2],step=ubounds[2]/100,value=(ubounds[2]+lbounds[2])/2)
+                            ])
+                        ]),
+                        dbc.Col([
+                            html.Div(children=[
+                                html.Div(id='slider4text'),
+                                dcc.Slider(id='slider4',min=lbounds[3],max=ubounds[3],step=ubounds[3]/100,value=(ubounds[3]+lbounds[3])/2)
+                            ])
+                        ])
+                    ]),
+                    dbc.Row([
+                        dbc.Col([
+                            html.P('Select a data trace to display:')
+                        ]),
+                        dbc.Col([
+                            dcc.Dropdown(id='traceradio',options=[{'label':'Velocity','value':0},{'label':'Time','value':1},{'label':'Position','value':2}],value=0)
+                        ])
+                    ]),
+                    html.Br(),
+                    dcc.Graph(className='div-for-charts',id='lapSimGraph')
                 ]),
                 dbc.Tab(label = "Contact", tab_id="contact", children = [
                         html.Br(),
@@ -748,6 +865,17 @@ def submit_form(n_clicks, name, email, text):
         # server.close()
         submit_message = str("   Your comment has been submitted. Thank you!")
         return submit_message
+
+@app.callback(
+    [Output(component_id='lapSimGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children'),Output(component_id='slider4text',component_property='children')],
+    [Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='slider4', component_property='value'),Input(component_id='traceradio',component_property='value')]
+)
+def update_trace_graph(val1,val2,val3,val4,radioval):
+    str1 = 'Center of pressure (front): '+str(np.round(val1,3))+' m'
+    str2 = 'Maximum power: '+str(np.round(val2,3))+' W'
+    str3 = 'Lift coefficient (ClA): '+str(np.round(val3,3))
+    str4 = 'Drag coefficient (CdA): '+str(np.round(val4,3))
+    return [dataContainer.plotTraceGraph([val1,val2,val3,val4],radioval),str1,str2,str3,str4]
 
 ################################################################
 # Load to Dash
