@@ -162,10 +162,14 @@ class dataContainer:
 
 		V = yt[:,0:self.num_nodes]
 		self.trackColorScale = [np.amin(V)-5,np.amax(V)+5]
+		self.trackDeltaColorScale = [-20,20]
 		self.s = s_df.iloc[0].to_numpy()
 
 		self.cmap = mpl.cm.get_cmap('jet')
 		self.norm = mpl.colors.Normalize(vmin=self.trackColorScale[0],vmax=self.trackColorScale[1])
+
+		x = (ubounds+lbounds)/2
+		self.baseliney = self.sm.getGuess(x)
 	
 	def updateTrack(self,track):
 		self.track = track
@@ -470,15 +474,23 @@ class dataContainer:
 		
 		return fig
 
-	def plotTrackGraph(self):
+	def plotTrackGraph(self,absolute,xaxisrange=None,yaxisrange=None):
 		y = self.y
 		num_nodes = self.num_nodes
 		func_index = 2
 		n = y[num_nodes*(func_index):num_nodes*(func_index+1)]
 		func_index = 0
 		V = y[num_nodes*(func_index):num_nodes*(func_index+1)]
-
-		line_array = self.plotTrackWithData(n,V)
+		baselineV = self.baseliney[num_nodes*(func_index):num_nodes*(func_index+1)]
+		if xaxisrange is not None:
+			markersize = np.maximum(20-((xaxisrange[1]-xaxisrange[0])*0.015),4)
+		else:
+			markersize = 4
+		print(markersize)
+		if absolute==0:
+			line_array = self.plotTrackWithData(n,V,markersize=markersize)
+		else:
+			line_array = self.plotTrackWithData(n,V,baselineV,markersize=markersize)
 
 		n1 = self.trackWidth/2 * np.ones(len(self.finespline[0]))
 		n2 = -self.trackWidth/2 * np.ones(len(self.finespline[0]))
@@ -490,7 +502,11 @@ class dataContainer:
 		fig = go.Figure()
 		line = go.Scatter(x=displacedSpline1[0],y=displacedSpline1[1],mode='lines',line=dict(color='white', width=2),hoverinfo='skip')
 		fig.add_trace(line)
+		line = go.Scatter(x=displacedSpline1[0],y=displacedSpline1[1],mode='lines',line=dict(color='red', width=2,dash='dash'),hoverinfo='skip')
+		fig.add_trace(line)
 		line = go.Scatter(x=displacedSpline2[0],y=displacedSpline2[1],mode='lines',line=dict(color='white', width=2),hoverinfo='skip')
+		fig.add_trace(line)
+		line = go.Scatter(x=displacedSpline2[0],y=displacedSpline2[1],mode='lines',line=dict(color='red', width=2,dash='dash'),hoverinfo='skip')
 		fig.add_trace(line)
 
 		#plot racing line
@@ -507,12 +523,16 @@ class dataContainer:
 			#height=1000,
 			#width=self.aspect*1000)
 
-		fig.update_xaxes(showgrid=False, zeroline=False,showticklabels=False)
-		fig.update_yaxes(showgrid=False, zeroline=False,showticklabels=False)
+		if xaxisrange is not None:
+			fig.update_xaxes(showgrid=False, zeroline=False,showticklabels=False,range=xaxisrange)
+			fig.update_yaxes(showgrid=False, zeroline=False,showticklabels=False,range=yaxisrange)
+		else:
+			fig.update_xaxes(showgrid=False, zeroline=False,showticklabels=False)
+			fig.update_yaxes(showgrid=False, zeroline=False,showticklabels=False)
 
 		return fig
 
-	def plotTrackWithData(self,n,state):
+	def plotTrackWithData(self,n,state,baselinestate=None,markersize=4):
 		s = self.s
 		finespline = self.finespline
 		s_final = self.trackLength
@@ -552,7 +572,11 @@ class dataContainer:
 
 			x = s_spline
 			xp = np.array([s[index_less],s[index_greater]])
-			fp = np.array([state[index_less],state[index_greater]])
+			if baselinestate is not None:
+				fp = np.array([state[index_less]-baselinestate[index_less],state[index_greater]-baselinestate[index_greater]])
+			else:
+				fp = np.array([state[index_less],state[index_greater]])
+			
 			interp_state = np.interp(x,xp,fp)
 			interp_state_array[i] = interp_state
 
@@ -564,13 +588,19 @@ class dataContainer:
 			# prevpoint = [displacedSpline[0][i-1],displacedSpline[1][i-1]]
 			
 			#line_array.append(go.Scatter(x=[point[0],prevpoint[0]],y=[point[1],prevpoint[1]],line=dict(color=color,width=1),hoverinfo='skip',mode='lines'))
+		if baselinestate is not None:
+			cmax = self.trackDeltaColorScale[1]
+			cmin = self.trackDeltaColorScale[0]
+		else:
+			cmax = self.trackColorScale[1]
+			cmin = self.trackColorScale[0]
 		line_array.append(go.Scatter(x=displacedSpline[0],y=displacedSpline[1],marker=dict(
-			size=4,
-			cmax=self.trackColorScale[1],
-			cmin=self.trackColorScale[0],
+			size=markersize,
+			cmax=cmax,
+			cmin=cmin,
 			color=interp_state_array,
 			colorbar=dict(title="Velocity (m/s)"),
-			colorscale="Viridis"),
+			colorscale="rainbow"),
 			customdata=np.vstack((interp_state_array,s_new)).T,
 			hovertemplate = 'Velocity: %{customdata[0]: .2f} m/s<br>Distance: %{customdata[1]:.2f} m<extra></extra>',
 			mode='markers'))
@@ -737,6 +767,10 @@ app.layout = dbc.Container(
 				]),
 				dbc.Tab(label="Lap simulation",tab_id="sim",children= [
 					html.Br(),
+					html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
+					html.P('A telemetry plot is displayed below, with a choice of which data trace to display. Below that, the optimal racing line of the vehicle is shown, colored by the velocity. The user can choose between the absolute velocity, and a velocity relative to a vehicle with mid-range design variables. Currently the Bahrain GP track is used, but in the future more tracks will be added for evaluation.'),
+					html.Br(),
+					html.P('Select design variables:'),
 					dbc.Row([
 						dbc.Col([
 							html.Div(children=[
@@ -749,33 +783,28 @@ app.layout = dbc.Container(
 								html.Div(id='slider2text'),
 								dcc.Slider(id='slider2',min=lbounds[1],max=ubounds[1],step=ubounds[1]/100,value=(ubounds[1]+lbounds[1])/2)
 							])
-						])
-					]),
-					dbc.Row([
+						]),
 						dbc.Col([
 							html.Div(children=[
 								html.Div(id='slider3text'),
 								dcc.Slider(id='slider3',min=lbounds[2],max=ubounds[2],step=ubounds[2]/100,value=(ubounds[2]+lbounds[2])/2)
 							])
-						]),
-						dbc.Col([
-							html.Div(children=[
-								html.Div(id='slider4text'),
-								#dcc.Slider(id='slider4',min=lbounds[3],max=ubounds[3],step=ubounds[3]/100,value=(ubounds[3]+lbounds[3])/2)
-							])
 						])
 					]),
 					dbc.Row([
 						dbc.Col([
-							html.P('Select a data trace to display:')
+							html.P('Select a data trace to display:'),
+							dcc.Dropdown(id='traceradio',options=[{'label':'Velocity','value':0},{'label':'Time','value':1},{'label':'Distance from centerline','value':2}],value=0)
 						]),
 						dbc.Col([
-							dcc.Dropdown(id='traceradio',options=[{'label':'Velocity','value':0},{'label':'Time','value':1},{'label':'Position','value':2}],value=0)
+							html.P('Select relative/absolute data for the track plot:'),
+							dcc.Dropdown(id='deltaabs',options=[{'label':'Absolute','value':0},{'label':'Relative','value':1}],value=0)
 						])
 					]),
 					html.Br(),
 					dcc.Graph(className='div-for-charts',id='lapSimGraph'),
 					html.Br(),
+					html.Div(id='testdiv'),
 					dcc.Graph(id='trackGraph',style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
 				]),
 				dbc.Tab(label = "Contact", tab_id="contact", children = [
@@ -1012,16 +1041,25 @@ def submit_form(n_clicks, name, email, text):
 
 @app.callback(
 	[Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children')],
-	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value')]
+	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input('trackGraph', 'relayoutData')]
 )
-def update_track_graph(val1,val2,val3):
+def update_track_graph(val1,val2,val3,absolute,relayoutData):
 	#str1 = 'Center of pressure (front): '+str(np.round(val1,3))+' m'
 	str1 = 'Maximum power: '+str(np.round(val1,3))+' W'
 	str2 = 'Lift coefficient (ClA): '+str(np.round(val2,3))
 	str3 = 'Drag coefficient (CdA): '+str(np.round(val3,3))
 	x = [val1,val2,val3]
 	dataContainer.updateRBF(x)
-	return [dataContainer.plotTrackGraph(),str1,str2,str3]
+
+	keys = ['xaxis.range[0]','xaxis.range[1]','yaxis.range[0]','yaxis.range[1]']
+	
+	if relayoutData is not None and keys[0] in relayoutData:
+		xaxisrange = [relayoutData[keys[0]],relayoutData[keys[1]]]
+		yaxisrange = [relayoutData[keys[2]],relayoutData[keys[3]]]
+		fig = dataContainer.plotTrackGraph(absolute,xaxisrange,yaxisrange)
+	else:
+		fig = dataContainer.plotTrackGraph(absolute)
+	return [fig,str1,str2,str3]
 
 @app.callback(
 	Output(component_id='lapSimGraph',component_property='figure'),
@@ -1029,6 +1067,21 @@ def update_track_graph(val1,val2,val3):
 )
 def update_trace_graph(radioval,val1,val2,val3):
 	return dataContainer.plotTraceGraph(radioval)
+
+# @app.callback(
+# 	Output(component_id='trackGraph',component_property='figure'),
+# 	[Input('trackGraph', 'relayoutData'),Input(component_id='deltaabs',component_property='value')]
+# )
+# def display_relayout_data(relayoutData,absolute):
+# 	print(relayoutData)
+# 	keys = ['xaxis.range[0]','xaxis.range[1]','yaxis.range[0]','yaxis.range[1]']
+	
+# 	if relayoutData is not None and keys[0] in relayoutData:
+# 		xaxisrange = [relayoutData[keys[0]],relayoutData[keys[1]]]
+# 		yaxisrange = [relayoutData[keys[2]],relayoutData[keys[3]]]
+# 		return dataContainer.plotTrackGraph(absolute,xaxisrange,yaxisrange)
+# 	else:
+# 		return dataContainer.plot
 
 ################################################################
 # Load to Dash
