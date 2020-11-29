@@ -58,6 +58,10 @@ def parametric_circle(t,xc,yc,R):
     y = yc + R*np.sin(t)
     return x,y
 
+def lerp(x,x0,x1,y0,y1):
+	y = y0+(x-x0)*((y1-y0)/(x1-x0))
+	return y
+
 def getSpline(points,interval=0.00001,s=0.3):
 	tck,u = interpolate.splprep(points.transpose(),s=s, k=5)
 	unew = np.arange(0, 1.0, interval)

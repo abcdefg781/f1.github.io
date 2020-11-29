@@ -31,7 +31,7 @@ import json
 #from smt.surrogate_models import RBF
 from RBF import RBF
 from linewidthhelper import linewidth_from_data_units
-from spline import getSpline,getTrackPoints,getGateNormals,reverseTransformGates,setGateDisplacements,transformGates,displaceSpline
+from spline import getSpline,getTrackPoints,getGateNormals,reverseTransformGates,setGateDisplacements,transformGates,displaceSpline,lerp
 from Track import Track
 import tracks
 
@@ -452,7 +452,7 @@ class dataContainer:
 		#Plot RBF data
 		for i in range(yt.shape[0]):
 			y = yt[i,num_nodes*(state):num_nodes*(state+1)]
-			line = go.Scatter(x=s,y=y,opacity=0.4,line=dict(color='royalblue', width=1),hoverinfo='skip')
+			line = go.Scatter(x=s,y=y,opacity=0.2,line=dict(color='royalblue', width=1),hoverinfo='skip')
 			fig.add_trace(line)
 
 		#RBF output
@@ -483,10 +483,9 @@ class dataContainer:
 		V = y[num_nodes*(func_index):num_nodes*(func_index+1)]
 		baselineV = self.baseliney[num_nodes*(func_index):num_nodes*(func_index+1)]
 		if xaxisrange is not None:
-			markersize = np.maximum(20-((xaxisrange[1]-xaxisrange[0])*0.015),4)
+			markersize = np.maximum(15-((xaxisrange[1]-xaxisrange[0])*0.01),4)
 		else:
 			markersize = 4
-		print(markersize)
 		if absolute==0:
 			line_array = self.plotTrackWithData(n,V,markersize=markersize)
 		else:
@@ -502,12 +501,12 @@ class dataContainer:
 		fig = go.Figure()
 		line = go.Scatter(x=displacedSpline1[0],y=displacedSpline1[1],mode='lines',line=dict(color='white', width=2),hoverinfo='skip')
 		fig.add_trace(line)
-		line = go.Scatter(x=displacedSpline1[0],y=displacedSpline1[1],mode='lines',line=dict(color='red', width=2,dash='dash'),hoverinfo='skip')
-		fig.add_trace(line)
+		#line = go.Scatter(x=displacedSpline1[0],y=displacedSpline1[1],mode='lines',line=dict(color='red', width=2,dash='dash'),hoverinfo='skip')
+		#fig.add_trace(line)
 		line = go.Scatter(x=displacedSpline2[0],y=displacedSpline2[1],mode='lines',line=dict(color='white', width=2),hoverinfo='skip')
 		fig.add_trace(line)
-		line = go.Scatter(x=displacedSpline2[0],y=displacedSpline2[1],mode='lines',line=dict(color='red', width=2,dash='dash'),hoverinfo='skip')
-		fig.add_trace(line)
+		#line = go.Scatter(x=displacedSpline2[0],y=displacedSpline2[1],mode='lines',line=dict(color='red', width=2,dash='dash'),hoverinfo='skip')
+		#fig.add_trace(line)
 
 		#plot racing line
 		for i in range(len(line_array)):
@@ -571,13 +570,11 @@ class dataContainer:
 			index_less = np.argwhere(s<s_spline)[-1][0]
 
 			x = s_spline
-			xp = np.array([s[index_less],s[index_greater]])
 			if baselinestate is not None:
-				fp = np.array([state[index_less]-baselinestate[index_less],state[index_greater]-baselinestate[index_greater]])
+				interp_state = lerp(x,s[index_less],s[index_greater],state[index_less]-baselinestate[index_less],state[index_greater]-baselinestate[index_greater])
 			else:
-				fp = np.array([state[index_less],state[index_greater]])
+				interp_state = lerp(x,s[index_less],s[index_greater],state[index_less],state[index_greater])
 			
-			interp_state = np.interp(x,xp,fp)
 			interp_state_array[i] = interp_state
 
 			#print(index_less,index_greater,s[index_greater],s[index_less],s_spline,interp_state,fp[0],fp[1])
@@ -594,6 +591,7 @@ class dataContainer:
 		else:
 			cmax = self.trackColorScale[1]
 			cmin = self.trackColorScale[0]
+
 		line_array.append(go.Scatter(x=displacedSpline[0],y=displacedSpline[1],marker=dict(
 			size=markersize,
 			cmax=cmax,
@@ -605,7 +603,6 @@ class dataContainer:
 			hovertemplate = 'Velocity: %{customdata[0]: .2f} m/s<br>Distance: %{customdata[1]:.2f} m<extra></extra>',
 			mode='markers'))
 		
-		#print(np.vstack((interp_state_array,s_new)).shape)
 		return line_array
 
 
@@ -768,7 +765,7 @@ app.layout = dbc.Container(
 				dbc.Tab(label="Lap simulation",tab_id="sim",children= [
 					html.Br(),
 					html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
-					html.P('A telemetry plot is displayed below, with a choice of which data trace to display. Below that, the optimal racing line of the vehicle is shown, colored by the velocity. The user can choose between the absolute velocity, and a velocity relative to a vehicle with mid-range design variables. Currently the Bahrain GP track is used, but in the future more tracks will be added for evaluation.'),
+					html.P('A telemetry plot is displayed below, with a choice of which data trace to display. The semi-transparent lines represent all the entries in the DOE. Below that graph, the optimal racing line of the vehicle is shown, colored by the velocity. The user can choose between the absolute velocity, and a velocity relative to a vehicle with mid-range design variables. Currently the Bahrain GP track is used, but in the future more tracks will be added for evaluation.'),
 					html.Br(),
 					html.P('Select design variables:'),
 					dbc.Row([
@@ -804,7 +801,6 @@ app.layout = dbc.Container(
 					html.Br(),
 					dcc.Graph(className='div-for-charts',id='lapSimGraph'),
 					html.Br(),
-					html.Div(id='testdiv'),
 					dcc.Graph(id='trackGraph',style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
 				]),
 				dbc.Tab(label = "Contact", tab_id="contact", children = [
