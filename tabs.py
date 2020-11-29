@@ -160,6 +160,8 @@ class dataContainer:
 		self.num_samples = 27
 		self.trackWidth = 14
 
+		self.prevTrace = 0
+
 		V = yt[:,0:self.num_nodes]
 		self.trackColorScale = [np.amin(V)-5,np.amax(V)+5]
 		self.trackDeltaColorScale = [-20,20]
@@ -1036,10 +1038,10 @@ def submit_form(n_clicks, name, email, text):
 		return submit_message
 
 @app.callback(
-	[Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children')],
-	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input('trackGraph', 'relayoutData')]
+	[Output(component_id='lapSimGraph',component_property='figure'),Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children')],
+	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input('trackGraph', 'relayoutData'),Input(component_id='traceradio',component_property='value')]
 )
-def update_track_graph(val1,val2,val3,absolute,relayoutData):
+def update_track_graph(val1,val2,val3,absolute,relayoutData,radioval):
 	#str1 = 'Center of pressure (front): '+str(np.round(val1,3))+' m'
 	str1 = 'Maximum power: '+str(np.round(val1,3))+' W'
 	str2 = 'Lift coefficient (ClA): '+str(np.round(val2,3))
@@ -1047,22 +1049,32 @@ def update_track_graph(val1,val2,val3,absolute,relayoutData):
 	x = [val1,val2,val3]
 	dataContainer.updateRBF(x)
 
+	traceChanged = True
+	if dataContainer.prevTrace == radioval:
+		traceChanged = False
+	dataContainer.prevTrace = radioval
+
+	tracefig = dataContainer.plotTraceGraph(radioval)
+
 	keys = ['xaxis.range[0]','xaxis.range[1]','yaxis.range[0]','yaxis.range[1]']
 	
-	if relayoutData is not None and keys[0] in relayoutData:
-		xaxisrange = [relayoutData[keys[0]],relayoutData[keys[1]]]
-		yaxisrange = [relayoutData[keys[2]],relayoutData[keys[3]]]
-		fig = dataContainer.plotTrackGraph(absolute,xaxisrange,yaxisrange)
-	else:
-		fig = dataContainer.plotTrackGraph(absolute)
-	return [fig,str1,str2,str3]
+	#checking if we changed the telemetry trace. If we did we shouldn't take the time to update the track plot
+	if traceChanged == False:
+		if relayoutData is not None and keys[0] in relayoutData:
+			xaxisrange = [relayoutData[keys[0]],relayoutData[keys[1]]]
+			yaxisrange = [relayoutData[keys[2]],relayoutData[keys[3]]]
+			dataContainer.trackfig = dataContainer.plotTrackGraph(absolute,xaxisrange,yaxisrange)
+		else:
+			dataContainer.trackfig = dataContainer.plotTrackGraph(absolute)
 
-@app.callback(
-	Output(component_id='lapSimGraph',component_property='figure'),
-	[Input(component_id='traceradio',component_property='value'),Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value')]
-)
-def update_trace_graph(radioval,val1,val2,val3):
-	return dataContainer.plotTraceGraph(radioval)
+	return [tracefig,dataContainer.trackfig,str1,str2,str3]
+
+# @app.callback(
+# 	Output(component_id='lapSimGraph',component_property='figure'),
+# 	[Input(component_id='traceradio',component_property='value'),Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value')]
+# )
+# def update_trace_graph(radioval,val1,val2,val3):
+# 	return dataContainer.plotTraceGraph(radioval)
 
 # @app.callback(
 # 	Output(component_id='trackGraph',component_property='figure'),
