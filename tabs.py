@@ -635,7 +635,7 @@ app.layout = dbc.Container(
 								dcc.Dropdown(className='div-for-dropdown',id='year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
 							),
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Portuguese Grand Prix',clearable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Bahrain Grand Prix',clearable=False)
 							)
 						]),
 						dbc.Row([
@@ -810,40 +810,43 @@ app.layout = dbc.Container(
 						dcc.Markdown('''
 							# Contact Us
 						'''),
-						dbc.Row(
-						[
-							dbc.Col(
-								dbc.FormGroup(
-								[
-									dbc.Label("Name", html_for="example-name"),
-									dbc.Input(type="text", id="example-name", placeholder="Name"),
-								]
-								),
-							),
-							dbc.Col(
-								dbc.FormGroup(
-								[
-									dbc.Label("Email", html_for="example-email"),
-									dbc.Input(type="email", id="example-email", placeholder="Email Address"),
-								]
-								),
-							)
-						]
-						),
-						html.Div(
-							[
-								dbc.Label("Comments", html_for="comments"),
-								dbc.Textarea(
-									id="comments",
-									bs_size="lg",
-									className="mb-3",
-								),
-							]
-						),
-						html.Div(children = [
-							dbc.Button("Submit", id='submit-button', color="secondary"),
-							html.Span(id="submit_message", style={"vertical-align": "middle"})
-						]),
+						dcc.Markdown('''
+							[Email address](http://pieterdebuck.com)
+						'''),
+						# dbc.Row(
+						# [
+						# 	dbc.Col(
+						# 		dbc.FormGroup(
+						# 		[
+						# 			dbc.Label("Name", html_for="example-name"),
+						# 			dbc.Input(type="text", id="example-name", placeholder="Name"),
+						# 		]
+						# 		),
+						# 	),
+						# 	dbc.Col(
+						# 		dbc.FormGroup(
+						# 		[
+						# 			dbc.Label("Email", html_for="example-email"),
+						# 			dbc.Input(type="email", id="example-email", placeholder="Email Address"),
+						# 		]
+						# 		),
+						# 	)
+						# ]
+						# ),
+						# html.Div(
+						# 	[
+						# 		dbc.Label("Comments", html_for="comments"),
+						# 		dbc.Textarea(
+						# 			id="comments",
+						# 			bs_size="lg",
+						# 			className="mb-3",
+						# 		),
+						# 	]
+						# ),
+						# html.Div(children = [
+						# 	dbc.Button("Submit", id='submit-button', color="secondary"),
+						# 	html.Span(id="submit_message", style={"vertical-align": "middle"})
+						# ]),
 						html.Br(),
 						dcc.Markdown('''
 							# About Us
@@ -969,73 +972,73 @@ def update_form_graph(chart_switch,quali_range):
 def update_standings_graph(year):
 	return dataContainer.plotStandingsGraph(year)
 
-@ app.callback(
-	Output(component_id='submit_message', component_property='children'),
-	[Input(component_id='submit-button', component_property="n_clicks")],
-	[State(component_id='example-name', component_property='value'), State(component_id='example-email', component_property='value'), State(component_id='comments', component_property='value'),]
-)
-def submit_form(n_clicks, name, email, text):
-	click_value = n_clicks
-	if click_value is None:
-		raise dash.exceptions.PreventUpdate
-	elif click_value >= 1:
-		message = Mail(
-			from_email='adelineshin2015@gmail.com',
-			to_emails='adelineshin@yahoo.com',
-			subject='Sending with Twilio SendGrid is Fun',
-			html_content='<strong>and easy to do anywhere, even with Python</strong>')
-		try:
-			sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-			response = sg.send(message)
-			print(response.status_code)
-			print(response.body)
-			print(response.headers)
-		except Exception as e:
-			print(e.message)
+# @app.callback(
+# 	Output(component_id='submit_message', component_property='children'),
+# 	[Input(component_id='submit-button', component_property="n_clicks")],
+# 	[State(component_id='example-name', component_property='value'), State(component_id='example-email', component_property='value'), State(component_id='comments', component_property='value'),]
+# )
+# def submit_form(n_clicks, name, email, text):
+# 	click_value = n_clicks
+# 	if click_value is None:
+# 		raise dash.exceptions.PreventUpdate
+# 	elif click_value >= 1:
+# 		message = Mail(
+# 			from_email='adelineshin2015@gmail.com',
+# 			to_emails='adelineshin@yahoo.com',
+# 			subject='Sending with Twilio SendGrid is Fun',
+# 			html_content='<strong>and easy to do anywhere, even with Python</strong>')
+# 		try:
+# 			sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+# 			response = sg.send(message)
+# 			print(response.status_code)
+# 			print(response.body)
+# 			print(response.headers)
+# 		except Exception as e:
+# 			print(e.message)
 
-		# sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
-		# from_email = Email("adelineshin@yahoo.com")
-		# subject = "Hello World from the SendGrid Python Library!"
-		# to_email = Email("adelineshin2015@gmail.com")
-		# content = Content("text/plain", "Hello, Email!")
-		# mail = Mail(from_email, subject, to_email, content)
-		# response = sg.client.mail.send.post(request_body=mail.get())
-		# print(response.status_code)
-		# print(response.body)
-		# print(response.headers)
+# 		# sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+# 		# from_email = Email("adelineshin@yahoo.com")
+# 		# subject = "Hello World from the SendGrid Python Library!"
+# 		# to_email = Email("adelineshin2015@gmail.com")
+# 		# content = Content("text/plain", "Hello, Email!")
+# 		# mail = Mail(from_email, subject, to_email, content)
+# 		# response = sg.client.mail.send.post(request_body=mail.get())
+# 		# print(response.status_code)
+# 		# print(response.body)
+# 		# print(response.headers)
 
-		# mail_handler = MailHandler()
-		# mail_handler.register_address(
-		#     address='app181910125@heroku.com',
-		#     secret='116c54342c2f62c389ca',
-		#     callback=my_callback_function
-		# )
+# 		# mail_handler = MailHandler()
+# 		# mail_handler.register_address(
+# 		#     address='app181910125@heroku.com',
+# 		#     secret='116c54342c2f62c389ca',
+# 		#     callback=my_callback_function
+# 		# )
 
-		# email_body = "New Message from: " + str(email) + str('\n') + str(text)
-		# me = email
-		# recipient = '85ccb3a2d43c1c6ad507@cloudmailin.net'
-		# subject = "New Comment on F1Data.io from " + str(name)
+# 		# email_body = "New Message from: " + str(email) + str('\n') + str(text)
+# 		# me = email
+# 		# recipient = '85ccb3a2d43c1c6ad507@cloudmailin.net'
+# 		# subject = "New Comment on F1Data.io from " + str(name)
 
-		# email_server_host = 'smtp.gmail.com'
-		# port = 587
-		# email_username = 'app181910125@heroku.com'
-		# email_password = 'NrYwmoMYCfDujt9kzr7VJJwF'
+# 		# email_server_host = 'smtp.gmail.com'
+# 		# port = 587
+# 		# email_username = 'app181910125@heroku.com'
+# 		# email_password = 'NrYwmoMYCfDujt9kzr7VJJwF'
 
-		# msg = MIMEMultipart('alternative')
-		# msg['From'] = me
-		# msg['To'] = recipient
-		# msg['Subject'] = subject
+# 		# msg = MIMEMultipart('alternative')
+# 		# msg['From'] = me
+# 		# msg['To'] = recipient
+# 		# msg['Subject'] = subject
 
-		# msg.attach(MIMEText(email_body, 'html'))
+# 		# msg.attach(MIMEText(email_body, 'html'))
 
-		# server = smtplib.SMTP(email_server_host, port)
-		# server.ehlo()
-		# server.starttls()
-		# server.login(email_username, email_password)
-		# server.sendmail(me, recipient, msg.as_string())
-		# server.close()
-		submit_message = str("   Your comment has been submitted. Thank you!")
-		return submit_message
+# 		# server = smtplib.SMTP(email_server_host, port)
+# 		# server.ehlo()
+# 		# server.starttls()
+# 		# server.login(email_username, email_password)
+# 		# server.sendmail(me, recipient, msg.as_string())
+# 		# server.close()
+# 		submit_message = str("   Your comment has been submitted. Thank you!")
+# 		return submit_message
 
 @app.callback(
 	[Output(component_id='lapSimGraph',component_property='figure'),Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children')],
