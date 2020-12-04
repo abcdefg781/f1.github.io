@@ -115,9 +115,9 @@ driver_history_df.drop(columns='raceId',inplace=True)
 
 #rbf graph df
 #rbf_df = pd.read_csv("./rbf_csv/rbfoutput.csv",header=None)
-s_df = pd.read_csv("./rbf_csv/s.csv",header=None)
-yt = pd.read_csv("./rbf_csv/yt.csv",header=None).to_numpy()
-xt = pd.read_csv("./rbf_csv/xt.csv",header=None).to_numpy()
+s_df = pd.read_csv("./rbf_csv/s_bahrain.csv",header=None)
+yt = pd.read_csv("./rbf_csv/yt_bahrain.csv",header=None).to_numpy()
+xt = pd.read_csv("./rbf_csv/xt_bahrain.csv",header=None).to_numpy()
 
 
 #slider values
@@ -152,15 +152,49 @@ class dataContainer:
 		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2020, "Turkish Grand Prix")
 		self.driver_history_table = create_driver_table("Lewis Hamilton")
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
-		self.sm = RBF(lbounds,ubounds,sigma,xt,yt)
-
-		self.updateTrack(tracks.Bahrain)
-		self.num_nodes = 1601
+		
 		self.num_functions = 3
-		self.num_samples = 27
+		self.updateTrack(tracks.Bahrain_short)
+	
 		self.trackWidth = 14
 
 		self.prevTrace = 0
+	
+	def updateTrack(self,track):
+		self.track = track
+
+		if track == tracks.Bahrain_short:
+			sfile = "./rbf_csv/s_bahrain_short.csv"
+			ytfile = "./rbf_csv/yt_bahrain_short.csv"
+			xtfile = "./rbf_csv/xt_bahrain_short.csv"
+		elif track == tracks.Bahrain:
+			sfile = "./rbf_csv/s_bahrain.csv"
+			ytfile = "./rbf_csv/yt_bahrain.csv"
+			xtfile = "./rbf_csv/xt_bahrain.csv"
+
+		s_df = pd.read_csv(sfile,header=None)
+		yt = pd.read_csv(ytfile,header=None).to_numpy()
+		xt = pd.read_csv(xtfile,header=None).to_numpy()
+		self.yt = yt
+		self.xt = xt
+
+		self.num_nodes = int(yt.shape[1]/self.num_functions)
+		self.num_samples = yt.shape[0]
+
+		self.sm = RBF(lbounds,ubounds,sigma,xt,yt)
+
+		points = getTrackPoints(track)
+		self.finespline,self.gates,self.gatesd,self.curv,slope = getSpline(points,s=0.0)
+
+		self.trackLength = track.getTotalLength()
+		self.normals = getGateNormals(self.finespline,slope)
+
+		#figure out aspect ratio of track
+		dx = np.amax(self.finespline[0])-np.amin(self.finespline[0])
+		dy = np.amax(self.finespline[1])-np.amin(self.finespline[1])
+		self.dx = dx
+		self.dy = dy
+		self.aspect = dx/dy
 
 		V = yt[:,0:self.num_nodes]
 		self.trackColorScale = [np.amin(V)-5,np.amax(V)+5]
@@ -172,19 +206,6 @@ class dataContainer:
 
 		x = (ubounds+lbounds)/2
 		self.baseliney = self.sm.getGuess(x)
-	
-	def updateTrack(self,track):
-		self.track = track
-		points = getTrackPoints(track)
-		self.finespline,self.gates,self.gatesd,self.curv,slope = getSpline(points,s=0.0)
-
-		self.trackLength = track.getTotalLength()
-		self.normals = getGateNormals(self.finespline,slope)
-
-		#figure out aspect ratio of track
-		dx = np.amax(self.finespline[0])-np.amin(self.finespline[0])
-		dy = np.amax(self.finespline[1])-np.amin(self.finespline[1])
-		self.aspect = dx/dy
 
 
 	def plotRaceGraph(self):
@@ -453,7 +474,7 @@ class dataContainer:
 
 		#Plot RBF data
 		for i in range(yt.shape[0]):
-			y = yt[i,num_nodes*(state):num_nodes*(state+1)]
+			y = self.yt[i,num_nodes*(state):num_nodes*(state+1)]
 			line = go.Scatter(x=s,y=y,opacity=0.2,line=dict(color='royalblue', width=1),hoverinfo='skip')
 			fig.add_trace(line)
 
@@ -485,9 +506,9 @@ class dataContainer:
 		V = y[num_nodes*(func_index):num_nodes*(func_index+1)]
 		baselineV = self.baseliney[num_nodes*(func_index):num_nodes*(func_index+1)]
 		if xaxisrange is not None:
-			markersize = np.maximum(15-((xaxisrange[1]-xaxisrange[0])*0.01),4)
+			markersize = np.maximum(15-((xaxisrange[1]-xaxisrange[0])*0.01),self.dx/400)
 		else:
-			markersize = 4
+			markersize = self.dx/400
 		if absolute==0:
 			line_array = self.plotTrackWithData(n,V,markersize=markersize)
 		else:
@@ -769,6 +790,13 @@ app.layout = dbc.Container(
 					html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
 					html.P('A telemetry plot is displayed below, with a choice of which data trace to display. The semi-transparent lines represent all the entries in the DOE. Below that graph, the optimal racing line of the vehicle is shown, colored by the velocity. The user can choose between the absolute velocity, and a velocity relative to a vehicle with mid-range design variables. Currently the Bahrain GP track is used, but in the future more tracks will be added for evaluation.'),
 					html.Br(),
+					dbc.Row([
+						html.P('Choose the track:'),
+						dbc.Col([
+							dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1}],value=0)
+							]),
+						dbc.Col([])
+						]),
 					html.P('Select design variables:'),
 					dbc.Row([
 						dbc.Col([
@@ -1042,9 +1070,17 @@ def update_standings_graph(year):
 
 @app.callback(
 	[Output(component_id='lapSimGraph',component_property='figure'),Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children')],
-	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input('trackGraph', 'relayoutData'),Input(component_id='traceradio',component_property='value')]
+	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input('trackGraph', 'relayoutData'),Input(component_id='traceradio',component_property='value'),Input(component_id='trackselect',component_property='value')]
 )
-def update_track_graph(val1,val2,val3,absolute,relayoutData,radioval):
+def update_track_graph(val1,val2,val3,absolute,relayoutData,radioval,track):
+
+	if track == 0:
+		selectedTrack = tracks.Bahrain
+	elif track == 1:
+		selectedTrack = tracks.Bahrain_short
+
+	if selectedTrack != dataContainer.track:
+		dataContainer.updateTrack(selectedTrack)
 	#str1 = 'Center of pressure (front): '+str(np.round(val1,3))+' m'
 	str1 = 'Maximum power: '+str(np.round(val1,3))+' W'
 	str2 = 'Lift coefficient (ClA): '+str(np.round(val2,3))
@@ -1071,6 +1107,7 @@ def update_track_graph(val1,val2,val3,absolute,relayoutData,radioval):
 			dataContainer.trackfig = dataContainer.plotTrackGraph(absolute)
 
 	return [tracefig,dataContainer.trackfig,str1,str2,str3]
+
 
 # @app.callback(
 # 	Output(component_id='lapSimGraph',component_property='figure'),
