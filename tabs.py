@@ -790,13 +790,14 @@ app.layout = dbc.Container(
 					html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
 					html.P('A telemetry plot is displayed below, with a choice of which data trace to display. The semi-transparent lines represent all the entries in the DOE. Below that graph, the optimal racing line of the vehicle is shown, colored by the velocity. The user can choose between the absolute velocity, and a velocity relative to a vehicle with mid-range design variables. Currently the Bahrain GP track is used, but in the future more tracks will be added for evaluation.'),
 					html.Br(),
+					html.P('Choose the track:'),
 					dbc.Row([
-						html.P('Choose the track:'),
-						dbc.Col([
-							dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1}],value=0)
-							]),
-						dbc.Col([])
+					dbc.Col([
+						dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1}],value=0)
 						]),
+					dbc.Col([])
+					]),
+					html.Br(),
 					html.P('Select design variables:'),
 					dbc.Row([
 						dbc.Col([
