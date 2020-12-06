@@ -156,7 +156,7 @@ class dataContainer:
 		self.num_functions = 3
 		self.updateTrack(tracks.Bahrain_short)
 	
-		self.trackWidth = 14
+		
 
 		self.prevTrace = 0
 	
@@ -167,10 +167,17 @@ class dataContainer:
 			sfile = "./rbf_csv/s_bahrain_short.csv"
 			ytfile = "./rbf_csv/yt_bahrain_short.csv"
 			xtfile = "./rbf_csv/xt_bahrain_short.csv"
+			self.trackWidth = 14
 		elif track == tracks.Bahrain:
 			sfile = "./rbf_csv/s_bahrain.csv"
 			ytfile = "./rbf_csv/yt_bahrain.csv"
 			xtfile = "./rbf_csv/xt_bahrain.csv"
+			self.trackWidth = 14
+		elif track == tracks.Barcelona:
+			sfile = "./rbf_csv/s_barcelona.csv"
+			ytfile = "./rbf_csv/yt_barcelona.csv"
+			xtfile = "./rbf_csv/xt_barcelona.csv"
+			self.trackWidth = 10
 
 		s_df = pd.read_csv(sfile,header=None)
 		yt = pd.read_csv(ytfile,header=None).to_numpy()
@@ -497,7 +504,7 @@ class dataContainer:
 		
 		return fig
 
-	def plotTrackGraph(self,absolute,xaxisrange=None,yaxisrange=None):
+	def plotTrackGraph(self,absolute):
 		y = self.y
 		num_nodes = self.num_nodes
 		func_index = 2
@@ -505,10 +512,10 @@ class dataContainer:
 		func_index = 0
 		V = y[num_nodes*(func_index):num_nodes*(func_index+1)]
 		baselineV = self.baseliney[num_nodes*(func_index):num_nodes*(func_index+1)]
-		if xaxisrange is not None:
-			markersize = np.maximum(15-((xaxisrange[1]-xaxisrange[0])*0.01),self.dx/400)
-		else:
-			markersize = self.dx/400
+		# if xaxisrange is not None:
+		# 	markersize = np.maximum(15-((xaxisrange[1]-xaxisrange[0])*0.01),self.dx/400)
+		# else:
+		markersize = self.dx/400
 		if absolute==0:
 			line_array = self.plotTrackWithData(n,V,markersize=markersize)
 		else:
@@ -545,12 +552,12 @@ class dataContainer:
 			#height=1000,
 			#width=self.aspect*1000)
 
-		if xaxisrange is not None:
-			fig.update_xaxes(showgrid=False, zeroline=False,showticklabels=False,range=xaxisrange)
-			fig.update_yaxes(showgrid=False, zeroline=False,showticklabels=False,range=yaxisrange)
-		else:
-			fig.update_xaxes(showgrid=False, zeroline=False,showticklabels=False)
-			fig.update_yaxes(showgrid=False, zeroline=False,showticklabels=False)
+		# if xaxisrange is not None:
+		# 	fig.update_xaxes(showgrid=False, zeroline=False,showticklabels=False,range=xaxisrange)
+		# 	fig.update_yaxes(showgrid=False, zeroline=False,showticklabels=False,range=yaxisrange)
+		# else:
+		fig.update_xaxes(showgrid=False, zeroline=False,showticklabels=False)
+		fig.update_yaxes(showgrid=False, zeroline=False,showticklabels=False)
 
 		return fig
 
@@ -636,6 +643,8 @@ dataContainer = dataContainer()
 # App Layout
 app.layout = dbc.Container(
 	[
+		dcc.Location(id='url',refresh=False),
+		dcc.Location(id='url-output',refresh=False),
 		dcc.Store(id="store"),
 		html.Br(),
 		html.Br(),
@@ -648,7 +657,7 @@ app.layout = dbc.Container(
 						dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
 						dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
 					]),
-				dbc.Tab(label="Race Analysis", tab_id="driver_comp", children = [
+				dbc.Tab(label="Race Analysis", tab_id="raceanalysis", children = [
 						html.Br(),
 						html.P('Select a year and race to view all charts on this page based on that race. The graph directly below shows the lap times in seconds for each driver as the race progresses. Slower lap times often indicate pit lane stops, safety cars, or incidents and drivers dropping out. These can be filtered out using the selection below.'),
 						dbc.Row([
@@ -685,7 +694,7 @@ app.layout = dbc.Container(
 						]),
 						dcc.Graph(className='div-for-charts',id='my-output2',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
 					]),
-				dbc.Tab(label = "Qualifying Form", tab_id="qualitab", children = [
+				dbc.Tab(label = "Qualifying Form", tab_id="qualifying", children = [
 						html.Br(),
 						html.P("This chart shows trends in the qualifying performance of each driver for each season. The y-axis shows the ratio of their qualifying time to best lap time in the session. It is possible to view a linear or quadratic fit to the data, or to view the raw data for each race. Select a range of years in the slider below the graph."),
 						dcc.Dropdown(className='div-for-dropdown',id='chart_switch', clearable=False,value=0,options=[{'label':'Linear fit','value':0},{'label':'Quadratic fit','value':1},{'label':'Raw data','value':2}]),
@@ -709,7 +718,7 @@ app.layout = dbc.Container(
 							2020: {'label': '2020'}
 							})
 				]),
-				dbc.Tab(label = "Driver History", tab_id="collapses", children = [
+				dbc.Tab(label = "Driver History", tab_id="driverhistory", children = [
 						html.Br(),
 						html.P("Select one driver to view their history. It is possible to search the dropdown menu"),
 						dcc.Dropdown(className='div-for-dropdown',id='all_drivers', clearable=False,value='Lewis Hamilton'),    
@@ -785,7 +794,7 @@ app.layout = dbc.Container(
 						#     There is a discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
 						# '''),   
 				]),
-				dbc.Tab(label="Lap simulation",tab_id="sim",children= [
+				dbc.Tab(label="Lap simulation",tab_id="lapsimulation",children= [
 					html.Br(),
 					html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
 					html.P('A telemetry plot is displayed below, with a choice of which data trace to display. The semi-transparent lines represent all the entries in the DOE. Below that graph, the optimal racing line of the vehicle is shown, colored by the velocity. The user can choose between the absolute velocity, and a velocity relative to a vehicle with mid-range design variables. Currently the Bahrain GP track is used, but in the future more tracks will be added for evaluation.'),
@@ -793,7 +802,7 @@ app.layout = dbc.Container(
 					html.P('Choose the track:'),
 					dbc.Row([
 					dbc.Col([
-						dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1}],value=0)
+						dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1},{'label':'Barcelona','value':2}],value=0)
 						]),
 					dbc.Col([])
 					]),
@@ -840,7 +849,7 @@ app.layout = dbc.Container(
 							# Contact Us
 						'''),
 						dcc.Markdown('''
-							[Email address](http://pieterdebuck.com)
+							You can email us [here](mailto:oneformulae@gmail.com).
 						'''),
 						# dbc.Row(
 						# [
@@ -895,8 +904,7 @@ app.layout = dbc.Container(
 			],
 			id="tabs",
 			active_tab="home",
-		),
-		html.Div(id="tab-content", className="p-4"),
+		)
 	]
 )
 
@@ -1071,14 +1079,16 @@ def update_standings_graph(year):
 
 @app.callback(
 	[Output(component_id='lapSimGraph',component_property='figure'),Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children')],
-	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input('trackGraph', 'relayoutData'),Input(component_id='traceradio',component_property='value'),Input(component_id='trackselect',component_property='value')]
+	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input(component_id='traceradio',component_property='value'),Input(component_id='trackselect',component_property='value')]
 )
-def update_track_graph(val1,val2,val3,absolute,relayoutData,radioval,track):
+def update_track_graph(val1,val2,val3,absolute,radioval,track):
 
 	if track == 0:
 		selectedTrack = tracks.Bahrain
 	elif track == 1:
 		selectedTrack = tracks.Bahrain_short
+	elif track == 2:
+		selectedTrack = tracks.Barcelona
 
 	if selectedTrack != dataContainer.track:
 		dataContainer.updateTrack(selectedTrack)
@@ -1096,18 +1106,34 @@ def update_track_graph(val1,val2,val3,absolute,relayoutData,radioval,track):
 
 	tracefig = dataContainer.plotTraceGraph(radioval)
 
-	keys = ['xaxis.range[0]','xaxis.range[1]','yaxis.range[0]','yaxis.range[1]']
+	#keys = ['xaxis.range[0]','xaxis.range[1]','yaxis.range[0]','yaxis.range[1]']
 	
 	#checking if we changed the telemetry trace. If we did we shouldn't take the time to update the track plot
 	if traceChanged == False:
-		if relayoutData is not None and keys[0] in relayoutData:
-			xaxisrange = [relayoutData[keys[0]],relayoutData[keys[1]]]
-			yaxisrange = [relayoutData[keys[2]],relayoutData[keys[3]]]
-			dataContainer.trackfig = dataContainer.plotTrackGraph(absolute,xaxisrange,yaxisrange)
-		else:
-			dataContainer.trackfig = dataContainer.plotTrackGraph(absolute)
+		# if relayoutData is not None and keys[0] in relayoutData:
+		# 	xaxisrange = [relayoutData[keys[0]],relayoutData[keys[1]]]
+		# 	yaxisrange = [relayoutData[keys[2]],relayoutData[keys[3]]]
+		# 	dataContainer.trackfig = dataContainer.plotTrackGraph(absolute,xaxisrange,yaxisrange)
+		# else:
+		dataContainer.trackfig = dataContainer.plotTrackGraph(absolute)
 
 	return [tracefig,dataContainer.trackfig,str1,str2,str3]
+
+@app.callback(
+	Output(component_id='tabs',component_property='active_tab'),
+	[Input(component_id='url',component_property='pathname')]
+)
+def changeTab(pathname):
+	if pathname == None or pathname == '/':
+		return 'home'
+	return pathname[1:]
+
+@app.callback(
+	Output(component_id='url-output',component_property='pathname'),
+	[Input(component_id='tabs',component_property='active_tab')]
+)
+def changeTab2(tab):
+	return '/'+tab
 
 
 # @app.callback(
