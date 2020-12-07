@@ -7609,35 +7609,55 @@
 7607,Daniil Kvyat,26,Russian,2020,Bahrain Grand Prix,2020-11-29,1045,AlphaTauri,10,88.618,11,94.14099999999999,0,26.0,14
 7608,Sergio Pérez,11,Mexican,2020,Bahrain Grand Prix,2020-11-29,1045,Racing Point,5,88.322,18,93.62899999999999,0,100.0,5
 7609,Lance Stroll,18,Canadian,2020,Bahrain Grand Prix,2020-11-29,1045,Racing Point,13,88.679,,,0,59.0,11
-7610,Nick Heidfeld,,German,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,11,85.504,10,88.283,0,0.0,10
-7611,Robert Kubica,88,Polish,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,4,85.152,14,87.988,0,0.0,14
-7612,Nico Rosberg,6,German,2009,Australian Grand Prix,2009-03-29,1,Williams,5,85.123,6,87.706,0,3.0,6
-7613,Fernando Alonso,14,Spanish,2009,Australian Grand Prix,2009-03-29,1,Renault,12,85.605,5,88.712,0,4.0,5
-7614,Kimi Räikkönen,7,Finnish,2009,Australian Grand Prix,2009-03-29,1,Ferrari,9,85.38,15,88.488,0,0.0,15
-7615,Sébastien Bourdais,,French,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,20,86.964,8,89.82300000000001,0,1.0,8
-7616,Sébastien Buemi,,Swiss,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,16,86.503,7,89.23,0,2.0,7
-7617,Timo Glock,,German,2009,Australian Grand Prix,2009-03-29,1,Toyota,6,85.281,4,88.416,0,5.0,4
-7618,Jarno Trulli,,Italian,2009,Australian Grand Prix,2009-03-29,1,Toyota,8,85.265,3,88.916,0,6.0,3
-7619,Mark Webber,,Australian,2009,Australian Grand Prix,2009-03-29,1,Red Bull,10,85.241,12,88.508,0,0.0,12
-7620,Sebastian Vettel,5,German,2009,Australian Grand Prix,2009-03-29,1,Red Bull,3,85.121,13,88.14,0,0.0,13
-7621,Adrian Sutil,99,German,2009,Australian Grand Prix,2009-03-29,1,Force India,19,86.742,9,88.943,0,0.0,9
-7622,Giancarlo Fisichella,,Italian,2009,Australian Grand Prix,2009-03-29,1,Force India,18,86.67699999999999,11,89.005,0,0.0,11
-7623,Jenson Button,22,British,2009,Australian Grand Prix,2009-03-29,1,Brawn,1,84.855,1,88.02,1,10.0,1
-7624,Rubens Barrichello,,Brazilian,2009,Australian Grand Prix,2009-03-29,1,Brawn,2,84.783,2,89.066,0,8.0,2
-7625,Ralf Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Williams,11,92.22,3,,0,4.0,3
-7626,Nick Heidfeld,,German,2000,Australian Grand Prix,2000-03-12,158,Prost,15,93.024,9,,0,0.0,9
-7627,Marc Gené,,Spanish,2000,Australian Grand Prix,2000-03-12,158,Minardi,18,93.261,8,,0,0.0,8
-7628,Rubens Barrichello,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,Ferrari,4,91.102,2,,0,6.0,2
-7629,Michael Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Ferrari,3,91.075,1,,1,10.0,1
-7630,Jacques Villeneuve,,Canadian,2000,Australian Grand Prix,2000-03-12,158,BAR,8,91.968,4,,0,3.0,4
-7631,Ricardo Zonta,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,BAR,16,93.11699999999999,6,,0,1.0,6
-7632,Giancarlo Fisichella,,Italian,2000,Australian Grand Prix,2000-03-12,158,Benetton,9,91.992,5,,0,2.0,5
-7633,Alexander Wurz,,Austrian,2000,Australian Grand Prix,2000-03-12,158,Benetton,14,92.775,7,,0,0.0,7
-7634,Ralf Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Williams,8,92.691,3,,0,4.0,3
-7635,Heinz-Harald Frentzen,,German,1999,Australian Grand Prix,1999-03-07,175,Jordan,5,92.27600000000001,2,,0,6.0,2
-7636,Michael Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Ferrari,3,91.781,8,,0,0.0,8
-7637,Eddie Irvine,,British,1999,Australian Grand Prix,1999-03-07,175,Ferrari,6,92.289,1,,1,10.0,1
-7638,Giancarlo Fisichella,,Italian,1999,Australian Grand Prix,1999-03-07,175,Benetton,7,92.53999999999999,4,,0,3.0,4
-7639,Rubens Barrichello,,Brazilian,1999,Australian Grand Prix,1999-03-07,175,Stewart,4,92.148,5,,0,2.0,5
-7640,Pedro de la Rosa,,Spanish,1999,Australian Grand Prix,1999-03-07,175,Arrows,18,94.244,6,,0,1.0,6
-7641,Toranosuke Takagi,,Japanese,1999,Australian Grand Prix,1999-03-07,175,Arrows,17,94.182,7,,0,0.0,7
+7610,Carlos Sainz,55,Spanish,2020,Sakhir Grand Prix,2020-12-06,1046,McLaren,8,53.818,4,57.165,0,97.0,7
+7611,Lando Norris,4,British,2020,Sakhir Grand Prix,2020-12-06,1046,McLaren,15,54.194,10,57.27,0,87.0,9
+7612,Valtteri Bottas,77,Finnish,2020,Sakhir Grand Prix,2020-12-06,1046,Mercedes,1,53.377,8,56.563,2,205.0,2
+7613,George Russell,63,British,2020,Sakhir Grand Prix,2020-12-06,1046,Mercedes,2,53.403,9,55.404,0,3.0,18
+7614,Nicholas Latifi,6,Canadian,2020,Sakhir Grand Prix,2020-12-06,1046,Williams,17,54.796,,58.206,0,0.0,21
+7615,Jack Aitken,89,British,2020,Sakhir Grand Prix,2020-12-06,1046,Williams,18,54.892,16,57.392,0,0.0,22
+7616,Daniel Ricciardo,3,Australian,2020,Sakhir Grand Prix,2020-12-06,1046,Renault,7,53.871,5,56.979,0,112.0,5
+7617,Esteban Ocon,31,French,2020,Sakhir Grand Prix,2020-12-06,1046,Renault,11,53.995,2,57.35,0,60.0,12
+7618,Sebastian Vettel,5,German,2020,Sakhir Grand Prix,2020-12-06,1046,Ferrari,13,54.175,12,56.905,0,33.0,13
+7619,Charles Leclerc,16,Monegasque,2020,Sakhir Grand Prix,2020-12-06,1046,Ferrari,4,53.613,,,0,98.0,6
+7620,Kimi Räikkönen,7,Finnish,2020,Sakhir Grand Prix,2020-12-06,1046,Alfa Romeo,19,54.963,14,57.375,0,4.0,16
+7621,Antonio Giovinazzi,99,Italian,2020,Sakhir Grand Prix,2020-12-06,1046,Alfa Romeo,14,54.377,13,56.887,0,4.0,17
+7622,Max Verstappen,33,Dutch,2020,Sakhir Grand Prix,2020-12-06,1046,Red Bull,3,53.433,,,1,189.0,3
+7623,Alexander Albon,23,Thai,2020,Sakhir Grand Prix,2020-12-06,1046,Red Bull,12,54.026,6,57.056,0,93.0,8
+7624,Kevin Magnussen,20,Danish,2020,Sakhir Grand Prix,2020-12-06,1046,Haas F1 Team,16,54.705,15,57.516,0,1.0,20
+7625,Pietro Fittipaldi,51,Brazilian,2020,Sakhir Grand Prix,2020-12-06,1046,Haas F1 Team,20,55.426,17,57.742,0,0.0,23
+7626,Pierre Gasly,10,French,2020,Sakhir Grand Prix,2020-12-06,1046,AlphaTauri,9,53.941,11,57.22,1,71.0,11
+7627,Daniil Kvyat,26,Russian,2020,Sakhir Grand Prix,2020-12-06,1046,AlphaTauri,6,53.856,7,57.001,0,32.0,14
+7628,Sergio Pérez,11,Mexican,2020,Sakhir Grand Prix,2020-12-06,1046,Racing Point,5,53.787,1,56.789,1,125.0,4
+7629,Lance Stroll,18,Canadian,2020,Sakhir Grand Prix,2020-12-06,1046,Racing Point,10,53.84,3,57.388,0,74.0,10
+7630,Nick Heidfeld,,German,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,11,85.504,10,88.283,0,0.0,10
+7631,Robert Kubica,88,Polish,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,4,85.152,14,87.988,0,0.0,14
+7632,Nico Rosberg,6,German,2009,Australian Grand Prix,2009-03-29,1,Williams,5,85.123,6,87.706,0,3.0,6
+7633,Fernando Alonso,14,Spanish,2009,Australian Grand Prix,2009-03-29,1,Renault,12,85.605,5,88.712,0,4.0,5
+7634,Kimi Räikkönen,7,Finnish,2009,Australian Grand Prix,2009-03-29,1,Ferrari,9,85.38,15,88.488,0,0.0,15
+7635,Sébastien Bourdais,,French,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,20,86.964,8,89.82300000000001,0,1.0,8
+7636,Sébastien Buemi,,Swiss,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,16,86.503,7,89.23,0,2.0,7
+7637,Timo Glock,,German,2009,Australian Grand Prix,2009-03-29,1,Toyota,6,85.281,4,88.416,0,5.0,4
+7638,Jarno Trulli,,Italian,2009,Australian Grand Prix,2009-03-29,1,Toyota,8,85.265,3,88.916,0,6.0,3
+7639,Mark Webber,,Australian,2009,Australian Grand Prix,2009-03-29,1,Red Bull,10,85.241,12,88.508,0,0.0,12
+7640,Sebastian Vettel,5,German,2009,Australian Grand Prix,2009-03-29,1,Red Bull,3,85.121,13,88.14,0,0.0,13
+7641,Adrian Sutil,99,German,2009,Australian Grand Prix,2009-03-29,1,Force India,19,86.742,9,88.943,0,0.0,9
+7642,Giancarlo Fisichella,,Italian,2009,Australian Grand Prix,2009-03-29,1,Force India,18,86.67699999999999,11,89.005,0,0.0,11
+7643,Jenson Button,22,British,2009,Australian Grand Prix,2009-03-29,1,Brawn,1,84.855,1,88.02,1,10.0,1
+7644,Rubens Barrichello,,Brazilian,2009,Australian Grand Prix,2009-03-29,1,Brawn,2,84.783,2,89.066,0,8.0,2
+7645,Ralf Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Williams,11,92.22,3,,0,4.0,3
+7646,Nick Heidfeld,,German,2000,Australian Grand Prix,2000-03-12,158,Prost,15,93.024,9,,0,0.0,9
+7647,Marc Gené,,Spanish,2000,Australian Grand Prix,2000-03-12,158,Minardi,18,93.261,8,,0,0.0,8
+7648,Rubens Barrichello,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,Ferrari,4,91.102,2,,0,6.0,2
+7649,Michael Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Ferrari,3,91.075,1,,1,10.0,1
+7650,Jacques Villeneuve,,Canadian,2000,Australian Grand Prix,2000-03-12,158,BAR,8,91.968,4,,0,3.0,4
+7651,Ricardo Zonta,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,BAR,16,93.11699999999999,6,,0,1.0,6
+7652,Giancarlo Fisichella,,Italian,2000,Australian Grand Prix,2000-03-12,158,Benetton,9,91.992,5,,0,2.0,5
+7653,Alexander Wurz,,Austrian,2000,Australian Grand Prix,2000-03-12,158,Benetton,14,92.775,7,,0,0.0,7
+7654,Ralf Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Williams,8,92.691,3,,0,4.0,3
+7655,Heinz-Harald Frentzen,,German,1999,Australian Grand Prix,1999-03-07,175,Jordan,5,92.27600000000001,2,,0,6.0,2
+7656,Michael Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Ferrari,3,91.781,8,,0,0.0,8
+7657,Eddie Irvine,,British,1999,Australian Grand Prix,1999-03-07,175,Ferrari,6,92.289,1,,1,10.0,1
+7658,Giancarlo Fisichella,,Italian,1999,Australian Grand Prix,1999-03-07,175,Benetton,7,92.53999999999999,4,,0,3.0,4
+7659,Rubens Barrichello,,Brazilian,1999,Australian Grand Prix,1999-03-07,175,Stewart,4,92.148,5,,0,2.0,5
+7660,Pedro de la Rosa,,Spanish,1999,Australian Grand Prix,1999-03-07,175,Arrows,18,94.244,6,,0,1.0,6
+7661,Toranosuke Takagi,,Japanese,1999,Australian Grand Prix,1999-03-07,175,Arrows,17,94.182,7,,0,0.0,7
