@@ -839,9 +839,15 @@ app.layout = dbc.Container(
 						])
 					]),
 					html.Br(),
-					dcc.Graph(className='div-for-charts',id='lapSimGraph'),
+					html.Div(className="loader-wrapper",children=[
+					dcc.Loading(id='traceLoading',color="#fc7303",children=[
+					dcc.Graph(className='div-for-charts',id='lapSimGraph')
+					])]),
 					html.Br(),
+					html.Div(className="loader-wrapper",children=[
+					dcc.Loading(id='trackLoading',color="#fc7303",children=[
 					dcc.Graph(id='trackGraph',style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
+					])])
 				]),
 				dbc.Tab(label = "Contact", tab_id="contact", children = [
 						html.Br(),
@@ -1134,6 +1140,7 @@ def changeTab(pathname):
 )
 def changeTab2(tab):
 	return '/'+tab
+
 
 
 # @app.callback(

@@ -216,3 +216,9 @@ div > img {
 .CalendarMonth_table td {
   padding: unset;  
 }
+
+.loader-wrapper > div {
+    visibility: visible !important;
+}
+
+

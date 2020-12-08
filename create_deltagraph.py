@@ -40,7 +40,7 @@ def create_race_table(year, race_name):
     color_palette = pd.Series(colored_df.color.values, index = colored_df.driverName).to_dict()
     return df_4, races_temp, color_palette,colored_df
 
-race_table,races_temp,color_palette,color_df = create_race_table(2020,'Portuguese Grand Prix')
+race_table,races_temp,color_palette,color_df = create_race_table(2020,'Sakhir Grand Prix')
 print(color_df)
 def plotDeltaGraph(deltaType):
         df_grouped = [y for x,y in race_table.groupby('driverName',as_index=False)]
