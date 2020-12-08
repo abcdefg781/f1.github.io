@@ -386,7 +386,7 @@ class dataContainer:
 				'xanchor': 'center',
 				'yanchor': 'top'})
 		fig.update_layout(margin = dict(l=20,t=40,r=20,b=20))
-		fig.update_yaxes(automargin=True)
+		fig.update_yaxes(automargin=True,autorange="reversed")
 		return fig
 
 	def update_form_graph(self,chart_switch,quali_range):
