@@ -162,22 +162,33 @@ class dataContainer:
 	
 	def updateTrack(self,track):
 		self.track = track
+		initial_direction = np.array([1,0])
+		self.flipX = False
 
 		if track == tracks.Bahrain_short:
 			sfile = "./rbf_csv/s_bahrain_short.csv"
 			ytfile = "./rbf_csv/yt_bahrain_short.csv"
 			xtfile = "./rbf_csv/xt_bahrain_short.csv"
+			initial_direction = np.array([-1,0])
 			self.trackWidth = 14
 		elif track == tracks.Bahrain:
 			sfile = "./rbf_csv/s_bahrain.csv"
 			ytfile = "./rbf_csv/yt_bahrain.csv"
 			xtfile = "./rbf_csv/xt_bahrain.csv"
+			initial_direction = np.array([-1,0])
 			self.trackWidth = 14
 		elif track == tracks.Barcelona:
 			sfile = "./rbf_csv/s_barcelona.csv"
 			ytfile = "./rbf_csv/yt_barcelona.csv"
 			xtfile = "./rbf_csv/xt_barcelona.csv"
 			self.trackWidth = 10
+		elif track == tracks.AbuDhabi:
+			sfile = "./rbf_csv/s_abudhabi.csv"
+			ytfile = "./rbf_csv/yt_abudhabi.csv"
+			xtfile = "./rbf_csv/xt_abudhabi.csv"
+			self.trackWidth = 14
+			initial_direction = np.array([0,-1])
+			self.flipX = True
 
 		s_df = pd.read_csv(sfile,header=None)
 		yt = pd.read_csv(ytfile,header=None).to_numpy()
@@ -190,7 +201,7 @@ class dataContainer:
 
 		self.sm = RBF(lbounds,ubounds,sigma,xt,yt)
 
-		points = getTrackPoints(track)
+		points = getTrackPoints(track,initial_direction)
 		self.finespline,self.gates,self.gatesd,self.curv,slope = getSpline(points,s=0.0)
 
 		self.trackLength = track.getTotalLength()
@@ -527,6 +538,10 @@ class dataContainer:
 		displacedSpline1 = displaceSpline(n1,self.finespline,self.normals)
 		displacedSpline2 = displaceSpline(n2,self.finespline,self.normals)
 
+		if self.flipX == True:
+			displacedSpline1[0] = -displacedSpline1[0]
+			displacedSpline2[0] = -displacedSpline2[0]
+
 		#plot background track
 		fig = go.Figure()
 		line = go.Scatter(x=displacedSpline1[0],y=displacedSpline1[1],mode='lines',line=dict(color='white', width=2),hoverinfo='skip')
@@ -621,6 +636,9 @@ class dataContainer:
 		else:
 			cmax = self.trackColorScale[1]
 			cmin = self.trackColorScale[0]
+
+		if self.flipX == True:
+			displacedSpline[0] = -displacedSpline[0]
 
 		line_array.append(go.Scatter(x=displacedSpline[0],y=displacedSpline[1],marker=dict(
 			size=markersize,
@@ -802,7 +820,7 @@ app.layout = dbc.Container(
 					html.P('Choose the track:'),
 					dbc.Row([
 					dbc.Col([
-						dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1},{'label':'Barcelona','value':2}],value=0)
+						dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1},{'label':'Barcelona','value':2},{'label':'Abu Dhabi','value':3}],value=0)
 						]),
 					dbc.Col([])
 					]),
@@ -1095,6 +1113,8 @@ def update_track_graph(val1,val2,val3,absolute,radioval,track):
 		selectedTrack = tracks.Bahrain_short
 	elif track == 2:
 		selectedTrack = tracks.Barcelona
+	elif track == 3:
+		selectedTrack = tracks.AbuDhabi
 
 	if selectedTrack != dataContainer.track:
 		dataContainer.updateTrack(selectedTrack)

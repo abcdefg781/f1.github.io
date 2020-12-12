@@ -4,9 +4,9 @@ from scipy import signal
 from Track import Track
 import copy
 
-def getTrackPoints(track):
+def getTrackPoints(track,initial_direction=np.array([1,0])):
 	pos = np.array([0,0])
-	direction = np.array([1,0])
+	direction = initial_direction
 
 	points = [[0,0]]
 
