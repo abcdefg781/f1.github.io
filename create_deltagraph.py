@@ -40,7 +40,7 @@ def create_race_table(year, race_name):
     color_palette = pd.Series(colored_df.color.values, index = colored_df.driverName).to_dict()
     return df_4, races_temp, color_palette,colored_df
 
-race_table,races_temp,color_palette,color_df = create_race_table(2020,'Sakhir Grand Prix')
+race_table,races_temp,color_palette,color_df = create_race_table(2020,'Abu Dhabi Grand Prix')
 print(color_df)
 def plotDeltaGraph(deltaType):
         df_grouped = [y for x,y in race_table.groupby('driverName',as_index=False)]
@@ -96,14 +96,15 @@ def plotDeltaGraph(deltaType):
         #fig.update_layout(xaxis=dict(range=[1,64.9]))
         fig.update_layout(
             title={
-                'text': "Relative to Sergio Pérez",
+                'text': "Relative to first place",
                 'y':0.95,
                 'x':0.5,
                 'xanchor': 'center',
                 'yanchor': 'top'})
+        fig.update_yaxes(automargin=True,autorange="reversed")
         fig.write_image("fig3.jpg",width=1200,height=600,scale=5)
         fig.show()
         #plotly.offline.plot(fig, filename= "Deltaplot2")
 
-plotDeltaGraph('Sergio Pérez')
+plotDeltaGraph('min')
 
