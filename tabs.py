@@ -16,12 +16,13 @@ import plotly
 from plotly import tools as tls
 from dash.dependencies import Input, Output, State
 import datetime as dt
+
 # import smtplib
 # from email.mime.multipart import MIMEMultipart
 # from email.mime.text import MIMEText
 # import sendgrid
 # from sendgrid.helpers.mail import *
-import os
+#import os
 import copy
 import warnings
 import json
@@ -30,8 +31,8 @@ import json
 #imports for lap sim
 #from smt.surrogate_models import RBF
 from RBF import RBF
-from linewidthhelper import linewidth_from_data_units
-from spline import getSpline,getTrackPoints,getGateNormals,getGateNormals2,reverseTransformGates,transformGates,displaceSpline,lerp
+#from linewidthhelper import linewidth_from_data_units
+from spline import getSpline,getTrackPoints,getGateNormals2,reverseTransformGates,transformGates,displaceSpline,lerp
 from Track import Track
 import tracks
 
@@ -73,8 +74,9 @@ app.index_string = """<!DOCTYPE html>
 ################################################################
 # Import data and Functions
 # Import all the data
+
 drivers_df = pd.read_csv("./f1db_csv/drivers.csv").drop(columns = "url")
-lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
+lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv",usecols=["raceId", "driverId", "lap", "milliseconds"])
 results_df = pd.read_csv("./f1db_csv/results.csv")
 constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
 races_df = pd.read_csv("./f1db_csv/races.csv")
@@ -92,9 +94,9 @@ drivers_df["driverName"] = drivers_df["forename"].str.cat(drivers_df["surname"],
 drivers_df = drivers_df.drop(columns = ["forename", "surname"])
 
 # lap_times_df
-clean_lt_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
-clean_lt_df["seconds"] = clean_lt_df.milliseconds / 1000
-clean_lt_df = clean_lt_df.drop(columns = "milliseconds")
+#lap_times_df = lap_times_df[["raceId", "driverId", "lap", "milliseconds"]]
+lap_times_df["seconds"] = lap_times_df.milliseconds / 1000
+lap_times_df.drop(columns = "milliseconds",inplace=True)
 
 # results_df
 results_df["position"] = results_df["position"].replace({r"\N": 99})
@@ -115,9 +117,10 @@ driver_history_df.drop(columns='raceId',inplace=True)
 
 #rbf graph df
 #rbf_df = pd.read_csv("./rbf_csv/rbfoutput.csv",header=None)
-s_df = pd.read_csv("./rbf_csv/s_bahrain.csv",header=None)
-yt = pd.read_csv("./rbf_csv/yt_bahrain.csv",header=None).to_numpy()
-xt = pd.read_csv("./rbf_csv/xt_bahrain.csv",header=None).to_numpy()
+#s_df = pd.read_csv("./rbf_csv/s_bahrain.csv",header=None).to_numpy()
+#yt = pd.read_csv("./rbf_csv/yt_bahrain.csv",header=None).to_numpy()
+#xt = pd.read_csv("./rbf_csv/xt_bahrain.csv",header=None).to_numpy()
+
 
 
 #slider values
@@ -130,7 +133,7 @@ sigma = 1.0
 def create_race_table(year, race_name):
 	races_temp = races_df[races_df.year == year]
 	race_id = int(races_temp.raceId[races_temp.name == race_name])
-	lap_times_1 = clean_lt_df[clean_lt_df.raceId == race_id]
+	lap_times_1 = lap_times_df[lap_times_df.raceId == race_id]
 	results_1 = results_df[results_df.raceId == race_id]
 	df_1 = pd.merge(drivers_df[["driverId", "driverName", "number"]], lap_times_1, on = "driverId")
 	df_2 = pd.merge(df_1, results_1[["resultId", "driverId", "constructorId", "position"]], on = "driverId")
@@ -156,10 +159,8 @@ class dataContainer:
 		self.num_functions = 3
 		self.updateTrack(tracks.Bahrain_short)
 	
-		
-
 		self.prevTrace = 0
-	
+		
 	def updateTrack(self,track):
 		self.track = track
 		initial_direction = np.array([1,0])
@@ -190,7 +191,7 @@ class dataContainer:
 			initial_direction = np.array([0,-1])
 			self.flipX = True
 
-		s_df = pd.read_csv(sfile,header=None)
+		s_df = pd.read_csv(sfile,header=None).to_numpy()
 		yt = pd.read_csv(ytfile,header=None).to_numpy()
 		xt = pd.read_csv(xtfile,header=None).to_numpy()
 		self.yt = yt
@@ -221,7 +222,8 @@ class dataContainer:
 		V = yt[:,0:self.num_nodes]
 		self.trackColorScale = [np.amin(V)-5,np.amax(V)+5]
 		self.trackDeltaColorScale = [-20,20]
-		self.s = s_df.iloc[0].to_numpy()
+		# self.s = s_df.iloc[0].to_numpy()
+		self.s = s_df[0]
 
 		#self.cmap = mpl.cm.get_cmap('jet')
 		#self.norm = mpl.colors.Normalize(vmin=self.trackColorScale[0],vmax=self.trackColorScale[1])
@@ -405,8 +407,7 @@ class dataContainer:
 		return fig
 
 	def update_form_graph(self,chart_switch,quali_range):
-		df_5 = copy.deepcopy(quali_form_df)
-		df_5 = df_5[df_5['date'].dt.year >= quali_range[0]]
+		df_5 = quali_form_df[quali_form_df['date'].dt.year >= quali_range[0]]
 		df_5 = df_5[df_5['date'].dt.year <= quali_range[1]]
 		df_grouped = [y for x,y in df_5.groupby('driverName',as_index=False)]
 		fig = go.Figure()
@@ -442,15 +443,26 @@ class dataContainer:
 		results_df_drops.drop(['points'],axis=1,inplace=True)
 		merged_df = merged_df.merge(results_df_drops,on=['raceId','driverId'])
 		merged_df = merged_df.merge(constructor_colors_df,on='constructorId')
-		grouped_df = [y for x,y in merged_df.groupby('driverName',as_index=False)]
+		grouped_df = [y for x,y in merged_df.groupby('constructorId',as_index=False)]
+
 		
 		fig = go.Figure()
 		for i in range(len(grouped_df)):
-			name = grouped_df[i]['driverName'].iloc[0]
-			color = grouped_df[i]['color'].iloc[0]
-			grouped_df[i].sort_values(by='round',inplace=True)
-			line = go.Scatter(x=grouped_df[i]['round'],y=grouped_df[i]['points'],name=name,mode='lines',line=go.scatter.Line(color=color))
-			fig.add_trace(line)
+			grouped_df2 = [y for x,y in grouped_df[i].groupby('driverId',as_index=False)]
+			for j in range(len(grouped_df2)):
+				grouped_df3 = grouped_df2[j]
+				name = grouped_df3['driverName'].iloc[0]
+				color = grouped_df3['color'].iloc[0]
+				grouped_df3.sort_values(by='round',inplace=True)
+				if j==0:
+					line = go.Scatter(x=grouped_df3['round'],y=grouped_df3['points'],name=name,mode='lines',line=go.scatter.Line(color=color))
+				elif j == 1:
+					line = go.Scatter(x=grouped_df3['round'],y=grouped_df3['points'],name=name,mode='lines',line=go.scatter.Line(color=color,dash='dot'))
+				elif j == 2:
+					line = go.Scatter(x=grouped_df3['round'],y=grouped_df3['points'],name=name,mode='lines',line=go.scatter.Line(color=color,dash='dash'))
+				else:
+					line = go.Scatter(x=grouped_df3['round'],y=grouped_df3['points'],name=name,mode='lines',line=go.scatter.Line(color=color,dash='dashdot'))
+				fig.add_trace(line)
 
 		fig.update_layout(plot_bgcolor="#323130",
 				paper_bgcolor="#323130",font=dict(color="white"),
@@ -495,7 +507,7 @@ class dataContainer:
 		fig = go.Figure()
 
 		#Plot RBF data
-		for i in range(yt.shape[0]):
+		for i in range(self.num_samples):
 			y = self.yt[i,num_nodes*(state):num_nodes*(state+1)]
 			line = go.Scatter(x=s,y=y,opacity=0.2,line=dict(color='royalblue', width=1),hoverinfo='skip')
 			fig.add_trace(line)
@@ -685,7 +697,7 @@ app.layout = dbc.Container(
 						html.Br(),
 						html.P("Welcome to formulae.one. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
 						dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
-						dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
+						dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}},style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
 					]),
 				dbc.Tab(label="Race Analysis", tab_id="raceanalysis", children = [
 						html.Br(),

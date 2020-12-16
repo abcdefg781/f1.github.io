@@ -30,7 +30,7 @@
 28,29,footwork,Footwork,British,http://en.wikipedia.org/wiki/Footwork_Arrows,purple
 29,30,pacific,Pacific,British,http://en.wikipedia.org/wiki/Pacific_Racing,bisque
 30,31,simtek,Simtek,British,http://en.wikipedia.org/wiki/Simtek,pink
-31,32,team_lotus,Team Lotus,British,http://en.wikipedia.org/wiki/Team_Lotus,turquoise
+31,32,team_lotus,Team Lotus,British,http://en.wikipedia.org/wiki/Team_Lotus,goldenrod
 32,33,larrousse,Larrousse,French,http://en.wikipedia.org/wiki/Larrousse,orange
 33,34,brabham,Brabham,British,http://en.wikipedia.org/wiki/Brabham,green
 34,35,dallara,Dallara,Italian,http://en.wikipedia.org/wiki/Dallara,green
@@ -41,7 +41,7 @@
 39,40,lambo,Lambo,Italian,http://en.wikipedia.org/wiki/Modena_(racing_team),purple
 40,41,leyton,Leyton House,British,http://en.wikipedia.org/wiki/Leyton_House,green
 41,42,coloni,Coloni,Italian,http://en.wikipedia.org/wiki/Enzo_Coloni_Racing_Car_Systems,orange
-42,44,eurobrun,Euro Brun,Italian,http://en.wikipedia.org/wiki/Euro_Brun,fuschia
+42,44,eurobrun,Euro Brun,Italian,http://en.wikipedia.org/wiki/Euro_Brun,fuchsia
 43,45,osella,Osella,Italian,http://en.wikipedia.org/wiki/Osella,silver
 44,46,onyx,Onyx,British,http://en.wikipedia.org/wiki/Onyx_(racing_team),white
 45,47,life,Life,Italian,http://en.wikipedia.org/wiki/Life_(Racing_Team),yellow
@@ -75,7 +75,7 @@
 73,75,hill,Embassy Hill,British,http://en.wikipedia.org/wiki/Hill_(constructor),darkgreen
 74,76,lyncar,Lyncar,British,http://en.wikipedia.org/wiki/Lyncar,green
 75,77,trojan,Trojan,British,http://en.wikipedia.org/wiki/Trojan_(Racing_team),green
-76,78,amon,Amon,New Zealand,http://en.wikipedia.org/wiki/Amon_(Formula_One_team),fuschia
+76,78,amon,Amon,New Zealand,http://en.wikipedia.org/wiki/Amon_(Formula_One_team),fuchsia
 77,79,token,Token,British,http://en.wikipedia.org/wiki/Token_(Racing_team),orange
 78,80,iso_marlboro,Iso Marlboro,British,http://en.wikipedia.org/wiki/Iso_Marlboro,forestgreen
 79,81,tecno,Tecno,Italian,http://en.wikipedia.org/wiki/Tecno,blue
@@ -116,9 +116,9 @@
 114,116,ewing,Ewing,American,http://en.wikipedia.org/wiki/Ewing_(constructor),darkgreen
 115,117,aston_martin,Aston Martin,British,http://en.wikipedia.org/wiki/Aston_Martin,darkgreen
 116,118,vanwall,Vanwall,British,http://en.wikipedia.org/wiki/Vanwall,yellow
-117,119,moore,Moore,American,http://en.wikipedia.org/wiki/Moore_(constructor),fuschia
+117,119,moore,Moore,American,http://en.wikipedia.org/wiki/Moore_(constructor),fuchsia
 118,120,dunn,Dunn,American,http://en.wikipedia.org/wiki/Dunn_Engineering,crimson
-119,121,elder,Elder,American,http://en.wikipedia.org/wiki/Elder_(constructor),fuschia
+119,121,elder,Elder,American,http://en.wikipedia.org/wiki/Elder_(constructor),fuchsia
 120,122,sutton,Sutton,American,http://en.wikipedia.org/wiki/Sutton_(constructor),green
 121,123,fry,Fry,British,http://en.wikipedia.org/wiki/Fry_(racing_team),forestgreen
 122,124,tec-mec,Tec-Mec,Italian,http://en.wikipedia.org/wiki/Tec-Mec,turquoise
@@ -136,7 +136,7 @@
 134,136,pankratz,Pankratz,American,http://en.wikipedia.org/wiki/Pankratz,silver
 135,137,arzani-volpini,Arzani-Volpini,Italian,http://en.wikipedia.org/wiki/Arzani-Volpini,orange
 136,138,nichels,Nichels,American,http://en.wikipedia.org/wiki/Nichels,yellow
-137,139,bromme,Bromme,American,http://en.wikipedia.org/wiki/Bromme,fuschia
+137,139,bromme,Bromme,American,http://en.wikipedia.org/wiki/Bromme,fuchsia
 138,140,klenk,Klenk,German,http://en.wikipedia.org/wiki/Klenk,green
 139,141,simca,Simca,French,http://en.wikipedia.org/wiki/Simca,bisque
 140,142,turner,Turner,American,http://en.wikipedia.org/wiki/Turner_(constructor),bisque
@@ -168,15 +168,15 @@
 166,169,cooper-borgward,Cooper-Borgward,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,white
 167,170,cooper-climax,Cooper-Climax,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,turquoise
 168,171,cooper-castellotti,Cooper-Castellotti,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,crimson
-169,172,lotus-climax,Lotus-Climax,British,http://en.wikipedia.org/wiki/Team_Lotus,silver
-170,173,lotus-maserati,Lotus-Maserati,British,http://en.wikipedia.org/wiki/Team_Lotus,turquoise
+169,172,lotus-climax,Lotus-Climax,British,http://en.wikipedia.org/wiki/Team_Lotus,goldenrod
+170,173,lotus-maserati,Lotus-Maserati,British,http://en.wikipedia.org/wiki/Team_Lotus,goldenrod
 171,174,de_tomaso-osca,De Tomaso-Osca,Italian,http://en.wikipedia.org/wiki/De_Tomaso,pink
 172,175,de_tomaso-alfa_romeo,De Tomaso-Alfa Romeo,Italian,http://en.wikipedia.org/wiki/De_Tomaso,crimson
-173,176,lotus-brm,Lotus-BRM,British,http://en.wikipedia.org/wiki/Team_Lotus,orange
-174,177,lotus-borgward,Lotus-Borgward,British,http://en.wikipedia.org/wiki/Team_Lotus,forestgreen
+173,176,lotus-brm,Lotus-BRM,British,http://en.wikipedia.org/wiki/Team_Lotus,goldenrod
+174,177,lotus-borgward,Lotus-Borgward,British,http://en.wikipedia.org/wiki/Team_Lotus,goldenrod
 175,178,cooper-alfa_romeo,Cooper-Alfa Romeo,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,white
 176,179,de_tomaso-ferrari,De Tomaso-Ferrari,Italian,http://en.wikipedia.org/wiki/De_Tomaso,red
-177,180,lotus-ford,Lotus-Ford,British,http://en.wikipedia.org/wiki/Team_Lotus,fuschia
+177,180,lotus-ford,Lotus-Ford,British,http://en.wikipedia.org/wiki/Team_Lotus,goldenrod
 178,181,brabham-brm,Brabham-BRM,British,http://en.wikipedia.org/wiki/Brabham,silver
 179,182,brabham-ford,Brabham-Ford,British,http://en.wikipedia.org/wiki/Brabham,darkgreen
 180,183,brabham-climax,Brabham-Climax,British,http://en.wikipedia.org/wiki/Brabham,bisque
@@ -185,10 +185,10 @@
 183,186,cooper-ford,Cooper-Ford,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,bisque
 184,187,mclaren-ford,McLaren-Ford,British,http://en.wikipedia.org/wiki/Team_McLaren,turquoise
 185,188,mclaren-seren,McLaren-Serenissima,British,http://en.wikipedia.org/wiki/Team_McLaren,cornflowerblue
-186,189,eagle-climax,Eagle-Climax,American,http://en.wikipedia.org/wiki/Anglo_American_Racers,fuschia
+186,189,eagle-climax,Eagle-Climax,American,http://en.wikipedia.org/wiki/Anglo_American_Racers,fuchsia
 187,190,eagle-weslake,Eagle-Weslake,American,http://en.wikipedia.org/wiki/Anglo_American_Racers,turquoise
 188,191,brabham-repco,Brabham-Repco,British,http://en.wikipedia.org/wiki/Brabham,red
-189,192,cooper-ferrari,Cooper-Ferrari,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,fuschia
+189,192,cooper-ferrari,Cooper-Ferrari,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,fuchsia
 190,193,cooper-ats,Cooper-ATS,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,orange
 191,194,mclaren-brm,McLaren-BRM,British,http://en.wikipedia.org/wiki/McLaren_(racing),orange
 192,195,cooper-brm,Cooper-BRM,British,http://en.wikipedia.org/wiki/Cooper_Car_Company,pink
@@ -197,16 +197,16 @@
 195,198,mclaren-alfa_romeo,McLaren-Alfa Romeo,British,http://en.wikipedia.org/wiki/McLaren_(racing),crimson
 196,199,march-alfa_romeo,March-Alfa Romeo,British,http://en.wikipedia.org/wiki/March_Engineering,cornflowerblue
 197,200,march-ford,March-Ford,British,http://en.wikipedia.org/wiki/March_Engineering,yellow
-198,201,lotus-pw,Lotus-Pratt &amp; Whitney,British,http://en.wikipedia.org/wiki/Team_Lotus,yellow
+198,201,lotus-pw,Lotus-Pratt &amp; Whitney,British,http://en.wikipedia.org/wiki/Team_Lotus,goldenrod
 199,202,shadow-ford,Shadow-Ford,British,http://en.wikipedia.org/wiki/Shadow_Racing_Cars,purple
 200,203,shadow-matra,Shadow-Matra,British,http://en.wikipedia.org/wiki/Shadow_Racing_Cars,bisque
 201,204,brabham-alfa_romeo,Brabham-Alfa Romeo,British,http://en.wikipedia.org/wiki/Brabham,turquoise
-202,205,lotus_racing,Lotus,Malaysian,http://en.wikipedia.org/wiki/Lotus_Racing,cornflowerblue
+202,205,lotus_racing,Lotus,Malaysian,http://en.wikipedia.org/wiki/Lotus_Racing,goldenrod
 203,206,marussia,Marussia,Russian,http://en.wikipedia.org/wiki/Marussia_F1,orange
 204,207,caterham,Caterham,Malaysian,http://en.wikipedia.org/wiki/Caterham_F1,forestgreen
-205,208,lotus_f1,Lotus F1,British,http://en.wikipedia.org/wiki/Lotus_F1,fuschia
+205,208,lotus_f1,Lotus F1,British,http://en.wikipedia.org/wiki/Lotus_F1,goldenrod
 206,209,manor,Manor Marussia,British,http://en.wikipedia.org/wiki/Manor_Motorsport,bisque
 207,210,haas,Haas F1 Team,American,http://en.wikipedia.org/wiki/Haas_F1_Team,#787878
 208,211,racing_point,Racing Point,British,http://en.wikipedia.org/wiki/Racing_Point_F1_Team,#F596C8
-209,212,alpha_tauri,Scuderia Alpha Tauri,Italian,http://en.wikipedia.org/wiki/Scuderia_Alpha_Tauri,fuschia
+209,212,alpha_tauri,Scuderia Alpha Tauri,Italian,http://en.wikipedia.org/wiki/Scuderia_Alpha_Tauri,#C8C8C8
 210,213,alphatauri,AlphaTauri,Italian,http://en.wikipedia.org/wiki/Scuderia_AlphaTauri,#C8C8C8
