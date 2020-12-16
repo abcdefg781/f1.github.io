@@ -1,7 +1,7 @@
 import time
 
-import matplotlib as mpl
-import matplotlib.cm
+# import matplotlib as mpl
+# import matplotlib.cm
 
 import dash
 import dash_bootstrap_components as dbc
@@ -11,14 +11,14 @@ import dash_table
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
-import plotly.express as px
+#import plotly.express as px
 import plotly
 from plotly import tools as tls
 from dash.dependencies import Input, Output, State
 import datetime as dt
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+# import smtplib
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
 # import sendgrid
 # from sendgrid.helpers.mail import *
 import os
@@ -223,8 +223,8 @@ class dataContainer:
 		self.trackDeltaColorScale = [-20,20]
 		self.s = s_df.iloc[0].to_numpy()
 
-		self.cmap = mpl.cm.get_cmap('jet')
-		self.norm = mpl.colors.Normalize(vmin=self.trackColorScale[0],vmax=self.trackColorScale[1])
+		#self.cmap = mpl.cm.get_cmap('jet')
+		#self.norm = mpl.colors.Normalize(vmin=self.trackColorScale[0],vmax=self.trackColorScale[1])
 
 		x = (ubounds+lbounds)/2
 		self.baseliney = self.sm.getGuess(x)
@@ -870,14 +870,14 @@ app.layout = dbc.Container(
 					]),
 					html.Br(),
 					html.Div(className="loader-wrapper",children=[
-					#dcc.Loading(id='traceLoading',color="#fc7303",children=[
+					dcc.Loading(id='traceLoading',color="#fc7303",children=[
 					dcc.Graph(className='div-for-charts',id='lapSimGraph')
-					]),#])]),
+					])]),
 					html.Br(),
 					html.Div(className="loader-wrapper",children=[
-					#dcc.Loading(id='trackLoading',color="#fc7303",children=[
+					dcc.Loading(id='trackLoading',color="#fc7303",children=[
 					dcc.Graph(id='trackGraph',style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
-					])#])])
+					])])
 				]),
 				dbc.Tab(label = "Contact", tab_id="contact", children = [
 						html.Br(),
