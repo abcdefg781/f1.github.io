@@ -31,7 +31,7 @@ import json
 #from smt.surrogate_models import RBF
 from RBF import RBF
 from linewidthhelper import linewidth_from_data_units
-from spline import getSpline,getTrackPoints,getGateNormals,reverseTransformGates,setGateDisplacements,transformGates,displaceSpline,lerp
+from spline import getSpline,getTrackPoints,getGateNormals,getGateNormals2,reverseTransformGates,transformGates,displaceSpline,lerp
 from Track import Track
 import tracks
 
@@ -205,7 +205,11 @@ class dataContainer:
 		self.finespline,self.gates,self.gatesd,self.curv,slope = getSpline(points,s=0.0)
 
 		self.trackLength = track.getTotalLength()
-		self.normals = getGateNormals(self.finespline,slope)
+
+		normals = getGateNormals2(slope)
+
+		self.normals = np.reshape(normals,(len(self.finespline[0]),2,2))
+
 
 		#figure out aspect ratio of track
 		dx = np.amax(self.finespline[0])-np.amin(self.finespline[0])
@@ -578,33 +582,41 @@ class dataContainer:
 
 	def plotTrackWithData(self,n,state,baselinestate=None,markersize=4):
 		s = self.s
-		finespline = self.finespline
+		finespline = np.array(self.finespline)
 		s_final = self.trackLength
 		normals = self.normals
 		newgates = []
 		newnormals = []
 		newn = []
-		for i in range(len(n)):
-			index = ((s[i]/s_final)*np.array(finespline).shape[1]).astype(int)
+		# for i in range(len(n)):
+		# 	index = ((s[i]/s_final)*np.array(finespline).shape[1]).astype(int)
 			
-			if index==np.array(finespline).shape[1]:
-				index = np.array(finespline).shape[1]-1
-			if i>0 and s[i] == s[i-1]:
-				continue
-			else:
-				newgates.append([finespline[0][index],finespline[1][index]])
-				newnormals.append(normals[index])
-				newn.append(n[i])
+		# 	if index==np.array(finespline).shape[1]:
+		# 		index = np.array(finespline).shape[1]-1
+		# 	if i>0 and s[i] == s[i-1]:
+		# 		continue
+		# 	else:
+		# 		newgates.append([finespline[0][index],finespline[1][index]])
+		# 		newnormals.append(normals[index])
+		# 		newn.append(n[i])
+
+		index = ((np.unique(s)/s_final)*finespline.shape[1]).astype(int)
+		if index[-1] == finespline.shape[1]:
+			index[-1] = finespline.shape[1]-1
+		newgates = np.array([finespline[0][index],finespline[1][index]]).T
+		newnormals = normals[index]
+		newn = n
 
 		newgates = reverseTransformGates(newgates)
-		displacedGates = setGateDisplacements(newn,newgates,newnormals)
+		displacedGates = displaceSpline(newn,newgates,newnormals)
 		displacedGates = np.array((transformGates(displacedGates)))
 
-		displacedSpline = getSpline(displacedGates,0.0005,0)[0]
+		numFineSpline = 2000
+
+		displacedSpline = getSpline(displacedGates,1/numFineSpline,0)[0]
 		interp_state_array = np.zeros(len(displacedSpline[0]))
 
-
-		s_new = np.linspace(0,s_final,2000)
+		s_new = np.linspace(0,s_final,numFineSpline)
 
 		#plot spline with color
 		line_array = []
@@ -858,14 +870,14 @@ app.layout = dbc.Container(
 					]),
 					html.Br(),
 					html.Div(className="loader-wrapper",children=[
-					dcc.Loading(id='traceLoading',color="#fc7303",children=[
+					#dcc.Loading(id='traceLoading',color="#fc7303",children=[
 					dcc.Graph(className='div-for-charts',id='lapSimGraph')
-					])]),
+					]),#])]),
 					html.Br(),
 					html.Div(className="loader-wrapper",children=[
-					dcc.Loading(id='trackLoading',color="#fc7303",children=[
+					#dcc.Loading(id='trackLoading',color="#fc7303",children=[
 					dcc.Graph(id='trackGraph',style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
-					])])
+					])#])])
 				]),
 				dbc.Tab(label = "Contact", tab_id="contact", children = [
 						html.Br(),

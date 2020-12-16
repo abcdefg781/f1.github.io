@@ -62,7 +62,7 @@ def lerp(x,x0,x1,y0,y1):
 	y = y0+(x-x0)*((y1-y0)/(x1-x0))
 	return y
 
-def getSpline(points,interval=0.00001,s=0.3):
+def getSpline(points,interval=0.00025,s=0.3):
 	tck,u = interpolate.splprep(points.transpose(),s=s, k=5)
 	unew = np.arange(0, 1.0, interval)
 	finespline = interpolate.splev(unew, tck)
@@ -98,43 +98,50 @@ def getGateNormals(gates,gatesd):
 
 	return normals
 
+def getGateNormals2(single):
+	single = np.array(single)
+	mag = np.sqrt(single[0,:]**2+single[1,:]**2)
+	single = single/mag
+
+	normal1 = np.concatenate([[-single[1,:]],[single[0,:]]],axis=0)
+	normal2 = np.concatenate([[single[1,:]],[-single[0,:]]],axis=0)
+
+	return np.hstack((normal1.T,normal2.T))
+
 def transformGates(gates):
 	#transforms from [[x positions],[y positions]] to [[x0, y0],[x1, y1], etc..]
-	newgates = []
-	for i in range(len(gates[0])):
-		newgates.append(([gates[0][i],gates[1][i]]))
+	newgates = np.array(gates).T
 	return newgates
 
 def reverseTransformGates(gates):
 	#transforms from [[x0, y0],[x1, y1], etc..] to [[x positions],[y positions]]
-	newgates = np.zeros((2,len(gates)))
-	for i in range(len(gates)):
-		newgates[0,i] = gates[i][0]
-		newgates[1,i] = gates[i][1]
+	newgates = np.array(gates).T
 	return newgates
 
 def displaceSpline(gateDisplacements,finespline,normals):
-	displacedSpline = np.zeros(np.array(finespline).shape)
-	for i in range(len(finespline[0])):
-		normal = normals[i][0]
-		displacedSpline[:,i] = [finespline[0][i]+normal[0]*gateDisplacements[i],finespline[1][i]+normal[1]*gateDisplacements[i]]
+	# displacedSpline = np.zeros(np.array(finespline).shape)
+	# for i in range(len(finespline[0])):
+	# 	normal = normals[i][0]
+	# 	displacedSpline[:,i] = [finespline[0][i]+normal[0]*gateDisplacements[i],finespline[1][i]+normal[1]*gateDisplacements[i]]
+	normalDisplacements = np.multiply(np.array(normals)[:,0],np.array(gateDisplacements)[:,None])
+	displacedSpline = np.array(finespline)+normalDisplacements.T
 	return displacedSpline
 
-def setGateDisplacements(gateDisplacements,gates,normals):
-	#does not modify original gates, returns updated version
-	newgates = np.copy(gates)
-	for i in range(len(gates[0])):
-		if i > len(gateDisplacements)-1:
-			disp = 0
-		else:
-			disp = gateDisplacements[i]
-		#if disp>0:
-		normal = normals[i][0] #always points outwards
-		#else:
-		#	normal = normals[i][1] #always points inwards
-		newgates[0][i] = newgates[0][i] + disp*normal[0]
-		newgates[1][i] = newgates[1][i] + disp*normal[1]
-	return newgates
+# def setGateDisplacements(gateDisplacements,gates,normals):
+# 	#does not modify original gates, returns updated version
+# 	newgates = np.copy(gates)
+# 	for i in range(len(gates[0])):
+# 		if i > len(gateDisplacements)-1:
+# 			disp = 0
+# 		else:
+# 			disp = gateDisplacements[i]
+# 		#if disp>0:
+# 		normal = normals[i][0] #always points outwards
+# 		#else:
+# 		#	normal = normals[i][1] #always points inwards
+# 		newgates[0][i] = newgates[0][i] + disp*normal[0]
+# 		newgates[1][i] = newgates[1][i] + disp*normal[1]
+# 	return newgates
 
 def getArea(point1,point2,point3):
 	area = np.abs(0.5*(point1[0]*point2[1]+point2[0]*point3[1]+point3[0]*point1[1]-point1[1]*point2[0]-point2[1]*point3[0]-point3[1]*point1[0]))
