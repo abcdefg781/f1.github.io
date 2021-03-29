@@ -152,7 +152,7 @@ def create_driver_table(driver_name_1):
 
 class dataContainer:
 	def __init__(self):
-		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2020, "Abu Dhabi Grand Prix")
+		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Bahrain Grand Prix")
 		self.driver_history_table = create_driver_table("Lewis Hamilton")
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
 		
@@ -704,10 +704,10 @@ app.layout = dbc.Container(
 						html.P('Select a year and race to view all charts on this page based on that race. The graph directly below shows the lap times in seconds for each driver as the race progresses. Slower lap times often indicate pit lane stops, safety cars, or incidents and drivers dropping out. These can be filtered out using the selection below.'),
 						dbc.Row([
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
+								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
 							),
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Abu Dhabi Grand Prix',clearable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Bahrain Grand Prix',clearable=False)
 							)
 						]),
 						dbc.Row([
