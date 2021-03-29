@@ -469,7 +469,7 @@ class dataContainer:
 
 		fig.update_layout(plot_bgcolor="#323130",
 				paper_bgcolor="#323130",font=dict(color="white"),
-				xaxis_title="Date",
+				#xaxis_title="Date",
 				yaxis_title="Championship Points",
 				margin = dict(l=20,r=20,t=20,b=20)
 				)
@@ -699,7 +699,7 @@ app.layout = dbc.Container(
 				dbc.Tab(label="Home", tab_id="home", children = [
 						html.Br(),
 						html.P("Welcome to formulae.one. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
-						dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2020,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
+						dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
 						dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}},style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
 					]),
 				dbc.Tab(label="Race Analysis", tab_id="raceanalysis", children = [
