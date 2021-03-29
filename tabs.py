@@ -464,6 +464,9 @@ class dataContainer:
 					line = go.Scatter(x=grouped_df3['round'],y=grouped_df3['points'],name=name,mode='lines',line=go.scatter.Line(color=color,dash='dashdot'))
 				fig.add_trace(line)
 
+		if len(grouped_df3['round'])==1:
+			fig.update_traces(mode='markers', marker_line_width=0, marker_size=8)
+
 		fig.update_layout(plot_bgcolor="#323130",
 				paper_bgcolor="#323130",font=dict(color="white"),
 				xaxis_title="Date",
