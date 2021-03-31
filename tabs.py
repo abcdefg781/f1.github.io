@@ -132,7 +132,10 @@ sigma = 1.0
 
 def create_race_table(year, race_name):
 	races_temp = races_df[races_df.year == year]
-	race_id = int(races_temp.raceId[races_temp.name == race_name])
+	try:
+		race_id = int(races_temp.raceId[races_temp.name == race_name])
+	except TypeError:
+		race_id = int(races_temp.raceId.iloc[0])
 	lap_times_1 = lap_times_df[lap_times_df.raceId == race_id]
 	results_1 = results_df[results_df.raceId == race_id]
 	df_1 = pd.merge(drivers_df[["driverId", "driverName", "number"]], lap_times_1, on = "driverId")
@@ -707,7 +710,7 @@ app.layout = dbc.Container(
 						html.P('Select a year and race to view all charts on this page based on that race. The graph directly below shows the lap times in seconds for each driver as the race progresses. Slower lap times often indicate pit lane stops, safety cars, or incidents and drivers dropping out. These can be filtered out using the selection below.'),
 						dbc.Row([
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()])
+								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
 							),
 							dbc.Col(
 								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Bahrain Grand Prix',clearable=False)
