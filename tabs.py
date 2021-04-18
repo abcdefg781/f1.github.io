@@ -155,7 +155,7 @@ def create_driver_table(driver_name_1):
 
 class dataContainer:
 	def __init__(self):
-		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Bahrain Grand Prix")
+		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Emilia Romagna Grand Prix")
 		self.driver_history_table = create_driver_table("Lewis Hamilton")
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
 		
@@ -713,7 +713,7 @@ app.layout = dbc.Container(
 								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
 							),
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Bahrain Grand Prix',clearable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Emilia Romagna Grand Prix',clearable=False)
 							)
 						]),
 						dbc.Row([
