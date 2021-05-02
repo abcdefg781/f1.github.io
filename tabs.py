@@ -28,9 +28,13 @@ import warnings
 import json
 
 
+
 #imports for lap sim
 #from smt.surrogate_models import RBF
 from RBF import RBF
+#from sklearn.gaussian_process import GaussianProcessRegressor
+#from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C
+import joblib
 #from linewidthhelper import linewidth_from_data_units
 from spline import getSpline,getTrackPoints,getGateNormals2,reverseTransformGates,transformGates,displaceSpline,lerp
 from Track import Track
@@ -126,6 +130,8 @@ driver_history_df.drop(columns='raceId',inplace=True)
 #slider values
 lbounds = np.array([600000,2.0,0.8])
 ubounds = np.array([1000000,6.0,2.0])
+#normalizefactors = np.array([800000,4.0,1.4])
+normalizefactors = np.array([1.0,1.0,1.0])
 
 #RBF factor
 sigma = 1.0
@@ -176,17 +182,21 @@ class dataContainer:
 			xtfile = "./rbf_csv/xt_bahrain_short.csv"
 			initial_direction = np.array([-1,0])
 			self.trackWidth = 14
+			trackname='bahrain_short'
+
 		elif track == tracks.Bahrain:
 			sfile = "./rbf_csv/s_bahrain.csv"
 			ytfile = "./rbf_csv/yt_bahrain.csv"
 			xtfile = "./rbf_csv/xt_bahrain.csv"
 			initial_direction = np.array([-1,0])
 			self.trackWidth = 14
+			trackname='bahrain'
 		elif track == tracks.Barcelona:
 			sfile = "./rbf_csv/s_barcelona.csv"
 			ytfile = "./rbf_csv/yt_barcelona.csv"
 			xtfile = "./rbf_csv/xt_barcelona.csv"
 			self.trackWidth = 10
+			trackname='barcelona'
 		elif track == tracks.AbuDhabi:
 			sfile = "./rbf_csv/s_abudhabi.csv"
 			ytfile = "./rbf_csv/yt_abudhabi.csv"
@@ -195,6 +205,7 @@ class dataContainer:
 			self.trackWidth = 14
 			initial_direction = np.array([0,-1])
 			self.flipX = True
+			trackname='abudhabi'
 
 		elif track == tracks.Portimao:
 			sfile = "./rbf_csv/s_portimao.csv"
@@ -205,6 +216,7 @@ class dataContainer:
 			initial_direction = np.array([-1,0])
 			self.flipY = True
 			#self.flipX = True
+			trackname='portimao'
 
 		s_df = pd.read_csv(sfile,header=None).to_numpy()
 		yt = pd.read_csv(ytfile,header=None).to_numpy()
@@ -212,10 +224,31 @@ class dataContainer:
 		self.yt = yt
 		self.xt = xt
 
+		#normalize
+		self.xt = self.xt/normalizefactors
+
 		self.num_nodes = int(yt.shape[1]/self.num_functions)
 		self.num_samples = yt.shape[0]
 
-		self.sm = RBF(lbounds,ubounds,sigma,xt,yt)
+		#self.sm = RBF(lbounds,ubounds,sigma,xt,yt)
+
+		#check if a pickled gaussian process regressor exists already
+		picklepath = "./rbf_csv/"+trackname+".pkl"
+
+		try:
+			#self.sm = joblib.load(picklepath)
+			self.sm = joblib.load(picklepath)
+		except:
+			#build surrogate model
+			#kernel = C(1.0, (1e-3, 1e3)) * RBF(1, (1e-2, 1e2))
+			#self.sm = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=9)
+
+			#self.sm.fit(self.xt,self.yt)
+			self.sm = RBF(lbounds/normalizefactors,ubounds/normalizefactors,sigma,xt,yt)
+
+			#save pickle file
+			joblib.dump(self.sm,picklepath)
+			
 
 		points = getTrackPoints(track,initial_direction)
 		self.finespline,self.gates,self.gatesd,self.curv,slope = getSpline(points,s=0.0)
@@ -240,11 +273,10 @@ class dataContainer:
 		# self.s = s_df.iloc[0].to_numpy()
 		self.s = s_df[0]
 
-		#self.cmap = mpl.cm.get_cmap('jet')
-		#self.norm = mpl.colors.Normalize(vmin=self.trackColorScale[0],vmax=self.trackColorScale[1])
-
 		x = (ubounds+lbounds)/2
+		x = x/normalizefactors
 		self.baseliney = self.sm.getGuess(x)
+		#self.baseliney = self.sm.predict(np.atleast_2d(x))[0]
 
 
 	def plotRaceGraph(self):
@@ -508,6 +540,9 @@ class dataContainer:
 		return self.driver_history_table.driverName.unique()
 
 	def updateRBF(self,x):
+		
+		x = x/normalizefactors
+		# self.y = self.sm.predict(np.atleast_2d(x))[0]
 		self.y = self.sm.getGuess(x)
 		self.laptime = self.y[self.num_nodes*2-1]
 
