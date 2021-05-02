@@ -515,7 +515,7 @@ class dataContainer:
 		s = self.s
 
 		if state == 0:
-			ylabel = 'Velocity (m/s)'
+			ylabel = 'Velocity (km/h)'
 		elif state == 1:
 			ylabel = 'Time (s)'
 		else:
@@ -528,11 +528,15 @@ class dataContainer:
 		#Plot RBF data
 		for i in range(self.num_samples):
 			y = self.yt[i,num_nodes*(state):num_nodes*(state+1)]
+			if state==0:
+				y = y*3.6
 			line = go.Scatter(x=s,y=y,opacity=0.2,line=dict(color='royalblue', width=1),hoverinfo='skip')
 			fig.add_trace(line)
 
 		#RBF output
 		y = self.y[num_nodes*(state):num_nodes*(state+1)]
+		if state==0:
+			y = y*3.6
 
 		line = go.Scatter(x=s,y=y,mode='lines',line=dict(color='deepskyblue', width=4),name=ylabel)
 		fig.add_trace(line)
@@ -557,7 +561,9 @@ class dataContainer:
 		n = y[num_nodes*(func_index):num_nodes*(func_index+1)]
 		func_index = 0
 		V = y[num_nodes*(func_index):num_nodes*(func_index+1)]
+		V = V*3.6
 		baselineV = self.baseliney[num_nodes*(func_index):num_nodes*(func_index+1)]
+		baselineV = baselineV*3.6
 		# if xaxisrange is not None:
 		# 	markersize = np.maximum(15-((xaxisrange[1]-xaxisrange[0])*0.01),self.dx/400)
 		# else:
@@ -677,11 +683,11 @@ class dataContainer:
 			
 			#line_array.append(go.Scatter(x=[point[0],prevpoint[0]],y=[point[1],prevpoint[1]],line=dict(color=color,width=1),hoverinfo='skip',mode='lines'))
 		if baselinestate is not None:
-			cmax = self.trackDeltaColorScale[1]
-			cmin = self.trackDeltaColorScale[0]
+			cmax = self.trackDeltaColorScale[1]*3.6
+			cmin = self.trackDeltaColorScale[0]*3.6
 		else:
-			cmax = self.trackColorScale[1]
-			cmin = self.trackColorScale[0]
+			cmax = self.trackColorScale[1]*3.6
+			cmin = self.trackColorScale[0]*3.6
 
 		if self.flipX == True:
 			displacedSpline[0] = -displacedSpline[0]
@@ -693,10 +699,10 @@ class dataContainer:
 			cmax=cmax,
 			cmin=cmin,
 			color=interp_state_array,
-			colorbar=dict(title="Velocity (m/s)"),
+			colorbar=dict(title="Velocity (km/h)"),
 			colorscale=colormap),
 			customdata=np.vstack((interp_state_array,s_new)).T,
-			hovertemplate = 'Velocity: %{customdata[0]: .2f} m/s<br>Distance: %{customdata[1]:.2f} m<extra></extra>',
+			hovertemplate = 'Velocity: %{customdata[0]: .2f} km/h<br>Distance: %{customdata[1]:.2f} m<extra></extra>',
 			mode='markers'))
 		
 		return line_array
