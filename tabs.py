@@ -168,6 +168,7 @@ class dataContainer:
 		self.track = track
 		initial_direction = np.array([1,0])
 		self.flipX = False
+		self.flipY = False
 
 		if track == tracks.Bahrain_short:
 			sfile = "./rbf_csv/s_bahrain_short.csv"
@@ -190,9 +191,20 @@ class dataContainer:
 			sfile = "./rbf_csv/s_abudhabi.csv"
 			ytfile = "./rbf_csv/yt_abudhabi.csv"
 			xtfile = "./rbf_csv/xt_abudhabi.csv"
+
 			self.trackWidth = 14
 			initial_direction = np.array([0,-1])
 			self.flipX = True
+
+		elif track == tracks.Portimao:
+			sfile = "./rbf_csv/s_portimao.csv"
+			ytfile = "./rbf_csv/yt_portimao.csv"
+			xtfile = "./rbf_csv/xt_portimao.csv"
+
+			self.trackWidth = 14
+			initial_direction = np.array([-1,0])
+			self.flipY = True
+			#self.flipX = True
 
 		s_df = pd.read_csv(sfile,header=None).to_numpy()
 		yt = pd.read_csv(ytfile,header=None).to_numpy()
@@ -223,7 +235,7 @@ class dataContainer:
 		self.aspect = dx/dy
 
 		V = yt[:,0:self.num_nodes]
-		self.trackColorScale = [np.amin(V)-5,np.amax(V)+5]
+		self.trackColorScale = [np.amin(V)-1,np.amax(V)+1]
 		self.trackDeltaColorScale = [-20,20]
 		# self.s = s_df.iloc[0].to_numpy()
 		self.s = s_df[0]
@@ -497,6 +509,7 @@ class dataContainer:
 
 	def updateRBF(self,x):
 		self.y = self.sm.getGuess(x)
+		self.laptime = self.y[self.num_nodes*2-1]
 
 	def plotTraceGraph(self,state):
 		s = self.s
@@ -550,9 +563,9 @@ class dataContainer:
 		# else:
 		markersize = self.dx/400
 		if absolute==0:
-			line_array = self.plotTrackWithData(n,V,markersize=markersize)
+			line_array = self.plotTrackWithData(n,V,markersize=markersize,colormap='rainbow')
 		else:
-			line_array = self.plotTrackWithData(n,V,baselineV,markersize=markersize)
+			line_array = self.plotTrackWithData(n,V,baselineV,markersize=markersize,colormap='rainbow')
 
 		n1 = self.trackWidth/2 * np.ones(len(self.finespline[0]))
 		n2 = -self.trackWidth/2 * np.ones(len(self.finespline[0]))
@@ -563,6 +576,9 @@ class dataContainer:
 		if self.flipX == True:
 			displacedSpline1[0] = -displacedSpline1[0]
 			displacedSpline2[0] = -displacedSpline2[0]
+		if self.flipY == True:
+			displacedSpline1[1] = -displacedSpline1[1]
+			displacedSpline2[1] = -displacedSpline2[1]
 
 		#plot background track
 		fig = go.Figure()
@@ -598,7 +614,7 @@ class dataContainer:
 
 		return fig
 
-	def plotTrackWithData(self,n,state,baselinestate=None,markersize=4):
+	def plotTrackWithData(self,n,state,baselinestate=None,markersize=4,colormap='rainbow'):
 		s = self.s
 		finespline = np.array(self.finespline)
 		s_final = self.trackLength
@@ -669,6 +685,8 @@ class dataContainer:
 
 		if self.flipX == True:
 			displacedSpline[0] = -displacedSpline[0]
+		if self.flipY == True:
+			displacedSpline[1] = -displacedSpline[1]
 
 		line_array.append(go.Scatter(x=displacedSpline[0],y=displacedSpline[1],marker=dict(
 			size=markersize,
@@ -676,7 +694,7 @@ class dataContainer:
 			cmin=cmin,
 			color=interp_state_array,
 			colorbar=dict(title="Velocity (m/s)"),
-			colorscale="rainbow"),
+			colorscale=colormap),
 			customdata=np.vstack((interp_state_array,s_new)).T,
 			hovertemplate = 'Velocity: %{customdata[0]: .2f} m/s<br>Distance: %{customdata[1]:.2f} m<extra></extra>',
 			mode='markers'))
@@ -850,7 +868,7 @@ app.layout = dbc.Container(
 					html.P('Choose the track:'),
 					dbc.Row([
 					dbc.Col([
-						dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1},{'label':'Barcelona','value':2},{'label':'Abu Dhabi','value':3}],value=0)
+						dcc.Dropdown(id='trackselect',options=[{'label':'Bahrain','value':0},{'label':'Bahrain short','value':1},{'label':'Barcelona','value':2},{'label':'Abu Dhabi','value':3},{'label':'Portimao','value':4}],value=4)
 						]),
 					dbc.Col([])
 					]),
@@ -886,6 +904,8 @@ app.layout = dbc.Container(
 							dcc.Dropdown(id='deltaabs',options=[{'label':'Absolute','value':0},{'label':'Relative','value':1}],value=0)
 						])
 					]),
+					html.Br(),
+					html.Div(id='laptimetext'),
 					html.Br(),
 					html.Div(className="loader-wrapper",children=[
 					dcc.Loading(id='traceLoading',color="#fc7303",children=[
@@ -1132,7 +1152,7 @@ def update_standings_graph(year):
 # 		return submit_message
 
 @app.callback(
-	[Output(component_id='lapSimGraph',component_property='figure'),Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children')],
+	[Output(component_id='lapSimGraph',component_property='figure'),Output(component_id='trackGraph',component_property='figure'),Output(component_id='slider1text',component_property='children'),Output(component_id='slider2text',component_property='children'),Output(component_id='slider3text',component_property='children'),Output(component_id='laptimetext',component_property='children')],
 	[Input(component_id='slider1', component_property='value'),Input(component_id='slider2', component_property='value'),Input(component_id='slider3', component_property='value'),Input(component_id='deltaabs',component_property='value'),Input(component_id='traceradio',component_property='value'),Input(component_id='trackselect',component_property='value')]
 )
 def update_track_graph(val1,val2,val3,absolute,radioval,track):
@@ -1145,6 +1165,8 @@ def update_track_graph(val1,val2,val3,absolute,radioval,track):
 		selectedTrack = tracks.Barcelona
 	elif track == 3:
 		selectedTrack = tracks.AbuDhabi
+	elif track == 4:
+		selectedTrack = tracks.Portimao
 
 	if selectedTrack != dataContainer.track:
 		dataContainer.updateTrack(selectedTrack)
@@ -1173,7 +1195,9 @@ def update_track_graph(val1,val2,val3,absolute,radioval,track):
 		# else:
 		dataContainer.trackfig = dataContainer.plotTrackGraph(absolute)
 
-	return [tracefig,dataContainer.trackfig,str1,str2,str3]
+	laptimestring = 'Lap time: '+str(np.round(dataContainer.laptime,3))+' s'
+
+	return [tracefig,dataContainer.trackfig,str1,str2,str3,laptimestring]
 
 @app.callback(
 	Output(component_id='tabs',component_property='active_tab'),
