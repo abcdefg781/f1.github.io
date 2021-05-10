@@ -772,7 +772,7 @@ app.layout = dbc.Container(
 								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
 							),
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Portuguese Grand Prix',clearable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Spanish Grand Prix',clearable=False)
 							)
 						]),
 						dbc.Row([
@@ -808,7 +808,7 @@ app.layout = dbc.Container(
 						dcc.Graph(className='div-for-charts',id='qualiFormGraph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
 						html.Br(),
 						dcc.RangeSlider(id='quali_range',
-							min=1996, max=2020, value=[2003, 2020],
+							min=1996, max=2021, value=[2003, 2021],
 							marks={
 							1996: {'label': '1996'},
 							1998: {'label': '1998'},
