@@ -5,3 +5,15 @@
 .DS_Store
 .pyc
 .dat
+*.ff1pkl
+*.png
+*.sqlite
+isochronal.py
+rbf_csv/.DS_Store
+rbf_csv/portimao_extended.pkl
+rbf_csv/s_portimao_extended.csv
+rbf_csv/xt_portimao_extended.csv
+rbf_csv/yt_portimao_extended.csv
+rbf_csv/.DS_Store
+.DS_Store
+clcd.py

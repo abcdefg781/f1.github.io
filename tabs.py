@@ -27,6 +27,10 @@ import copy
 import warnings
 import json
 
+#fastf1 test
+#fimport fastf1 as ff1
+#ff1.Cache.enable_cache('./ff1cache')
+
 
 
 #imports for lap sim
@@ -568,13 +572,29 @@ class dataContainer:
 			line = go.Scatter(x=s,y=y,opacity=0.2,line=dict(color='royalblue', width=1),hoverinfo='skip')
 			fig.add_trace(line)
 
+		#get ff1 data
+		# if hasattr(self,'ff1data') == False:
+			# self.ff1data = ff1.get_session(2020,'Portugal','Q')
+			# self.laps = self.ff1data.load_laps(with_telemetry=True)
+		# fast_ver = self.laps.pick_driver('HAM').pick_fastest()
+		# ver_car_data = fast_ver.get_car_data()
+		#print(ver_car_data.columns)
+		# t_ver = ver_car_data['Time']
+		# vCar_ver = ver_car_data['Speed']
+
 		#RBF output
+		# t = self.y[num_nodes:num_nodes*2]
+		# t_ver = t_ver.dt.total_seconds()
+		#print(t)
 		y = self.y[num_nodes*(state):num_nodes*(state+1)]
 		if state==0:
 			y = y*3.6
 
 		line = go.Scatter(x=s,y=y,mode='lines',line=dict(color='deepskyblue', width=4),name=ylabel)
 		fig.add_trace(line)
+
+		# line = go.Scatter(x=t_ver,y=vCar_ver,mode='lines',line=dict(color='orangered',width=4), name = 'ff1data')
+		# fig.add_trace(line)
 
 		
 		fig.update_layout(plot_bgcolor="#323130",
@@ -772,7 +792,7 @@ app.layout = dbc.Container(
 								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
 							),
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Spanish Grand Prix',clearable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Monaco Grand Prix',clearable=False)
 							)
 						]),
 						dbc.Row([
