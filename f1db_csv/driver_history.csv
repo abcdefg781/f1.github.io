@@ -7030,793 +7030,813 @@
 7028,Mick Schumacher,47,German,2021,French Grand Prix,2021-06-20,1059,Haas F1 Team,15,92.94200000000001,19,98.84700000000001,0,0.0,18
 7029,Pierre Gasly,10,French,2021,French Grand Prix,2021-06-20,1059,AlphaTauri,6,90.868,7,98.10300000000001,0,37.0,8
 7030,Yuki Tsunoda,22,Japanese,2021,French Grand Prix,2021-06-20,1059,AlphaTauri,20,,13,98.97999999999999,0,8.0,14
-7031,Carlos Sainz,55,Spanish,2019,Australian Grand Prix,2019-03-17,1010,McLaren,18,83.084,,90.899,0,0.0,20
-7032,Lando Norris,4,British,2019,Australian Grand Prix,2019-03-17,1010,McLaren,8,82.304,12,88.555,0,0.0,12
-7033,Lewis Hamilton,44,British,2019,Australian Grand Prix,2019-03-17,1010,Mercedes,1,80.486,2,86.057,0,18.0,2
-7034,Valtteri Bottas,77,Finnish,2019,Australian Grand Prix,2019-03-17,1010,Mercedes,2,80.598,1,85.58,1,26.0,1
-7035,Robert Kubica,88,Polish,2019,Australian Grand Prix,2019-03-17,1010,Williams,20,86.06700000000001,17,89.28399999999999,0,0.0,17
-7036,George Russell,63,British,2019,Australian Grand Prix,2019-03-17,1010,Williams,19,84.36,16,88.713,0,0.0,16
-7037,Nico Hülkenberg,27,German,2019,Australian Grand Prix,2019-03-17,1010,Renault,11,82.53999999999999,7,88.444,0,6.0,7
-7038,Daniel Ricciardo,3,Australian,2019,Australian Grand Prix,2019-03-17,1010,Renault,12,82.57,,89.848,0,0.0,19
-7039,Sebastian Vettel,5,German,2019,Australian Grand Prix,2019-03-17,1010,Ferrari,3,81.19,4,87.95400000000001,0,12.0,4
-7040,Charles Leclerc,16,Monegasque,2019,Australian Grand Prix,2019-03-17,1010,Ferrari,5,81.44200000000001,5,86.926,0,10.0,5
-7041,Daniil Kvyat,26,Russian,2019,Australian Grand Prix,2019-03-17,1010,Toro Rosso,15,82.511,10,87.44800000000001,0,1.0,10
-7042,Alexander Albon,23,Thai,2019,Australian Grand Prix,2019-03-17,1010,Toro Rosso,13,82.636,14,88.188,0,0.0,14
-7043,Kimi Räikkönen,7,Finnish,2019,Australian Grand Prix,2019-03-17,1010,Alfa Romeo,9,82.314,8,88.27,0,4.0,8
-7044,Antonio Giovinazzi,99,Italian,2019,Australian Grand Prix,2019-03-17,1010,Alfa Romeo,14,82.431,15,88.479,0,0.0,15
-7045,Pierre Gasly,10,French,2019,Australian Grand Prix,2019-03-17,1010,Red Bull,17,83.02,11,87.229,0,0.0,11
-7046,Max Verstappen,33,Dutch,2019,Australian Grand Prix,2019-03-17,1010,Red Bull,4,81.32,3,86.256,0,15.0,3
-7047,Romain Grosjean,8,French,2019,Australian Grand Prix,2019-03-17,1010,Haas F1 Team,6,81.826,,88.462,0,0.0,18
-7048,Kevin Magnussen,20,Danish,2019,Australian Grand Prix,2019-03-17,1010,Haas F1 Team,7,82.099,6,88.182,0,8.0,6
-7049,Sergio Pérez,11,Mexican,2019,Australian Grand Prix,2019-03-17,1010,Racing Point,10,82.532,13,88.485,0,0.0,13
-7050,Lance Stroll,18,Canadian,2019,Australian Grand Prix,2019-03-17,1010,Racing Point,16,83.017,9,87.568,0,2.0,9
-7051,Carlos Sainz,55,Spanish,2019,Bahrain Grand Prix,2019-03-31,1011,McLaren,7,88.813,,95.586,0,0.0,20
-7052,Lando Norris,4,British,2019,Bahrain Grand Prix,2019-03-31,1011,McLaren,10,89.043,6,95.777,0,8.0,7
-7053,Lewis Hamilton,44,British,2019,Bahrain Grand Prix,2019-03-31,1011,Mercedes,3,88.19,1,93.52799999999999,1,43.0,2
-7054,Valtteri Bottas,77,Finnish,2019,Bahrain Grand Prix,2019-03-31,1011,Mercedes,4,88.256,2,94.209,1,44.0,1
-7055,Robert Kubica,88,Polish,2019,Bahrain Grand Prix,2019-03-31,1011,Williams,20,91.799,16,97.90299999999999,0,0.0,17
-7056,George Russell,63,British,2019,Bahrain Grand Prix,2019-03-31,1011,Williams,19,91.759,15,97.313,0,0.0,16
-7057,Nico Hülkenberg,27,German,2019,Bahrain Grand Prix,2019-03-31,1011,Renault,17,90.03399999999999,,95.215,0,6.0,9
-7058,Daniel Ricciardo,3,Australian,2019,Bahrain Grand Prix,2019-03-31,1011,Renault,11,89.488,,96.697,0,0.0,18
-7059,Sebastian Vettel,5,German,2019,Bahrain Grand Prix,2019-03-31,1011,Ferrari,2,88.16,5,94.89500000000001,0,22.0,5
-7060,Charles Leclerc,16,Monegasque,2019,Bahrain Grand Prix,2019-03-31,1011,Ferrari,1,87.866,3,93.411,0,26.0,4
-7061,Daniil Kvyat,26,Russian,2019,Bahrain Grand Prix,2019-03-31,1011,Toro Rosso,15,89.854,12,94.934,0,1.0,13
-7062,Alexander Albon,23,Thai,2019,Bahrain Grand Prix,2019-03-31,1011,Toro Rosso,12,89.513,9,96.75200000000001,0,2.0,11
-7063,Kimi Räikkönen,7,Finnish,2019,Bahrain Grand Prix,2019-03-31,1011,Alfa Romeo,9,89.02199999999999,7,95.589,0,10.0,6
-7064,Antonio Giovinazzi,99,Italian,2019,Bahrain Grand Prix,2019-03-31,1011,Alfa Romeo,16,90.026,11,95.237,0,0.0,15
-7065,Pierre Gasly,10,French,2019,Bahrain Grand Prix,2019-03-31,1011,Red Bull,13,89.526,8,95.291,0,4.0,10
-7066,Max Verstappen,33,Dutch,2019,Bahrain Grand Prix,2019-03-31,1011,Red Bull,5,88.752,4,95.311,0,27.0,3
-7067,Romain Grosjean,8,French,2019,Bahrain Grand Prix,2019-03-31,1011,Haas F1 Team,8,89.015,,97.262,0,0.0,19
-7068,Kevin Magnussen,20,Danish,2019,Bahrain Grand Prix,2019-03-31,1011,Haas F1 Team,6,88.757,13,95.892,0,8.0,8
-7069,Sergio Pérez,11,Mexican,2019,Bahrain Grand Prix,2019-03-31,1011,Racing Point,14,89.756,10,96.33,0,1.0,14
-7070,Lance Stroll,18,Canadian,2019,Bahrain Grand Prix,2019-03-31,1011,Racing Point,18,90.217,14,97.037,0,2.0,12
-7071,Carlos Sainz,55,Spanish,2019,Chinese Grand Prix,2019-04-14,1012,McLaren,14,93.523,14,97.50200000000001,0,0.0,18
-7072,Lando Norris,4,British,2019,Chinese Grand Prix,2019-04-14,1012,McLaren,15,93.967,18,98.346,0,8.0,8
-7073,Lewis Hamilton,44,British,2019,Chinese Grand Prix,2019-04-14,1012,Mercedes,2,91.57,1,95.892,2,68.0,1
-7074,Valtteri Bottas,77,Finnish,2019,Chinese Grand Prix,2019-04-14,1012,Mercedes,1,91.547,2,94.872,1,62.0,2
-7075,Robert Kubica,88,Polish,2019,Chinese Grand Prix,2019-04-14,1012,Williams,18,95.281,17,99.77199999999999,0,0.0,20
-7076,George Russell,63,British,2019,Chinese Grand Prix,2019-04-14,1012,Williams,17,95.253,16,97.283,0,0.0,19
-7077,Nico Hülkenberg,27,German,2019,Chinese Grand Prix,2019-04-14,1012,Renault,8,92.962,,99.67699999999999,0,6.0,10
-7078,Daniel Ricciardo,3,Australian,2019,Chinese Grand Prix,2019-04-14,1012,Renault,7,92.958,7,98.632,0,6.0,11
-7079,Sebastian Vettel,5,German,2019,Chinese Grand Prix,2019-04-14,1012,Ferrari,3,91.848,3,94.836,0,37.0,4
-7080,Charles Leclerc,16,Monegasque,2019,Chinese Grand Prix,2019-04-14,1012,Ferrari,4,91.865,5,94.86,0,36.0,5
-7081,Daniil Kvyat,26,Russian,2019,Chinese Grand Prix,2019-04-14,1012,Toro Rosso,11,93.23599999999999,,97.975,0,1.0,15
-7082,Kimi Räikkönen,7,Finnish,2019,Chinese Grand Prix,2019-04-14,1012,Alfa Romeo,13,93.419,9,97.812,0,12.0,7
-7083,Pierre Gasly,10,French,2019,Chinese Grand Prix,2019-04-14,1012,Red Bull,6,92.93,6,94.74199999999999,0,13.0,6
-7084,Max Verstappen,33,Dutch,2019,Chinese Grand Prix,2019-04-14,1012,Red Bull,5,92.089,4,96.143,0,39.0,3
-7085,Romain Grosjean,8,French,2019,Chinese Grand Prix,2019-04-14,1012,Haas F1 Team,10,93.156,11,96.87299999999999,0,0.0,17
-7086,Kevin Magnussen,20,Danish,2019,Chinese Grand Prix,2019-04-14,1012,Haas F1 Team,9,93.15,13,97.471,0,8.0,9
-7087,Sergio Pérez,11,Mexican,2019,Chinese Grand Prix,2019-04-14,1012,Racing Point,12,93.299,8,98.702,0,5.0,12
-7088,Lance Stroll,18,Canadian,2019,Chinese Grand Prix,2019-04-14,1012,Racing Point,16,94.292,12,96.678,0,2.0,14
-7089,Carlos Sainz,55,Spanish,2019,Azerbaijan Grand Prix,2019-04-28,1013,McLaren,10,101.936,7,105.807,0,6.0,12
-7090,Lando Norris,4,British,2019,Azerbaijan Grand Prix,2019-04-28,1013,McLaren,7,101.886,8,105.394,0,12.0,9
-7091,Lewis Hamilton,44,British,2019,Azerbaijan Grand Prix,2019-04-28,1013,Mercedes,2,100.554,2,104.166,2,86.0,2
-7092,Valtteri Bottas,77,Finnish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Mercedes,1,100.495,1,104.024,2,87.0,1
-7093,Robert Kubica,88,Polish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Williams,18,105.455,16,107.709,0,0.0,20
-7094,George Russell,63,British,2019,Azerbaijan Grand Prix,2019-04-28,1013,Williams,17,105.062,15,107.251,0,0.0,19
-7095,Nico Hülkenberg,27,German,2019,Azerbaijan Grand Prix,2019-04-28,1013,Renault,16,103.42699999999999,14,107.407,0,6.0,11
-7096,Daniel Ricciardo,3,Australian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Renault,11,102.477,,106.767,0,6.0,13
-7097,Sebastian Vettel,5,German,2019,Azerbaijan Grand Prix,2019-04-28,1013,Ferrari,3,100.797,3,104.62899999999999,0,52.0,3
-7098,Charles Leclerc,16,Monegasque,2019,Azerbaijan Grand Prix,2019-04-28,1013,Ferrari,9,101.426,5,103.009,0,47.0,5
-7099,Daniil Kvyat,26,Russian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Toro Rosso,6,101.681,,107.681,0,1.0,16
-7100,Alexander Albon,23,Thai,2019,Azerbaijan Grand Prix,2019-04-28,1013,Toro Rosso,12,102.154,11,105.75399999999999,0,3.0,15
-7101,Kimi Räikkönen,7,Finnish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Alfa Romeo,19,,10,106.479,0,13.0,8
-7102,Antonio Giovinazzi,99,Italian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Alfa Romeo,8,102.14,12,105.969,0,0.0,17
-7103,Pierre Gasly,10,French,2019,Azerbaijan Grand Prix,2019-04-28,1013,Red Bull,20,,,105.712,0,13.0,7
-7104,Max Verstappen,33,Dutch,2019,Azerbaijan Grand Prix,2019-04-28,1013,Red Bull,4,101.069,4,104.794,0,51.0,4
-7105,Romain Grosjean,8,French,2019,Azerbaijan Grand Prix,2019-04-28,1013,Haas F1 Team,15,103.407,,108.517,0,0.0,18
-7106,Kevin Magnussen,20,Danish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Haas F1 Team,13,102.382,13,106.682,0,8.0,10
-7107,Sergio Pérez,11,Mexican,2019,Azerbaijan Grand Prix,2019-04-28,1013,Racing Point,5,101.593,6,105.524,0,13.0,6
-7108,Lance Stroll,18,Canadian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Racing Point,14,102.63,9,106.009,0,4.0,14
-7109,Carlos Sainz,55,Spanish,2019,Spanish Grand Prix,2019-05-12,1014,McLaren,13,77.599,8,80.85900000000001,0,10.0,11
-7110,Lando Norris,4,British,2019,Spanish Grand Prix,2019-05-12,1014,McLaren,11,77.338,,82.561,0,12.0,10
-7111,Lewis Hamilton,44,British,2019,Spanish Grand Prix,2019-05-12,1014,Mercedes,2,76.038,1,78.492,3,112.0,1
-7112,Valtteri Bottas,77,Finnish,2019,Spanish Grand Prix,2019-05-12,1014,Mercedes,1,75.406,2,78.737,2,105.0,2
-7113,Robert Kubica,88,Polish,2019,Spanish Grand Prix,2019-05-12,1014,Williams,20,80.254,18,83.202,0,0.0,20
-7114,George Russell,63,British,2019,Spanish Grand Prix,2019-05-12,1014,Williams,19,79.072,17,82.382,0,0.0,19
-7115,Nico Hülkenberg,27,German,2019,Spanish Grand Prix,2019-05-12,1014,Renault,16,78.404,13,81.282,0,6.0,13
-7116,Daniel Ricciardo,3,Australian,2019,Spanish Grand Prix,2019-05-12,1014,Renault,10,77.299,12,80.615,0,6.0,12
-7117,Sebastian Vettel,5,German,2019,Spanish Grand Prix,2019-05-12,1014,Ferrari,3,76.27199999999999,4,79.82,0,64.0,4
-7118,Charles Leclerc,16,Monegasque,2019,Spanish Grand Prix,2019-05-12,1014,Ferrari,5,76.588,5,80.002,0,57.0,5
-7119,Daniil Kvyat,26,Russian,2019,Spanish Grand Prix,2019-05-12,1014,Toro Rosso,9,77.243,9,80.726,0,3.0,16
-7120,Alexander Albon,23,Thai,2019,Spanish Grand Prix,2019-05-12,1014,Toro Rosso,12,77.445,11,81.02799999999999,0,3.0,15
-7121,Kimi Räikkönen,7,Finnish,2019,Spanish Grand Prix,2019-05-12,1014,Alfa Romeo,14,77.788,14,81.382,0,13.0,9
-7122,Antonio Giovinazzi,99,Italian,2019,Spanish Grand Prix,2019-05-12,1014,Alfa Romeo,18,78.664,16,81.833,0,0.0,18
-7123,Pierre Gasly,10,French,2019,Spanish Grand Prix,2019-05-12,1014,Red Bull,6,76.708,6,80.536,0,21.0,6
-7124,Max Verstappen,33,Dutch,2019,Spanish Grand Prix,2019-05-12,1014,Red Bull,4,76.357,3,79.769,0,66.0,3
-7125,Romain Grosjean,8,French,2019,Spanish Grand Prix,2019-05-12,1014,Haas F1 Team,7,76.911,10,81.057,0,1.0,17
-7126,Kevin Magnussen,20,Danish,2019,Spanish Grand Prix,2019-05-12,1014,Haas F1 Team,8,76.922,7,80.77,0,14.0,7
-7127,Sergio Pérez,11,Mexican,2019,Spanish Grand Prix,2019-05-12,1014,Racing Point,15,77.886,15,81.85900000000001,0,13.0,8
-7128,Lance Stroll,18,Canadian,2019,Spanish Grand Prix,2019-05-12,1014,Racing Point,17,78.471,,83.226,0,4.0,14
-7129,Carlos Sainz,55,Spanish,2019,Monaco Grand Prix,2019-05-26,1015,McLaren,9,71.417,6,75.891,0,18.0,7
-7130,Lando Norris,4,British,2019,Monaco Grand Prix,2019-05-26,1015,McLaren,12,71.724,11,76.413,0,12.0,11
-7131,Lewis Hamilton,44,British,2019,Monaco Grand Prix,2019-05-26,1015,Mercedes,1,70.166,1,76.167,4,137.0,1
-7132,Valtteri Bottas,77,Finnish,2019,Monaco Grand Prix,2019-05-26,1015,Mercedes,2,70.252,3,75.163,2,120.0,2
-7133,Robert Kubica,88,Polish,2019,Monaco Grand Prix,2019-05-26,1015,Williams,20,73.751,18,77.388,0,0.0,20
-7134,George Russell,63,British,2019,Monaco Grand Prix,2019-05-26,1015,Williams,19,73.477,15,77.038,0,0.0,19
-7135,Nico Hülkenberg,27,German,2019,Monaco Grand Prix,2019-05-26,1015,Renault,11,71.67,13,76.276,0,6.0,15
-7136,Daniel Ricciardo,3,Australian,2019,Monaco Grand Prix,2019-05-26,1015,Renault,7,71.218,9,75.697,0,8.0,13
-7137,Sebastian Vettel,5,German,2019,Monaco Grand Prix,2019-05-26,1015,Ferrari,4,70.947,2,76.277,0,82.0,3
-7138,Charles Leclerc,16,Monegasque,2019,Monaco Grand Prix,2019-05-26,1015,Ferrari,16,72.149,,79.151,0,57.0,5
-7139,Daniil Kvyat,26,Russian,2019,Monaco Grand Prix,2019-05-26,1015,Toro Rosso,8,71.271,7,76.288,0,9.0,12
-7140,Alexander Albon,23,Thai,2019,Monaco Grand Prix,2019-05-26,1015,Toro Rosso,10,71.429,8,75.607,0,7.0,14
-7141,Kimi Räikkönen,7,Finnish,2019,Monaco Grand Prix,2019-05-26,1015,Alfa Romeo,14,71.993,17,76.436,0,13.0,10
-7142,Antonio Giovinazzi,99,Italian,2019,Monaco Grand Prix,2019-05-26,1015,Alfa Romeo,15,71.976,19,76.299,0,0.0,18
-7143,Pierre Gasly,10,French,2019,Monaco Grand Prix,2019-05-26,1015,Red Bull,5,71.041,5,74.279,0,32.0,6
-7144,Max Verstappen,33,Dutch,2019,Monaco Grand Prix,2019-05-26,1015,Red Bull,3,70.618,4,76.229,0,78.0,4
-7145,Romain Grosjean,8,French,2019,Monaco Grand Prix,2019-05-26,1015,Haas F1 Team,13,71.837,10,76.746,0,2.0,17
-7146,Kevin Magnussen,20,Danish,2019,Monaco Grand Prix,2019-05-26,1015,Haas F1 Team,6,71.109,14,76.992,0,14.0,8
-7147,Sergio Pérez,11,Mexican,2019,Monaco Grand Prix,2019-05-26,1015,Racing Point,17,72.233,12,76.613,0,13.0,9
-7148,Lance Stroll,18,Canadian,2019,Monaco Grand Prix,2019-05-26,1015,Racing Point,18,72.846,16,76.379,0,4.0,16
-7149,Carlos Sainz,55,Spanish,2019,Canadian Grand Prix,2019-06-09,1016,McLaren,9,71.572,11,76.471,0,18.0,7
-7150,Lando Norris,4,British,2019,Canadian Grand Prix,2019-06-09,1016,McLaren,8,71.735,,78.023,0,12.0,12
-7151,Lewis Hamilton,44,British,2019,Canadian Grand Prix,2019-06-09,1016,Mercedes,2,70.446,1,74.813,5,162.0,1
-7152,Valtteri Bottas,77,Finnish,2019,Canadian Grand Prix,2019-06-09,1016,Mercedes,6,71.095,4,73.078,2,133.0,2
-7153,Robert Kubica,88,Polish,2019,Canadian Grand Prix,2019-06-09,1016,Williams,20,74.393,18,77.285,0,0.0,20
-7154,George Russell,63,British,2019,Canadian Grand Prix,2019-06-09,1016,Williams,19,73.617,16,77.241,0,0.0,19
-7155,Nico Hülkenberg,27,German,2019,Canadian Grand Prix,2019-06-09,1016,Renault,7,71.324,7,75.995,0,12.0,13
-7156,Daniel Ricciardo,3,Australian,2019,Canadian Grand Prix,2019-06-09,1016,Renault,4,71.071,6,76.075,0,16.0,8
-7157,Sebastian Vettel,5,German,2019,Canadian Grand Prix,2019-06-09,1016,Ferrari,1,70.24,2,74.875,0,100.0,3
-7158,Charles Leclerc,16,Monegasque,2019,Canadian Grand Prix,2019-06-09,1016,Ferrari,3,70.92,3,74.356,0,72.0,5
-7159,Daniil Kvyat,26,Russian,2019,Canadian Grand Prix,2019-06-09,1016,Toro Rosso,12,71.92099999999999,10,76.19800000000001,0,10.0,14
-7160,Alexander Albon,23,Thai,2019,Canadian Grand Prix,2019-06-09,1016,Toro Rosso,14,72.02,,77.151,0,7.0,15
-7161,Kimi Räikkönen,7,Finnish,2019,Canadian Grand Prix,2019-06-09,1016,Alfa Romeo,17,72.23,15,75.44200000000001,0,13.0,11
-7162,Antonio Giovinazzi,99,Italian,2019,Canadian Grand Prix,2019-06-09,1016,Alfa Romeo,13,72.122,13,76.365,0,0.0,18
-7163,Pierre Gasly,10,French,2019,Canadian Grand Prix,2019-06-09,1016,Red Bull,5,71.07900000000001,8,76.157,0,36.0,6
-7164,Max Verstappen,33,Dutch,2019,Canadian Grand Prix,2019-06-09,1016,Red Bull,11,71.619,5,74.767,0,88.0,4
-7165,Romain Grosjean,8,French,2019,Canadian Grand Prix,2019-06-09,1016,Haas F1 Team,15,72.109,14,76.245,0,2.0,17
-7166,Kevin Magnussen,20,Danish,2019,Canadian Grand Prix,2019-06-09,1016,Haas F1 Team,10,71.786,17,77.309,0,14.0,9
-7167,Sergio Pérez,11,Mexican,2019,Canadian Grand Prix,2019-06-09,1016,Racing Point,16,72.197,12,76.314,0,13.0,10
-7168,Lance Stroll,18,Canadian,2019,Canadian Grand Prix,2019-06-09,1016,Racing Point,18,72.266,9,76.043,0,6.0,16
-7169,Carlos Sainz,55,Spanish,2019,French Grand Prix,2019-06-23,1017,McLaren,6,89.52199999999999,6,94.561,0,26.0,7
-7170,Lando Norris,4,British,2019,French Grand Prix,2019-06-23,1017,McLaren,5,89.418,9,94.75399999999999,0,14.0,12
-7171,Lewis Hamilton,44,British,2019,French Grand Prix,2019-06-23,1017,Mercedes,1,88.319,1,92.76400000000001,6,187.0,1
-7172,Valtteri Bottas,77,Finnish,2019,French Grand Prix,2019-06-23,1017,Mercedes,2,88.605,2,93.586,2,151.0,2
-7173,Robert Kubica,88,Polish,2019,French Grand Prix,2019-06-23,1017,Williams,20,93.205,18,96.608,0,0.0,20
-7174,George Russell,63,British,2019,French Grand Prix,2019-06-23,1017,Williams,19,92.789,19,95.83,0,0.0,19
-7175,Nico Hülkenberg,27,German,2019,French Grand Prix,2019-06-23,1017,Renault,13,90.544,8,94.95,0,16.0,10
-7176,Daniel Ricciardo,3,Australian,2019,French Grand Prix,2019-06-23,1017,Renault,8,89.918,11,95.15,0,16.0,9
-7177,Sebastian Vettel,5,German,2019,French Grand Prix,2019-06-23,1017,Ferrari,7,89.506,5,92.74000000000001,0,111.0,3
-7178,Charles Leclerc,16,Monegasque,2019,French Grand Prix,2019-06-23,1017,Ferrari,3,88.965,3,93.828,0,87.0,5
-7179,Daniil Kvyat,26,Russian,2019,French Grand Prix,2019-06-23,1017,Toro Rosso,16,91.564,14,95.225,0,10.0,14
-7180,Alexander Albon,23,Thai,2019,French Grand Prix,2019-06-23,1017,Toro Rosso,11,90.461,15,95.029,0,7.0,15
-7181,Kimi Räikkönen,7,Finnish,2019,French Grand Prix,2019-06-23,1017,Alfa Romeo,12,90.533,7,94.87299999999999,0,19.0,8
-7182,Antonio Giovinazzi,99,Italian,2019,French Grand Prix,2019-06-23,1017,Alfa Romeo,10,90.408,16,95.11500000000001,0,0.0,18
-7183,Pierre Gasly,10,French,2019,French Grand Prix,2019-06-23,1017,Red Bull,9,90.184,10,95.197,0,37.0,6
-7184,Max Verstappen,33,Dutch,2019,French Grand Prix,2019-06-23,1017,Red Bull,4,89.40899999999999,4,94.162,0,100.0,4
-7185,Romain Grosjean,8,French,2019,French Grand Prix,2019-06-23,1017,Haas F1 Team,17,91.626,20,95.691,0,2.0,17
-7186,Kevin Magnussen,20,Danish,2019,French Grand Prix,2019-06-23,1017,Haas F1 Team,15,91.166,17,95.69200000000001,0,14.0,11
-7187,Sergio Pérez,11,Mexican,2019,French Grand Prix,2019-06-23,1017,Racing Point,14,90.738,12,95.01400000000001,0,13.0,13
-7188,Lance Stroll,18,Canadian,2019,French Grand Prix,2019-06-23,1017,Racing Point,18,91.726,13,94.924,0,6.0,16
-7189,Carlos Sainz,55,Spanish,2019,Austrian Grand Prix,2019-06-30,1018,McLaren,15,64.453,8,68.117,0,30.0,7
-7190,Lando Norris,4,British,2019,Austrian Grand Prix,2019-06-30,1018,McLaren,6,64.099,6,68.699,0,22.0,8
-7191,Lewis Hamilton,44,British,2019,Austrian Grand Prix,2019-06-30,1018,Mercedes,2,63.262,5,68.05,6,197.0,1
-7192,Valtteri Bottas,77,Finnish,2019,Austrian Grand Prix,2019-06-30,1018,Mercedes,4,63.537,3,68.565,2,166.0,2
-7193,Robert Kubica,88,Polish,2019,Austrian Grand Prix,2019-06-30,1018,Williams,20,66.206,20,70.964,0,0.0,20
-7194,George Russell,63,British,2019,Austrian Grand Prix,2019-06-30,1018,Williams,19,65.904,18,69.926,0,0.0,19
-7195,Nico Hülkenberg,27,German,2019,Austrian Grand Prix,2019-06-30,1018,Renault,12,64.516,13,69.248,0,16.0,11
-7196,Daniel Ricciardo,3,Australian,2019,Austrian Grand Prix,2019-06-30,1018,Renault,14,64.647,12,68.019,0,16.0,10
-7197,Sebastian Vettel,5,German,2019,Austrian Grand Prix,2019-06-30,1018,Ferrari,10,63.667,4,67.676,0,123.0,4
-7198,Charles Leclerc,16,Monegasque,2019,Austrian Grand Prix,2019-06-30,1018,Ferrari,1,63.003,2,67.994,0,105.0,5
-7199,Daniil Kvyat,26,Russian,2019,Austrian Grand Prix,2019-06-30,1018,Toro Rosso,18,65.324,17,69.498,0,10.0,14
-7200,Alexander Albon,23,Thai,2019,Austrian Grand Prix,2019-06-30,1018,Toro Rosso,13,64.665,15,68.946,0,7.0,15
-7201,Kimi Räikkönen,7,Finnish,2019,Austrian Grand Prix,2019-06-30,1018,Alfa Romeo,7,64.056,9,69.126,0,21.0,9
-7202,Antonio Giovinazzi,99,Italian,2019,Austrian Grand Prix,2019-06-30,1018,Alfa Romeo,8,64.179,10,69.051,0,1.0,18
-7203,Pierre Gasly,10,French,2019,Austrian Grand Prix,2019-06-30,1018,Red Bull,9,63.988,7,68.78999999999999,0,43.0,6
-7204,Max Verstappen,33,Dutch,2019,Austrian Grand Prix,2019-06-30,1018,Red Bull,3,63.439,1,67.475,1,126.0,3
-7205,Romain Grosjean,8,French,2019,Austrian Grand Prix,2019-06-30,1018,Haas F1 Team,11,64.49,16,68.987,0,2.0,17
-7206,Kevin Magnussen,20,Danish,2019,Austrian Grand Prix,2019-06-30,1018,Haas F1 Team,5,64.072,19,68.903,0,14.0,12
-7207,Sergio Pérez,11,Mexican,2019,Austrian Grand Prix,2019-06-30,1018,Racing Point,16,64.789,11,69.061,0,13.0,13
-7208,Lance Stroll,18,Canadian,2019,Austrian Grand Prix,2019-06-30,1018,Racing Point,17,64.832,14,69.288,0,6.0,16
-7209,Carlos Sainz,55,Spanish,2019,British Grand Prix,2019-07-14,1019,McLaren,13,86.203,6,89.757,0,38.0,7
-7210,Lando Norris,4,British,2019,British Grand Prix,2019-07-14,1019,McLaren,8,86.07900000000001,11,89.636,0,22.0,9
-7211,Lewis Hamilton,44,British,2019,British Grand Prix,2019-07-14,1019,Mercedes,2,85.099,1,87.369,7,223.0,1
-7212,Valtteri Bottas,77,Finnish,2019,British Grand Prix,2019-07-14,1019,Mercedes,1,85.093,2,87.406,2,184.0,2
-7213,Robert Kubica,88,Polish,2019,British Grand Prix,2019-07-14,1019,Williams,20,88.257,15,91.509,0,0.0,20
-7214,George Russell,63,British,2019,British Grand Prix,2019-07-14,1019,Williams,19,87.789,14,91.013,0,0.0,19
-7215,Nico Hülkenberg,27,German,2019,British Grand Prix,2019-07-14,1019,Renault,10,86.386,10,89.949,0,17.0,11
-7216,Daniel Ricciardo,3,Australian,2019,British Grand Prix,2019-07-14,1019,Renault,7,86.182,7,89.624,0,22.0,10
-7217,Sebastian Vettel,5,German,2019,British Grand Prix,2019-07-14,1019,Ferrari,6,85.787,16,88.733,0,123.0,4
-7218,Charles Leclerc,16,Monegasque,2019,British Grand Prix,2019-07-14,1019,Ferrari,3,85.172,3,89.313,0,120.0,5
-7219,Daniil Kvyat,26,Russian,2019,British Grand Prix,2019-07-14,1019,Toro Rosso,17,86.721,9,89.91,0,12.0,14
-7220,Alexander Albon,23,Thai,2019,British Grand Prix,2019-07-14,1019,Toro Rosso,9,86.345,12,90.872,0,7.0,15
-7221,Kimi Räikkönen,7,Finnish,2019,British Grand Prix,2019-07-14,1019,Alfa Romeo,12,86.54599999999999,8,90.03399999999999,0,25.0,8
-7222,Antonio Giovinazzi,99,Italian,2019,British Grand Prix,2019-07-14,1019,Alfa Romeo,11,86.449,,92.464,0,1.0,18
-7223,Pierre Gasly,10,French,2019,British Grand Prix,2019-07-14,1019,Red Bull,5,85.59,4,89.544,0,55.0,6
-7224,Max Verstappen,33,Dutch,2019,British Grand Prix,2019-07-14,1019,Red Bull,4,85.276,5,89.27199999999999,1,136.0,3
-7225,Romain Grosjean,8,French,2019,British Grand Prix,2019-07-14,1019,Haas F1 Team,14,86.34700000000001,,94.35,0,2.0,17
-7226,Kevin Magnussen,20,Danish,2019,British Grand Prix,2019-07-14,1019,Haas F1 Team,16,86.662,,93.425,0,14.0,12
-7227,Sergio Pérez,11,Mexican,2019,British Grand Prix,2019-07-14,1019,Racing Point,15,86.649,17,89.456,0,13.0,13
-7228,Lance Stroll,18,Canadian,2019,British Grand Prix,2019-07-14,1019,Racing Point,18,86.762,13,89.39,0,6.0,16
-7229,Carlos Sainz,55,Spanish,2019,German Grand Prix,2019-07-28,1020,McLaren,7,72.632,5,77.84100000000001,0,48.0,7
-7230,Lando Norris,4,British,2019,German Grand Prix,2019-07-28,1020,McLaren,16,73.333,,91.081,0,22.0,10
-7231,Lewis Hamilton,44,British,2019,German Grand Prix,2019-07-28,1020,Mercedes,1,71.767,9,78.811,7,225.0,1
-7232,Valtteri Bottas,77,Finnish,2019,German Grand Prix,2019-07-28,1020,Mercedes,3,72.129,,78.27199999999999,2,184.0,2
-7233,Robert Kubica,88,Polish,2019,German Grand Prix,2019-07-28,1020,Williams,19,74.839,10,79.062,0,1.0,19
-7234,George Russell,63,British,2019,German Grand Prix,2019-07-28,1020,Williams,18,74.721,11,77.485,0,0.0,20
-7235,Nico Hülkenberg,27,German,2019,German Grand Prix,2019-07-28,1020,Renault,9,72.766,,89.576,0,17.0,14
-7236,Daniel Ricciardo,3,Australian,2019,German Grand Prix,2019-07-28,1020,Renault,13,72.799,,92.654,0,22.0,11
-7237,Sebastian Vettel,5,German,2019,German Grand Prix,2019-07-28,1020,Ferrari,20,,2,76.794,0,141.0,4
-7238,Charles Leclerc,16,Monegasque,2019,German Grand Prix,2019-07-28,1020,Ferrari,10,72.229,,87.697,0,120.0,5
-7239,Daniil Kvyat,26,Russian,2019,German Grand Prix,2019-07-28,1020,Toro Rosso,14,73.135,3,77.708,0,27.0,8
-7240,Alexander Albon,23,Thai,2019,German Grand Prix,2019-07-28,1020,Toro Rosso,17,73.461,6,77.85,0,15.0,15
-7241,Kimi Räikkönen,7,Finnish,2019,German Grand Prix,2019-07-28,1020,Alfa Romeo,5,72.519,12,79.563,0,25.0,9
-7242,Antonio Giovinazzi,99,Italian,2019,German Grand Prix,2019-07-28,1020,Alfa Romeo,11,72.786,13,79.3,0,1.0,18
-7243,Pierre Gasly,10,French,2019,German Grand Prix,2019-07-28,1020,Red Bull,4,72.385,14,77.495,0,55.0,6
-7244,Max Verstappen,33,Dutch,2019,German Grand Prix,2019-07-28,1020,Red Bull,2,72.113,1,76.645,2,162.0,3
-7245,Romain Grosjean,8,French,2019,German Grand Prix,2019-07-28,1020,Haas F1 Team,6,72.769,7,77.746,0,8.0,17
-7246,Kevin Magnussen,20,Danish,2019,German Grand Prix,2019-07-28,1020,Haas F1 Team,12,72.789,8,77.507,0,18.0,13
-7247,Sergio Pérez,11,Mexican,2019,German Grand Prix,2019-07-28,1020,Racing Point,8,72.776,,,0,13.0,16
-7248,Lance Stroll,18,Canadian,2019,German Grand Prix,2019-07-28,1020,Racing Point,15,73.256,4,77.831,0,18.0,12
-7249,Carlos Sainz,55,Spanish,2019,Hungarian Grand Prix,2019-08-04,1021,McLaren,8,75.852,5,81.002,0,58.0,7
-7250,Lando Norris,4,British,2019,Hungarian Grand Prix,2019-08-04,1021,McLaren,7,75.8,9,81.188,0,24.0,10
-7251,Lewis Hamilton,44,British,2019,Hungarian Grand Prix,2019-08-04,1021,Mercedes,3,74.769,1,78.52799999999999,8,250.0,1
-7252,Valtteri Bottas,77,Finnish,2019,Hungarian Grand Prix,2019-08-04,1021,Mercedes,2,74.59,8,79.331,2,188.0,2
-7253,Robert Kubica,88,Polish,2019,Hungarian Grand Prix,2019-08-04,1021,Williams,20,78.324,19,83.436,0,1.0,19
-7254,George Russell,63,British,2019,Hungarian Grand Prix,2019-08-04,1021,Williams,16,77.031,16,82.386,0,0.0,20
-7255,Nico Hülkenberg,27,German,2019,Hungarian Grand Prix,2019-08-04,1021,Renault,11,76.565,12,81.65,0,17.0,14
-7256,Daniel Ricciardo,3,Australian,2019,Hungarian Grand Prix,2019-08-04,1021,Renault,18,77.257,14,80.839,0,22.0,11
-7257,Sebastian Vettel,5,German,2019,Hungarian Grand Prix,2019-08-04,1021,Ferrari,5,75.071,3,79.786,0,156.0,4
-7258,Charles Leclerc,16,Monegasque,2019,Hungarian Grand Prix,2019-08-04,1021,Ferrari,4,75.043,4,80.493,0,132.0,5
-7259,Daniil Kvyat,26,Russian,2019,Hungarian Grand Prix,2019-08-04,1021,Toro Rosso,13,76.69200000000001,15,81.932,0,27.0,9
-7260,Alexander Albon,23,Thai,2019,Hungarian Grand Prix,2019-08-04,1021,Toro Rosso,12,76.687,10,80.621,0,16.0,15
-7261,Kimi Räikkönen,7,Finnish,2019,Hungarian Grand Prix,2019-08-04,1021,Alfa Romeo,10,76.041,7,80.88,0,31.0,8
-7262,Antonio Giovinazzi,99,Italian,2019,Hungarian Grand Prix,2019-08-04,1021,Alfa Romeo,14,76.804,18,83.134,0,1.0,18
-7263,Pierre Gasly,10,French,2019,Hungarian Grand Prix,2019-08-04,1021,Red Bull,6,75.45,6,81.045,0,63.0,6
-7264,Max Verstappen,33,Dutch,2019,Hungarian Grand Prix,2019-08-04,1021,Red Bull,1,74.572,2,77.10300000000001,2,181.0,3
-7265,Romain Grosjean,8,French,2019,Hungarian Grand Prix,2019-08-04,1021,Haas F1 Team,9,76.013,,82.809,0,8.0,17
-7266,Kevin Magnussen,20,Danish,2019,Hungarian Grand Prix,2019-08-04,1021,Haas F1 Team,15,76.122,13,81.008,0,18.0,13
-7267,Sergio Pérez,11,Mexican,2019,Hungarian Grand Prix,2019-08-04,1021,Racing Point,17,77.10900000000001,11,81.73400000000001,0,13.0,16
-7268,Lance Stroll,18,Canadian,2019,Hungarian Grand Prix,2019-08-04,1021,Racing Point,19,77.542,17,80.60300000000001,0,18.0,12
-7269,Carlos Sainz,55,Spanish,2019,Belgian Grand Prix,2019-09-01,1022,McLaren,17,106.507,,,0,58.0,7
-7270,Lando Norris,4,British,2019,Belgian Grand Prix,2019-09-01,1022,McLaren,12,104.84700000000001,11,108.321,0,24.0,11
-7271,Lewis Hamilton,44,British,2019,Belgian Grand Prix,2019-09-01,1022,Mercedes,3,103.282,2,106.58,8,268.0,1
-7272,Valtteri Bottas,77,Finnish,2019,Belgian Grand Prix,2019-09-01,1022,Mercedes,4,103.41499999999999,3,106.465,2,203.0,2
-7273,Robert Kubica,88,Polish,2019,Belgian Grand Prix,2019-09-01,1022,Williams,20,,17,109.22,0,1.0,19
-7274,George Russell,63,British,2019,Belgian Grand Prix,2019-09-01,1022,Williams,19,107.548,15,108.86,0,0.0,20
-7275,Nico Hülkenberg,27,German,2019,Belgian Grand Prix,2019-09-01,1022,Renault,7,104.542,8,108.34899999999999,0,21.0,14
-7276,Daniel Ricciardo,3,Australian,2019,Belgian Grand Prix,2019-09-01,1022,Renault,6,104.10300000000001,14,110.451,0,22.0,12
-7277,Sebastian Vettel,5,German,2019,Belgian Grand Prix,2019-09-01,1022,Ferrari,2,103.037,4,106.40899999999999,0,169.0,4
-7278,Charles Leclerc,16,Monegasque,2019,Belgian Grand Prix,2019-09-01,1022,Ferrari,1,102.519,1,106.664,1,157.0,5
-7279,Pierre Gasly,10,French,2019,Belgian Grand Prix,2019-09-01,1022,Toro Rosso,16,106.435,9,109.7,0,65.0,6
-7280,Daniil Kvyat,26,Russian,2019,Belgian Grand Prix,2019-09-01,1022,Toro Rosso,18,106.518,7,108.143,0,33.0,8
-7281,Kimi Räikkönen,7,Finnish,2019,Belgian Grand Prix,2019-09-01,1022,Alfa Romeo,8,104.14,16,108.753,0,31.0,9
-7282,Antonio Giovinazzi,99,Italian,2019,Belgian Grand Prix,2019-09-01,1022,Alfa Romeo,15,105.637,18,107.56,0,1.0,18
-7283,Max Verstappen,33,Dutch,2019,Belgian Grand Prix,2019-09-01,1022,Red Bull,5,103.69,,,2,181.0,3
-7284,Alexander Albon,23,Thai,2019,Belgian Grand Prix,2019-09-01,1022,Red Bull,14,105.52799999999999,5,107.507,0,26.0,10
-7285,Romain Grosjean,8,French,2019,Belgian Grand Prix,2019-09-01,1022,Haas F1 Team,11,104.797,13,109.274,0,8.0,17
-7286,Kevin Magnussen,20,Danish,2019,Belgian Grand Prix,2019-09-01,1022,Haas F1 Team,10,104.738,12,108.67699999999999,0,18.0,16
-7287,Sergio Pérez,11,Mexican,2019,Belgian Grand Prix,2019-09-01,1022,Racing Point,9,104.706,6,108.781,0,21.0,13
-7288,Lance Stroll,18,Canadian,2019,Belgian Grand Prix,2019-09-01,1022,Racing Point,13,105.047,10,108.357,0,19.0,15
-7289,Carlos Sainz,55,Spanish,2019,Italian Grand Prix,2019-09-08,1023,McLaren,7,80.202,,85.637,0,58.0,7
-7290,Lando Norris,4,British,2019,Italian Grand Prix,2019-09-08,1023,McLaren,14,80.646,10,84.044,0,25.0,14
-7291,Lewis Hamilton,44,British,2019,Italian Grand Prix,2019-09-08,1023,Mercedes,2,79.346,3,81.779,8,284.0,1
-7292,Valtteri Bottas,77,Finnish,2019,Italian Grand Prix,2019-09-08,1023,Mercedes,3,79.354,2,82.85900000000001,2,221.0,2
-7293,Robert Kubica,88,Polish,2019,Italian Grand Prix,2019-09-08,1023,Williams,19,82.356,17,84.989,0,1.0,19
-7294,George Russell,63,British,2019,Italian Grand Prix,2019-09-08,1023,Williams,18,81.8,14,84.842,0,0.0,20
-7295,Nico Hülkenberg,27,German,2019,Italian Grand Prix,2019-09-08,1023,Renault,6,80.049,5,83.64099999999999,0,31.0,11
-7296,Daniel Ricciardo,3,Australian,2019,Italian Grand Prix,2019-09-08,1023,Renault,5,79.833,4,83.46600000000001,0,34.0,8
-7297,Sebastian Vettel,5,German,2019,Italian Grand Prix,2019-09-08,1023,Ferrari,4,79.457,13,82.799,0,169.0,5
-7298,Charles Leclerc,16,Monegasque,2019,Italian Grand Prix,2019-09-08,1023,Ferrari,1,79.307,1,83.009,2,182.0,4
-7299,Pierre Gasly,10,French,2019,Italian Grand Prix,2019-09-08,1023,Toro Rosso,15,80.508,11,83.885,0,65.0,6
-7300,Daniil Kvyat,26,Russian,2019,Italian Grand Prix,2019-09-08,1023,Toro Rosso,13,80.63,,85.77199999999999,0,33.0,10
-7301,Kimi Räikkönen,7,Finnish,2019,Italian Grand Prix,2019-09-08,1023,Alfa Romeo,10,80.515,15,84.419,0,31.0,12
-7302,Antonio Giovinazzi,99,Italian,2019,Italian Grand Prix,2019-09-08,1023,Alfa Romeo,11,80.517,9,84.503,0,3.0,18
-7303,Max Verstappen,33,Dutch,2019,Italian Grand Prix,2019-09-08,1023,Red Bull,20,,8,83.143,2,185.0,3
-7304,Alexander Albon,23,Thai,2019,Italian Grand Prix,2019-09-08,1023,Red Bull,8,80.021,6,83.364,0,34.0,9
-7305,Romain Grosjean,8,French,2019,Italian Grand Prix,2019-09-08,1023,Haas F1 Team,16,80.78399999999999,16,84.985,0,8.0,17
-7306,Kevin Magnussen,20,Danish,2019,Italian Grand Prix,2019-09-08,1023,Haas F1 Team,12,80.615,,84.443,0,18.0,16
-7307,Sergio Pérez,11,Mexican,2019,Italian Grand Prix,2019-09-08,1023,Racing Point,17,81.291,7,83.77,0,27.0,13
-7308,Lance Stroll,18,Canadian,2019,Italian Grand Prix,2019-09-08,1023,Racing Point,9,80.498,12,84.16499999999999,0,19.0,15
-7309,Carlos Sainz,55,Spanish,2019,Singapore Grand Prix,2019-09-22,1024,McLaren,7,97.818,12,105.969,0,58.0,7
-7310,Lando Norris,4,British,2019,Singapore Grand Prix,2019-09-22,1024,McLaren,9,97.572,7,105.71600000000001,0,31.0,12
-7311,Lewis Hamilton,44,British,2019,Singapore Grand Prix,2019-09-22,1024,Mercedes,2,96.408,4,104.914,8,296.0,1
-7312,Valtteri Bottas,77,Finnish,2019,Singapore Grand Prix,2019-09-22,1024,Mercedes,5,97.142,5,103.53399999999999,2,231.0,2
-7313,Robert Kubica,88,Polish,2019,Singapore Grand Prix,2019-09-22,1024,Williams,19,101.186,16,106.793,0,1.0,19
-7314,George Russell,63,British,2019,Singapore Grand Prix,2019-09-22,1024,Williams,18,100.86699999999999,,108.285,0,0.0,20
-7315,Nico Hülkenberg,27,German,2019,Singapore Grand Prix,2019-09-22,1024,Renault,8,98.26400000000001,9,105.765,0,33.0,11
-7316,Daniel Ricciardo,3,Australian,2019,Singapore Grand Prix,2019-09-22,1024,Renault,20,,14,105.91499999999999,0,34.0,9
-7317,Sebastian Vettel,5,German,2019,Singapore Grand Prix,2019-09-22,1024,Ferrari,3,96.437,1,104.80199999999999,1,194.0,5
-7318,Charles Leclerc,16,Monegasque,2019,Singapore Grand Prix,2019-09-22,1024,Ferrari,1,96.217,2,104.723,2,200.0,3
-7319,Pierre Gasly,10,French,2019,Singapore Grand Prix,2019-09-22,1024,Toro Rosso,12,98.699,8,105.769,0,69.0,6
-7320,Daniil Kvyat,26,Russian,2019,Singapore Grand Prix,2019-09-22,1024,Toro Rosso,15,99.957,15,104.37100000000001,0,33.0,10
-7321,Kimi Räikkönen,7,Finnish,2019,Singapore Grand Prix,2019-09-22,1024,Alfa Romeo,13,98.858,,107.062,0,31.0,13
-7322,Antonio Giovinazzi,99,Italian,2019,Singapore Grand Prix,2019-09-22,1024,Alfa Romeo,11,98.697,10,105.63,0,4.0,18
-7323,Max Verstappen,33,Dutch,2019,Singapore Grand Prix,2019-09-22,1024,Red Bull,4,96.813,3,105.176,2,200.0,4
-7324,Alexander Albon,23,Thai,2019,Singapore Grand Prix,2019-09-22,1024,Red Bull,6,97.411,6,105.25999999999999,0,42.0,8
-7325,Romain Grosjean,8,French,2019,Singapore Grand Prix,2019-09-22,1024,Haas F1 Team,17,100.277,11,106.274,0,8.0,17
-7326,Kevin Magnussen,20,Danish,2019,Singapore Grand Prix,2019-09-22,1024,Haas F1 Team,14,99.65,17,102.301,0,18.0,16
-7327,Sergio Pérez,11,Mexican,2019,Singapore Grand Prix,2019-09-22,1024,Racing Point,10,98.52000000000001,,106.68299999999999,0,27.0,14
-7328,Lance Stroll,18,Canadian,2019,Singapore Grand Prix,2019-09-22,1024,Racing Point,16,99.979,13,104.896,0,19.0,15
-7329,Carlos Sainz,55,Spanish,2019,Russian Grand Prix,2019-09-29,1025,McLaren,6,93.22200000000001,6,98.02000000000001,0,66.0,7
-7330,Lando Norris,4,British,2019,Russian Grand Prix,2019-09-29,1025,McLaren,8,93.301,8,98.301,0,35.0,9
-7331,Lewis Hamilton,44,British,2019,Russian Grand Prix,2019-09-29,1025,Mercedes,2,92.03,1,95.761,9,322.0,1
-7332,Valtteri Bottas,77,Finnish,2019,Russian Grand Prix,2019-09-29,1025,Mercedes,5,92.632,2,96.316,2,249.0,2
-7333,Robert Kubica,88,Polish,2019,Russian Grand Prix,2019-09-29,1025,Williams,18,96.47399999999999,,102.327,0,1.0,19
-7334,George Russell,63,British,2019,Russian Grand Prix,2019-09-29,1025,Williams,17,95.356,,101.705,0,0.0,20
-7335,Nico Hülkenberg,27,German,2019,Russian Grand Prix,2019-09-29,1025,Renault,7,93.289,10,98.519,0,34.0,11
-7336,Daniel Ricciardo,3,Australian,2019,Russian Grand Prix,2019-09-29,1025,Renault,10,93.661,,101.28399999999999,0,34.0,10
-7337,Sebastian Vettel,5,German,2019,Russian Grand Prix,2019-09-29,1025,Ferrari,3,92.053,,98.245,1,194.0,5
-7338,Charles Leclerc,16,Monegasque,2019,Russian Grand Prix,2019-09-29,1025,Ferrari,1,91.628,3,96.193,2,215.0,3
-7339,Pierre Gasly,10,French,2019,Russian Grand Prix,2019-09-29,1025,Toro Rosso,11,93.95,14,98.606,0,69.0,6
-7340,Daniil Kvyat,26,Russian,2019,Russian Grand Prix,2019-09-29,1025,Toro Rosso,20,99.544,12,98.22800000000001,0,33.0,12
-7341,Kimi Räikkönen,7,Finnish,2019,Russian Grand Prix,2019-09-29,1025,Alfa Romeo,16,94.84,13,98.589,0,31.0,14
-7342,Antonio Giovinazzi,99,Italian,2019,Russian Grand Prix,2019-09-29,1025,Alfa Romeo,13,94.037,15,98.696,0,4.0,18
-7343,Max Verstappen,33,Dutch,2019,Russian Grand Prix,2019-09-29,1025,Red Bull,4,92.31,4,96.937,2,212.0,4
-7344,Alexander Albon,23,Thai,2019,Russian Grand Prix,2019-09-29,1025,Red Bull,19,99.197,5,96.762,0,52.0,8
-7345,Romain Grosjean,8,French,2019,Russian Grand Prix,2019-09-29,1025,Haas F1 Team,9,93.517,,,0,8.0,17
-7346,Kevin Magnussen,20,Danish,2019,Russian Grand Prix,2019-09-29,1025,Haas F1 Team,14,93.88900000000001,9,98.13,0,20.0,15
-7347,Sergio Pérez,11,Mexican,2019,Russian Grand Prix,2019-09-29,1025,Racing Point,12,93.958,7,98.043,0,33.0,13
-7348,Lance Stroll,18,Canadian,2019,Russian Grand Prix,2019-09-29,1025,Racing Point,15,94.233,11,98.61099999999999,0,19.0,16
-7349,Carlos Sainz,55,Spanish,2019,Japanese Grand Prix,2019-10-13,1026,McLaren,7,88.304,5,93.563,0,76.0,6
-7350,Lando Norris,4,British,2019,Japanese Grand Prix,2019-10-13,1026,McLaren,8,88.464,11,94.116,0,35.0,10
-7351,Lewis Hamilton,44,British,2019,Japanese Grand Prix,2019-10-13,1026,Mercedes,4,87.30199999999999,3,90.983,9,338.0,1
-7352,Valtteri Bottas,77,Finnish,2019,Japanese Grand Prix,2019-10-13,1026,Mercedes,3,87.293,1,91.862,3,274.0,2
-7353,Robert Kubica,88,Polish,2019,Japanese Grand Prix,2019-10-13,1026,Williams,20,,16,96.332,0,1.0,19
-7354,George Russell,63,British,2019,Japanese Grand Prix,2019-10-13,1026,Williams,18,90.364,16,95.458,0,0.0,20
-7355,Nico Hülkenberg,27,German,2019,Japanese Grand Prix,2019-10-13,1026,Renault,15,89.619,,94.92099999999999,0,34.0,13
-7356,Daniel Ricciardo,3,Australian,2019,Japanese Grand Prix,2019-10-13,1026,Renault,16,89.822,,93.481,0,34.0,12
-7357,Sebastian Vettel,5,German,2019,Japanese Grand Prix,2019-10-13,1026,Ferrari,1,87.064,2,92.122,1,212.0,5
-7358,Charles Leclerc,16,Monegasque,2019,Japanese Grand Prix,2019-10-13,1026,Ferrari,2,87.253,6,91.611,2,223.0,3
-7359,Pierre Gasly,10,French,2019,Japanese Grand Prix,2019-10-13,1026,Toro Rosso,9,88.779,7,95.321,0,75.0,7
-7360,Daniil Kvyat,26,Russian,2019,Japanese Grand Prix,2019-10-13,1026,Toro Rosso,14,89.563,10,93.239,0,34.0,11
-7361,Kimi Räikkönen,7,Finnish,2019,Japanese Grand Prix,2019-10-13,1026,Alfa Romeo,13,89.358,12,93.19,0,31.0,14
-7362,Antonio Giovinazzi,99,Italian,2019,Japanese Grand Prix,2019-10-13,1026,Alfa Romeo,11,89.254,14,92.369,0,4.0,18
-7363,Max Verstappen,33,Dutch,2019,Japanese Grand Prix,2019-10-13,1026,Red Bull,5,87.851,,97.249,2,212.0,4
-7364,Alexander Albon,23,Thai,2019,Japanese Grand Prix,2019-10-13,1026,Red Bull,6,87.851,4,92.775,0,64.0,8
-7365,Romain Grosjean,8,French,2019,Japanese Grand Prix,2019-10-13,1026,Haas F1 Team,10,89.144,13,94.988,0,8.0,17
-7366,Kevin Magnussen,20,Danish,2019,Japanese Grand Prix,2019-10-13,1026,Haas F1 Team,19,,15,91.732,0,20.0,16
-7367,Sergio Pérez,11,Mexican,2019,Japanese Grand Prix,2019-10-13,1026,Racing Point,17,90.344,8,92.62100000000001,0,37.0,9
-7368,Lance Stroll,18,Canadian,2019,Japanese Grand Prix,2019-10-13,1026,Racing Point,12,89.345,9,94.713,0,21.0,15
-7369,Carlos Sainz,55,Spanish,2019,Mexican Grand Prix,2019-10-27,1027,McLaren,7,76.014,13,80.311,0,76.0,7
-7370,Lando Norris,4,British,2019,Mexican Grand Prix,2019-10-27,1027,McLaren,8,76.322,,81.643,0,35.0,12
-7371,Lewis Hamilton,44,British,2019,Mexican Grand Prix,2019-10-27,1027,Mercedes,4,75.262,1,79.461,10,363.0,1
-7372,Valtteri Bottas,77,Finnish,2019,Mexican Grand Prix,2019-10-27,1027,Mercedes,6,75.338,3,79.494,3,289.0,2
-7373,Robert Kubica,88,Polish,2019,Mexican Grand Prix,2019-10-27,1027,Williams,20,80.179,18,80.696,0,1.0,19
-7374,George Russell,63,British,2019,Mexican Grand Prix,2019-10-27,1027,Williams,19,78.82300000000001,16,81.286,0,0.0,20
-7375,Nico Hülkenberg,27,German,2019,Mexican Grand Prix,2019-10-27,1027,Renault,12,76.885,10,80.791,0,35.0,11
-7376,Daniel Ricciardo,3,Australian,2019,Mexican Grand Prix,2019-10-27,1027,Renault,13,76.93299999999999,8,80.146,0,38.0,10
-7377,Sebastian Vettel,5,German,2019,Mexican Grand Prix,2019-10-27,1027,Ferrari,3,75.17,2,79.381,1,230.0,4
-7378,Charles Leclerc,16,Monegasque,2019,Mexican Grand Prix,2019-10-27,1027,Ferrari,2,75.024,4,79.232,2,236.0,3
-7379,Pierre Gasly,10,French,2019,Mexican Grand Prix,2019-10-27,1027,Toro Rosso,10,76.586,9,79.53,0,77.0,6
-7380,Daniil Kvyat,26,Russian,2019,Mexican Grand Prix,2019-10-27,1027,Toro Rosso,9,76.469,11,79.905,0,34.0,13
-7381,Kimi Räikkönen,7,Finnish,2019,Mexican Grand Prix,2019-10-27,1027,Alfa Romeo,14,76.967,,80.082,0,31.0,14
-7382,Antonio Giovinazzi,99,Italian,2019,Mexican Grand Prix,2019-10-27,1027,Alfa Romeo,15,77.269,14,81.014,0,4.0,18
-7383,Max Verstappen,33,Dutch,2019,Mexican Grand Prix,2019-10-27,1027,Red Bull,1,74.758,6,80.406,2,220.0,5
-7384,Alexander Albon,23,Thai,2019,Mexican Grand Prix,2019-10-27,1027,Red Bull,5,75.336,5,79.325,0,74.0,8
-7385,Romain Grosjean,8,French,2019,Mexican Grand Prix,2019-10-27,1027,Haas F1 Team,18,78.599,17,81.581,0,8.0,17
-7386,Kevin Magnussen,20,Danish,2019,Mexican Grand Prix,2019-10-27,1027,Haas F1 Team,17,78.436,15,81.682,0,20.0,16
-7387,Sergio Pérez,11,Mexican,2019,Mexican Grand Prix,2019-10-27,1027,Racing Point,11,76.687,7,80.485,0,43.0,9
-7388,Lance Stroll,18,Canadian,2019,Mexican Grand Prix,2019-10-27,1027,Racing Point,16,78.065,12,80.922,0,21.0,15
-7389,Carlos Sainz,55,Spanish,2019,United States Grand Prix,2019-11-03,1028,McLaren,7,92.84700000000001,8,100.844,0,80.0,7
-7390,Lando Norris,4,British,2019,United States Grand Prix,2019-11-03,1028,McLaren,8,93.175,7,98.074,0,41.0,11
-7391,Lewis Hamilton,44,British,2019,United States Grand Prix,2019-11-03,1028,Mercedes,5,92.321,2,98.446,10,381.0,1
-7392,Valtteri Bottas,77,Finnish,2019,United States Grand Prix,2019-11-03,1028,Mercedes,1,92.029,1,96.957,4,314.0,2
-7393,Robert Kubica,88,Polish,2019,United States Grand Prix,2019-11-03,1028,Williams,20,95.88900000000001,,103.83,0,1.0,19
-7394,George Russell,63,British,2019,United States Grand Prix,2019-11-03,1028,Williams,18,95.372,17,101.239,0,0.0,20
-7395,Nico Hülkenberg,27,German,2019,United States Grand Prix,2019-11-03,1028,Renault,11,93.815,9,98.437,0,37.0,12
-7396,Daniel Ricciardo,3,Australian,2019,United States Grand Prix,2019-11-03,1028,Renault,9,93.488,6,100.564,0,46.0,9
-7397,Sebastian Vettel,5,German,2019,United States Grand Prix,2019-11-03,1028,Ferrari,2,92.041,,102.16499999999999,1,230.0,5
-7398,Charles Leclerc,16,Monegasque,2019,United States Grand Prix,2019-11-03,1028,Ferrari,4,92.137,4,96.169,2,249.0,3
-7399,Pierre Gasly,10,French,2019,United States Grand Prix,2019-11-03,1028,Toro Rosso,10,93.556,16,100.85,0,77.0,8
-7400,Daniil Kvyat,26,Russian,2019,United States Grand Prix,2019-11-03,1028,Toro Rosso,13,93.989,12,98.969,0,34.0,13
-7401,Kimi Räikkönen,7,Finnish,2019,United States Grand Prix,2019-11-03,1028,Alfa Romeo,17,94.369,11,99.608,0,31.0,14
-7402,Antonio Giovinazzi,99,Italian,2019,United States Grand Prix,2019-11-03,1028,Alfa Romeo,16,94.226,14,99.964,0,4.0,18
-7403,Max Verstappen,33,Dutch,2019,United States Grand Prix,2019-11-03,1028,Red Bull,3,92.096,3,98.214,2,235.0,4
-7404,Alexander Albon,23,Thai,2019,United States Grand Prix,2019-11-03,1028,Red Bull,6,92.548,5,98.029,0,84.0,6
-7405,Romain Grosjean,8,French,2019,United States Grand Prix,2019-11-03,1028,Haas F1 Team,15,94.158,15,101.27000000000001,0,8.0,17
-7406,Kevin Magnussen,20,Danish,2019,United States Grand Prix,2019-11-03,1028,Haas F1 Team,12,93.812,18,100.34700000000001,0,20.0,16
-7407,Sergio Pérez,11,Mexican,2019,United States Grand Prix,2019-11-03,1028,Racing Point,19,95.80799999999999,10,100.16499999999999,0,44.0,10
-7408,Lance Stroll,18,Canadian,2019,United States Grand Prix,2019-11-03,1028,Racing Point,14,93.92099999999999,13,100.38,0,21.0,15
-7409,Carlos Sainz,55,Spanish,2019,Brazilian Grand Prix,2019-11-17,1029,McLaren,20,,3,73.158,0,95.0,7
-7410,Lando Norris,4,British,2019,Brazilian Grand Prix,2019-11-17,1029,McLaren,11,68.868,8,72.328,0,45.0,11
-7411,Lewis Hamilton,44,British,2019,Brazilian Grand Prix,2019-11-17,1029,Mercedes,3,67.699,7,71.082,10,387.0,1
-7412,Valtteri Bottas,77,Finnish,2019,Brazilian Grand Prix,2019-11-17,1029,Mercedes,5,67.874,,70.69800000000001,4,314.0,2
-7413,Robert Kubica,88,Polish,2019,Brazilian Grand Prix,2019-11-17,1029,Williams,19,70.614,16,74.553,0,1.0,19
-7414,George Russell,63,British,2019,Brazilian Grand Prix,2019-11-17,1029,Williams,18,70.126,12,73.752,0,0.0,20
-7415,Nico Hülkenberg,27,German,2019,Brazilian Grand Prix,2019-11-17,1029,Renault,14,68.92099999999999,15,72.934,0,37.0,13
-7416,Daniel Ricciardo,3,Australian,2019,Brazilian Grand Prix,2019-11-17,1029,Renault,12,68.903,6,72.733,0,54.0,9
-7417,Sebastian Vettel,5,German,2019,Brazilian Grand Prix,2019-11-17,1029,Ferrari,2,67.631,17,71.384,1,230.0,5
-7418,Charles Leclerc,16,Monegasque,2019,Brazilian Grand Prix,2019-11-17,1029,Ferrari,4,67.728,18,71.423,2,249.0,4
-7419,Pierre Gasly,10,French,2019,Brazilian Grand Prix,2019-11-17,1029,Toro Rosso,7,68.77,2,72.425,0,95.0,6
-7420,Daniil Kvyat,26,Russian,2019,Brazilian Grand Prix,2019-11-17,1029,Toro Rosso,16,69.32,10,72.385,0,35.0,14
-7421,Kimi Räikkönen,7,Finnish,2019,Brazilian Grand Prix,2019-11-17,1029,Alfa Romeo,9,68.858,4,73.135,0,43.0,12
-7422,Antonio Giovinazzi,99,Italian,2019,Brazilian Grand Prix,2019-11-17,1029,Alfa Romeo,13,68.919,5,73.02,0,14.0,17
-7423,Max Verstappen,33,Dutch,2019,Brazilian Grand Prix,2019-11-17,1029,Red Bull,1,67.503,1,70.862,3,260.0,3
-7424,Alexander Albon,23,Thai,2019,Brazilian Grand Prix,2019-11-17,1029,Red Bull,6,67.935,14,71.087,0,84.0,8
-7425,Romain Grosjean,8,French,2019,Brazilian Grand Prix,2019-11-17,1029,Haas F1 Team,8,68.705,13,73.619,0,8.0,18
-7426,Kevin Magnussen,20,Danish,2019,Brazilian Grand Prix,2019-11-17,1029,Haas F1 Team,10,68.803,11,73.262,0,20.0,16
-7427,Sergio Pérez,11,Mexican,2019,Brazilian Grand Prix,2019-11-17,1029,Racing Point,15,69.035,9,72.84,0,46.0,10
-7428,Lance Stroll,18,Canadian,2019,Brazilian Grand Prix,2019-11-17,1029,Racing Point,17,69.536,19,72.603,0,21.0,15
-7429,Carlos Sainz,55,Spanish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,McLaren,9,96.30799999999999,10,101.294,0,96.0,6
-7430,Lando Norris,4,British,2019,Abu Dhabi Grand Prix,2019-12-01,1030,McLaren,7,96.436,8,103.02600000000001,0,49.0,11
-7431,Lewis Hamilton,44,British,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Mercedes,1,94.779,1,99.283,11,413.0,1
-7432,Valtteri Bottas,77,Finnish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Mercedes,2,94.973,4,99.715,4,326.0,2
-7433,Robert Kubica,88,Polish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Williams,20,99.23599999999999,19,104.5,0,1.0,19
-7434,George Russell,63,British,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Williams,19,98.717,17,103.074,0,0.0,20
-7435,Nico Hülkenberg,27,German,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Renault,10,96.71000000000001,12,103.274,0,37.0,14
-7436,Daniel Ricciardo,3,Australian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Renault,8,96.456,11,101.19,0,54.0,9
-7437,Sebastian Vettel,5,German,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Ferrari,5,95.339,5,100.128,1,240.0,5
-7438,Charles Leclerc,16,Monegasque,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Ferrari,4,95.219,3,100.44200000000001,2,264.0,4
-7439,Pierre Gasly,10,French,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Toro Rosso,12,97.089,18,102.414,0,95.0,7
-7440,Daniil Kvyat,26,Russian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Toro Rosso,14,97.14099999999999,9,102.22200000000001,0,37.0,13
-7441,Kimi Räikkönen,7,Finnish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Alfa Romeo,18,98.38300000000001,13,103.142,0,43.0,12
-7442,Antonio Giovinazzi,99,Italian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Alfa Romeo,17,98.114,16,103.256,0,14.0,17
-7443,Max Verstappen,33,Dutch,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Red Bull,3,95.13900000000001,2,101.119,3,278.0,3
-7444,Alexander Albon,23,Thai,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Red Bull,6,95.682,6,102.219,0,92.0,8
-7445,Romain Grosjean,8,French,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Haas F1 Team,16,98.051,15,103.666,0,8.0,18
-7446,Kevin Magnussen,20,Danish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Haas F1 Team,15,97.25399999999999,14,103.78999999999999,0,20.0,16
-7447,Sergio Pérez,11,Mexican,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Racing Point,11,96.961,7,102.63900000000001,0,52.0,10
-7448,Lance Stroll,18,Canadian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Racing Point,13,97.10300000000001,,103.326,0,21.0,15
-7449,Carlos Sainz,55,Spanish,2020,Austrian Grand Prix,2020-07-05,1031,McLaren,8,63.971000000000004,5,67.974,0,10.0,5
-7450,Lando Norris,4,British,2020,Austrian Grand Prix,2020-07-05,1031,McLaren,4,63.626,3,67.475,0,16.0,3
-7451,Lewis Hamilton,44,British,2020,Austrian Grand Prix,2020-07-05,1031,Mercedes,2,62.951,4,67.712,0,12.0,4
-7452,Valtteri Bottas,77,Finnish,2020,Austrian Grand Prix,2020-07-05,1031,Mercedes,1,62.939,1,67.657,1,25.0,1
-7453,George Russell,63,British,2020,Austrian Grand Prix,2020-07-05,1031,Williams,17,65.167,,69.31700000000001,0,0.0,15
-7454,Nicholas Latifi,6,Canadian,2020,Austrian Grand Prix,2020-07-05,1031,Williams,20,65.757,11,69.662,0,0.0,11
-7455,Daniel Ricciardo,3,Australian,2020,Austrian Grand Prix,2020-07-05,1031,Renault,10,64.023,,70.61,0,0.0,19
-7456,Esteban Ocon,31,French,2020,Austrian Grand Prix,2020-07-05,1031,Renault,14,64.643,8,68.932,0,4.0,8
-7457,Sebastian Vettel,5,German,2020,Austrian Grand Prix,2020-07-05,1031,Ferrari,11,64.206,10,68.623,0,1.0,10
-7458,Charles Leclerc,16,Monegasque,2020,Austrian Grand Prix,2020-07-05,1031,Ferrari,7,63.923,2,67.901,0,18.0,2
-7459,Kimi Räikkönen,7,Finnish,2020,Austrian Grand Prix,2020-07-05,1031,Alfa Romeo,19,65.224,,69.031,0,0.0,14
-7460,Antonio Giovinazzi,99,Italian,2020,Austrian Grand Prix,2020-07-05,1031,Alfa Romeo,18,65.175,9,68.79599999999999,0,2.0,9
-7461,Max Verstappen,33,Dutch,2020,Austrian Grand Prix,2020-07-05,1031,Red Bull,3,63.477,,69.351,0,0.0,20
-7462,Alexander Albon,23,Thai,2020,Austrian Grand Prix,2020-07-05,1031,Red Bull,5,63.746,13,68.432,0,0.0,13
-7463,Romain Grosjean,8,French,2020,Austrian Grand Prix,2020-07-05,1031,Haas F1 Team,15,64.691,,70.228,0,0.0,16
-7464,Kevin Magnussen,20,Danish,2020,Austrian Grand Prix,2020-07-05,1031,Haas F1 Team,16,65.164,,70.72,0,0.0,17
-7465,Pierre Gasly,10,French,2020,Austrian Grand Prix,2020-07-05,1031,AlphaTauri,12,64.305,7,69.025,0,6.0,7
-7466,Daniil Kvyat,26,Russian,2020,Austrian Grand Prix,2020-07-05,1031,AlphaTauri,13,64.431,12,69.135,0,0.0,12
-7467,Sergio Pérez,11,Mexican,2020,Austrian Grand Prix,2020-07-05,1031,Racing Point,6,63.86,6,68.305,0,8.0,6
-7468,Lance Stroll,18,Canadian,2020,Austrian Grand Prix,2020-07-05,1031,Racing Point,9,63.955,,70.326,0,0.0,18
-7469,Carlos Sainz,55,Spanish,2020,Styrian Grand Prix,2020-07-12,1032,McLaren,3,78.59,9,65.619,0,13.0,7
-7470,Lando Norris,4,British,2020,Styrian Grand Prix,2020-07-12,1032,McLaren,6,78.44800000000001,5,67.193,0,26.0,3
-7471,Lewis Hamilton,44,British,2020,Styrian Grand Prix,2020-07-12,1032,Mercedes,1,77.825,1,66.719,1,37.0,2
-7472,Valtteri Bottas,77,Finnish,2020,Styrian Grand Prix,2020-07-12,1032,Mercedes,4,78.657,2,67.534,1,43.0,1
-7473,George Russell,63,British,2020,Styrian Grand Prix,2020-07-12,1032,Williams,12,79.636,16,68.601,0,0.0,20
-7474,Nicholas Latifi,6,Canadian,2020,Styrian Grand Prix,2020-07-12,1032,Williams,18,81.759,17,68.806,0,0.0,16
-7475,Daniel Ricciardo,3,Australian,2020,Styrian Grand Prix,2020-07-12,1032,Renault,9,79.229,8,67.832,0,4.0,12
-7476,Esteban Ocon,31,French,2020,Styrian Grand Prix,2020-07-12,1032,Renault,5,78.764,,69.321,0,4.0,11
-7477,Sebastian Vettel,5,German,2020,Styrian Grand Prix,2020-07-12,1032,Ferrari,10,79.545,,,0,1.0,15
-7478,Charles Leclerc,16,Monegasque,2020,Styrian Grand Prix,2020-07-12,1032,Ferrari,11,79.628,,95.37899999999999,0,18.0,4
-7479,Kimi Räikkönen,7,Finnish,2020,Styrian Grand Prix,2020-07-12,1032,Alfa Romeo,16,81.14,11,68.382,0,0.0,17
-7480,Antonio Giovinazzi,99,Italian,2020,Styrian Grand Prix,2020-07-12,1032,Alfa Romeo,19,81.831,14,68.512,0,2.0,13
-7481,Max Verstappen,33,Dutch,2020,Styrian Grand Prix,2020-07-12,1032,Red Bull,2,77.938,3,66.145,0,15.0,6
-7482,Alexander Albon,23,Thai,2020,Styrian Grand Prix,2020-07-12,1032,Red Bull,7,79.014,4,67.299,0,12.0,8
-7483,Romain Grosjean,8,French,2020,Styrian Grand Prix,2020-07-12,1032,Haas F1 Team,20,,13,68.047,0,0.0,19
-7484,Kevin Magnussen,20,Danish,2020,Styrian Grand Prix,2020-07-12,1032,Haas F1 Team,15,80.211,12,68.009,0,0.0,18
-7485,Pierre Gasly,10,French,2020,Styrian Grand Prix,2020-07-12,1032,AlphaTauri,8,78.744,15,67.827,0,6.0,9
-7486,Daniil Kvyat,26,Russian,2020,Styrian Grand Prix,2020-07-12,1032,AlphaTauri,14,79.717,10,68.378,0,1.0,14
-7487,Sergio Pérez,11,Mexican,2020,Styrian Grand Prix,2020-07-12,1032,Racing Point,17,81.607,6,67.188,0,16.0,5
-7488,Lance Stroll,18,Canadian,2020,Styrian Grand Prix,2020-07-12,1032,Racing Point,13,79.645,7,67.833,0,6.0,10
-7489,Carlos Sainz,55,Spanish,2020,Hungarian Grand Prix,2020-07-19,1033,McLaren,9,75.027,9,80.477,0,15.0,9
-7490,Lando Norris,4,British,2020,Hungarian Grand Prix,2020-07-19,1033,McLaren,8,74.966,13,79.945,0,26.0,4
-7491,Lewis Hamilton,44,British,2020,Hungarian Grand Prix,2020-07-19,1033,Mercedes,1,73.447,1,76.627,2,63.0,1
-7492,Valtteri Bottas,77,Finnish,2020,Hungarian Grand Prix,2020-07-19,1033,Mercedes,2,73.554,3,77.66499999999999,1,58.0,2
-7493,George Russell,63,British,2020,Hungarian Grand Prix,2020-07-19,1033,Williams,12,75.58500000000001,18,79.98400000000001,0,0.0,20
-7494,Nicholas Latifi,6,Canadian,2020,Hungarian Grand Prix,2020-07-19,1033,Williams,15,76.105,19,81.19800000000001,0,0.0,18
-7495,Daniel Ricciardo,3,Australian,2020,Hungarian Grand Prix,2020-07-19,1033,Renault,11,75.661,8,79.532,0,8.0,11
-7496,Esteban Ocon,31,French,2020,Hungarian Grand Prix,2020-07-19,1033,Renault,14,75.719,14,80.261,0,4.0,13
-7497,Sebastian Vettel,5,German,2020,Hungarian Grand Prix,2020-07-19,1033,Ferrari,5,74.774,6,80.363,0,9.0,10
-7498,Charles Leclerc,16,Monegasque,2020,Hungarian Grand Prix,2020-07-19,1033,Ferrari,6,74.81700000000001,11,80.821,0,18.0,7
-7499,Kimi Räikkönen,7,Finnish,2020,Hungarian Grand Prix,2020-07-19,1033,Alfa Romeo,20,76.614,15,80.889,0,0.0,17
-7500,Antonio Giovinazzi,99,Italian,2020,Hungarian Grand Prix,2020-07-19,1033,Alfa Romeo,19,76.506,17,80.096,0,2.0,14
-7501,Max Verstappen,33,Dutch,2020,Hungarian Grand Prix,2020-07-19,1033,Red Bull,7,74.849,2,79.184,0,33.0,3
-7502,Alexander Albon,23,Thai,2020,Hungarian Grand Prix,2020-07-19,1033,Red Bull,13,75.715,5,79.44,0,22.0,5
-7503,Romain Grosjean,8,French,2020,Hungarian Grand Prix,2020-07-19,1033,Haas F1 Team,18,76.407,16,80.232,0,0.0,19
-7504,Kevin Magnussen,20,Danish,2020,Hungarian Grand Prix,2020-07-19,1033,Haas F1 Team,16,76.152,10,79.457,0,1.0,16
-7505,Pierre Gasly,10,French,2020,Hungarian Grand Prix,2020-07-19,1033,AlphaTauri,10,75.508,,83.939,0,6.0,12
-7506,Daniil Kvyat,26,Russian,2020,Hungarian Grand Prix,2020-07-19,1033,AlphaTauri,17,76.20400000000001,12,80.946,0,1.0,15
-7507,Sergio Pérez,11,Mexican,2020,Hungarian Grand Prix,2020-07-19,1033,Racing Point,4,74.545,7,80.09,0,22.0,6
-7508,Lance Stroll,18,Canadian,2020,Hungarian Grand Prix,2020-07-19,1033,Racing Point,3,74.377,4,78.973,0,18.0,8
-7509,Carlos Sainz,55,Spanish,2020,British Grand Prix,2020-08-02,1034,McLaren,7,85.965,13,89.94800000000001,0,15.0,10
-7510,Lando Norris,4,British,2020,British Grand Prix,2020-08-02,1034,McLaren,5,85.782,5,90.05799999999999,0,36.0,4
-7511,Lewis Hamilton,44,British,2020,British Grand Prix,2020-08-02,1034,Mercedes,1,84.303,1,89.238,3,88.0,1
-7512,Valtteri Bottas,77,Finnish,2020,British Grand Prix,2020-08-02,1034,Mercedes,2,84.616,11,89.265,1,58.0,2
-7513,George Russell,63,British,2020,British Grand Prix,2020-08-02,1034,Williams,15,86.732,12,90.862,0,0.0,19
-7514,Nicholas Latifi,6,Canadian,2020,British Grand Prix,2020-08-02,1034,Williams,20,87.705,15,90.501,0,0.0,17
-7515,Daniel Ricciardo,3,Australian,2020,British Grand Prix,2020-08-02,1034,Renault,8,86.009,4,89.482,0,20.0,9
-7516,Esteban Ocon,31,French,2020,British Grand Prix,2020-08-02,1034,Renault,9,86.209,6,89.491,0,12.0,11
-7517,Sebastian Vettel,5,German,2020,British Grand Prix,2020-08-02,1034,Ferrari,10,86.339,10,90.537,0,10.0,13
-7518,Charles Leclerc,16,Monegasque,2020,British Grand Prix,2020-08-02,1034,Ferrari,4,85.42699999999999,3,89.813,0,33.0,5
-7519,Kimi Räikkönen,7,Finnish,2020,British Grand Prix,2020-08-02,1034,Alfa Romeo,18,87.366,17,89.973,0,0.0,18
-7520,Antonio Giovinazzi,99,Italian,2020,British Grand Prix,2020-08-02,1034,Alfa Romeo,17,87.164,14,90.977,0,2.0,14
-7521,Max Verstappen,33,Dutch,2020,British Grand Prix,2020-08-02,1034,Red Bull,3,85.325,2,87.09700000000001,0,52.0,3
-7522,Alexander Albon,23,Thai,2020,British Grand Prix,2020-08-02,1034,Red Bull,12,86.545,8,88.689,0,26.0,6
-7523,Romain Grosjean,8,French,2020,British Grand Prix,2020-08-02,1034,Haas F1 Team,19,87.643,16,89.782,0,0.0,20
-7524,Kevin Magnussen,20,Danish,2020,British Grand Prix,2020-08-02,1034,Haas F1 Team,16,87.158,,,0,1.0,16
-7525,Pierre Gasly,10,French,2020,British Grand Prix,2020-08-02,1034,AlphaTauri,11,86.343,7,89.60300000000001,0,12.0,12
-7526,Daniil Kvyat,26,Russian,2020,British Grand Prix,2020-08-02,1034,AlphaTauri,14,86.744,,92.443,0,1.0,15
-7527,Nico Hülkenberg,27,German,2020,British Grand Prix,2020-08-02,1034,Racing Point,13,86.327,,,0,0.0,21
-7528,Lance Stroll,18,Canadian,2020,British Grand Prix,2020-08-02,1034,Racing Point,6,85.839,9,90.475,0,20.0,8
-7529,Carlos Sainz,55,Spanish,2020,70th Anniversary Grand Prix,2020-08-09,1035,McLaren,13,87.083,13,90.556,0,15.0,11
-7530,Lando Norris,4,British,2020,70th Anniversary Grand Prix,2020-08-09,1035,McLaren,10,86.77799999999999,9,90.69800000000001,0,38.0,5
-7531,Lewis Hamilton,44,British,2020,70th Anniversary Grand Prix,2020-08-09,1035,Mercedes,2,85.217,2,88.451,3,107.0,1
-7532,Valtteri Bottas,77,Finnish,2020,70th Anniversary Grand Prix,2020-08-09,1035,Mercedes,1,85.154,3,89.765,1,73.0,3
-7533,George Russell,63,British,2020,70th Anniversary Grand Prix,2020-08-09,1035,Williams,15,87.455,18,91.408,0,0.0,20
-7534,Nicholas Latifi,6,Canadian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Williams,18,88.43,19,89.95,0,0.0,19
-7535,Daniel Ricciardo,3,Australian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Renault,5,86.297,14,91.168,0,20.0,9
-7536,Esteban Ocon,31,French,2020,70th Anniversary Grand Prix,2020-08-09,1035,Renault,11,87.011,8,90.575,0,16.0,10
-7537,Sebastian Vettel,5,German,2020,70th Anniversary Grand Prix,2020-08-09,1035,Ferrari,12,87.078,12,90.785,0,10.0,13
-7538,Charles Leclerc,16,Monegasque,2020,70th Anniversary Grand Prix,2020-08-09,1035,Ferrari,8,86.614,4,90.55199999999999,0,45.0,4
-7539,Kimi Räikkönen,7,Finnish,2020,70th Anniversary Grand Prix,2020-08-09,1035,Alfa Romeo,20,88.493,15,91.756,0,0.0,18
-7540,Antonio Giovinazzi,99,Italian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Alfa Romeo,19,88.43299999999999,17,91.826,0,2.0,15
-7541,Max Verstappen,33,Dutch,2020,70th Anniversary Grand Prix,2020-08-09,1035,Red Bull,4,86.176,1,89.465,1,77.0,2
-7542,Alexander Albon,23,Thai,2020,70th Anniversary Grand Prix,2020-08-09,1035,Red Bull,9,86.642,5,89.477,0,36.0,6
-7543,Romain Grosjean,8,French,2020,70th Anniversary Grand Prix,2020-08-09,1035,Haas F1 Team,14,87.254,16,90.793,0,0.0,21
-7544,Kevin Magnussen,20,Danish,2020,70th Anniversary Grand Prix,2020-08-09,1035,Haas F1 Team,17,88.236,,91.83,0,1.0,17
-7545,Pierre Gasly,10,French,2020,70th Anniversary Grand Prix,2020-08-09,1035,AlphaTauri,7,86.523,11,90.092,0,12.0,12
-7546,Daniil Kvyat,26,Russian,2020,70th Anniversary Grand Prix,2020-08-09,1035,AlphaTauri,16,87.882,10,90.738,0,2.0,16
-7547,Nico Hülkenberg,27,German,2020,70th Anniversary Grand Prix,2020-08-09,1035,Racing Point,3,86.082,7,90.087,0,6.0,14
-7548,Lance Stroll,18,Canadian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Racing Point,6,86.428,6,90.877,0,28.0,7
-7549,Carlos Sainz,55,Spanish,2020,Spanish Grand Prix,2020-08-16,1036,McLaren,7,76.876,6,81.771,0,23.0,9
-7550,Lando Norris,4,British,2020,Spanish Grand Prix,2020-08-16,1036,McLaren,8,77.084,10,82.392,0,39.0,7
-7551,Lewis Hamilton,44,British,2020,Spanish Grand Prix,2020-08-16,1036,Mercedes,1,75.584,1,79.822,4,132.0,1
-7552,Valtteri Bottas,77,Finnish,2020,Spanish Grand Prix,2020-08-16,1036,Mercedes,2,75.643,3,78.18299999999999,1,89.0,3
-7553,George Russell,63,British,2020,Spanish Grand Prix,2020-08-16,1036,Williams,18,78.099,17,82.503,0,0.0,20
-7554,Nicholas Latifi,6,Canadian,2020,Spanish Grand Prix,2020-08-16,1036,Williams,19,78.532,18,82.03,0,0.0,19
-7555,Daniel Ricciardo,3,Australian,2020,Spanish Grand Prix,2020-08-16,1036,Renault,13,77.19800000000001,11,82.464,0,20.0,10
-7556,Esteban Ocon,31,French,2020,Spanish Grand Prix,2020-08-16,1036,Renault,15,77.56700000000001,13,82.174,0,16.0,12
-7557,Sebastian Vettel,5,German,2020,Spanish Grand Prix,2020-08-16,1036,Ferrari,11,77.168,7,82.707,0,16.0,11
-7558,Charles Leclerc,16,Monegasque,2020,Spanish Grand Prix,2020-08-16,1036,Ferrari,9,76.953,,83.968,0,45.0,4
-7559,Kimi Räikkönen,7,Finnish,2020,Spanish Grand Prix,2020-08-16,1036,Alfa Romeo,14,77.386,14,81.888,0,0.0,18
-7560,Antonio Giovinazzi,99,Italian,2020,Spanish Grand Prix,2020-08-16,1036,Alfa Romeo,20,78.697,16,81.801,0,2.0,15
-7561,Max Verstappen,33,Dutch,2020,Spanish Grand Prix,2020-08-16,1036,Red Bull,3,76.292,2,81.477,1,95.0,2
-7562,Alexander Albon,23,Thai,2020,Spanish Grand Prix,2020-08-16,1036,Red Bull,6,77.029,8,82.194,0,40.0,6
-7563,Romain Grosjean,8,French,2020,Spanish Grand Prix,2020-08-16,1036,Haas F1 Team,17,78.089,19,80.40899999999999,0,0.0,21
-7564,Kevin Magnussen,20,Danish,2020,Spanish Grand Prix,2020-08-16,1036,Haas F1 Team,16,77.908,15,83.474,0,1.0,17
-7565,Pierre Gasly,10,French,2020,Spanish Grand Prix,2020-08-16,1036,AlphaTauri,10,76.8,9,82.543,0,14.0,13
-7566,Daniil Kvyat,26,Russian,2020,Spanish Grand Prix,2020-08-16,1036,AlphaTauri,12,77.19200000000001,12,82.336,0,2.0,16
-7567,Sergio Pérez,11,Mexican,2020,Spanish Grand Prix,2020-08-16,1036,Racing Point,4,76.482,5,82.515,0,32.0,8
-7568,Lance Stroll,18,Canadian,2020,Spanish Grand Prix,2020-08-16,1036,Racing Point,5,76.589,4,82.024,0,40.0,5
-7569,Carlos Sainz,55,Spanish,2020,Belgian Grand Prix,2020-08-30,1037,McLaren,7,102.438,,,0,23.0,11
-7570,Lando Norris,4,British,2020,Belgian Grand Prix,2020-08-30,1037,McLaren,10,102.657,7,108.55199999999999,0,45.0,6
-7571,Lewis Hamilton,44,British,2020,Belgian Grand Prix,2020-08-30,1037,Mercedes,1,101.25200000000001,1,107.75800000000001,5,157.0,1
-7572,Valtteri Bottas,77,Finnish,2020,Belgian Grand Prix,2020-08-30,1037,Mercedes,2,101.763,2,107.983,1,107.0,3
-7573,George Russell,63,British,2020,Belgian Grand Prix,2020-08-30,1037,Williams,15,103.468,,111.75399999999999,0,0.0,20
-7574,Nicholas Latifi,6,Canadian,2020,Belgian Grand Prix,2020-08-30,1037,Williams,19,104.138,16,108.048,0,0.0,19
-7575,Daniel Ricciardo,3,Australian,2020,Belgian Grand Prix,2020-08-30,1037,Renault,4,102.061,4,107.483,0,33.0,8
-7576,Esteban Ocon,31,French,2020,Belgian Grand Prix,2020-08-30,1037,Renault,6,102.396,5,108.53999999999999,0,26.0,10
-7577,Sebastian Vettel,5,German,2020,Belgian Grand Prix,2020-08-30,1037,Ferrari,14,103.261,13,109.958,0,16.0,13
-7578,Charles Leclerc,16,Monegasque,2020,Belgian Grand Prix,2020-08-30,1037,Ferrari,13,102.99600000000001,14,107.84,0,45.0,5
-7579,Kimi Räikkönen,7,Finnish,2020,Belgian Grand Prix,2020-08-30,1037,Alfa Romeo,16,103.743,12,109.822,0,0.0,18
-7580,Antonio Giovinazzi,99,Italian,2020,Belgian Grand Prix,2020-08-30,1037,Alfa Romeo,18,103.95,,111.793,0,2.0,15
-7581,Max Verstappen,33,Dutch,2020,Belgian Grand Prix,2020-08-30,1037,Red Bull,3,101.77799999999999,3,108.305,1,110.0,2
-7582,Alexander Albon,23,Thai,2020,Belgian Grand Prix,2020-08-30,1037,Red Bull,5,102.193,6,108.73599999999999,0,48.0,4
-7583,Romain Grosjean,8,French,2020,Belgian Grand Prix,2020-08-30,1037,Haas F1 Team,17,103.838,15,110.018,0,0.0,21
-7584,Kevin Magnussen,20,Danish,2020,Belgian Grand Prix,2020-08-30,1037,Haas F1 Team,20,104.314,17,108.083,0,1.0,17
-7585,Pierre Gasly,10,French,2020,Belgian Grand Prix,2020-08-30,1037,AlphaTauri,12,102.745,8,107.839,0,18.0,12
-7586,Daniil Kvyat,26,Russian,2020,Belgian Grand Prix,2020-08-30,1037,AlphaTauri,11,102.72999999999999,11,109.832,0,2.0,16
-7587,Sergio Pérez,11,Mexican,2020,Belgian Grand Prix,2020-08-30,1037,Racing Point,8,102.532,10,108.38900000000001,0,33.0,9
-7588,Lance Stroll,18,Canadian,2020,Belgian Grand Prix,2020-08-30,1037,Racing Point,9,102.491,9,109.136,0,42.0,7
-7589,Carlos Sainz,55,Spanish,2020,Italian Grand Prix,2020-09-06,1038,McLaren,3,79.695,2,83.882,0,41.0,9
-7590,Lando Norris,4,British,2020,Italian Grand Prix,2020-09-06,1038,McLaren,6,79.82,4,84.232,0,57.0,5
-7591,Lewis Hamilton,44,British,2020,Italian Grand Prix,2020-09-06,1038,Mercedes,1,78.887,7,82.746,5,164.0,1
-7592,Valtteri Bottas,77,Finnish,2020,Italian Grand Prix,2020-09-06,1038,Mercedes,2,78.952,5,83.961,1,117.0,2
-7593,George Russell,63,British,2020,Italian Grand Prix,2020-09-06,1038,Williams,19,81.587,14,84.42099999999999,0,0.0,21
-7594,Nicholas Latifi,6,Canadian,2020,Italian Grand Prix,2020-09-06,1038,Williams,20,81.717,11,84.999,0,0.0,18
-7595,Daniel Ricciardo,3,Australian,2020,Italian Grand Prix,2020-09-06,1038,Renault,7,79.864,6,83.898,0,41.0,10
-7596,Esteban Ocon,31,French,2020,Italian Grand Prix,2020-09-06,1038,Renault,12,80.23400000000001,8,84.49,0,30.0,12
-7597,Sebastian Vettel,5,German,2020,Italian Grand Prix,2020-09-06,1038,Ferrari,17,81.151,,87.107,0,16.0,13
-7598,Charles Leclerc,16,Monegasque,2020,Italian Grand Prix,2020-09-06,1038,Ferrari,13,80.273,,86.026,0,45.0,7
-7599,Kimi Räikkönen,7,Finnish,2020,Italian Grand Prix,2020-09-06,1038,Alfa Romeo,14,80.926,13,84.83500000000001,0,0.0,19
-7600,Antonio Giovinazzi,99,Italian,2020,Italian Grand Prix,2020-09-06,1038,Alfa Romeo,18,81.206,16,84.856,0,2.0,16
-7601,Max Verstappen,33,Dutch,2020,Italian Grand Prix,2020-09-06,1038,Red Bull,5,79.78,,85.539,1,110.0,3
-7602,Alexander Albon,23,Thai,2020,Italian Grand Prix,2020-09-06,1038,Red Bull,9,80.064,15,84.926,0,48.0,6
-7603,Romain Grosjean,8,French,2020,Italian Grand Prix,2020-09-06,1038,Haas F1 Team,16,81.139,12,84.785,0,0.0,20
-7604,Kevin Magnussen,20,Danish,2020,Italian Grand Prix,2020-09-06,1038,Haas F1 Team,15,80.869,,85.787,0,1.0,17
-7605,Pierre Gasly,10,French,2020,Italian Grand Prix,2020-09-06,1038,AlphaTauri,10,79.90899999999999,1,84.037,1,43.0,8
-7606,Daniil Kvyat,26,Russian,2020,Italian Grand Prix,2020-09-06,1038,AlphaTauri,11,80.169,9,84.479,0,4.0,15
-7607,Sergio Pérez,11,Mexican,2020,Italian Grand Prix,2020-09-06,1038,Racing Point,4,79.718,10,84.336,0,34.0,11
-7608,Lance Stroll,18,Canadian,2020,Italian Grand Prix,2020-09-06,1038,Racing Point,8,79.924,3,83.89699999999999,0,57.0,4
-7609,Carlos Sainz,55,Spanish,2020,Tuscan Grand Prix,2020-09-13,1039,McLaren,9,76.52199999999999,,134.103,0,41.0,11
-7610,Lando Norris,4,British,2020,Tuscan Grand Prix,2020-09-13,1039,McLaren,11,76.64,6,81.19800000000001,0,65.0,4
-7611,Lewis Hamilton,44,British,2020,Tuscan Grand Prix,2020-09-13,1039,Mercedes,1,75.144,1,78.833,6,190.0,1
-7612,Valtteri Bottas,77,Finnish,2020,Tuscan Grand Prix,2020-09-13,1039,Mercedes,2,75.203,2,79.432,1,135.0,2
-7613,George Russell,63,British,2020,Tuscan Grand Prix,2020-09-13,1039,Williams,18,77.232,11,81.645,0,0.0,20
-7614,Nicholas Latifi,6,Canadian,2020,Tuscan Grand Prix,2020-09-13,1039,Williams,19,77.32,,131.365,0,0.0,19
-7615,Daniel Ricciardo,3,Australian,2020,Tuscan Grand Prix,2020-09-13,1039,Renault,8,76.243,4,80.426,0,53.0,7
-7616,Esteban Ocon,31,French,2020,Tuscan Grand Prix,2020-09-13,1039,Renault,10,76.297,,131.793,0,30.0,12
-7617,Sebastian Vettel,5,German,2020,Tuscan Grand Prix,2020-09-13,1039,Ferrari,14,76.858,10,81.202,0,17.0,13
-7618,Charles Leclerc,16,Monegasque,2020,Tuscan Grand Prix,2020-09-13,1039,Ferrari,5,76.27,8,81.229,0,49.0,8
-7619,Kimi Räikkönen,7,Finnish,2020,Tuscan Grand Prix,2020-09-13,1039,Alfa Romeo,13,76.854,9,81.164,0,2.0,16
-7620,Antonio Giovinazzi,99,Italian,2020,Tuscan Grand Prix,2020-09-13,1039,Alfa Romeo,17,77.22,,133.809,0,2.0,17
-7621,Max Verstappen,33,Dutch,2020,Tuscan Grand Prix,2020-09-13,1039,Red Bull,3,75.471,,,1,110.0,3
-7622,Alexander Albon,23,Thai,2020,Tuscan Grand Prix,2020-09-13,1039,Red Bull,4,75.914,3,80.039,0,63.0,5
-7623,Romain Grosjean,8,French,2020,Tuscan Grand Prix,2020-09-13,1039,Haas F1 Team,15,77.069,12,82.263,0,0.0,21
-7624,Kevin Magnussen,20,Danish,2020,Tuscan Grand Prix,2020-09-13,1039,Haas F1 Team,20,77.348,,133.812,0,1.0,18
-7625,Pierre Gasly,10,French,2020,Tuscan Grand Prix,2020-09-13,1039,AlphaTauri,16,77.125,,,1,43.0,10
-7626,Daniil Kvyat,26,Russian,2020,Tuscan Grand Prix,2020-09-13,1039,AlphaTauri,12,76.854,7,81.458,0,10.0,14
-7627,Sergio Pérez,11,Mexican,2020,Tuscan Grand Prix,2020-09-13,1039,Racing Point,6,76.311,5,80.632,0,44.0,9
-7628,Lance Stroll,18,Canadian,2020,Tuscan Grand Prix,2020-09-13,1039,Racing Point,7,76.271,,82.068,0,57.0,6
-7629,Carlos Sainz,55,Spanish,2020,Russian Grand Prix,2020-09-27,1040,McLaren,6,92.55,,,0,41.0,11
-7630,Lando Norris,4,British,2020,Russian Grand Prix,2020-09-27,1040,McLaren,8,92.84700000000001,15,97.37700000000001,0,65.0,4
-7631,Lewis Hamilton,44,British,2020,Russian Grand Prix,2020-09-27,1040,Mercedes,1,91.304,3,98.075,6,205.0,1
-7632,Valtteri Bottas,77,Finnish,2020,Russian Grand Prix,2020-09-27,1040,Mercedes,3,91.956,1,97.03,2,161.0,2
-7633,George Russell,63,British,2020,Russian Grand Prix,2020-09-27,1040,Williams,14,93.583,18,97.352,0,0.0,20
-7634,Nicholas Latifi,6,Canadian,2020,Russian Grand Prix,2020-09-27,1040,Williams,19,95.066,16,101.044,0,0.0,19
-7635,Daniel Ricciardo,3,Australian,2020,Russian Grand Prix,2020-09-27,1040,Renault,5,92.218,5,97.886,0,63.0,6
-7636,Esteban Ocon,31,French,2020,Russian Grand Prix,2020-09-27,1040,Renault,7,92.624,7,99.21600000000001,0,36.0,12
-7637,Sebastian Vettel,5,German,2020,Russian Grand Prix,2020-09-27,1040,Ferrari,15,93.60900000000001,13,99.588,0,17.0,13
-7638,Charles Leclerc,16,Monegasque,2020,Russian Grand Prix,2020-09-27,1040,Ferrari,11,93.239,6,99.053,0,57.0,7
-7639,Kimi Räikkönen,7,Finnish,2020,Russian Grand Prix,2020-09-27,1040,Alfa Romeo,20,95.267,14,98.858,0,2.0,16
-7640,Antonio Giovinazzi,99,Italian,2020,Russian Grand Prix,2020-09-27,1040,Alfa Romeo,17,94.594,11,99.76599999999999,0,2.0,17
-7641,Max Verstappen,33,Dutch,2020,Russian Grand Prix,2020-09-27,1040,Red Bull,2,91.867,2,97.332,1,128.0,3
-7642,Alexander Albon,23,Thai,2020,Russian Grand Prix,2020-09-27,1040,Red Bull,10,93.00800000000001,10,98.37700000000001,0,64.0,5
-7643,Romain Grosjean,8,French,2020,Russian Grand Prix,2020-09-27,1040,Haas F1 Team,16,94.592,17,99.614,0,0.0,21
-7644,Kevin Magnussen,20,Danish,2020,Russian Grand Prix,2020-09-27,1040,Haas F1 Team,18,94.681,12,100.38,0,1.0,18
-7645,Pierre Gasly,10,French,2020,Russian Grand Prix,2020-09-27,1040,AlphaTauri,9,93.0,9,97.231,1,45.0,10
-7646,Daniil Kvyat,26,Russian,2020,Russian Grand Prix,2020-09-27,1040,AlphaTauri,12,93.249,8,99.13300000000001,0,14.0,14
-7647,Sergio Pérez,11,Mexican,2020,Russian Grand Prix,2020-09-27,1040,Racing Point,4,92.31700000000001,4,98.14099999999999,0,56.0,9
-7648,Lance Stroll,18,Canadian,2020,Russian Grand Prix,2020-09-27,1040,Racing Point,13,93.364,,,0,57.0,8
-7649,Carlos Sainz,55,Spanish,2020,Eifel Grand Prix,2020-10-11,1041,McLaren,10,86.361,5,90.129,0,51.0,11
-7650,Lando Norris,4,British,2020,Eifel Grand Prix,2020-10-11,1041,McLaren,8,86.316,,92.328,0,65.0,6
-7651,Lewis Hamilton,44,British,2020,Eifel Grand Prix,2020-10-11,1041,Mercedes,2,85.39,1,88.145,7,230.0,1
-7652,Valtteri Bottas,77,Finnish,2020,Eifel Grand Prix,2020-10-11,1041,Mercedes,1,85.269,,91.884,2,161.0,2
-7653,George Russell,63,British,2020,Eifel Grand Prix,2020-10-11,1041,Williams,17,87.564,,94.52600000000001,0,0.0,21
-7654,Nicholas Latifi,6,Canadian,2020,Eifel Grand Prix,2020-10-11,1041,Williams,18,87.812,14,91.377,0,0.0,20
-7655,Daniel Ricciardo,3,Australian,2020,Eifel Grand Prix,2020-10-11,1041,Renault,6,86.096,3,89.584,0,78.0,4
-7656,Esteban Ocon,31,French,2020,Eifel Grand Prix,2020-10-11,1041,Renault,7,86.242,,93.189,0,36.0,12
-7657,Sebastian Vettel,5,German,2020,Eifel Grand Prix,2020-10-11,1041,Ferrari,11,86.738,11,90.408,0,17.0,13
-7658,Charles Leclerc,16,Monegasque,2020,Eifel Grand Prix,2020-10-11,1041,Ferrari,4,86.035,7,90.712,0,63.0,8
-7659,Kimi Räikkönen,7,Finnish,2020,Eifel Grand Prix,2020-10-11,1041,Alfa Romeo,19,87.81700000000001,12,90.512,0,2.0,17
-7660,Antonio Giovinazzi,99,Italian,2020,Eifel Grand Prix,2020-10-11,1041,Alfa Romeo,14,86.936,10,90.90899999999999,0,3.0,16
-7661,Max Verstappen,33,Dutch,2020,Eifel Grand Prix,2020-10-11,1041,Red Bull,3,85.467,2,88.139,1,147.0,3
-7662,Alexander Albon,23,Thai,2020,Eifel Grand Prix,2020-10-11,1041,Red Bull,5,86.047,,92.33,0,64.0,7
-7663,Romain Grosjean,8,French,2020,Eifel Grand Prix,2020-10-11,1041,Haas F1 Team,16,87.55199999999999,9,91.562,0,2.0,18
-7664,Kevin Magnussen,20,Danish,2020,Eifel Grand Prix,2020-10-11,1041,Haas F1 Team,15,87.125,13,90.456,0,1.0,19
-7665,Pierre Gasly,10,French,2020,Eifel Grand Prix,2020-10-11,1041,AlphaTauri,12,86.776,6,90.11,1,53.0,10
-7666,Daniil Kvyat,26,Russian,2020,Eifel Grand Prix,2020-10-11,1041,AlphaTauri,13,86.848,15,92.214,0,14.0,14
-7667,Nico Hülkenberg,27,German,2020,Eifel Grand Prix,2020-10-11,1041,Racing Point,20,88.021,8,90.733,0,10.0,15
-7668,Sergio Pérez,11,Mexican,2020,Eifel Grand Prix,2020-10-11,1041,Racing Point,9,86.33,4,89.7,0,68.0,5
-7669,Carlos Sainz,55,Spanish,2020,Portuguese Grand Prix,2020-10-25,1042,McLaren,7,77.18299999999999,6,80.268,0,59.0,10
-7670,Lando Norris,4,British,2020,Portuguese Grand Prix,2020-10-25,1042,McLaren,8,77.321,13,79.36,0,65.0,7
-7671,Lewis Hamilton,44,British,2020,Portuguese Grand Prix,2020-10-25,1042,Mercedes,1,76.652,1,78.75,8,256.0,1
-7672,Valtteri Bottas,77,Finnish,2020,Portuguese Grand Prix,2020-10-25,1042,Mercedes,2,76.46600000000001,2,79.345,2,179.0,2
-7673,George Russell,63,British,2020,Portuguese Grand Prix,2020-10-25,1042,Williams,14,77.788,14,80.882,0,0.0,21
-7674,Nicholas Latifi,6,Canadian,2020,Portuguese Grand Prix,2020-10-25,1042,Williams,20,78.777,18,81.85900000000001,0,0.0,20
-7675,Daniel Ricciardo,3,Australian,2020,Portuguese Grand Prix,2020-10-25,1042,Renault,10,77.481,9,80.906,0,80.0,4
-7676,Esteban Ocon,31,French,2020,Portuguese Grand Prix,2020-10-25,1042,Renault,11,77.614,8,80.85900000000001,0,40.0,12
-7677,Sebastian Vettel,5,German,2020,Portuguese Grand Prix,2020-10-25,1042,Ferrari,15,77.446,10,80.731,0,18.0,13
-7678,Charles Leclerc,16,Monegasque,2020,Portuguese Grand Prix,2020-10-25,1042,Ferrari,4,77.09,4,80.408,0,75.0,5
-7679,Kimi Räikkönen,7,Finnish,2020,Portuguese Grand Prix,2020-10-25,1042,Alfa Romeo,16,78.201,11,81.05799999999999,0,2.0,17
-7680,Antonio Giovinazzi,99,Italian,2020,Portuguese Grand Prix,2020-10-25,1042,Alfa Romeo,17,78.32300000000001,15,81.893,0,3.0,16
-7681,Max Verstappen,33,Dutch,2020,Portuguese Grand Prix,2020-10-25,1042,Red Bull,3,76.879,3,79.854,1,162.0,3
-7682,Alexander Albon,23,Thai,2020,Portuguese Grand Prix,2020-10-25,1042,Red Bull,6,77.411,12,79.89,0,64.0,8
-7683,Romain Grosjean,8,French,2020,Portuguese Grand Prix,2020-10-25,1042,Haas F1 Team,18,78.364,17,81.664,0,2.0,18
-7684,Kevin Magnussen,20,Danish,2020,Portuguese Grand Prix,2020-10-25,1042,Haas F1 Team,19,78.508,16,81.46000000000001,0,1.0,19
-7685,Pierre Gasly,10,French,2020,Portuguese Grand Prix,2020-10-25,1042,AlphaTauri,9,77.209,5,80.551,1,63.0,9
-7686,Daniil Kvyat,26,Russian,2020,Portuguese Grand Prix,2020-10-25,1042,AlphaTauri,13,77.72800000000001,19,80.449,0,14.0,14
-7687,Sergio Pérez,11,Mexican,2020,Portuguese Grand Prix,2020-10-25,1042,Racing Point,5,77.129,7,80.80199999999999,0,74.0,6
-7688,Lance Stroll,18,Canadian,2020,Portuguese Grand Prix,2020-10-25,1042,Racing Point,12,77.626,,81.694,0,57.0,11
-7689,Carlos Sainz,55,Spanish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,McLaren,10,74.911,7,78.118,0,65.0,8
-7690,Lando Norris,4,British,2020,Emilia Romagna Grand Prix,2020-11-01,1043,McLaren,9,74.814,8,78.069,0,69.0,7
-7691,Lewis Hamilton,44,British,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Mercedes,2,73.706,1,75.484,9,282.0,1
-7692,Valtteri Bottas,77,Finnish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Mercedes,1,73.609,2,75.902,2,197.0,2
-7693,George Russell,63,British,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Williams,13,75.32300000000001,,78.811,0,0.0,21
-7694,Nicholas Latifi,6,Canadian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Williams,19,75.987,11,78.719,0,0.0,20
-7695,Daniel Ricciardo,3,Australian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Renault,5,74.52,3,77.55199999999999,0,95.0,4
-7696,Esteban Ocon,31,French,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Renault,12,75.201,,79.606,0,40.0,12
-7697,Sebastian Vettel,5,German,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Ferrari,14,75.385,12,77.767,0,18.0,14
-7698,Charles Leclerc,16,Monegasque,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Ferrari,7,74.616,5,78.173,0,85.0,5
-7699,Kimi Räikkönen,7,Finnish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Alfa Romeo,18,75.953,9,78.088,0,4.0,16
-7700,Antonio Giovinazzi,99,Italian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Alfa Romeo,20,76.208,10,78.794,0,4.0,17
-7701,Max Verstappen,33,Dutch,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Red Bull,3,74.176,,77.637,1,162.0,3
-7702,Alexander Albon,23,Thai,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Red Bull,6,74.572,15,76.17699999999999,0,64.0,9
-7703,Romain Grosjean,8,French,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Haas F1 Team,16,75.918,14,78.822,0,2.0,18
-7704,Kevin Magnussen,20,Danish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Haas F1 Team,17,75.939,,79.273,0,1.0,19
-7705,Pierre Gasly,10,French,2020,Emilia Romagna Grand Prix,2020-11-01,1043,AlphaTauri,4,74.502,,80.40299999999999,1,63.0,10
-7706,Daniil Kvyat,26,Russian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,AlphaTauri,8,74.696,4,77.666,0,26.0,13
-7707,Sergio Pérez,11,Mexican,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Racing Point,11,75.061,6,78.084,0,82.0,6
-7708,Lance Stroll,18,Canadian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Racing Point,15,75.494,13,78.36,0,57.0,11
-7709,Carlos Sainz,55,Spanish,2020,Turkish Grand Prix,2020-11-15,1044,McLaren,13,115.41,5,98.75399999999999,0,75.0,7
-7710,Lando Norris,4,British,2020,Turkish Grand Prix,2020-11-15,1044,McLaren,11,114.945,8,96.806,0,74.0,8
-7711,Lewis Hamilton,44,British,2020,Turkish Grand Prix,2020-11-15,1044,Mercedes,6,112.56,1,99.413,10,307.0,1
-7712,Valtteri Bottas,77,Finnish,2020,Turkish Grand Prix,2020-11-15,1044,Mercedes,9,113.25800000000001,14,98.193,2,197.0,2
-7713,George Russell,63,British,2020,Turkish Grand Prix,2020-11-15,1044,Williams,18,130.017,16,100.814,0,0.0,21
-7714,Nicholas Latifi,6,Canadian,2020,Turkish Grand Prix,2020-11-15,1044,Williams,20,141.611,,103.495,0,0.0,20
-7715,Daniel Ricciardo,3,Australian,2020,Turkish Grand Prix,2020-11-15,1044,Renault,5,111.595,10,100.67699999999999,0,96.0,6
-7716,Esteban Ocon,31,French,2020,Turkish Grand Prix,2020-11-15,1044,Renault,7,112.622,11,101.006,0,40.0,12
-7717,Sebastian Vettel,5,German,2020,Turkish Grand Prix,2020-11-15,1044,Ferrari,12,115.169,3,99.662,0,33.0,13
-7718,Charles Leclerc,16,Monegasque,2020,Turkish Grand Prix,2020-11-15,1044,Ferrari,14,116.696,4,99.961,0,97.0,5
-7719,Kimi Räikkönen,7,Finnish,2020,Turkish Grand Prix,2020-11-15,1044,Alfa Romeo,8,112.745,15,99.743,0,4.0,16
-7720,Antonio Giovinazzi,99,Italian,2020,Turkish Grand Prix,2020-11-15,1044,Alfa Romeo,10,113.431,,111.122,0,4.0,17
-7721,Max Verstappen,33,Dutch,2020,Turkish Grand Prix,2020-11-15,1044,Red Bull,2,108.055,6,98.431,1,170.0,3
-7722,Alexander Albon,23,Thai,2020,Turkish Grand Prix,2020-11-15,1044,Red Bull,4,110.44800000000001,7,99.09899999999999,0,70.0,9
-7723,Romain Grosjean,8,French,2020,Turkish Grand Prix,2020-11-15,1044,Haas F1 Team,19,132.909,,103.281,0,2.0,18
-7724,Kevin Magnussen,20,Danish,2020,Turkish Grand Prix,2020-11-15,1044,Haas F1 Team,16,128.007,17,100.94800000000001,0,1.0,19
-7725,Pierre Gasly,10,French,2020,Turkish Grand Prix,2020-11-15,1044,AlphaTauri,15,118.556,13,99.586,1,63.0,10
-7726,Daniil Kvyat,26,Russian,2020,Turkish Grand Prix,2020-11-15,1044,AlphaTauri,17,129.07,12,101.019,0,26.0,14
-7727,Sergio Pérez,11,Mexican,2020,Turkish Grand Prix,2020-11-15,1044,Racing Point,3,109.321,2,100.392,0,100.0,4
-7728,Lance Stroll,18,Canadian,2020,Turkish Grand Prix,2020-11-15,1044,Racing Point,1,107.765,9,99.92099999999999,0,59.0,11
-7729,Carlos Sainz,55,Spanish,2020,Bahrain Grand Prix,2020-11-29,1045,McLaren,15,88.975,5,93.411,0,85.0,8
-7730,Lando Norris,4,British,2020,Bahrain Grand Prix,2020-11-29,1045,McLaren,9,88.542,4,93.588,0,86.0,7
-7731,Lewis Hamilton,44,British,2020,Bahrain Grand Prix,2020-11-29,1045,Mercedes,1,87.264,1,92.864,11,332.0,1
-7732,Valtteri Bottas,77,Finnish,2020,Bahrain Grand Prix,2020-11-29,1045,Mercedes,2,87.553,8,93.352,2,201.0,2
-7733,George Russell,63,British,2020,Bahrain Grand Prix,2020-11-29,1045,Williams,14,89.294,12,95.042,0,0.0,21
-7734,Nicholas Latifi,6,Canadian,2020,Bahrain Grand Prix,2020-11-29,1045,Williams,20,90.182,14,94.59100000000001,0,0.0,20
-7735,Daniel Ricciardo,3,Australian,2020,Bahrain Grand Prix,2020-11-29,1045,Renault,6,88.417,7,92.827,0,102.0,4
-7736,Esteban Ocon,31,French,2020,Bahrain Grand Prix,2020-11-29,1045,Renault,7,88.419,9,94.354,0,42.0,12
-7737,Sebastian Vettel,5,German,2020,Bahrain Grand Prix,2020-11-29,1045,Ferrari,11,89.142,13,93.86099999999999,0,33.0,13
-7738,Charles Leclerc,16,Monegasque,2020,Bahrain Grand Prix,2020-11-29,1045,Ferrari,12,89.137,10,93.625,0,98.0,6
-7739,Kimi Räikkönen,7,Finnish,2020,Bahrain Grand Prix,2020-11-29,1045,Alfa Romeo,17,89.81,15,93.57300000000001,0,4.0,16
-7740,Antonio Giovinazzi,99,Italian,2020,Bahrain Grand Prix,2020-11-29,1045,Alfa Romeo,16,89.491,16,94.536,0,4.0,17
-7741,Max Verstappen,33,Dutch,2020,Bahrain Grand Prix,2020-11-29,1045,Red Bull,3,87.678,2,92.01400000000001,1,189.0,3
-7742,Alexander Albon,23,Thai,2020,Bahrain Grand Prix,2020-11-29,1045,Red Bull,4,88.274,3,93.684,0,85.0,9
-7743,Romain Grosjean,8,French,2020,Bahrain Grand Prix,2020-11-29,1045,Haas F1 Team,19,90.138,,,0,2.0,18
-7744,Kevin Magnussen,20,Danish,2020,Bahrain Grand Prix,2020-11-29,1045,Haas F1 Team,18,90.111,17,95.241,0,1.0,19
-7745,Pierre Gasly,10,French,2020,Bahrain Grand Prix,2020-11-29,1045,AlphaTauri,8,88.44800000000001,6,94.81700000000001,1,71.0,10
-7746,Daniil Kvyat,26,Russian,2020,Bahrain Grand Prix,2020-11-29,1045,AlphaTauri,10,88.618,11,94.14099999999999,0,26.0,14
-7747,Sergio Pérez,11,Mexican,2020,Bahrain Grand Prix,2020-11-29,1045,Racing Point,5,88.322,18,93.62899999999999,0,100.0,5
-7748,Lance Stroll,18,Canadian,2020,Bahrain Grand Prix,2020-11-29,1045,Racing Point,13,88.679,,,0,59.0,11
-7749,Carlos Sainz,55,Spanish,2020,Sakhir Grand Prix,2020-12-06,1046,McLaren,8,53.818,4,57.165,0,97.0,7
-7750,Lando Norris,4,British,2020,Sakhir Grand Prix,2020-12-06,1046,McLaren,15,54.194,10,57.27,0,87.0,9
-7751,Valtteri Bottas,77,Finnish,2020,Sakhir Grand Prix,2020-12-06,1046,Mercedes,1,53.377,8,56.563,2,205.0,2
-7752,George Russell,63,British,2020,Sakhir Grand Prix,2020-12-06,1046,Mercedes,2,53.403,9,55.404,0,3.0,18
-7753,Nicholas Latifi,6,Canadian,2020,Sakhir Grand Prix,2020-12-06,1046,Williams,17,54.796,,58.206,0,0.0,21
-7754,Jack Aitken,89,British,2020,Sakhir Grand Prix,2020-12-06,1046,Williams,18,54.892,16,57.392,0,0.0,22
-7755,Daniel Ricciardo,3,Australian,2020,Sakhir Grand Prix,2020-12-06,1046,Renault,7,53.871,5,56.979,0,112.0,5
-7756,Esteban Ocon,31,French,2020,Sakhir Grand Prix,2020-12-06,1046,Renault,11,53.995,2,57.35,0,60.0,12
-7757,Sebastian Vettel,5,German,2020,Sakhir Grand Prix,2020-12-06,1046,Ferrari,13,54.175,12,56.905,0,33.0,13
-7758,Charles Leclerc,16,Monegasque,2020,Sakhir Grand Prix,2020-12-06,1046,Ferrari,4,53.613,,,0,98.0,6
-7759,Kimi Räikkönen,7,Finnish,2020,Sakhir Grand Prix,2020-12-06,1046,Alfa Romeo,19,54.963,14,57.375,0,4.0,16
-7760,Antonio Giovinazzi,99,Italian,2020,Sakhir Grand Prix,2020-12-06,1046,Alfa Romeo,14,54.377,13,56.887,0,4.0,17
-7761,Max Verstappen,33,Dutch,2020,Sakhir Grand Prix,2020-12-06,1046,Red Bull,3,53.433,,,1,189.0,3
-7762,Alexander Albon,23,Thai,2020,Sakhir Grand Prix,2020-12-06,1046,Red Bull,12,54.026,6,57.056,0,93.0,8
-7763,Kevin Magnussen,20,Danish,2020,Sakhir Grand Prix,2020-12-06,1046,Haas F1 Team,16,54.705,15,57.516,0,1.0,20
-7764,Pietro Fittipaldi,51,Brazilian,2020,Sakhir Grand Prix,2020-12-06,1046,Haas F1 Team,20,55.426,17,57.742,0,0.0,23
-7765,Pierre Gasly,10,French,2020,Sakhir Grand Prix,2020-12-06,1046,AlphaTauri,9,53.941,11,57.22,1,71.0,11
-7766,Daniil Kvyat,26,Russian,2020,Sakhir Grand Prix,2020-12-06,1046,AlphaTauri,6,53.856,7,57.001,0,32.0,14
-7767,Sergio Pérez,11,Mexican,2020,Sakhir Grand Prix,2020-12-06,1046,Racing Point,5,53.787,1,56.789,1,125.0,4
-7768,Lance Stroll,18,Canadian,2020,Sakhir Grand Prix,2020-12-06,1046,Racing Point,10,53.84,3,57.388,0,74.0,10
-7769,Carlos Sainz,55,Spanish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,McLaren,6,95.815,6,101.947,0,105.0,6
-7770,Lando Norris,4,British,2020,Abu Dhabi Grand Prix,2020-12-13,1047,McLaren,4,95.497,5,101.964,0,97.0,9
-7771,Lewis Hamilton,44,British,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Mercedes,3,95.332,3,101.42,11,347.0,1
-7772,Valtteri Bottas,77,Finnish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Mercedes,2,95.271,2,101.131,2,223.0,2
-7773,George Russell,63,British,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Williams,18,98.045,15,103.328,0,3.0,18
-7774,Nicholas Latifi,6,Canadian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Williams,20,98.443,17,102.497,0,0.0,21
-7775,Daniel Ricciardo,3,Australian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Renault,12,96.406,7,100.926,0,119.0,5
-7776,Esteban Ocon,31,French,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Renault,11,96.35900000000001,9,102.894,0,62.0,12
-7777,Sebastian Vettel,5,German,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Ferrari,13,96.631,14,101.475,0,33.0,13
-7778,Charles Leclerc,16,Monegasque,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Ferrari,9,95.881,13,101.908,0,98.0,8
-7779,Kimi Räikkönen,7,Finnish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Alfa Romeo,16,97.555,12,102.148,0,4.0,16
-7780,Antonio Giovinazzi,99,Italian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Alfa Romeo,14,97.075,16,101.675,0,4.0,17
-7781,Max Verstappen,33,Dutch,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Red Bull,1,95.24600000000001,1,100.958,2,214.0,3
-7782,Alexander Albon,23,Thai,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Red Bull,5,95.571,4,101.227,0,105.0,7
-7783,Kevin Magnussen,20,Danish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Haas F1 Team,17,97.863,18,101.999,0,1.0,20
-7784,Pietro Fittipaldi,51,Brazilian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Haas F1 Team,19,98.173,19,101.707,0,0.0,23
-7785,Pierre Gasly,10,French,2020,Abu Dhabi Grand Prix,2020-12-13,1047,AlphaTauri,10,96.24199999999999,8,102.47399999999999,1,75.0,10
-7786,Daniil Kvyat,26,Russian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,AlphaTauri,7,95.963,11,102.70400000000001,0,32.0,14
-7787,Sergio Pérez,11,Mexican,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Racing Point,15,96.03399999999999,,103.263,1,125.0,4
-7788,Lance Stroll,18,Canadian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Racing Point,8,96.04599999999999,10,101.866,0,75.0,11
-7789,Nick Heidfeld,,German,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,11,85.504,10,88.283,0,0.0,10
-7790,Robert Kubica,88,Polish,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,4,85.152,14,87.988,0,0.0,14
-7791,Nico Rosberg,6,German,2009,Australian Grand Prix,2009-03-29,1,Williams,5,85.123,6,87.706,0,3.0,6
-7792,Fernando Alonso,14,Spanish,2009,Australian Grand Prix,2009-03-29,1,Renault,12,85.605,5,88.712,0,4.0,5
-7793,Kimi Räikkönen,7,Finnish,2009,Australian Grand Prix,2009-03-29,1,Ferrari,9,85.38,15,88.488,0,0.0,15
-7794,Sébastien Bourdais,,French,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,20,86.964,8,89.82300000000001,0,1.0,8
-7795,Sébastien Buemi,,Swiss,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,16,86.503,7,89.23,0,2.0,7
-7796,Timo Glock,,German,2009,Australian Grand Prix,2009-03-29,1,Toyota,6,85.281,4,88.416,0,5.0,4
-7797,Jarno Trulli,,Italian,2009,Australian Grand Prix,2009-03-29,1,Toyota,8,85.265,3,88.916,0,6.0,3
-7798,Mark Webber,,Australian,2009,Australian Grand Prix,2009-03-29,1,Red Bull,10,85.241,12,88.508,0,0.0,12
-7799,Sebastian Vettel,5,German,2009,Australian Grand Prix,2009-03-29,1,Red Bull,3,85.121,13,88.14,0,0.0,13
-7800,Adrian Sutil,99,German,2009,Australian Grand Prix,2009-03-29,1,Force India,19,86.742,9,88.943,0,0.0,9
-7801,Giancarlo Fisichella,,Italian,2009,Australian Grand Prix,2009-03-29,1,Force India,18,86.67699999999999,11,89.005,0,0.0,11
-7802,Jenson Button,22,British,2009,Australian Grand Prix,2009-03-29,1,Brawn,1,84.855,1,88.02,1,10.0,1
-7803,Rubens Barrichello,,Brazilian,2009,Australian Grand Prix,2009-03-29,1,Brawn,2,84.783,2,89.066,0,8.0,2
-7804,Ralf Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Williams,11,92.22,3,,0,4.0,3
-7805,Nick Heidfeld,,German,2000,Australian Grand Prix,2000-03-12,158,Prost,15,93.024,9,,0,0.0,9
-7806,Marc Gené,,Spanish,2000,Australian Grand Prix,2000-03-12,158,Minardi,18,93.261,8,,0,0.0,8
-7807,Rubens Barrichello,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,Ferrari,4,91.102,2,,0,6.0,2
-7808,Michael Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Ferrari,3,91.075,1,,1,10.0,1
-7809,Jacques Villeneuve,,Canadian,2000,Australian Grand Prix,2000-03-12,158,BAR,8,91.968,4,,0,3.0,4
-7810,Ricardo Zonta,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,BAR,16,93.11699999999999,6,,0,1.0,6
-7811,Giancarlo Fisichella,,Italian,2000,Australian Grand Prix,2000-03-12,158,Benetton,9,91.992,5,,0,2.0,5
-7812,Alexander Wurz,,Austrian,2000,Australian Grand Prix,2000-03-12,158,Benetton,14,92.775,7,,0,0.0,7
-7813,Ralf Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Williams,8,92.691,3,,0,4.0,3
-7814,Heinz-Harald Frentzen,,German,1999,Australian Grand Prix,1999-03-07,175,Jordan,5,92.27600000000001,2,,0,6.0,2
-7815,Michael Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Ferrari,3,91.781,8,,0,0.0,8
-7816,Eddie Irvine,,British,1999,Australian Grand Prix,1999-03-07,175,Ferrari,6,92.289,1,,1,10.0,1
-7817,Giancarlo Fisichella,,Italian,1999,Australian Grand Prix,1999-03-07,175,Benetton,7,92.53999999999999,4,,0,3.0,4
-7818,Rubens Barrichello,,Brazilian,1999,Australian Grand Prix,1999-03-07,175,Stewart,4,92.148,5,,0,2.0,5
-7819,Pedro de la Rosa,,Spanish,1999,Australian Grand Prix,1999-03-07,175,Arrows,18,94.244,6,,0,1.0,6
-7820,Toranosuke Takagi,,Japanese,1999,Australian Grand Prix,1999-03-07,175,Arrows,17,94.182,7,,0,0.0,7
+7031,Daniel Ricciardo,3,Australian,2021,Styrian Grand Prix,2021-06-27,1058,McLaren,13,64.80799999999999,13,69.305,0,34.0,9
+7032,Lando Norris,4,British,2021,Styrian Grand Prix,2021-06-27,1058,McLaren,4,64.12,5,68.903,0,86.0,4
+7033,Lewis Hamilton,44,British,2021,Styrian Grand Prix,2021-06-27,1058,Mercedes,3,64.06700000000001,2,67.05799999999999,3,138.0,2
+7034,Valtteri Bottas,77,Finnish,2021,Styrian Grand Prix,2021-06-27,1058,Mercedes,2,64.035,3,68.619,0,74.0,5
+7035,George Russell,63,British,2021,Styrian Grand Prix,2021-06-27,1058,Williams,11,64.671,,70.499,0,0.0,17
+7036,Nicholas Latifi,6,Canadian,2021,Styrian Grand Prix,2021-06-27,1058,Williams,16,65.175,17,70.104,0,0.0,20
+7037,Carlos Sainz,55,Spanish,2021,Styrian Grand Prix,2021-06-27,1058,Ferrari,12,64.8,6,68.609,0,50.0,7
+7038,Charles Leclerc,16,Monegasque,2021,Styrian Grand Prix,2021-06-27,1058,Ferrari,7,64.472,7,68.738,0,58.0,6
+7039,Fernando Alonso,14,Spanish,2021,Styrian Grand Prix,2021-06-27,1058,Alpine F1 Team,9,64.574,9,69.749,0,19.0,11
+7040,Esteban Ocon,31,French,2021,Styrian Grand Prix,2021-06-27,1058,Alpine F1 Team,17,65.217,14,69.576,0,12.0,13
+7041,Kimi Räikkönen,7,Finnish,2021,Styrian Grand Prix,2021-06-27,1058,Alfa Romeo,18,65.429,11,69.128,0,1.0,15
+7042,Antonio Giovinazzi,99,Italian,2021,Styrian Grand Prix,2021-06-27,1058,Alfa Romeo,15,64.913,15,69.723,0,1.0,16
+7043,Sergio Pérez,11,Mexican,2021,Styrian Grand Prix,2021-06-27,1058,Red Bull,5,64.168,4,67.894,1,96.0,3
+7044,Max Verstappen,33,Dutch,2021,Styrian Grand Prix,2021-06-27,1058,Red Bull,1,63.841,1,68.017,4,156.0,1
+7045,Sebastian Vettel,5,German,2021,Styrian Grand Prix,2021-06-27,1058,Aston Martin,14,64.875,12,69.821,0,30.0,10
+7046,Lance Stroll,18,Canadian,2021,Styrian Grand Prix,2021-06-27,1058,Aston Martin,10,64.663,8,69.787,0,14.0,12
+7047,Nikita Mazepin,9,Russian,2021,Styrian Grand Prix,2021-06-27,1058,Haas F1 Team,20,66.19200000000001,18,70.951,0,0.0,19
+7048,Mick Schumacher,47,German,2021,Styrian Grand Prix,2021-06-27,1058,Haas F1 Team,19,66.041,16,70.005,0,0.0,18
+7049,Pierre Gasly,10,French,2021,Styrian Grand Prix,2021-06-27,1058,AlphaTauri,6,64.236,,,0,37.0,8
+7050,Yuki Tsunoda,22,Japanese,2021,Styrian Grand Prix,2021-06-27,1058,AlphaTauri,8,64.514,10,69.65,0,9.0,14
+7051,Carlos Sainz,55,Spanish,2019,Australian Grand Prix,2019-03-17,1010,McLaren,18,83.084,,90.899,0,0.0,20
+7052,Lando Norris,4,British,2019,Australian Grand Prix,2019-03-17,1010,McLaren,8,82.304,12,88.555,0,0.0,12
+7053,Lewis Hamilton,44,British,2019,Australian Grand Prix,2019-03-17,1010,Mercedes,1,80.486,2,86.057,0,18.0,2
+7054,Valtteri Bottas,77,Finnish,2019,Australian Grand Prix,2019-03-17,1010,Mercedes,2,80.598,1,85.58,1,26.0,1
+7055,Robert Kubica,88,Polish,2019,Australian Grand Prix,2019-03-17,1010,Williams,20,86.06700000000001,17,89.28399999999999,0,0.0,17
+7056,George Russell,63,British,2019,Australian Grand Prix,2019-03-17,1010,Williams,19,84.36,16,88.713,0,0.0,16
+7057,Nico Hülkenberg,27,German,2019,Australian Grand Prix,2019-03-17,1010,Renault,11,82.53999999999999,7,88.444,0,6.0,7
+7058,Daniel Ricciardo,3,Australian,2019,Australian Grand Prix,2019-03-17,1010,Renault,12,82.57,,89.848,0,0.0,19
+7059,Sebastian Vettel,5,German,2019,Australian Grand Prix,2019-03-17,1010,Ferrari,3,81.19,4,87.95400000000001,0,12.0,4
+7060,Charles Leclerc,16,Monegasque,2019,Australian Grand Prix,2019-03-17,1010,Ferrari,5,81.44200000000001,5,86.926,0,10.0,5
+7061,Daniil Kvyat,26,Russian,2019,Australian Grand Prix,2019-03-17,1010,Toro Rosso,15,82.511,10,87.44800000000001,0,1.0,10
+7062,Alexander Albon,23,Thai,2019,Australian Grand Prix,2019-03-17,1010,Toro Rosso,13,82.636,14,88.188,0,0.0,14
+7063,Kimi Räikkönen,7,Finnish,2019,Australian Grand Prix,2019-03-17,1010,Alfa Romeo,9,82.314,8,88.27,0,4.0,8
+7064,Antonio Giovinazzi,99,Italian,2019,Australian Grand Prix,2019-03-17,1010,Alfa Romeo,14,82.431,15,88.479,0,0.0,15
+7065,Pierre Gasly,10,French,2019,Australian Grand Prix,2019-03-17,1010,Red Bull,17,83.02,11,87.229,0,0.0,11
+7066,Max Verstappen,33,Dutch,2019,Australian Grand Prix,2019-03-17,1010,Red Bull,4,81.32,3,86.256,0,15.0,3
+7067,Romain Grosjean,8,French,2019,Australian Grand Prix,2019-03-17,1010,Haas F1 Team,6,81.826,,88.462,0,0.0,18
+7068,Kevin Magnussen,20,Danish,2019,Australian Grand Prix,2019-03-17,1010,Haas F1 Team,7,82.099,6,88.182,0,8.0,6
+7069,Sergio Pérez,11,Mexican,2019,Australian Grand Prix,2019-03-17,1010,Racing Point,10,82.532,13,88.485,0,0.0,13
+7070,Lance Stroll,18,Canadian,2019,Australian Grand Prix,2019-03-17,1010,Racing Point,16,83.017,9,87.568,0,2.0,9
+7071,Carlos Sainz,55,Spanish,2019,Bahrain Grand Prix,2019-03-31,1011,McLaren,7,88.813,,95.586,0,0.0,20
+7072,Lando Norris,4,British,2019,Bahrain Grand Prix,2019-03-31,1011,McLaren,10,89.043,6,95.777,0,8.0,7
+7073,Lewis Hamilton,44,British,2019,Bahrain Grand Prix,2019-03-31,1011,Mercedes,3,88.19,1,93.52799999999999,1,43.0,2
+7074,Valtteri Bottas,77,Finnish,2019,Bahrain Grand Prix,2019-03-31,1011,Mercedes,4,88.256,2,94.209,1,44.0,1
+7075,Robert Kubica,88,Polish,2019,Bahrain Grand Prix,2019-03-31,1011,Williams,20,91.799,16,97.90299999999999,0,0.0,17
+7076,George Russell,63,British,2019,Bahrain Grand Prix,2019-03-31,1011,Williams,19,91.759,15,97.313,0,0.0,16
+7077,Nico Hülkenberg,27,German,2019,Bahrain Grand Prix,2019-03-31,1011,Renault,17,90.03399999999999,,95.215,0,6.0,9
+7078,Daniel Ricciardo,3,Australian,2019,Bahrain Grand Prix,2019-03-31,1011,Renault,11,89.488,,96.697,0,0.0,18
+7079,Sebastian Vettel,5,German,2019,Bahrain Grand Prix,2019-03-31,1011,Ferrari,2,88.16,5,94.89500000000001,0,22.0,5
+7080,Charles Leclerc,16,Monegasque,2019,Bahrain Grand Prix,2019-03-31,1011,Ferrari,1,87.866,3,93.411,0,26.0,4
+7081,Daniil Kvyat,26,Russian,2019,Bahrain Grand Prix,2019-03-31,1011,Toro Rosso,15,89.854,12,94.934,0,1.0,13
+7082,Alexander Albon,23,Thai,2019,Bahrain Grand Prix,2019-03-31,1011,Toro Rosso,12,89.513,9,96.75200000000001,0,2.0,11
+7083,Kimi Räikkönen,7,Finnish,2019,Bahrain Grand Prix,2019-03-31,1011,Alfa Romeo,9,89.02199999999999,7,95.589,0,10.0,6
+7084,Antonio Giovinazzi,99,Italian,2019,Bahrain Grand Prix,2019-03-31,1011,Alfa Romeo,16,90.026,11,95.237,0,0.0,15
+7085,Pierre Gasly,10,French,2019,Bahrain Grand Prix,2019-03-31,1011,Red Bull,13,89.526,8,95.291,0,4.0,10
+7086,Max Verstappen,33,Dutch,2019,Bahrain Grand Prix,2019-03-31,1011,Red Bull,5,88.752,4,95.311,0,27.0,3
+7087,Romain Grosjean,8,French,2019,Bahrain Grand Prix,2019-03-31,1011,Haas F1 Team,8,89.015,,97.262,0,0.0,19
+7088,Kevin Magnussen,20,Danish,2019,Bahrain Grand Prix,2019-03-31,1011,Haas F1 Team,6,88.757,13,95.892,0,8.0,8
+7089,Sergio Pérez,11,Mexican,2019,Bahrain Grand Prix,2019-03-31,1011,Racing Point,14,89.756,10,96.33,0,1.0,14
+7090,Lance Stroll,18,Canadian,2019,Bahrain Grand Prix,2019-03-31,1011,Racing Point,18,90.217,14,97.037,0,2.0,12
+7091,Carlos Sainz,55,Spanish,2019,Chinese Grand Prix,2019-04-14,1012,McLaren,14,93.523,14,97.50200000000001,0,0.0,18
+7092,Lando Norris,4,British,2019,Chinese Grand Prix,2019-04-14,1012,McLaren,15,93.967,18,98.346,0,8.0,8
+7093,Lewis Hamilton,44,British,2019,Chinese Grand Prix,2019-04-14,1012,Mercedes,2,91.57,1,95.892,2,68.0,1
+7094,Valtteri Bottas,77,Finnish,2019,Chinese Grand Prix,2019-04-14,1012,Mercedes,1,91.547,2,94.872,1,62.0,2
+7095,Robert Kubica,88,Polish,2019,Chinese Grand Prix,2019-04-14,1012,Williams,18,95.281,17,99.77199999999999,0,0.0,20
+7096,George Russell,63,British,2019,Chinese Grand Prix,2019-04-14,1012,Williams,17,95.253,16,97.283,0,0.0,19
+7097,Nico Hülkenberg,27,German,2019,Chinese Grand Prix,2019-04-14,1012,Renault,8,92.962,,99.67699999999999,0,6.0,10
+7098,Daniel Ricciardo,3,Australian,2019,Chinese Grand Prix,2019-04-14,1012,Renault,7,92.958,7,98.632,0,6.0,11
+7099,Sebastian Vettel,5,German,2019,Chinese Grand Prix,2019-04-14,1012,Ferrari,3,91.848,3,94.836,0,37.0,4
+7100,Charles Leclerc,16,Monegasque,2019,Chinese Grand Prix,2019-04-14,1012,Ferrari,4,91.865,5,94.86,0,36.0,5
+7101,Daniil Kvyat,26,Russian,2019,Chinese Grand Prix,2019-04-14,1012,Toro Rosso,11,93.23599999999999,,97.975,0,1.0,15
+7102,Kimi Räikkönen,7,Finnish,2019,Chinese Grand Prix,2019-04-14,1012,Alfa Romeo,13,93.419,9,97.812,0,12.0,7
+7103,Pierre Gasly,10,French,2019,Chinese Grand Prix,2019-04-14,1012,Red Bull,6,92.93,6,94.74199999999999,0,13.0,6
+7104,Max Verstappen,33,Dutch,2019,Chinese Grand Prix,2019-04-14,1012,Red Bull,5,92.089,4,96.143,0,39.0,3
+7105,Romain Grosjean,8,French,2019,Chinese Grand Prix,2019-04-14,1012,Haas F1 Team,10,93.156,11,96.87299999999999,0,0.0,17
+7106,Kevin Magnussen,20,Danish,2019,Chinese Grand Prix,2019-04-14,1012,Haas F1 Team,9,93.15,13,97.471,0,8.0,9
+7107,Sergio Pérez,11,Mexican,2019,Chinese Grand Prix,2019-04-14,1012,Racing Point,12,93.299,8,98.702,0,5.0,12
+7108,Lance Stroll,18,Canadian,2019,Chinese Grand Prix,2019-04-14,1012,Racing Point,16,94.292,12,96.678,0,2.0,14
+7109,Carlos Sainz,55,Spanish,2019,Azerbaijan Grand Prix,2019-04-28,1013,McLaren,10,101.936,7,105.807,0,6.0,12
+7110,Lando Norris,4,British,2019,Azerbaijan Grand Prix,2019-04-28,1013,McLaren,7,101.886,8,105.394,0,12.0,9
+7111,Lewis Hamilton,44,British,2019,Azerbaijan Grand Prix,2019-04-28,1013,Mercedes,2,100.554,2,104.166,2,86.0,2
+7112,Valtteri Bottas,77,Finnish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Mercedes,1,100.495,1,104.024,2,87.0,1
+7113,Robert Kubica,88,Polish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Williams,18,105.455,16,107.709,0,0.0,20
+7114,George Russell,63,British,2019,Azerbaijan Grand Prix,2019-04-28,1013,Williams,17,105.062,15,107.251,0,0.0,19
+7115,Nico Hülkenberg,27,German,2019,Azerbaijan Grand Prix,2019-04-28,1013,Renault,16,103.42699999999999,14,107.407,0,6.0,11
+7116,Daniel Ricciardo,3,Australian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Renault,11,102.477,,106.767,0,6.0,13
+7117,Sebastian Vettel,5,German,2019,Azerbaijan Grand Prix,2019-04-28,1013,Ferrari,3,100.797,3,104.62899999999999,0,52.0,3
+7118,Charles Leclerc,16,Monegasque,2019,Azerbaijan Grand Prix,2019-04-28,1013,Ferrari,9,101.426,5,103.009,0,47.0,5
+7119,Daniil Kvyat,26,Russian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Toro Rosso,6,101.681,,107.681,0,1.0,16
+7120,Alexander Albon,23,Thai,2019,Azerbaijan Grand Prix,2019-04-28,1013,Toro Rosso,12,102.154,11,105.75399999999999,0,3.0,15
+7121,Kimi Räikkönen,7,Finnish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Alfa Romeo,19,,10,106.479,0,13.0,8
+7122,Antonio Giovinazzi,99,Italian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Alfa Romeo,8,102.14,12,105.969,0,0.0,17
+7123,Pierre Gasly,10,French,2019,Azerbaijan Grand Prix,2019-04-28,1013,Red Bull,20,,,105.712,0,13.0,7
+7124,Max Verstappen,33,Dutch,2019,Azerbaijan Grand Prix,2019-04-28,1013,Red Bull,4,101.069,4,104.794,0,51.0,4
+7125,Romain Grosjean,8,French,2019,Azerbaijan Grand Prix,2019-04-28,1013,Haas F1 Team,15,103.407,,108.517,0,0.0,18
+7126,Kevin Magnussen,20,Danish,2019,Azerbaijan Grand Prix,2019-04-28,1013,Haas F1 Team,13,102.382,13,106.682,0,8.0,10
+7127,Sergio Pérez,11,Mexican,2019,Azerbaijan Grand Prix,2019-04-28,1013,Racing Point,5,101.593,6,105.524,0,13.0,6
+7128,Lance Stroll,18,Canadian,2019,Azerbaijan Grand Prix,2019-04-28,1013,Racing Point,14,102.63,9,106.009,0,4.0,14
+7129,Carlos Sainz,55,Spanish,2019,Spanish Grand Prix,2019-05-12,1014,McLaren,13,77.599,8,80.85900000000001,0,10.0,11
+7130,Lando Norris,4,British,2019,Spanish Grand Prix,2019-05-12,1014,McLaren,11,77.338,,82.561,0,12.0,10
+7131,Lewis Hamilton,44,British,2019,Spanish Grand Prix,2019-05-12,1014,Mercedes,2,76.038,1,78.492,3,112.0,1
+7132,Valtteri Bottas,77,Finnish,2019,Spanish Grand Prix,2019-05-12,1014,Mercedes,1,75.406,2,78.737,2,105.0,2
+7133,Robert Kubica,88,Polish,2019,Spanish Grand Prix,2019-05-12,1014,Williams,20,80.254,18,83.202,0,0.0,20
+7134,George Russell,63,British,2019,Spanish Grand Prix,2019-05-12,1014,Williams,19,79.072,17,82.382,0,0.0,19
+7135,Nico Hülkenberg,27,German,2019,Spanish Grand Prix,2019-05-12,1014,Renault,16,78.404,13,81.282,0,6.0,13
+7136,Daniel Ricciardo,3,Australian,2019,Spanish Grand Prix,2019-05-12,1014,Renault,10,77.299,12,80.615,0,6.0,12
+7137,Sebastian Vettel,5,German,2019,Spanish Grand Prix,2019-05-12,1014,Ferrari,3,76.27199999999999,4,79.82,0,64.0,4
+7138,Charles Leclerc,16,Monegasque,2019,Spanish Grand Prix,2019-05-12,1014,Ferrari,5,76.588,5,80.002,0,57.0,5
+7139,Daniil Kvyat,26,Russian,2019,Spanish Grand Prix,2019-05-12,1014,Toro Rosso,9,77.243,9,80.726,0,3.0,16
+7140,Alexander Albon,23,Thai,2019,Spanish Grand Prix,2019-05-12,1014,Toro Rosso,12,77.445,11,81.02799999999999,0,3.0,15
+7141,Kimi Räikkönen,7,Finnish,2019,Spanish Grand Prix,2019-05-12,1014,Alfa Romeo,14,77.788,14,81.382,0,13.0,9
+7142,Antonio Giovinazzi,99,Italian,2019,Spanish Grand Prix,2019-05-12,1014,Alfa Romeo,18,78.664,16,81.833,0,0.0,18
+7143,Pierre Gasly,10,French,2019,Spanish Grand Prix,2019-05-12,1014,Red Bull,6,76.708,6,80.536,0,21.0,6
+7144,Max Verstappen,33,Dutch,2019,Spanish Grand Prix,2019-05-12,1014,Red Bull,4,76.357,3,79.769,0,66.0,3
+7145,Romain Grosjean,8,French,2019,Spanish Grand Prix,2019-05-12,1014,Haas F1 Team,7,76.911,10,81.057,0,1.0,17
+7146,Kevin Magnussen,20,Danish,2019,Spanish Grand Prix,2019-05-12,1014,Haas F1 Team,8,76.922,7,80.77,0,14.0,7
+7147,Sergio Pérez,11,Mexican,2019,Spanish Grand Prix,2019-05-12,1014,Racing Point,15,77.886,15,81.85900000000001,0,13.0,8
+7148,Lance Stroll,18,Canadian,2019,Spanish Grand Prix,2019-05-12,1014,Racing Point,17,78.471,,83.226,0,4.0,14
+7149,Carlos Sainz,55,Spanish,2019,Monaco Grand Prix,2019-05-26,1015,McLaren,9,71.417,6,75.891,0,18.0,7
+7150,Lando Norris,4,British,2019,Monaco Grand Prix,2019-05-26,1015,McLaren,12,71.724,11,76.413,0,12.0,11
+7151,Lewis Hamilton,44,British,2019,Monaco Grand Prix,2019-05-26,1015,Mercedes,1,70.166,1,76.167,4,137.0,1
+7152,Valtteri Bottas,77,Finnish,2019,Monaco Grand Prix,2019-05-26,1015,Mercedes,2,70.252,3,75.163,2,120.0,2
+7153,Robert Kubica,88,Polish,2019,Monaco Grand Prix,2019-05-26,1015,Williams,20,73.751,18,77.388,0,0.0,20
+7154,George Russell,63,British,2019,Monaco Grand Prix,2019-05-26,1015,Williams,19,73.477,15,77.038,0,0.0,19
+7155,Nico Hülkenberg,27,German,2019,Monaco Grand Prix,2019-05-26,1015,Renault,11,71.67,13,76.276,0,6.0,15
+7156,Daniel Ricciardo,3,Australian,2019,Monaco Grand Prix,2019-05-26,1015,Renault,7,71.218,9,75.697,0,8.0,13
+7157,Sebastian Vettel,5,German,2019,Monaco Grand Prix,2019-05-26,1015,Ferrari,4,70.947,2,76.277,0,82.0,3
+7158,Charles Leclerc,16,Monegasque,2019,Monaco Grand Prix,2019-05-26,1015,Ferrari,16,72.149,,79.151,0,57.0,5
+7159,Daniil Kvyat,26,Russian,2019,Monaco Grand Prix,2019-05-26,1015,Toro Rosso,8,71.271,7,76.288,0,9.0,12
+7160,Alexander Albon,23,Thai,2019,Monaco Grand Prix,2019-05-26,1015,Toro Rosso,10,71.429,8,75.607,0,7.0,14
+7161,Kimi Räikkönen,7,Finnish,2019,Monaco Grand Prix,2019-05-26,1015,Alfa Romeo,14,71.993,17,76.436,0,13.0,10
+7162,Antonio Giovinazzi,99,Italian,2019,Monaco Grand Prix,2019-05-26,1015,Alfa Romeo,15,71.976,19,76.299,0,0.0,18
+7163,Pierre Gasly,10,French,2019,Monaco Grand Prix,2019-05-26,1015,Red Bull,5,71.041,5,74.279,0,32.0,6
+7164,Max Verstappen,33,Dutch,2019,Monaco Grand Prix,2019-05-26,1015,Red Bull,3,70.618,4,76.229,0,78.0,4
+7165,Romain Grosjean,8,French,2019,Monaco Grand Prix,2019-05-26,1015,Haas F1 Team,13,71.837,10,76.746,0,2.0,17
+7166,Kevin Magnussen,20,Danish,2019,Monaco Grand Prix,2019-05-26,1015,Haas F1 Team,6,71.109,14,76.992,0,14.0,8
+7167,Sergio Pérez,11,Mexican,2019,Monaco Grand Prix,2019-05-26,1015,Racing Point,17,72.233,12,76.613,0,13.0,9
+7168,Lance Stroll,18,Canadian,2019,Monaco Grand Prix,2019-05-26,1015,Racing Point,18,72.846,16,76.379,0,4.0,16
+7169,Carlos Sainz,55,Spanish,2019,Canadian Grand Prix,2019-06-09,1016,McLaren,9,71.572,11,76.471,0,18.0,7
+7170,Lando Norris,4,British,2019,Canadian Grand Prix,2019-06-09,1016,McLaren,8,71.735,,78.023,0,12.0,12
+7171,Lewis Hamilton,44,British,2019,Canadian Grand Prix,2019-06-09,1016,Mercedes,2,70.446,1,74.813,5,162.0,1
+7172,Valtteri Bottas,77,Finnish,2019,Canadian Grand Prix,2019-06-09,1016,Mercedes,6,71.095,4,73.078,2,133.0,2
+7173,Robert Kubica,88,Polish,2019,Canadian Grand Prix,2019-06-09,1016,Williams,20,74.393,18,77.285,0,0.0,20
+7174,George Russell,63,British,2019,Canadian Grand Prix,2019-06-09,1016,Williams,19,73.617,16,77.241,0,0.0,19
+7175,Nico Hülkenberg,27,German,2019,Canadian Grand Prix,2019-06-09,1016,Renault,7,71.324,7,75.995,0,12.0,13
+7176,Daniel Ricciardo,3,Australian,2019,Canadian Grand Prix,2019-06-09,1016,Renault,4,71.071,6,76.075,0,16.0,8
+7177,Sebastian Vettel,5,German,2019,Canadian Grand Prix,2019-06-09,1016,Ferrari,1,70.24,2,74.875,0,100.0,3
+7178,Charles Leclerc,16,Monegasque,2019,Canadian Grand Prix,2019-06-09,1016,Ferrari,3,70.92,3,74.356,0,72.0,5
+7179,Daniil Kvyat,26,Russian,2019,Canadian Grand Prix,2019-06-09,1016,Toro Rosso,12,71.92099999999999,10,76.19800000000001,0,10.0,14
+7180,Alexander Albon,23,Thai,2019,Canadian Grand Prix,2019-06-09,1016,Toro Rosso,14,72.02,,77.151,0,7.0,15
+7181,Kimi Räikkönen,7,Finnish,2019,Canadian Grand Prix,2019-06-09,1016,Alfa Romeo,17,72.23,15,75.44200000000001,0,13.0,11
+7182,Antonio Giovinazzi,99,Italian,2019,Canadian Grand Prix,2019-06-09,1016,Alfa Romeo,13,72.122,13,76.365,0,0.0,18
+7183,Pierre Gasly,10,French,2019,Canadian Grand Prix,2019-06-09,1016,Red Bull,5,71.07900000000001,8,76.157,0,36.0,6
+7184,Max Verstappen,33,Dutch,2019,Canadian Grand Prix,2019-06-09,1016,Red Bull,11,71.619,5,74.767,0,88.0,4
+7185,Romain Grosjean,8,French,2019,Canadian Grand Prix,2019-06-09,1016,Haas F1 Team,15,72.109,14,76.245,0,2.0,17
+7186,Kevin Magnussen,20,Danish,2019,Canadian Grand Prix,2019-06-09,1016,Haas F1 Team,10,71.786,17,77.309,0,14.0,9
+7187,Sergio Pérez,11,Mexican,2019,Canadian Grand Prix,2019-06-09,1016,Racing Point,16,72.197,12,76.314,0,13.0,10
+7188,Lance Stroll,18,Canadian,2019,Canadian Grand Prix,2019-06-09,1016,Racing Point,18,72.266,9,76.043,0,6.0,16
+7189,Carlos Sainz,55,Spanish,2019,French Grand Prix,2019-06-23,1017,McLaren,6,89.52199999999999,6,94.561,0,26.0,7
+7190,Lando Norris,4,British,2019,French Grand Prix,2019-06-23,1017,McLaren,5,89.418,9,94.75399999999999,0,14.0,12
+7191,Lewis Hamilton,44,British,2019,French Grand Prix,2019-06-23,1017,Mercedes,1,88.319,1,92.76400000000001,6,187.0,1
+7192,Valtteri Bottas,77,Finnish,2019,French Grand Prix,2019-06-23,1017,Mercedes,2,88.605,2,93.586,2,151.0,2
+7193,Robert Kubica,88,Polish,2019,French Grand Prix,2019-06-23,1017,Williams,20,93.205,18,96.608,0,0.0,20
+7194,George Russell,63,British,2019,French Grand Prix,2019-06-23,1017,Williams,19,92.789,19,95.83,0,0.0,19
+7195,Nico Hülkenberg,27,German,2019,French Grand Prix,2019-06-23,1017,Renault,13,90.544,8,94.95,0,16.0,10
+7196,Daniel Ricciardo,3,Australian,2019,French Grand Prix,2019-06-23,1017,Renault,8,89.918,11,95.15,0,16.0,9
+7197,Sebastian Vettel,5,German,2019,French Grand Prix,2019-06-23,1017,Ferrari,7,89.506,5,92.74000000000001,0,111.0,3
+7198,Charles Leclerc,16,Monegasque,2019,French Grand Prix,2019-06-23,1017,Ferrari,3,88.965,3,93.828,0,87.0,5
+7199,Daniil Kvyat,26,Russian,2019,French Grand Prix,2019-06-23,1017,Toro Rosso,16,91.564,14,95.225,0,10.0,14
+7200,Alexander Albon,23,Thai,2019,French Grand Prix,2019-06-23,1017,Toro Rosso,11,90.461,15,95.029,0,7.0,15
+7201,Kimi Räikkönen,7,Finnish,2019,French Grand Prix,2019-06-23,1017,Alfa Romeo,12,90.533,7,94.87299999999999,0,19.0,8
+7202,Antonio Giovinazzi,99,Italian,2019,French Grand Prix,2019-06-23,1017,Alfa Romeo,10,90.408,16,95.11500000000001,0,0.0,18
+7203,Pierre Gasly,10,French,2019,French Grand Prix,2019-06-23,1017,Red Bull,9,90.184,10,95.197,0,37.0,6
+7204,Max Verstappen,33,Dutch,2019,French Grand Prix,2019-06-23,1017,Red Bull,4,89.40899999999999,4,94.162,0,100.0,4
+7205,Romain Grosjean,8,French,2019,French Grand Prix,2019-06-23,1017,Haas F1 Team,17,91.626,20,95.691,0,2.0,17
+7206,Kevin Magnussen,20,Danish,2019,French Grand Prix,2019-06-23,1017,Haas F1 Team,15,91.166,17,95.69200000000001,0,14.0,11
+7207,Sergio Pérez,11,Mexican,2019,French Grand Prix,2019-06-23,1017,Racing Point,14,90.738,12,95.01400000000001,0,13.0,13
+7208,Lance Stroll,18,Canadian,2019,French Grand Prix,2019-06-23,1017,Racing Point,18,91.726,13,94.924,0,6.0,16
+7209,Carlos Sainz,55,Spanish,2019,Austrian Grand Prix,2019-06-30,1018,McLaren,15,64.453,8,68.117,0,30.0,7
+7210,Lando Norris,4,British,2019,Austrian Grand Prix,2019-06-30,1018,McLaren,6,64.099,6,68.699,0,22.0,8
+7211,Lewis Hamilton,44,British,2019,Austrian Grand Prix,2019-06-30,1018,Mercedes,2,63.262,5,68.05,6,197.0,1
+7212,Valtteri Bottas,77,Finnish,2019,Austrian Grand Prix,2019-06-30,1018,Mercedes,4,63.537,3,68.565,2,166.0,2
+7213,Robert Kubica,88,Polish,2019,Austrian Grand Prix,2019-06-30,1018,Williams,20,66.206,20,70.964,0,0.0,20
+7214,George Russell,63,British,2019,Austrian Grand Prix,2019-06-30,1018,Williams,19,65.904,18,69.926,0,0.0,19
+7215,Nico Hülkenberg,27,German,2019,Austrian Grand Prix,2019-06-30,1018,Renault,12,64.516,13,69.248,0,16.0,11
+7216,Daniel Ricciardo,3,Australian,2019,Austrian Grand Prix,2019-06-30,1018,Renault,14,64.647,12,68.019,0,16.0,10
+7217,Sebastian Vettel,5,German,2019,Austrian Grand Prix,2019-06-30,1018,Ferrari,10,63.667,4,67.676,0,123.0,4
+7218,Charles Leclerc,16,Monegasque,2019,Austrian Grand Prix,2019-06-30,1018,Ferrari,1,63.003,2,67.994,0,105.0,5
+7219,Daniil Kvyat,26,Russian,2019,Austrian Grand Prix,2019-06-30,1018,Toro Rosso,18,65.324,17,69.498,0,10.0,14
+7220,Alexander Albon,23,Thai,2019,Austrian Grand Prix,2019-06-30,1018,Toro Rosso,13,64.665,15,68.946,0,7.0,15
+7221,Kimi Räikkönen,7,Finnish,2019,Austrian Grand Prix,2019-06-30,1018,Alfa Romeo,7,64.056,9,69.126,0,21.0,9
+7222,Antonio Giovinazzi,99,Italian,2019,Austrian Grand Prix,2019-06-30,1018,Alfa Romeo,8,64.179,10,69.051,0,1.0,18
+7223,Pierre Gasly,10,French,2019,Austrian Grand Prix,2019-06-30,1018,Red Bull,9,63.988,7,68.78999999999999,0,43.0,6
+7224,Max Verstappen,33,Dutch,2019,Austrian Grand Prix,2019-06-30,1018,Red Bull,3,63.439,1,67.475,1,126.0,3
+7225,Romain Grosjean,8,French,2019,Austrian Grand Prix,2019-06-30,1018,Haas F1 Team,11,64.49,16,68.987,0,2.0,17
+7226,Kevin Magnussen,20,Danish,2019,Austrian Grand Prix,2019-06-30,1018,Haas F1 Team,5,64.072,19,68.903,0,14.0,12
+7227,Sergio Pérez,11,Mexican,2019,Austrian Grand Prix,2019-06-30,1018,Racing Point,16,64.789,11,69.061,0,13.0,13
+7228,Lance Stroll,18,Canadian,2019,Austrian Grand Prix,2019-06-30,1018,Racing Point,17,64.832,14,69.288,0,6.0,16
+7229,Carlos Sainz,55,Spanish,2019,British Grand Prix,2019-07-14,1019,McLaren,13,86.203,6,89.757,0,38.0,7
+7230,Lando Norris,4,British,2019,British Grand Prix,2019-07-14,1019,McLaren,8,86.07900000000001,11,89.636,0,22.0,9
+7231,Lewis Hamilton,44,British,2019,British Grand Prix,2019-07-14,1019,Mercedes,2,85.099,1,87.369,7,223.0,1
+7232,Valtteri Bottas,77,Finnish,2019,British Grand Prix,2019-07-14,1019,Mercedes,1,85.093,2,87.406,2,184.0,2
+7233,Robert Kubica,88,Polish,2019,British Grand Prix,2019-07-14,1019,Williams,20,88.257,15,91.509,0,0.0,20
+7234,George Russell,63,British,2019,British Grand Prix,2019-07-14,1019,Williams,19,87.789,14,91.013,0,0.0,19
+7235,Nico Hülkenberg,27,German,2019,British Grand Prix,2019-07-14,1019,Renault,10,86.386,10,89.949,0,17.0,11
+7236,Daniel Ricciardo,3,Australian,2019,British Grand Prix,2019-07-14,1019,Renault,7,86.182,7,89.624,0,22.0,10
+7237,Sebastian Vettel,5,German,2019,British Grand Prix,2019-07-14,1019,Ferrari,6,85.787,16,88.733,0,123.0,4
+7238,Charles Leclerc,16,Monegasque,2019,British Grand Prix,2019-07-14,1019,Ferrari,3,85.172,3,89.313,0,120.0,5
+7239,Daniil Kvyat,26,Russian,2019,British Grand Prix,2019-07-14,1019,Toro Rosso,17,86.721,9,89.91,0,12.0,14
+7240,Alexander Albon,23,Thai,2019,British Grand Prix,2019-07-14,1019,Toro Rosso,9,86.345,12,90.872,0,7.0,15
+7241,Kimi Räikkönen,7,Finnish,2019,British Grand Prix,2019-07-14,1019,Alfa Romeo,12,86.54599999999999,8,90.03399999999999,0,25.0,8
+7242,Antonio Giovinazzi,99,Italian,2019,British Grand Prix,2019-07-14,1019,Alfa Romeo,11,86.449,,92.464,0,1.0,18
+7243,Pierre Gasly,10,French,2019,British Grand Prix,2019-07-14,1019,Red Bull,5,85.59,4,89.544,0,55.0,6
+7244,Max Verstappen,33,Dutch,2019,British Grand Prix,2019-07-14,1019,Red Bull,4,85.276,5,89.27199999999999,1,136.0,3
+7245,Romain Grosjean,8,French,2019,British Grand Prix,2019-07-14,1019,Haas F1 Team,14,86.34700000000001,,94.35,0,2.0,17
+7246,Kevin Magnussen,20,Danish,2019,British Grand Prix,2019-07-14,1019,Haas F1 Team,16,86.662,,93.425,0,14.0,12
+7247,Sergio Pérez,11,Mexican,2019,British Grand Prix,2019-07-14,1019,Racing Point,15,86.649,17,89.456,0,13.0,13
+7248,Lance Stroll,18,Canadian,2019,British Grand Prix,2019-07-14,1019,Racing Point,18,86.762,13,89.39,0,6.0,16
+7249,Carlos Sainz,55,Spanish,2019,German Grand Prix,2019-07-28,1020,McLaren,7,72.632,5,77.84100000000001,0,48.0,7
+7250,Lando Norris,4,British,2019,German Grand Prix,2019-07-28,1020,McLaren,16,73.333,,91.081,0,22.0,10
+7251,Lewis Hamilton,44,British,2019,German Grand Prix,2019-07-28,1020,Mercedes,1,71.767,9,78.811,7,225.0,1
+7252,Valtteri Bottas,77,Finnish,2019,German Grand Prix,2019-07-28,1020,Mercedes,3,72.129,,78.27199999999999,2,184.0,2
+7253,Robert Kubica,88,Polish,2019,German Grand Prix,2019-07-28,1020,Williams,19,74.839,10,79.062,0,1.0,19
+7254,George Russell,63,British,2019,German Grand Prix,2019-07-28,1020,Williams,18,74.721,11,77.485,0,0.0,20
+7255,Nico Hülkenberg,27,German,2019,German Grand Prix,2019-07-28,1020,Renault,9,72.766,,89.576,0,17.0,14
+7256,Daniel Ricciardo,3,Australian,2019,German Grand Prix,2019-07-28,1020,Renault,13,72.799,,92.654,0,22.0,11
+7257,Sebastian Vettel,5,German,2019,German Grand Prix,2019-07-28,1020,Ferrari,20,,2,76.794,0,141.0,4
+7258,Charles Leclerc,16,Monegasque,2019,German Grand Prix,2019-07-28,1020,Ferrari,10,72.229,,87.697,0,120.0,5
+7259,Daniil Kvyat,26,Russian,2019,German Grand Prix,2019-07-28,1020,Toro Rosso,14,73.135,3,77.708,0,27.0,8
+7260,Alexander Albon,23,Thai,2019,German Grand Prix,2019-07-28,1020,Toro Rosso,17,73.461,6,77.85,0,15.0,15
+7261,Kimi Räikkönen,7,Finnish,2019,German Grand Prix,2019-07-28,1020,Alfa Romeo,5,72.519,12,79.563,0,25.0,9
+7262,Antonio Giovinazzi,99,Italian,2019,German Grand Prix,2019-07-28,1020,Alfa Romeo,11,72.786,13,79.3,0,1.0,18
+7263,Pierre Gasly,10,French,2019,German Grand Prix,2019-07-28,1020,Red Bull,4,72.385,14,77.495,0,55.0,6
+7264,Max Verstappen,33,Dutch,2019,German Grand Prix,2019-07-28,1020,Red Bull,2,72.113,1,76.645,2,162.0,3
+7265,Romain Grosjean,8,French,2019,German Grand Prix,2019-07-28,1020,Haas F1 Team,6,72.769,7,77.746,0,8.0,17
+7266,Kevin Magnussen,20,Danish,2019,German Grand Prix,2019-07-28,1020,Haas F1 Team,12,72.789,8,77.507,0,18.0,13
+7267,Sergio Pérez,11,Mexican,2019,German Grand Prix,2019-07-28,1020,Racing Point,8,72.776,,,0,13.0,16
+7268,Lance Stroll,18,Canadian,2019,German Grand Prix,2019-07-28,1020,Racing Point,15,73.256,4,77.831,0,18.0,12
+7269,Carlos Sainz,55,Spanish,2019,Hungarian Grand Prix,2019-08-04,1021,McLaren,8,75.852,5,81.002,0,58.0,7
+7270,Lando Norris,4,British,2019,Hungarian Grand Prix,2019-08-04,1021,McLaren,7,75.8,9,81.188,0,24.0,10
+7271,Lewis Hamilton,44,British,2019,Hungarian Grand Prix,2019-08-04,1021,Mercedes,3,74.769,1,78.52799999999999,8,250.0,1
+7272,Valtteri Bottas,77,Finnish,2019,Hungarian Grand Prix,2019-08-04,1021,Mercedes,2,74.59,8,79.331,2,188.0,2
+7273,Robert Kubica,88,Polish,2019,Hungarian Grand Prix,2019-08-04,1021,Williams,20,78.324,19,83.436,0,1.0,19
+7274,George Russell,63,British,2019,Hungarian Grand Prix,2019-08-04,1021,Williams,16,77.031,16,82.386,0,0.0,20
+7275,Nico Hülkenberg,27,German,2019,Hungarian Grand Prix,2019-08-04,1021,Renault,11,76.565,12,81.65,0,17.0,14
+7276,Daniel Ricciardo,3,Australian,2019,Hungarian Grand Prix,2019-08-04,1021,Renault,18,77.257,14,80.839,0,22.0,11
+7277,Sebastian Vettel,5,German,2019,Hungarian Grand Prix,2019-08-04,1021,Ferrari,5,75.071,3,79.786,0,156.0,4
+7278,Charles Leclerc,16,Monegasque,2019,Hungarian Grand Prix,2019-08-04,1021,Ferrari,4,75.043,4,80.493,0,132.0,5
+7279,Daniil Kvyat,26,Russian,2019,Hungarian Grand Prix,2019-08-04,1021,Toro Rosso,13,76.69200000000001,15,81.932,0,27.0,9
+7280,Alexander Albon,23,Thai,2019,Hungarian Grand Prix,2019-08-04,1021,Toro Rosso,12,76.687,10,80.621,0,16.0,15
+7281,Kimi Räikkönen,7,Finnish,2019,Hungarian Grand Prix,2019-08-04,1021,Alfa Romeo,10,76.041,7,80.88,0,31.0,8
+7282,Antonio Giovinazzi,99,Italian,2019,Hungarian Grand Prix,2019-08-04,1021,Alfa Romeo,14,76.804,18,83.134,0,1.0,18
+7283,Pierre Gasly,10,French,2019,Hungarian Grand Prix,2019-08-04,1021,Red Bull,6,75.45,6,81.045,0,63.0,6
+7284,Max Verstappen,33,Dutch,2019,Hungarian Grand Prix,2019-08-04,1021,Red Bull,1,74.572,2,77.10300000000001,2,181.0,3
+7285,Romain Grosjean,8,French,2019,Hungarian Grand Prix,2019-08-04,1021,Haas F1 Team,9,76.013,,82.809,0,8.0,17
+7286,Kevin Magnussen,20,Danish,2019,Hungarian Grand Prix,2019-08-04,1021,Haas F1 Team,15,76.122,13,81.008,0,18.0,13
+7287,Sergio Pérez,11,Mexican,2019,Hungarian Grand Prix,2019-08-04,1021,Racing Point,17,77.10900000000001,11,81.73400000000001,0,13.0,16
+7288,Lance Stroll,18,Canadian,2019,Hungarian Grand Prix,2019-08-04,1021,Racing Point,19,77.542,17,80.60300000000001,0,18.0,12
+7289,Carlos Sainz,55,Spanish,2019,Belgian Grand Prix,2019-09-01,1022,McLaren,17,106.507,,,0,58.0,7
+7290,Lando Norris,4,British,2019,Belgian Grand Prix,2019-09-01,1022,McLaren,12,104.84700000000001,11,108.321,0,24.0,11
+7291,Lewis Hamilton,44,British,2019,Belgian Grand Prix,2019-09-01,1022,Mercedes,3,103.282,2,106.58,8,268.0,1
+7292,Valtteri Bottas,77,Finnish,2019,Belgian Grand Prix,2019-09-01,1022,Mercedes,4,103.41499999999999,3,106.465,2,203.0,2
+7293,Robert Kubica,88,Polish,2019,Belgian Grand Prix,2019-09-01,1022,Williams,20,,17,109.22,0,1.0,19
+7294,George Russell,63,British,2019,Belgian Grand Prix,2019-09-01,1022,Williams,19,107.548,15,108.86,0,0.0,20
+7295,Nico Hülkenberg,27,German,2019,Belgian Grand Prix,2019-09-01,1022,Renault,7,104.542,8,108.34899999999999,0,21.0,14
+7296,Daniel Ricciardo,3,Australian,2019,Belgian Grand Prix,2019-09-01,1022,Renault,6,104.10300000000001,14,110.451,0,22.0,12
+7297,Sebastian Vettel,5,German,2019,Belgian Grand Prix,2019-09-01,1022,Ferrari,2,103.037,4,106.40899999999999,0,169.0,4
+7298,Charles Leclerc,16,Monegasque,2019,Belgian Grand Prix,2019-09-01,1022,Ferrari,1,102.519,1,106.664,1,157.0,5
+7299,Pierre Gasly,10,French,2019,Belgian Grand Prix,2019-09-01,1022,Toro Rosso,16,106.435,9,109.7,0,65.0,6
+7300,Daniil Kvyat,26,Russian,2019,Belgian Grand Prix,2019-09-01,1022,Toro Rosso,18,106.518,7,108.143,0,33.0,8
+7301,Kimi Räikkönen,7,Finnish,2019,Belgian Grand Prix,2019-09-01,1022,Alfa Romeo,8,104.14,16,108.753,0,31.0,9
+7302,Antonio Giovinazzi,99,Italian,2019,Belgian Grand Prix,2019-09-01,1022,Alfa Romeo,15,105.637,18,107.56,0,1.0,18
+7303,Max Verstappen,33,Dutch,2019,Belgian Grand Prix,2019-09-01,1022,Red Bull,5,103.69,,,2,181.0,3
+7304,Alexander Albon,23,Thai,2019,Belgian Grand Prix,2019-09-01,1022,Red Bull,14,105.52799999999999,5,107.507,0,26.0,10
+7305,Romain Grosjean,8,French,2019,Belgian Grand Prix,2019-09-01,1022,Haas F1 Team,11,104.797,13,109.274,0,8.0,17
+7306,Kevin Magnussen,20,Danish,2019,Belgian Grand Prix,2019-09-01,1022,Haas F1 Team,10,104.738,12,108.67699999999999,0,18.0,16
+7307,Sergio Pérez,11,Mexican,2019,Belgian Grand Prix,2019-09-01,1022,Racing Point,9,104.706,6,108.781,0,21.0,13
+7308,Lance Stroll,18,Canadian,2019,Belgian Grand Prix,2019-09-01,1022,Racing Point,13,105.047,10,108.357,0,19.0,15
+7309,Carlos Sainz,55,Spanish,2019,Italian Grand Prix,2019-09-08,1023,McLaren,7,80.202,,85.637,0,58.0,7
+7310,Lando Norris,4,British,2019,Italian Grand Prix,2019-09-08,1023,McLaren,14,80.646,10,84.044,0,25.0,14
+7311,Lewis Hamilton,44,British,2019,Italian Grand Prix,2019-09-08,1023,Mercedes,2,79.346,3,81.779,8,284.0,1
+7312,Valtteri Bottas,77,Finnish,2019,Italian Grand Prix,2019-09-08,1023,Mercedes,3,79.354,2,82.85900000000001,2,221.0,2
+7313,Robert Kubica,88,Polish,2019,Italian Grand Prix,2019-09-08,1023,Williams,19,82.356,17,84.989,0,1.0,19
+7314,George Russell,63,British,2019,Italian Grand Prix,2019-09-08,1023,Williams,18,81.8,14,84.842,0,0.0,20
+7315,Nico Hülkenberg,27,German,2019,Italian Grand Prix,2019-09-08,1023,Renault,6,80.049,5,83.64099999999999,0,31.0,11
+7316,Daniel Ricciardo,3,Australian,2019,Italian Grand Prix,2019-09-08,1023,Renault,5,79.833,4,83.46600000000001,0,34.0,8
+7317,Sebastian Vettel,5,German,2019,Italian Grand Prix,2019-09-08,1023,Ferrari,4,79.457,13,82.799,0,169.0,5
+7318,Charles Leclerc,16,Monegasque,2019,Italian Grand Prix,2019-09-08,1023,Ferrari,1,79.307,1,83.009,2,182.0,4
+7319,Pierre Gasly,10,French,2019,Italian Grand Prix,2019-09-08,1023,Toro Rosso,15,80.508,11,83.885,0,65.0,6
+7320,Daniil Kvyat,26,Russian,2019,Italian Grand Prix,2019-09-08,1023,Toro Rosso,13,80.63,,85.77199999999999,0,33.0,10
+7321,Kimi Räikkönen,7,Finnish,2019,Italian Grand Prix,2019-09-08,1023,Alfa Romeo,10,80.515,15,84.419,0,31.0,12
+7322,Antonio Giovinazzi,99,Italian,2019,Italian Grand Prix,2019-09-08,1023,Alfa Romeo,11,80.517,9,84.503,0,3.0,18
+7323,Max Verstappen,33,Dutch,2019,Italian Grand Prix,2019-09-08,1023,Red Bull,20,,8,83.143,2,185.0,3
+7324,Alexander Albon,23,Thai,2019,Italian Grand Prix,2019-09-08,1023,Red Bull,8,80.021,6,83.364,0,34.0,9
+7325,Romain Grosjean,8,French,2019,Italian Grand Prix,2019-09-08,1023,Haas F1 Team,16,80.78399999999999,16,84.985,0,8.0,17
+7326,Kevin Magnussen,20,Danish,2019,Italian Grand Prix,2019-09-08,1023,Haas F1 Team,12,80.615,,84.443,0,18.0,16
+7327,Sergio Pérez,11,Mexican,2019,Italian Grand Prix,2019-09-08,1023,Racing Point,17,81.291,7,83.77,0,27.0,13
+7328,Lance Stroll,18,Canadian,2019,Italian Grand Prix,2019-09-08,1023,Racing Point,9,80.498,12,84.16499999999999,0,19.0,15
+7329,Carlos Sainz,55,Spanish,2019,Singapore Grand Prix,2019-09-22,1024,McLaren,7,97.818,12,105.969,0,58.0,7
+7330,Lando Norris,4,British,2019,Singapore Grand Prix,2019-09-22,1024,McLaren,9,97.572,7,105.71600000000001,0,31.0,12
+7331,Lewis Hamilton,44,British,2019,Singapore Grand Prix,2019-09-22,1024,Mercedes,2,96.408,4,104.914,8,296.0,1
+7332,Valtteri Bottas,77,Finnish,2019,Singapore Grand Prix,2019-09-22,1024,Mercedes,5,97.142,5,103.53399999999999,2,231.0,2
+7333,Robert Kubica,88,Polish,2019,Singapore Grand Prix,2019-09-22,1024,Williams,19,101.186,16,106.793,0,1.0,19
+7334,George Russell,63,British,2019,Singapore Grand Prix,2019-09-22,1024,Williams,18,100.86699999999999,,108.285,0,0.0,20
+7335,Nico Hülkenberg,27,German,2019,Singapore Grand Prix,2019-09-22,1024,Renault,8,98.26400000000001,9,105.765,0,33.0,11
+7336,Daniel Ricciardo,3,Australian,2019,Singapore Grand Prix,2019-09-22,1024,Renault,20,,14,105.91499999999999,0,34.0,9
+7337,Sebastian Vettel,5,German,2019,Singapore Grand Prix,2019-09-22,1024,Ferrari,3,96.437,1,104.80199999999999,1,194.0,5
+7338,Charles Leclerc,16,Monegasque,2019,Singapore Grand Prix,2019-09-22,1024,Ferrari,1,96.217,2,104.723,2,200.0,3
+7339,Pierre Gasly,10,French,2019,Singapore Grand Prix,2019-09-22,1024,Toro Rosso,12,98.699,8,105.769,0,69.0,6
+7340,Daniil Kvyat,26,Russian,2019,Singapore Grand Prix,2019-09-22,1024,Toro Rosso,15,99.957,15,104.37100000000001,0,33.0,10
+7341,Kimi Räikkönen,7,Finnish,2019,Singapore Grand Prix,2019-09-22,1024,Alfa Romeo,13,98.858,,107.062,0,31.0,13
+7342,Antonio Giovinazzi,99,Italian,2019,Singapore Grand Prix,2019-09-22,1024,Alfa Romeo,11,98.697,10,105.63,0,4.0,18
+7343,Max Verstappen,33,Dutch,2019,Singapore Grand Prix,2019-09-22,1024,Red Bull,4,96.813,3,105.176,2,200.0,4
+7344,Alexander Albon,23,Thai,2019,Singapore Grand Prix,2019-09-22,1024,Red Bull,6,97.411,6,105.25999999999999,0,42.0,8
+7345,Romain Grosjean,8,French,2019,Singapore Grand Prix,2019-09-22,1024,Haas F1 Team,17,100.277,11,106.274,0,8.0,17
+7346,Kevin Magnussen,20,Danish,2019,Singapore Grand Prix,2019-09-22,1024,Haas F1 Team,14,99.65,17,102.301,0,18.0,16
+7347,Sergio Pérez,11,Mexican,2019,Singapore Grand Prix,2019-09-22,1024,Racing Point,10,98.52000000000001,,106.68299999999999,0,27.0,14
+7348,Lance Stroll,18,Canadian,2019,Singapore Grand Prix,2019-09-22,1024,Racing Point,16,99.979,13,104.896,0,19.0,15
+7349,Carlos Sainz,55,Spanish,2019,Russian Grand Prix,2019-09-29,1025,McLaren,6,93.22200000000001,6,98.02000000000001,0,66.0,7
+7350,Lando Norris,4,British,2019,Russian Grand Prix,2019-09-29,1025,McLaren,8,93.301,8,98.301,0,35.0,9
+7351,Lewis Hamilton,44,British,2019,Russian Grand Prix,2019-09-29,1025,Mercedes,2,92.03,1,95.761,9,322.0,1
+7352,Valtteri Bottas,77,Finnish,2019,Russian Grand Prix,2019-09-29,1025,Mercedes,5,92.632,2,96.316,2,249.0,2
+7353,Robert Kubica,88,Polish,2019,Russian Grand Prix,2019-09-29,1025,Williams,18,96.47399999999999,,102.327,0,1.0,19
+7354,George Russell,63,British,2019,Russian Grand Prix,2019-09-29,1025,Williams,17,95.356,,101.705,0,0.0,20
+7355,Nico Hülkenberg,27,German,2019,Russian Grand Prix,2019-09-29,1025,Renault,7,93.289,10,98.519,0,34.0,11
+7356,Daniel Ricciardo,3,Australian,2019,Russian Grand Prix,2019-09-29,1025,Renault,10,93.661,,101.28399999999999,0,34.0,10
+7357,Sebastian Vettel,5,German,2019,Russian Grand Prix,2019-09-29,1025,Ferrari,3,92.053,,98.245,1,194.0,5
+7358,Charles Leclerc,16,Monegasque,2019,Russian Grand Prix,2019-09-29,1025,Ferrari,1,91.628,3,96.193,2,215.0,3
+7359,Pierre Gasly,10,French,2019,Russian Grand Prix,2019-09-29,1025,Toro Rosso,11,93.95,14,98.606,0,69.0,6
+7360,Daniil Kvyat,26,Russian,2019,Russian Grand Prix,2019-09-29,1025,Toro Rosso,20,99.544,12,98.22800000000001,0,33.0,12
+7361,Kimi Räikkönen,7,Finnish,2019,Russian Grand Prix,2019-09-29,1025,Alfa Romeo,16,94.84,13,98.589,0,31.0,14
+7362,Antonio Giovinazzi,99,Italian,2019,Russian Grand Prix,2019-09-29,1025,Alfa Romeo,13,94.037,15,98.696,0,4.0,18
+7363,Max Verstappen,33,Dutch,2019,Russian Grand Prix,2019-09-29,1025,Red Bull,4,92.31,4,96.937,2,212.0,4
+7364,Alexander Albon,23,Thai,2019,Russian Grand Prix,2019-09-29,1025,Red Bull,19,99.197,5,96.762,0,52.0,8
+7365,Romain Grosjean,8,French,2019,Russian Grand Prix,2019-09-29,1025,Haas F1 Team,9,93.517,,,0,8.0,17
+7366,Kevin Magnussen,20,Danish,2019,Russian Grand Prix,2019-09-29,1025,Haas F1 Team,14,93.88900000000001,9,98.13,0,20.0,15
+7367,Sergio Pérez,11,Mexican,2019,Russian Grand Prix,2019-09-29,1025,Racing Point,12,93.958,7,98.043,0,33.0,13
+7368,Lance Stroll,18,Canadian,2019,Russian Grand Prix,2019-09-29,1025,Racing Point,15,94.233,11,98.61099999999999,0,19.0,16
+7369,Carlos Sainz,55,Spanish,2019,Japanese Grand Prix,2019-10-13,1026,McLaren,7,88.304,5,93.563,0,76.0,6
+7370,Lando Norris,4,British,2019,Japanese Grand Prix,2019-10-13,1026,McLaren,8,88.464,11,94.116,0,35.0,10
+7371,Lewis Hamilton,44,British,2019,Japanese Grand Prix,2019-10-13,1026,Mercedes,4,87.30199999999999,3,90.983,9,338.0,1
+7372,Valtteri Bottas,77,Finnish,2019,Japanese Grand Prix,2019-10-13,1026,Mercedes,3,87.293,1,91.862,3,274.0,2
+7373,Robert Kubica,88,Polish,2019,Japanese Grand Prix,2019-10-13,1026,Williams,20,,16,96.332,0,1.0,19
+7374,George Russell,63,British,2019,Japanese Grand Prix,2019-10-13,1026,Williams,18,90.364,16,95.458,0,0.0,20
+7375,Nico Hülkenberg,27,German,2019,Japanese Grand Prix,2019-10-13,1026,Renault,15,89.619,,94.92099999999999,0,34.0,13
+7376,Daniel Ricciardo,3,Australian,2019,Japanese Grand Prix,2019-10-13,1026,Renault,16,89.822,,93.481,0,34.0,12
+7377,Sebastian Vettel,5,German,2019,Japanese Grand Prix,2019-10-13,1026,Ferrari,1,87.064,2,92.122,1,212.0,5
+7378,Charles Leclerc,16,Monegasque,2019,Japanese Grand Prix,2019-10-13,1026,Ferrari,2,87.253,6,91.611,2,223.0,3
+7379,Pierre Gasly,10,French,2019,Japanese Grand Prix,2019-10-13,1026,Toro Rosso,9,88.779,7,95.321,0,75.0,7
+7380,Daniil Kvyat,26,Russian,2019,Japanese Grand Prix,2019-10-13,1026,Toro Rosso,14,89.563,10,93.239,0,34.0,11
+7381,Kimi Räikkönen,7,Finnish,2019,Japanese Grand Prix,2019-10-13,1026,Alfa Romeo,13,89.358,12,93.19,0,31.0,14
+7382,Antonio Giovinazzi,99,Italian,2019,Japanese Grand Prix,2019-10-13,1026,Alfa Romeo,11,89.254,14,92.369,0,4.0,18
+7383,Max Verstappen,33,Dutch,2019,Japanese Grand Prix,2019-10-13,1026,Red Bull,5,87.851,,97.249,2,212.0,4
+7384,Alexander Albon,23,Thai,2019,Japanese Grand Prix,2019-10-13,1026,Red Bull,6,87.851,4,92.775,0,64.0,8
+7385,Romain Grosjean,8,French,2019,Japanese Grand Prix,2019-10-13,1026,Haas F1 Team,10,89.144,13,94.988,0,8.0,17
+7386,Kevin Magnussen,20,Danish,2019,Japanese Grand Prix,2019-10-13,1026,Haas F1 Team,19,,15,91.732,0,20.0,16
+7387,Sergio Pérez,11,Mexican,2019,Japanese Grand Prix,2019-10-13,1026,Racing Point,17,90.344,8,92.62100000000001,0,37.0,9
+7388,Lance Stroll,18,Canadian,2019,Japanese Grand Prix,2019-10-13,1026,Racing Point,12,89.345,9,94.713,0,21.0,15
+7389,Carlos Sainz,55,Spanish,2019,Mexican Grand Prix,2019-10-27,1027,McLaren,7,76.014,13,80.311,0,76.0,7
+7390,Lando Norris,4,British,2019,Mexican Grand Prix,2019-10-27,1027,McLaren,8,76.322,,81.643,0,35.0,12
+7391,Lewis Hamilton,44,British,2019,Mexican Grand Prix,2019-10-27,1027,Mercedes,4,75.262,1,79.461,10,363.0,1
+7392,Valtteri Bottas,77,Finnish,2019,Mexican Grand Prix,2019-10-27,1027,Mercedes,6,75.338,3,79.494,3,289.0,2
+7393,Robert Kubica,88,Polish,2019,Mexican Grand Prix,2019-10-27,1027,Williams,20,80.179,18,80.696,0,1.0,19
+7394,George Russell,63,British,2019,Mexican Grand Prix,2019-10-27,1027,Williams,19,78.82300000000001,16,81.286,0,0.0,20
+7395,Nico Hülkenberg,27,German,2019,Mexican Grand Prix,2019-10-27,1027,Renault,12,76.885,10,80.791,0,35.0,11
+7396,Daniel Ricciardo,3,Australian,2019,Mexican Grand Prix,2019-10-27,1027,Renault,13,76.93299999999999,8,80.146,0,38.0,10
+7397,Sebastian Vettel,5,German,2019,Mexican Grand Prix,2019-10-27,1027,Ferrari,3,75.17,2,79.381,1,230.0,4
+7398,Charles Leclerc,16,Monegasque,2019,Mexican Grand Prix,2019-10-27,1027,Ferrari,2,75.024,4,79.232,2,236.0,3
+7399,Pierre Gasly,10,French,2019,Mexican Grand Prix,2019-10-27,1027,Toro Rosso,10,76.586,9,79.53,0,77.0,6
+7400,Daniil Kvyat,26,Russian,2019,Mexican Grand Prix,2019-10-27,1027,Toro Rosso,9,76.469,11,79.905,0,34.0,13
+7401,Kimi Räikkönen,7,Finnish,2019,Mexican Grand Prix,2019-10-27,1027,Alfa Romeo,14,76.967,,80.082,0,31.0,14
+7402,Antonio Giovinazzi,99,Italian,2019,Mexican Grand Prix,2019-10-27,1027,Alfa Romeo,15,77.269,14,81.014,0,4.0,18
+7403,Max Verstappen,33,Dutch,2019,Mexican Grand Prix,2019-10-27,1027,Red Bull,1,74.758,6,80.406,2,220.0,5
+7404,Alexander Albon,23,Thai,2019,Mexican Grand Prix,2019-10-27,1027,Red Bull,5,75.336,5,79.325,0,74.0,8
+7405,Romain Grosjean,8,French,2019,Mexican Grand Prix,2019-10-27,1027,Haas F1 Team,18,78.599,17,81.581,0,8.0,17
+7406,Kevin Magnussen,20,Danish,2019,Mexican Grand Prix,2019-10-27,1027,Haas F1 Team,17,78.436,15,81.682,0,20.0,16
+7407,Sergio Pérez,11,Mexican,2019,Mexican Grand Prix,2019-10-27,1027,Racing Point,11,76.687,7,80.485,0,43.0,9
+7408,Lance Stroll,18,Canadian,2019,Mexican Grand Prix,2019-10-27,1027,Racing Point,16,78.065,12,80.922,0,21.0,15
+7409,Carlos Sainz,55,Spanish,2019,United States Grand Prix,2019-11-03,1028,McLaren,7,92.84700000000001,8,100.844,0,80.0,7
+7410,Lando Norris,4,British,2019,United States Grand Prix,2019-11-03,1028,McLaren,8,93.175,7,98.074,0,41.0,11
+7411,Lewis Hamilton,44,British,2019,United States Grand Prix,2019-11-03,1028,Mercedes,5,92.321,2,98.446,10,381.0,1
+7412,Valtteri Bottas,77,Finnish,2019,United States Grand Prix,2019-11-03,1028,Mercedes,1,92.029,1,96.957,4,314.0,2
+7413,Robert Kubica,88,Polish,2019,United States Grand Prix,2019-11-03,1028,Williams,20,95.88900000000001,,103.83,0,1.0,19
+7414,George Russell,63,British,2019,United States Grand Prix,2019-11-03,1028,Williams,18,95.372,17,101.239,0,0.0,20
+7415,Nico Hülkenberg,27,German,2019,United States Grand Prix,2019-11-03,1028,Renault,11,93.815,9,98.437,0,37.0,12
+7416,Daniel Ricciardo,3,Australian,2019,United States Grand Prix,2019-11-03,1028,Renault,9,93.488,6,100.564,0,46.0,9
+7417,Sebastian Vettel,5,German,2019,United States Grand Prix,2019-11-03,1028,Ferrari,2,92.041,,102.16499999999999,1,230.0,5
+7418,Charles Leclerc,16,Monegasque,2019,United States Grand Prix,2019-11-03,1028,Ferrari,4,92.137,4,96.169,2,249.0,3
+7419,Pierre Gasly,10,French,2019,United States Grand Prix,2019-11-03,1028,Toro Rosso,10,93.556,16,100.85,0,77.0,8
+7420,Daniil Kvyat,26,Russian,2019,United States Grand Prix,2019-11-03,1028,Toro Rosso,13,93.989,12,98.969,0,34.0,13
+7421,Kimi Räikkönen,7,Finnish,2019,United States Grand Prix,2019-11-03,1028,Alfa Romeo,17,94.369,11,99.608,0,31.0,14
+7422,Antonio Giovinazzi,99,Italian,2019,United States Grand Prix,2019-11-03,1028,Alfa Romeo,16,94.226,14,99.964,0,4.0,18
+7423,Max Verstappen,33,Dutch,2019,United States Grand Prix,2019-11-03,1028,Red Bull,3,92.096,3,98.214,2,235.0,4
+7424,Alexander Albon,23,Thai,2019,United States Grand Prix,2019-11-03,1028,Red Bull,6,92.548,5,98.029,0,84.0,6
+7425,Romain Grosjean,8,French,2019,United States Grand Prix,2019-11-03,1028,Haas F1 Team,15,94.158,15,101.27000000000001,0,8.0,17
+7426,Kevin Magnussen,20,Danish,2019,United States Grand Prix,2019-11-03,1028,Haas F1 Team,12,93.812,18,100.34700000000001,0,20.0,16
+7427,Sergio Pérez,11,Mexican,2019,United States Grand Prix,2019-11-03,1028,Racing Point,19,95.80799999999999,10,100.16499999999999,0,44.0,10
+7428,Lance Stroll,18,Canadian,2019,United States Grand Prix,2019-11-03,1028,Racing Point,14,93.92099999999999,13,100.38,0,21.0,15
+7429,Carlos Sainz,55,Spanish,2019,Brazilian Grand Prix,2019-11-17,1029,McLaren,20,,3,73.158,0,95.0,7
+7430,Lando Norris,4,British,2019,Brazilian Grand Prix,2019-11-17,1029,McLaren,11,68.868,8,72.328,0,45.0,11
+7431,Lewis Hamilton,44,British,2019,Brazilian Grand Prix,2019-11-17,1029,Mercedes,3,67.699,7,71.082,10,387.0,1
+7432,Valtteri Bottas,77,Finnish,2019,Brazilian Grand Prix,2019-11-17,1029,Mercedes,5,67.874,,70.69800000000001,4,314.0,2
+7433,Robert Kubica,88,Polish,2019,Brazilian Grand Prix,2019-11-17,1029,Williams,19,70.614,16,74.553,0,1.0,19
+7434,George Russell,63,British,2019,Brazilian Grand Prix,2019-11-17,1029,Williams,18,70.126,12,73.752,0,0.0,20
+7435,Nico Hülkenberg,27,German,2019,Brazilian Grand Prix,2019-11-17,1029,Renault,14,68.92099999999999,15,72.934,0,37.0,13
+7436,Daniel Ricciardo,3,Australian,2019,Brazilian Grand Prix,2019-11-17,1029,Renault,12,68.903,6,72.733,0,54.0,9
+7437,Sebastian Vettel,5,German,2019,Brazilian Grand Prix,2019-11-17,1029,Ferrari,2,67.631,17,71.384,1,230.0,5
+7438,Charles Leclerc,16,Monegasque,2019,Brazilian Grand Prix,2019-11-17,1029,Ferrari,4,67.728,18,71.423,2,249.0,4
+7439,Pierre Gasly,10,French,2019,Brazilian Grand Prix,2019-11-17,1029,Toro Rosso,7,68.77,2,72.425,0,95.0,6
+7440,Daniil Kvyat,26,Russian,2019,Brazilian Grand Prix,2019-11-17,1029,Toro Rosso,16,69.32,10,72.385,0,35.0,14
+7441,Kimi Räikkönen,7,Finnish,2019,Brazilian Grand Prix,2019-11-17,1029,Alfa Romeo,9,68.858,4,73.135,0,43.0,12
+7442,Antonio Giovinazzi,99,Italian,2019,Brazilian Grand Prix,2019-11-17,1029,Alfa Romeo,13,68.919,5,73.02,0,14.0,17
+7443,Max Verstappen,33,Dutch,2019,Brazilian Grand Prix,2019-11-17,1029,Red Bull,1,67.503,1,70.862,3,260.0,3
+7444,Alexander Albon,23,Thai,2019,Brazilian Grand Prix,2019-11-17,1029,Red Bull,6,67.935,14,71.087,0,84.0,8
+7445,Romain Grosjean,8,French,2019,Brazilian Grand Prix,2019-11-17,1029,Haas F1 Team,8,68.705,13,73.619,0,8.0,18
+7446,Kevin Magnussen,20,Danish,2019,Brazilian Grand Prix,2019-11-17,1029,Haas F1 Team,10,68.803,11,73.262,0,20.0,16
+7447,Sergio Pérez,11,Mexican,2019,Brazilian Grand Prix,2019-11-17,1029,Racing Point,15,69.035,9,72.84,0,46.0,10
+7448,Lance Stroll,18,Canadian,2019,Brazilian Grand Prix,2019-11-17,1029,Racing Point,17,69.536,19,72.603,0,21.0,15
+7449,Carlos Sainz,55,Spanish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,McLaren,9,96.30799999999999,10,101.294,0,96.0,6
+7450,Lando Norris,4,British,2019,Abu Dhabi Grand Prix,2019-12-01,1030,McLaren,7,96.436,8,103.02600000000001,0,49.0,11
+7451,Lewis Hamilton,44,British,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Mercedes,1,94.779,1,99.283,11,413.0,1
+7452,Valtteri Bottas,77,Finnish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Mercedes,2,94.973,4,99.715,4,326.0,2
+7453,Robert Kubica,88,Polish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Williams,20,99.23599999999999,19,104.5,0,1.0,19
+7454,George Russell,63,British,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Williams,19,98.717,17,103.074,0,0.0,20
+7455,Nico Hülkenberg,27,German,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Renault,10,96.71000000000001,12,103.274,0,37.0,14
+7456,Daniel Ricciardo,3,Australian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Renault,8,96.456,11,101.19,0,54.0,9
+7457,Sebastian Vettel,5,German,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Ferrari,5,95.339,5,100.128,1,240.0,5
+7458,Charles Leclerc,16,Monegasque,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Ferrari,4,95.219,3,100.44200000000001,2,264.0,4
+7459,Pierre Gasly,10,French,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Toro Rosso,12,97.089,18,102.414,0,95.0,7
+7460,Daniil Kvyat,26,Russian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Toro Rosso,14,97.14099999999999,9,102.22200000000001,0,37.0,13
+7461,Kimi Räikkönen,7,Finnish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Alfa Romeo,18,98.38300000000001,13,103.142,0,43.0,12
+7462,Antonio Giovinazzi,99,Italian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Alfa Romeo,17,98.114,16,103.256,0,14.0,17
+7463,Max Verstappen,33,Dutch,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Red Bull,3,95.13900000000001,2,101.119,3,278.0,3
+7464,Alexander Albon,23,Thai,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Red Bull,6,95.682,6,102.219,0,92.0,8
+7465,Romain Grosjean,8,French,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Haas F1 Team,16,98.051,15,103.666,0,8.0,18
+7466,Kevin Magnussen,20,Danish,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Haas F1 Team,15,97.25399999999999,14,103.78999999999999,0,20.0,16
+7467,Sergio Pérez,11,Mexican,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Racing Point,11,96.961,7,102.63900000000001,0,52.0,10
+7468,Lance Stroll,18,Canadian,2019,Abu Dhabi Grand Prix,2019-12-01,1030,Racing Point,13,97.10300000000001,,103.326,0,21.0,15
+7469,Carlos Sainz,55,Spanish,2020,Austrian Grand Prix,2020-07-05,1031,McLaren,8,63.971000000000004,5,67.974,0,10.0,5
+7470,Lando Norris,4,British,2020,Austrian Grand Prix,2020-07-05,1031,McLaren,4,63.626,3,67.475,0,16.0,3
+7471,Lewis Hamilton,44,British,2020,Austrian Grand Prix,2020-07-05,1031,Mercedes,2,62.951,4,67.712,0,12.0,4
+7472,Valtteri Bottas,77,Finnish,2020,Austrian Grand Prix,2020-07-05,1031,Mercedes,1,62.939,1,67.657,1,25.0,1
+7473,George Russell,63,British,2020,Austrian Grand Prix,2020-07-05,1031,Williams,17,65.167,,69.31700000000001,0,0.0,15
+7474,Nicholas Latifi,6,Canadian,2020,Austrian Grand Prix,2020-07-05,1031,Williams,20,65.757,11,69.662,0,0.0,11
+7475,Daniel Ricciardo,3,Australian,2020,Austrian Grand Prix,2020-07-05,1031,Renault,10,64.023,,70.61,0,0.0,19
+7476,Esteban Ocon,31,French,2020,Austrian Grand Prix,2020-07-05,1031,Renault,14,64.643,8,68.932,0,4.0,8
+7477,Sebastian Vettel,5,German,2020,Austrian Grand Prix,2020-07-05,1031,Ferrari,11,64.206,10,68.623,0,1.0,10
+7478,Charles Leclerc,16,Monegasque,2020,Austrian Grand Prix,2020-07-05,1031,Ferrari,7,63.923,2,67.901,0,18.0,2
+7479,Kimi Räikkönen,7,Finnish,2020,Austrian Grand Prix,2020-07-05,1031,Alfa Romeo,19,65.224,,69.031,0,0.0,14
+7480,Antonio Giovinazzi,99,Italian,2020,Austrian Grand Prix,2020-07-05,1031,Alfa Romeo,18,65.175,9,68.79599999999999,0,2.0,9
+7481,Max Verstappen,33,Dutch,2020,Austrian Grand Prix,2020-07-05,1031,Red Bull,3,63.477,,69.351,0,0.0,20
+7482,Alexander Albon,23,Thai,2020,Austrian Grand Prix,2020-07-05,1031,Red Bull,5,63.746,13,68.432,0,0.0,13
+7483,Romain Grosjean,8,French,2020,Austrian Grand Prix,2020-07-05,1031,Haas F1 Team,15,64.691,,70.228,0,0.0,16
+7484,Kevin Magnussen,20,Danish,2020,Austrian Grand Prix,2020-07-05,1031,Haas F1 Team,16,65.164,,70.72,0,0.0,17
+7485,Pierre Gasly,10,French,2020,Austrian Grand Prix,2020-07-05,1031,AlphaTauri,12,64.305,7,69.025,0,6.0,7
+7486,Daniil Kvyat,26,Russian,2020,Austrian Grand Prix,2020-07-05,1031,AlphaTauri,13,64.431,12,69.135,0,0.0,12
+7487,Sergio Pérez,11,Mexican,2020,Austrian Grand Prix,2020-07-05,1031,Racing Point,6,63.86,6,68.305,0,8.0,6
+7488,Lance Stroll,18,Canadian,2020,Austrian Grand Prix,2020-07-05,1031,Racing Point,9,63.955,,70.326,0,0.0,18
+7489,Carlos Sainz,55,Spanish,2020,Styrian Grand Prix,2020-07-12,1032,McLaren,3,78.59,9,65.619,0,13.0,7
+7490,Lando Norris,4,British,2020,Styrian Grand Prix,2020-07-12,1032,McLaren,6,78.44800000000001,5,67.193,0,26.0,3
+7491,Lewis Hamilton,44,British,2020,Styrian Grand Prix,2020-07-12,1032,Mercedes,1,77.825,1,66.719,1,37.0,2
+7492,Valtteri Bottas,77,Finnish,2020,Styrian Grand Prix,2020-07-12,1032,Mercedes,4,78.657,2,67.534,1,43.0,1
+7493,George Russell,63,British,2020,Styrian Grand Prix,2020-07-12,1032,Williams,12,79.636,16,68.601,0,0.0,20
+7494,Nicholas Latifi,6,Canadian,2020,Styrian Grand Prix,2020-07-12,1032,Williams,18,81.759,17,68.806,0,0.0,16
+7495,Daniel Ricciardo,3,Australian,2020,Styrian Grand Prix,2020-07-12,1032,Renault,9,79.229,8,67.832,0,4.0,12
+7496,Esteban Ocon,31,French,2020,Styrian Grand Prix,2020-07-12,1032,Renault,5,78.764,,69.321,0,4.0,11
+7497,Sebastian Vettel,5,German,2020,Styrian Grand Prix,2020-07-12,1032,Ferrari,10,79.545,,,0,1.0,15
+7498,Charles Leclerc,16,Monegasque,2020,Styrian Grand Prix,2020-07-12,1032,Ferrari,11,79.628,,95.37899999999999,0,18.0,4
+7499,Kimi Räikkönen,7,Finnish,2020,Styrian Grand Prix,2020-07-12,1032,Alfa Romeo,16,81.14,11,68.382,0,0.0,17
+7500,Antonio Giovinazzi,99,Italian,2020,Styrian Grand Prix,2020-07-12,1032,Alfa Romeo,19,81.831,14,68.512,0,2.0,13
+7501,Max Verstappen,33,Dutch,2020,Styrian Grand Prix,2020-07-12,1032,Red Bull,2,77.938,3,66.145,0,15.0,6
+7502,Alexander Albon,23,Thai,2020,Styrian Grand Prix,2020-07-12,1032,Red Bull,7,79.014,4,67.299,0,12.0,8
+7503,Romain Grosjean,8,French,2020,Styrian Grand Prix,2020-07-12,1032,Haas F1 Team,20,,13,68.047,0,0.0,19
+7504,Kevin Magnussen,20,Danish,2020,Styrian Grand Prix,2020-07-12,1032,Haas F1 Team,15,80.211,12,68.009,0,0.0,18
+7505,Pierre Gasly,10,French,2020,Styrian Grand Prix,2020-07-12,1032,AlphaTauri,8,78.744,15,67.827,0,6.0,9
+7506,Daniil Kvyat,26,Russian,2020,Styrian Grand Prix,2020-07-12,1032,AlphaTauri,14,79.717,10,68.378,0,1.0,14
+7507,Sergio Pérez,11,Mexican,2020,Styrian Grand Prix,2020-07-12,1032,Racing Point,17,81.607,6,67.188,0,16.0,5
+7508,Lance Stroll,18,Canadian,2020,Styrian Grand Prix,2020-07-12,1032,Racing Point,13,79.645,7,67.833,0,6.0,10
+7509,Carlos Sainz,55,Spanish,2020,Hungarian Grand Prix,2020-07-19,1033,McLaren,9,75.027,9,80.477,0,15.0,9
+7510,Lando Norris,4,British,2020,Hungarian Grand Prix,2020-07-19,1033,McLaren,8,74.966,13,79.945,0,26.0,4
+7511,Lewis Hamilton,44,British,2020,Hungarian Grand Prix,2020-07-19,1033,Mercedes,1,73.447,1,76.627,2,63.0,1
+7512,Valtteri Bottas,77,Finnish,2020,Hungarian Grand Prix,2020-07-19,1033,Mercedes,2,73.554,3,77.66499999999999,1,58.0,2
+7513,George Russell,63,British,2020,Hungarian Grand Prix,2020-07-19,1033,Williams,12,75.58500000000001,18,79.98400000000001,0,0.0,20
+7514,Nicholas Latifi,6,Canadian,2020,Hungarian Grand Prix,2020-07-19,1033,Williams,15,76.105,19,81.19800000000001,0,0.0,18
+7515,Daniel Ricciardo,3,Australian,2020,Hungarian Grand Prix,2020-07-19,1033,Renault,11,75.661,8,79.532,0,8.0,11
+7516,Esteban Ocon,31,French,2020,Hungarian Grand Prix,2020-07-19,1033,Renault,14,75.719,14,80.261,0,4.0,13
+7517,Sebastian Vettel,5,German,2020,Hungarian Grand Prix,2020-07-19,1033,Ferrari,5,74.774,6,80.363,0,9.0,10
+7518,Charles Leclerc,16,Monegasque,2020,Hungarian Grand Prix,2020-07-19,1033,Ferrari,6,74.81700000000001,11,80.821,0,18.0,7
+7519,Kimi Räikkönen,7,Finnish,2020,Hungarian Grand Prix,2020-07-19,1033,Alfa Romeo,20,76.614,15,80.889,0,0.0,17
+7520,Antonio Giovinazzi,99,Italian,2020,Hungarian Grand Prix,2020-07-19,1033,Alfa Romeo,19,76.506,17,80.096,0,2.0,14
+7521,Max Verstappen,33,Dutch,2020,Hungarian Grand Prix,2020-07-19,1033,Red Bull,7,74.849,2,79.184,0,33.0,3
+7522,Alexander Albon,23,Thai,2020,Hungarian Grand Prix,2020-07-19,1033,Red Bull,13,75.715,5,79.44,0,22.0,5
+7523,Romain Grosjean,8,French,2020,Hungarian Grand Prix,2020-07-19,1033,Haas F1 Team,18,76.407,16,80.232,0,0.0,19
+7524,Kevin Magnussen,20,Danish,2020,Hungarian Grand Prix,2020-07-19,1033,Haas F1 Team,16,76.152,10,79.457,0,1.0,16
+7525,Pierre Gasly,10,French,2020,Hungarian Grand Prix,2020-07-19,1033,AlphaTauri,10,75.508,,83.939,0,6.0,12
+7526,Daniil Kvyat,26,Russian,2020,Hungarian Grand Prix,2020-07-19,1033,AlphaTauri,17,76.20400000000001,12,80.946,0,1.0,15
+7527,Sergio Pérez,11,Mexican,2020,Hungarian Grand Prix,2020-07-19,1033,Racing Point,4,74.545,7,80.09,0,22.0,6
+7528,Lance Stroll,18,Canadian,2020,Hungarian Grand Prix,2020-07-19,1033,Racing Point,3,74.377,4,78.973,0,18.0,8
+7529,Carlos Sainz,55,Spanish,2020,British Grand Prix,2020-08-02,1034,McLaren,7,85.965,13,89.94800000000001,0,15.0,10
+7530,Lando Norris,4,British,2020,British Grand Prix,2020-08-02,1034,McLaren,5,85.782,5,90.05799999999999,0,36.0,4
+7531,Lewis Hamilton,44,British,2020,British Grand Prix,2020-08-02,1034,Mercedes,1,84.303,1,89.238,3,88.0,1
+7532,Valtteri Bottas,77,Finnish,2020,British Grand Prix,2020-08-02,1034,Mercedes,2,84.616,11,89.265,1,58.0,2
+7533,George Russell,63,British,2020,British Grand Prix,2020-08-02,1034,Williams,15,86.732,12,90.862,0,0.0,19
+7534,Nicholas Latifi,6,Canadian,2020,British Grand Prix,2020-08-02,1034,Williams,20,87.705,15,90.501,0,0.0,17
+7535,Daniel Ricciardo,3,Australian,2020,British Grand Prix,2020-08-02,1034,Renault,8,86.009,4,89.482,0,20.0,9
+7536,Esteban Ocon,31,French,2020,British Grand Prix,2020-08-02,1034,Renault,9,86.209,6,89.491,0,12.0,11
+7537,Sebastian Vettel,5,German,2020,British Grand Prix,2020-08-02,1034,Ferrari,10,86.339,10,90.537,0,10.0,13
+7538,Charles Leclerc,16,Monegasque,2020,British Grand Prix,2020-08-02,1034,Ferrari,4,85.42699999999999,3,89.813,0,33.0,5
+7539,Kimi Räikkönen,7,Finnish,2020,British Grand Prix,2020-08-02,1034,Alfa Romeo,18,87.366,17,89.973,0,0.0,18
+7540,Antonio Giovinazzi,99,Italian,2020,British Grand Prix,2020-08-02,1034,Alfa Romeo,17,87.164,14,90.977,0,2.0,14
+7541,Max Verstappen,33,Dutch,2020,British Grand Prix,2020-08-02,1034,Red Bull,3,85.325,2,87.09700000000001,0,52.0,3
+7542,Alexander Albon,23,Thai,2020,British Grand Prix,2020-08-02,1034,Red Bull,12,86.545,8,88.689,0,26.0,6
+7543,Romain Grosjean,8,French,2020,British Grand Prix,2020-08-02,1034,Haas F1 Team,19,87.643,16,89.782,0,0.0,20
+7544,Kevin Magnussen,20,Danish,2020,British Grand Prix,2020-08-02,1034,Haas F1 Team,16,87.158,,,0,1.0,16
+7545,Pierre Gasly,10,French,2020,British Grand Prix,2020-08-02,1034,AlphaTauri,11,86.343,7,89.60300000000001,0,12.0,12
+7546,Daniil Kvyat,26,Russian,2020,British Grand Prix,2020-08-02,1034,AlphaTauri,14,86.744,,92.443,0,1.0,15
+7547,Nico Hülkenberg,27,German,2020,British Grand Prix,2020-08-02,1034,Racing Point,13,86.327,,,0,0.0,21
+7548,Lance Stroll,18,Canadian,2020,British Grand Prix,2020-08-02,1034,Racing Point,6,85.839,9,90.475,0,20.0,8
+7549,Carlos Sainz,55,Spanish,2020,70th Anniversary Grand Prix,2020-08-09,1035,McLaren,13,87.083,13,90.556,0,15.0,11
+7550,Lando Norris,4,British,2020,70th Anniversary Grand Prix,2020-08-09,1035,McLaren,10,86.77799999999999,9,90.69800000000001,0,38.0,5
+7551,Lewis Hamilton,44,British,2020,70th Anniversary Grand Prix,2020-08-09,1035,Mercedes,2,85.217,2,88.451,3,107.0,1
+7552,Valtteri Bottas,77,Finnish,2020,70th Anniversary Grand Prix,2020-08-09,1035,Mercedes,1,85.154,3,89.765,1,73.0,3
+7553,George Russell,63,British,2020,70th Anniversary Grand Prix,2020-08-09,1035,Williams,15,87.455,18,91.408,0,0.0,20
+7554,Nicholas Latifi,6,Canadian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Williams,18,88.43,19,89.95,0,0.0,19
+7555,Daniel Ricciardo,3,Australian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Renault,5,86.297,14,91.168,0,20.0,9
+7556,Esteban Ocon,31,French,2020,70th Anniversary Grand Prix,2020-08-09,1035,Renault,11,87.011,8,90.575,0,16.0,10
+7557,Sebastian Vettel,5,German,2020,70th Anniversary Grand Prix,2020-08-09,1035,Ferrari,12,87.078,12,90.785,0,10.0,13
+7558,Charles Leclerc,16,Monegasque,2020,70th Anniversary Grand Prix,2020-08-09,1035,Ferrari,8,86.614,4,90.55199999999999,0,45.0,4
+7559,Kimi Räikkönen,7,Finnish,2020,70th Anniversary Grand Prix,2020-08-09,1035,Alfa Romeo,20,88.493,15,91.756,0,0.0,18
+7560,Antonio Giovinazzi,99,Italian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Alfa Romeo,19,88.43299999999999,17,91.826,0,2.0,15
+7561,Max Verstappen,33,Dutch,2020,70th Anniversary Grand Prix,2020-08-09,1035,Red Bull,4,86.176,1,89.465,1,77.0,2
+7562,Alexander Albon,23,Thai,2020,70th Anniversary Grand Prix,2020-08-09,1035,Red Bull,9,86.642,5,89.477,0,36.0,6
+7563,Romain Grosjean,8,French,2020,70th Anniversary Grand Prix,2020-08-09,1035,Haas F1 Team,14,87.254,16,90.793,0,0.0,21
+7564,Kevin Magnussen,20,Danish,2020,70th Anniversary Grand Prix,2020-08-09,1035,Haas F1 Team,17,88.236,,91.83,0,1.0,17
+7565,Pierre Gasly,10,French,2020,70th Anniversary Grand Prix,2020-08-09,1035,AlphaTauri,7,86.523,11,90.092,0,12.0,12
+7566,Daniil Kvyat,26,Russian,2020,70th Anniversary Grand Prix,2020-08-09,1035,AlphaTauri,16,87.882,10,90.738,0,2.0,16
+7567,Nico Hülkenberg,27,German,2020,70th Anniversary Grand Prix,2020-08-09,1035,Racing Point,3,86.082,7,90.087,0,6.0,14
+7568,Lance Stroll,18,Canadian,2020,70th Anniversary Grand Prix,2020-08-09,1035,Racing Point,6,86.428,6,90.877,0,28.0,7
+7569,Carlos Sainz,55,Spanish,2020,Spanish Grand Prix,2020-08-16,1036,McLaren,7,76.876,6,81.771,0,23.0,9
+7570,Lando Norris,4,British,2020,Spanish Grand Prix,2020-08-16,1036,McLaren,8,77.084,10,82.392,0,39.0,7
+7571,Lewis Hamilton,44,British,2020,Spanish Grand Prix,2020-08-16,1036,Mercedes,1,75.584,1,79.822,4,132.0,1
+7572,Valtteri Bottas,77,Finnish,2020,Spanish Grand Prix,2020-08-16,1036,Mercedes,2,75.643,3,78.18299999999999,1,89.0,3
+7573,George Russell,63,British,2020,Spanish Grand Prix,2020-08-16,1036,Williams,18,78.099,17,82.503,0,0.0,20
+7574,Nicholas Latifi,6,Canadian,2020,Spanish Grand Prix,2020-08-16,1036,Williams,19,78.532,18,82.03,0,0.0,19
+7575,Daniel Ricciardo,3,Australian,2020,Spanish Grand Prix,2020-08-16,1036,Renault,13,77.19800000000001,11,82.464,0,20.0,10
+7576,Esteban Ocon,31,French,2020,Spanish Grand Prix,2020-08-16,1036,Renault,15,77.56700000000001,13,82.174,0,16.0,12
+7577,Sebastian Vettel,5,German,2020,Spanish Grand Prix,2020-08-16,1036,Ferrari,11,77.168,7,82.707,0,16.0,11
+7578,Charles Leclerc,16,Monegasque,2020,Spanish Grand Prix,2020-08-16,1036,Ferrari,9,76.953,,83.968,0,45.0,4
+7579,Kimi Räikkönen,7,Finnish,2020,Spanish Grand Prix,2020-08-16,1036,Alfa Romeo,14,77.386,14,81.888,0,0.0,18
+7580,Antonio Giovinazzi,99,Italian,2020,Spanish Grand Prix,2020-08-16,1036,Alfa Romeo,20,78.697,16,81.801,0,2.0,15
+7581,Max Verstappen,33,Dutch,2020,Spanish Grand Prix,2020-08-16,1036,Red Bull,3,76.292,2,81.477,1,95.0,2
+7582,Alexander Albon,23,Thai,2020,Spanish Grand Prix,2020-08-16,1036,Red Bull,6,77.029,8,82.194,0,40.0,6
+7583,Romain Grosjean,8,French,2020,Spanish Grand Prix,2020-08-16,1036,Haas F1 Team,17,78.089,19,80.40899999999999,0,0.0,21
+7584,Kevin Magnussen,20,Danish,2020,Spanish Grand Prix,2020-08-16,1036,Haas F1 Team,16,77.908,15,83.474,0,1.0,17
+7585,Pierre Gasly,10,French,2020,Spanish Grand Prix,2020-08-16,1036,AlphaTauri,10,76.8,9,82.543,0,14.0,13
+7586,Daniil Kvyat,26,Russian,2020,Spanish Grand Prix,2020-08-16,1036,AlphaTauri,12,77.19200000000001,12,82.336,0,2.0,16
+7587,Sergio Pérez,11,Mexican,2020,Spanish Grand Prix,2020-08-16,1036,Racing Point,4,76.482,5,82.515,0,32.0,8
+7588,Lance Stroll,18,Canadian,2020,Spanish Grand Prix,2020-08-16,1036,Racing Point,5,76.589,4,82.024,0,40.0,5
+7589,Carlos Sainz,55,Spanish,2020,Belgian Grand Prix,2020-08-30,1037,McLaren,7,102.438,,,0,23.0,11
+7590,Lando Norris,4,British,2020,Belgian Grand Prix,2020-08-30,1037,McLaren,10,102.657,7,108.55199999999999,0,45.0,6
+7591,Lewis Hamilton,44,British,2020,Belgian Grand Prix,2020-08-30,1037,Mercedes,1,101.25200000000001,1,107.75800000000001,5,157.0,1
+7592,Valtteri Bottas,77,Finnish,2020,Belgian Grand Prix,2020-08-30,1037,Mercedes,2,101.763,2,107.983,1,107.0,3
+7593,George Russell,63,British,2020,Belgian Grand Prix,2020-08-30,1037,Williams,15,103.468,,111.75399999999999,0,0.0,20
+7594,Nicholas Latifi,6,Canadian,2020,Belgian Grand Prix,2020-08-30,1037,Williams,19,104.138,16,108.048,0,0.0,19
+7595,Daniel Ricciardo,3,Australian,2020,Belgian Grand Prix,2020-08-30,1037,Renault,4,102.061,4,107.483,0,33.0,8
+7596,Esteban Ocon,31,French,2020,Belgian Grand Prix,2020-08-30,1037,Renault,6,102.396,5,108.53999999999999,0,26.0,10
+7597,Sebastian Vettel,5,German,2020,Belgian Grand Prix,2020-08-30,1037,Ferrari,14,103.261,13,109.958,0,16.0,13
+7598,Charles Leclerc,16,Monegasque,2020,Belgian Grand Prix,2020-08-30,1037,Ferrari,13,102.99600000000001,14,107.84,0,45.0,5
+7599,Kimi Räikkönen,7,Finnish,2020,Belgian Grand Prix,2020-08-30,1037,Alfa Romeo,16,103.743,12,109.822,0,0.0,18
+7600,Antonio Giovinazzi,99,Italian,2020,Belgian Grand Prix,2020-08-30,1037,Alfa Romeo,18,103.95,,111.793,0,2.0,15
+7601,Max Verstappen,33,Dutch,2020,Belgian Grand Prix,2020-08-30,1037,Red Bull,3,101.77799999999999,3,108.305,1,110.0,2
+7602,Alexander Albon,23,Thai,2020,Belgian Grand Prix,2020-08-30,1037,Red Bull,5,102.193,6,108.73599999999999,0,48.0,4
+7603,Romain Grosjean,8,French,2020,Belgian Grand Prix,2020-08-30,1037,Haas F1 Team,17,103.838,15,110.018,0,0.0,21
+7604,Kevin Magnussen,20,Danish,2020,Belgian Grand Prix,2020-08-30,1037,Haas F1 Team,20,104.314,17,108.083,0,1.0,17
+7605,Pierre Gasly,10,French,2020,Belgian Grand Prix,2020-08-30,1037,AlphaTauri,12,102.745,8,107.839,0,18.0,12
+7606,Daniil Kvyat,26,Russian,2020,Belgian Grand Prix,2020-08-30,1037,AlphaTauri,11,102.72999999999999,11,109.832,0,2.0,16
+7607,Sergio Pérez,11,Mexican,2020,Belgian Grand Prix,2020-08-30,1037,Racing Point,8,102.532,10,108.38900000000001,0,33.0,9
+7608,Lance Stroll,18,Canadian,2020,Belgian Grand Prix,2020-08-30,1037,Racing Point,9,102.491,9,109.136,0,42.0,7
+7609,Carlos Sainz,55,Spanish,2020,Italian Grand Prix,2020-09-06,1038,McLaren,3,79.695,2,83.882,0,41.0,9
+7610,Lando Norris,4,British,2020,Italian Grand Prix,2020-09-06,1038,McLaren,6,79.82,4,84.232,0,57.0,5
+7611,Lewis Hamilton,44,British,2020,Italian Grand Prix,2020-09-06,1038,Mercedes,1,78.887,7,82.746,5,164.0,1
+7612,Valtteri Bottas,77,Finnish,2020,Italian Grand Prix,2020-09-06,1038,Mercedes,2,78.952,5,83.961,1,117.0,2
+7613,George Russell,63,British,2020,Italian Grand Prix,2020-09-06,1038,Williams,19,81.587,14,84.42099999999999,0,0.0,21
+7614,Nicholas Latifi,6,Canadian,2020,Italian Grand Prix,2020-09-06,1038,Williams,20,81.717,11,84.999,0,0.0,18
+7615,Daniel Ricciardo,3,Australian,2020,Italian Grand Prix,2020-09-06,1038,Renault,7,79.864,6,83.898,0,41.0,10
+7616,Esteban Ocon,31,French,2020,Italian Grand Prix,2020-09-06,1038,Renault,12,80.23400000000001,8,84.49,0,30.0,12
+7617,Sebastian Vettel,5,German,2020,Italian Grand Prix,2020-09-06,1038,Ferrari,17,81.151,,87.107,0,16.0,13
+7618,Charles Leclerc,16,Monegasque,2020,Italian Grand Prix,2020-09-06,1038,Ferrari,13,80.273,,86.026,0,45.0,7
+7619,Kimi Räikkönen,7,Finnish,2020,Italian Grand Prix,2020-09-06,1038,Alfa Romeo,14,80.926,13,84.83500000000001,0,0.0,19
+7620,Antonio Giovinazzi,99,Italian,2020,Italian Grand Prix,2020-09-06,1038,Alfa Romeo,18,81.206,16,84.856,0,2.0,16
+7621,Max Verstappen,33,Dutch,2020,Italian Grand Prix,2020-09-06,1038,Red Bull,5,79.78,,85.539,1,110.0,3
+7622,Alexander Albon,23,Thai,2020,Italian Grand Prix,2020-09-06,1038,Red Bull,9,80.064,15,84.926,0,48.0,6
+7623,Romain Grosjean,8,French,2020,Italian Grand Prix,2020-09-06,1038,Haas F1 Team,16,81.139,12,84.785,0,0.0,20
+7624,Kevin Magnussen,20,Danish,2020,Italian Grand Prix,2020-09-06,1038,Haas F1 Team,15,80.869,,85.787,0,1.0,17
+7625,Pierre Gasly,10,French,2020,Italian Grand Prix,2020-09-06,1038,AlphaTauri,10,79.90899999999999,1,84.037,1,43.0,8
+7626,Daniil Kvyat,26,Russian,2020,Italian Grand Prix,2020-09-06,1038,AlphaTauri,11,80.169,9,84.479,0,4.0,15
+7627,Sergio Pérez,11,Mexican,2020,Italian Grand Prix,2020-09-06,1038,Racing Point,4,79.718,10,84.336,0,34.0,11
+7628,Lance Stroll,18,Canadian,2020,Italian Grand Prix,2020-09-06,1038,Racing Point,8,79.924,3,83.89699999999999,0,57.0,4
+7629,Carlos Sainz,55,Spanish,2020,Tuscan Grand Prix,2020-09-13,1039,McLaren,9,76.52199999999999,,134.103,0,41.0,11
+7630,Lando Norris,4,British,2020,Tuscan Grand Prix,2020-09-13,1039,McLaren,11,76.64,6,81.19800000000001,0,65.0,4
+7631,Lewis Hamilton,44,British,2020,Tuscan Grand Prix,2020-09-13,1039,Mercedes,1,75.144,1,78.833,6,190.0,1
+7632,Valtteri Bottas,77,Finnish,2020,Tuscan Grand Prix,2020-09-13,1039,Mercedes,2,75.203,2,79.432,1,135.0,2
+7633,George Russell,63,British,2020,Tuscan Grand Prix,2020-09-13,1039,Williams,18,77.232,11,81.645,0,0.0,20
+7634,Nicholas Latifi,6,Canadian,2020,Tuscan Grand Prix,2020-09-13,1039,Williams,19,77.32,,131.365,0,0.0,19
+7635,Daniel Ricciardo,3,Australian,2020,Tuscan Grand Prix,2020-09-13,1039,Renault,8,76.243,4,80.426,0,53.0,7
+7636,Esteban Ocon,31,French,2020,Tuscan Grand Prix,2020-09-13,1039,Renault,10,76.297,,131.793,0,30.0,12
+7637,Sebastian Vettel,5,German,2020,Tuscan Grand Prix,2020-09-13,1039,Ferrari,14,76.858,10,81.202,0,17.0,13
+7638,Charles Leclerc,16,Monegasque,2020,Tuscan Grand Prix,2020-09-13,1039,Ferrari,5,76.27,8,81.229,0,49.0,8
+7639,Kimi Räikkönen,7,Finnish,2020,Tuscan Grand Prix,2020-09-13,1039,Alfa Romeo,13,76.854,9,81.164,0,2.0,16
+7640,Antonio Giovinazzi,99,Italian,2020,Tuscan Grand Prix,2020-09-13,1039,Alfa Romeo,17,77.22,,133.809,0,2.0,17
+7641,Max Verstappen,33,Dutch,2020,Tuscan Grand Prix,2020-09-13,1039,Red Bull,3,75.471,,,1,110.0,3
+7642,Alexander Albon,23,Thai,2020,Tuscan Grand Prix,2020-09-13,1039,Red Bull,4,75.914,3,80.039,0,63.0,5
+7643,Romain Grosjean,8,French,2020,Tuscan Grand Prix,2020-09-13,1039,Haas F1 Team,15,77.069,12,82.263,0,0.0,21
+7644,Kevin Magnussen,20,Danish,2020,Tuscan Grand Prix,2020-09-13,1039,Haas F1 Team,20,77.348,,133.812,0,1.0,18
+7645,Pierre Gasly,10,French,2020,Tuscan Grand Prix,2020-09-13,1039,AlphaTauri,16,77.125,,,1,43.0,10
+7646,Daniil Kvyat,26,Russian,2020,Tuscan Grand Prix,2020-09-13,1039,AlphaTauri,12,76.854,7,81.458,0,10.0,14
+7647,Sergio Pérez,11,Mexican,2020,Tuscan Grand Prix,2020-09-13,1039,Racing Point,6,76.311,5,80.632,0,44.0,9
+7648,Lance Stroll,18,Canadian,2020,Tuscan Grand Prix,2020-09-13,1039,Racing Point,7,76.271,,82.068,0,57.0,6
+7649,Carlos Sainz,55,Spanish,2020,Russian Grand Prix,2020-09-27,1040,McLaren,6,92.55,,,0,41.0,11
+7650,Lando Norris,4,British,2020,Russian Grand Prix,2020-09-27,1040,McLaren,8,92.84700000000001,15,97.37700000000001,0,65.0,4
+7651,Lewis Hamilton,44,British,2020,Russian Grand Prix,2020-09-27,1040,Mercedes,1,91.304,3,98.075,6,205.0,1
+7652,Valtteri Bottas,77,Finnish,2020,Russian Grand Prix,2020-09-27,1040,Mercedes,3,91.956,1,97.03,2,161.0,2
+7653,George Russell,63,British,2020,Russian Grand Prix,2020-09-27,1040,Williams,14,93.583,18,97.352,0,0.0,20
+7654,Nicholas Latifi,6,Canadian,2020,Russian Grand Prix,2020-09-27,1040,Williams,19,95.066,16,101.044,0,0.0,19
+7655,Daniel Ricciardo,3,Australian,2020,Russian Grand Prix,2020-09-27,1040,Renault,5,92.218,5,97.886,0,63.0,6
+7656,Esteban Ocon,31,French,2020,Russian Grand Prix,2020-09-27,1040,Renault,7,92.624,7,99.21600000000001,0,36.0,12
+7657,Sebastian Vettel,5,German,2020,Russian Grand Prix,2020-09-27,1040,Ferrari,15,93.60900000000001,13,99.588,0,17.0,13
+7658,Charles Leclerc,16,Monegasque,2020,Russian Grand Prix,2020-09-27,1040,Ferrari,11,93.239,6,99.053,0,57.0,7
+7659,Kimi Räikkönen,7,Finnish,2020,Russian Grand Prix,2020-09-27,1040,Alfa Romeo,20,95.267,14,98.858,0,2.0,16
+7660,Antonio Giovinazzi,99,Italian,2020,Russian Grand Prix,2020-09-27,1040,Alfa Romeo,17,94.594,11,99.76599999999999,0,2.0,17
+7661,Max Verstappen,33,Dutch,2020,Russian Grand Prix,2020-09-27,1040,Red Bull,2,91.867,2,97.332,1,128.0,3
+7662,Alexander Albon,23,Thai,2020,Russian Grand Prix,2020-09-27,1040,Red Bull,10,93.00800000000001,10,98.37700000000001,0,64.0,5
+7663,Romain Grosjean,8,French,2020,Russian Grand Prix,2020-09-27,1040,Haas F1 Team,16,94.592,17,99.614,0,0.0,21
+7664,Kevin Magnussen,20,Danish,2020,Russian Grand Prix,2020-09-27,1040,Haas F1 Team,18,94.681,12,100.38,0,1.0,18
+7665,Pierre Gasly,10,French,2020,Russian Grand Prix,2020-09-27,1040,AlphaTauri,9,93.0,9,97.231,1,45.0,10
+7666,Daniil Kvyat,26,Russian,2020,Russian Grand Prix,2020-09-27,1040,AlphaTauri,12,93.249,8,99.13300000000001,0,14.0,14
+7667,Sergio Pérez,11,Mexican,2020,Russian Grand Prix,2020-09-27,1040,Racing Point,4,92.31700000000001,4,98.14099999999999,0,56.0,9
+7668,Lance Stroll,18,Canadian,2020,Russian Grand Prix,2020-09-27,1040,Racing Point,13,93.364,,,0,57.0,8
+7669,Carlos Sainz,55,Spanish,2020,Eifel Grand Prix,2020-10-11,1041,McLaren,10,86.361,5,90.129,0,51.0,11
+7670,Lando Norris,4,British,2020,Eifel Grand Prix,2020-10-11,1041,McLaren,8,86.316,,92.328,0,65.0,6
+7671,Lewis Hamilton,44,British,2020,Eifel Grand Prix,2020-10-11,1041,Mercedes,2,85.39,1,88.145,7,230.0,1
+7672,Valtteri Bottas,77,Finnish,2020,Eifel Grand Prix,2020-10-11,1041,Mercedes,1,85.269,,91.884,2,161.0,2
+7673,George Russell,63,British,2020,Eifel Grand Prix,2020-10-11,1041,Williams,17,87.564,,94.52600000000001,0,0.0,21
+7674,Nicholas Latifi,6,Canadian,2020,Eifel Grand Prix,2020-10-11,1041,Williams,18,87.812,14,91.377,0,0.0,20
+7675,Daniel Ricciardo,3,Australian,2020,Eifel Grand Prix,2020-10-11,1041,Renault,6,86.096,3,89.584,0,78.0,4
+7676,Esteban Ocon,31,French,2020,Eifel Grand Prix,2020-10-11,1041,Renault,7,86.242,,93.189,0,36.0,12
+7677,Sebastian Vettel,5,German,2020,Eifel Grand Prix,2020-10-11,1041,Ferrari,11,86.738,11,90.408,0,17.0,13
+7678,Charles Leclerc,16,Monegasque,2020,Eifel Grand Prix,2020-10-11,1041,Ferrari,4,86.035,7,90.712,0,63.0,8
+7679,Kimi Räikkönen,7,Finnish,2020,Eifel Grand Prix,2020-10-11,1041,Alfa Romeo,19,87.81700000000001,12,90.512,0,2.0,17
+7680,Antonio Giovinazzi,99,Italian,2020,Eifel Grand Prix,2020-10-11,1041,Alfa Romeo,14,86.936,10,90.90899999999999,0,3.0,16
+7681,Max Verstappen,33,Dutch,2020,Eifel Grand Prix,2020-10-11,1041,Red Bull,3,85.467,2,88.139,1,147.0,3
+7682,Alexander Albon,23,Thai,2020,Eifel Grand Prix,2020-10-11,1041,Red Bull,5,86.047,,92.33,0,64.0,7
+7683,Romain Grosjean,8,French,2020,Eifel Grand Prix,2020-10-11,1041,Haas F1 Team,16,87.55199999999999,9,91.562,0,2.0,18
+7684,Kevin Magnussen,20,Danish,2020,Eifel Grand Prix,2020-10-11,1041,Haas F1 Team,15,87.125,13,90.456,0,1.0,19
+7685,Pierre Gasly,10,French,2020,Eifel Grand Prix,2020-10-11,1041,AlphaTauri,12,86.776,6,90.11,1,53.0,10
+7686,Daniil Kvyat,26,Russian,2020,Eifel Grand Prix,2020-10-11,1041,AlphaTauri,13,86.848,15,92.214,0,14.0,14
+7687,Nico Hülkenberg,27,German,2020,Eifel Grand Prix,2020-10-11,1041,Racing Point,20,88.021,8,90.733,0,10.0,15
+7688,Sergio Pérez,11,Mexican,2020,Eifel Grand Prix,2020-10-11,1041,Racing Point,9,86.33,4,89.7,0,68.0,5
+7689,Carlos Sainz,55,Spanish,2020,Portuguese Grand Prix,2020-10-25,1042,McLaren,7,77.18299999999999,6,80.268,0,59.0,10
+7690,Lando Norris,4,British,2020,Portuguese Grand Prix,2020-10-25,1042,McLaren,8,77.321,13,79.36,0,65.0,7
+7691,Lewis Hamilton,44,British,2020,Portuguese Grand Prix,2020-10-25,1042,Mercedes,1,76.652,1,78.75,8,256.0,1
+7692,Valtteri Bottas,77,Finnish,2020,Portuguese Grand Prix,2020-10-25,1042,Mercedes,2,76.46600000000001,2,79.345,2,179.0,2
+7693,George Russell,63,British,2020,Portuguese Grand Prix,2020-10-25,1042,Williams,14,77.788,14,80.882,0,0.0,21
+7694,Nicholas Latifi,6,Canadian,2020,Portuguese Grand Prix,2020-10-25,1042,Williams,20,78.777,18,81.85900000000001,0,0.0,20
+7695,Daniel Ricciardo,3,Australian,2020,Portuguese Grand Prix,2020-10-25,1042,Renault,10,77.481,9,80.906,0,80.0,4
+7696,Esteban Ocon,31,French,2020,Portuguese Grand Prix,2020-10-25,1042,Renault,11,77.614,8,80.85900000000001,0,40.0,12
+7697,Sebastian Vettel,5,German,2020,Portuguese Grand Prix,2020-10-25,1042,Ferrari,15,77.446,10,80.731,0,18.0,13
+7698,Charles Leclerc,16,Monegasque,2020,Portuguese Grand Prix,2020-10-25,1042,Ferrari,4,77.09,4,80.408,0,75.0,5
+7699,Kimi Räikkönen,7,Finnish,2020,Portuguese Grand Prix,2020-10-25,1042,Alfa Romeo,16,78.201,11,81.05799999999999,0,2.0,17
+7700,Antonio Giovinazzi,99,Italian,2020,Portuguese Grand Prix,2020-10-25,1042,Alfa Romeo,17,78.32300000000001,15,81.893,0,3.0,16
+7701,Max Verstappen,33,Dutch,2020,Portuguese Grand Prix,2020-10-25,1042,Red Bull,3,76.879,3,79.854,1,162.0,3
+7702,Alexander Albon,23,Thai,2020,Portuguese Grand Prix,2020-10-25,1042,Red Bull,6,77.411,12,79.89,0,64.0,8
+7703,Romain Grosjean,8,French,2020,Portuguese Grand Prix,2020-10-25,1042,Haas F1 Team,18,78.364,17,81.664,0,2.0,18
+7704,Kevin Magnussen,20,Danish,2020,Portuguese Grand Prix,2020-10-25,1042,Haas F1 Team,19,78.508,16,81.46000000000001,0,1.0,19
+7705,Pierre Gasly,10,French,2020,Portuguese Grand Prix,2020-10-25,1042,AlphaTauri,9,77.209,5,80.551,1,63.0,9
+7706,Daniil Kvyat,26,Russian,2020,Portuguese Grand Prix,2020-10-25,1042,AlphaTauri,13,77.72800000000001,19,80.449,0,14.0,14
+7707,Sergio Pérez,11,Mexican,2020,Portuguese Grand Prix,2020-10-25,1042,Racing Point,5,77.129,7,80.80199999999999,0,74.0,6
+7708,Lance Stroll,18,Canadian,2020,Portuguese Grand Prix,2020-10-25,1042,Racing Point,12,77.626,,81.694,0,57.0,11
+7709,Carlos Sainz,55,Spanish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,McLaren,10,74.911,7,78.118,0,65.0,8
+7710,Lando Norris,4,British,2020,Emilia Romagna Grand Prix,2020-11-01,1043,McLaren,9,74.814,8,78.069,0,69.0,7
+7711,Lewis Hamilton,44,British,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Mercedes,2,73.706,1,75.484,9,282.0,1
+7712,Valtteri Bottas,77,Finnish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Mercedes,1,73.609,2,75.902,2,197.0,2
+7713,George Russell,63,British,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Williams,13,75.32300000000001,,78.811,0,0.0,21
+7714,Nicholas Latifi,6,Canadian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Williams,19,75.987,11,78.719,0,0.0,20
+7715,Daniel Ricciardo,3,Australian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Renault,5,74.52,3,77.55199999999999,0,95.0,4
+7716,Esteban Ocon,31,French,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Renault,12,75.201,,79.606,0,40.0,12
+7717,Sebastian Vettel,5,German,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Ferrari,14,75.385,12,77.767,0,18.0,14
+7718,Charles Leclerc,16,Monegasque,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Ferrari,7,74.616,5,78.173,0,85.0,5
+7719,Kimi Räikkönen,7,Finnish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Alfa Romeo,18,75.953,9,78.088,0,4.0,16
+7720,Antonio Giovinazzi,99,Italian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Alfa Romeo,20,76.208,10,78.794,0,4.0,17
+7721,Max Verstappen,33,Dutch,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Red Bull,3,74.176,,77.637,1,162.0,3
+7722,Alexander Albon,23,Thai,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Red Bull,6,74.572,15,76.17699999999999,0,64.0,9
+7723,Romain Grosjean,8,French,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Haas F1 Team,16,75.918,14,78.822,0,2.0,18
+7724,Kevin Magnussen,20,Danish,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Haas F1 Team,17,75.939,,79.273,0,1.0,19
+7725,Pierre Gasly,10,French,2020,Emilia Romagna Grand Prix,2020-11-01,1043,AlphaTauri,4,74.502,,80.40299999999999,1,63.0,10
+7726,Daniil Kvyat,26,Russian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,AlphaTauri,8,74.696,4,77.666,0,26.0,13
+7727,Sergio Pérez,11,Mexican,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Racing Point,11,75.061,6,78.084,0,82.0,6
+7728,Lance Stroll,18,Canadian,2020,Emilia Romagna Grand Prix,2020-11-01,1043,Racing Point,15,75.494,13,78.36,0,57.0,11
+7729,Carlos Sainz,55,Spanish,2020,Turkish Grand Prix,2020-11-15,1044,McLaren,13,115.41,5,98.75399999999999,0,75.0,7
+7730,Lando Norris,4,British,2020,Turkish Grand Prix,2020-11-15,1044,McLaren,11,114.945,8,96.806,0,74.0,8
+7731,Lewis Hamilton,44,British,2020,Turkish Grand Prix,2020-11-15,1044,Mercedes,6,112.56,1,99.413,10,307.0,1
+7732,Valtteri Bottas,77,Finnish,2020,Turkish Grand Prix,2020-11-15,1044,Mercedes,9,113.25800000000001,14,98.193,2,197.0,2
+7733,George Russell,63,British,2020,Turkish Grand Prix,2020-11-15,1044,Williams,18,130.017,16,100.814,0,0.0,21
+7734,Nicholas Latifi,6,Canadian,2020,Turkish Grand Prix,2020-11-15,1044,Williams,20,141.611,,103.495,0,0.0,20
+7735,Daniel Ricciardo,3,Australian,2020,Turkish Grand Prix,2020-11-15,1044,Renault,5,111.595,10,100.67699999999999,0,96.0,6
+7736,Esteban Ocon,31,French,2020,Turkish Grand Prix,2020-11-15,1044,Renault,7,112.622,11,101.006,0,40.0,12
+7737,Sebastian Vettel,5,German,2020,Turkish Grand Prix,2020-11-15,1044,Ferrari,12,115.169,3,99.662,0,33.0,13
+7738,Charles Leclerc,16,Monegasque,2020,Turkish Grand Prix,2020-11-15,1044,Ferrari,14,116.696,4,99.961,0,97.0,5
+7739,Kimi Räikkönen,7,Finnish,2020,Turkish Grand Prix,2020-11-15,1044,Alfa Romeo,8,112.745,15,99.743,0,4.0,16
+7740,Antonio Giovinazzi,99,Italian,2020,Turkish Grand Prix,2020-11-15,1044,Alfa Romeo,10,113.431,,111.122,0,4.0,17
+7741,Max Verstappen,33,Dutch,2020,Turkish Grand Prix,2020-11-15,1044,Red Bull,2,108.055,6,98.431,1,170.0,3
+7742,Alexander Albon,23,Thai,2020,Turkish Grand Prix,2020-11-15,1044,Red Bull,4,110.44800000000001,7,99.09899999999999,0,70.0,9
+7743,Romain Grosjean,8,French,2020,Turkish Grand Prix,2020-11-15,1044,Haas F1 Team,19,132.909,,103.281,0,2.0,18
+7744,Kevin Magnussen,20,Danish,2020,Turkish Grand Prix,2020-11-15,1044,Haas F1 Team,16,128.007,17,100.94800000000001,0,1.0,19
+7745,Pierre Gasly,10,French,2020,Turkish Grand Prix,2020-11-15,1044,AlphaTauri,15,118.556,13,99.586,1,63.0,10
+7746,Daniil Kvyat,26,Russian,2020,Turkish Grand Prix,2020-11-15,1044,AlphaTauri,17,129.07,12,101.019,0,26.0,14
+7747,Sergio Pérez,11,Mexican,2020,Turkish Grand Prix,2020-11-15,1044,Racing Point,3,109.321,2,100.392,0,100.0,4
+7748,Lance Stroll,18,Canadian,2020,Turkish Grand Prix,2020-11-15,1044,Racing Point,1,107.765,9,99.92099999999999,0,59.0,11
+7749,Carlos Sainz,55,Spanish,2020,Bahrain Grand Prix,2020-11-29,1045,McLaren,15,88.975,5,93.411,0,85.0,8
+7750,Lando Norris,4,British,2020,Bahrain Grand Prix,2020-11-29,1045,McLaren,9,88.542,4,93.588,0,86.0,7
+7751,Lewis Hamilton,44,British,2020,Bahrain Grand Prix,2020-11-29,1045,Mercedes,1,87.264,1,92.864,11,332.0,1
+7752,Valtteri Bottas,77,Finnish,2020,Bahrain Grand Prix,2020-11-29,1045,Mercedes,2,87.553,8,93.352,2,201.0,2
+7753,George Russell,63,British,2020,Bahrain Grand Prix,2020-11-29,1045,Williams,14,89.294,12,95.042,0,0.0,21
+7754,Nicholas Latifi,6,Canadian,2020,Bahrain Grand Prix,2020-11-29,1045,Williams,20,90.182,14,94.59100000000001,0,0.0,20
+7755,Daniel Ricciardo,3,Australian,2020,Bahrain Grand Prix,2020-11-29,1045,Renault,6,88.417,7,92.827,0,102.0,4
+7756,Esteban Ocon,31,French,2020,Bahrain Grand Prix,2020-11-29,1045,Renault,7,88.419,9,94.354,0,42.0,12
+7757,Sebastian Vettel,5,German,2020,Bahrain Grand Prix,2020-11-29,1045,Ferrari,11,89.142,13,93.86099999999999,0,33.0,13
+7758,Charles Leclerc,16,Monegasque,2020,Bahrain Grand Prix,2020-11-29,1045,Ferrari,12,89.137,10,93.625,0,98.0,6
+7759,Kimi Räikkönen,7,Finnish,2020,Bahrain Grand Prix,2020-11-29,1045,Alfa Romeo,17,89.81,15,93.57300000000001,0,4.0,16
+7760,Antonio Giovinazzi,99,Italian,2020,Bahrain Grand Prix,2020-11-29,1045,Alfa Romeo,16,89.491,16,94.536,0,4.0,17
+7761,Max Verstappen,33,Dutch,2020,Bahrain Grand Prix,2020-11-29,1045,Red Bull,3,87.678,2,92.01400000000001,1,189.0,3
+7762,Alexander Albon,23,Thai,2020,Bahrain Grand Prix,2020-11-29,1045,Red Bull,4,88.274,3,93.684,0,85.0,9
+7763,Romain Grosjean,8,French,2020,Bahrain Grand Prix,2020-11-29,1045,Haas F1 Team,19,90.138,,,0,2.0,18
+7764,Kevin Magnussen,20,Danish,2020,Bahrain Grand Prix,2020-11-29,1045,Haas F1 Team,18,90.111,17,95.241,0,1.0,19
+7765,Pierre Gasly,10,French,2020,Bahrain Grand Prix,2020-11-29,1045,AlphaTauri,8,88.44800000000001,6,94.81700000000001,1,71.0,10
+7766,Daniil Kvyat,26,Russian,2020,Bahrain Grand Prix,2020-11-29,1045,AlphaTauri,10,88.618,11,94.14099999999999,0,26.0,14
+7767,Sergio Pérez,11,Mexican,2020,Bahrain Grand Prix,2020-11-29,1045,Racing Point,5,88.322,18,93.62899999999999,0,100.0,5
+7768,Lance Stroll,18,Canadian,2020,Bahrain Grand Prix,2020-11-29,1045,Racing Point,13,88.679,,,0,59.0,11
+7769,Carlos Sainz,55,Spanish,2020,Sakhir Grand Prix,2020-12-06,1046,McLaren,8,53.818,4,57.165,0,97.0,7
+7770,Lando Norris,4,British,2020,Sakhir Grand Prix,2020-12-06,1046,McLaren,15,54.194,10,57.27,0,87.0,9
+7771,Valtteri Bottas,77,Finnish,2020,Sakhir Grand Prix,2020-12-06,1046,Mercedes,1,53.377,8,56.563,2,205.0,2
+7772,George Russell,63,British,2020,Sakhir Grand Prix,2020-12-06,1046,Mercedes,2,53.403,9,55.404,0,3.0,18
+7773,Nicholas Latifi,6,Canadian,2020,Sakhir Grand Prix,2020-12-06,1046,Williams,17,54.796,,58.206,0,0.0,21
+7774,Jack Aitken,89,British,2020,Sakhir Grand Prix,2020-12-06,1046,Williams,18,54.892,16,57.392,0,0.0,22
+7775,Daniel Ricciardo,3,Australian,2020,Sakhir Grand Prix,2020-12-06,1046,Renault,7,53.871,5,56.979,0,112.0,5
+7776,Esteban Ocon,31,French,2020,Sakhir Grand Prix,2020-12-06,1046,Renault,11,53.995,2,57.35,0,60.0,12
+7777,Sebastian Vettel,5,German,2020,Sakhir Grand Prix,2020-12-06,1046,Ferrari,13,54.175,12,56.905,0,33.0,13
+7778,Charles Leclerc,16,Monegasque,2020,Sakhir Grand Prix,2020-12-06,1046,Ferrari,4,53.613,,,0,98.0,6
+7779,Kimi Räikkönen,7,Finnish,2020,Sakhir Grand Prix,2020-12-06,1046,Alfa Romeo,19,54.963,14,57.375,0,4.0,16
+7780,Antonio Giovinazzi,99,Italian,2020,Sakhir Grand Prix,2020-12-06,1046,Alfa Romeo,14,54.377,13,56.887,0,4.0,17
+7781,Max Verstappen,33,Dutch,2020,Sakhir Grand Prix,2020-12-06,1046,Red Bull,3,53.433,,,1,189.0,3
+7782,Alexander Albon,23,Thai,2020,Sakhir Grand Prix,2020-12-06,1046,Red Bull,12,54.026,6,57.056,0,93.0,8
+7783,Kevin Magnussen,20,Danish,2020,Sakhir Grand Prix,2020-12-06,1046,Haas F1 Team,16,54.705,15,57.516,0,1.0,20
+7784,Pietro Fittipaldi,51,Brazilian,2020,Sakhir Grand Prix,2020-12-06,1046,Haas F1 Team,20,55.426,17,57.742,0,0.0,23
+7785,Pierre Gasly,10,French,2020,Sakhir Grand Prix,2020-12-06,1046,AlphaTauri,9,53.941,11,57.22,1,71.0,11
+7786,Daniil Kvyat,26,Russian,2020,Sakhir Grand Prix,2020-12-06,1046,AlphaTauri,6,53.856,7,57.001,0,32.0,14
+7787,Sergio Pérez,11,Mexican,2020,Sakhir Grand Prix,2020-12-06,1046,Racing Point,5,53.787,1,56.789,1,125.0,4
+7788,Lance Stroll,18,Canadian,2020,Sakhir Grand Prix,2020-12-06,1046,Racing Point,10,53.84,3,57.388,0,74.0,10
+7789,Carlos Sainz,55,Spanish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,McLaren,6,95.815,6,101.947,0,105.0,6
+7790,Lando Norris,4,British,2020,Abu Dhabi Grand Prix,2020-12-13,1047,McLaren,4,95.497,5,101.964,0,97.0,9
+7791,Lewis Hamilton,44,British,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Mercedes,3,95.332,3,101.42,11,347.0,1
+7792,Valtteri Bottas,77,Finnish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Mercedes,2,95.271,2,101.131,2,223.0,2
+7793,George Russell,63,British,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Williams,18,98.045,15,103.328,0,3.0,18
+7794,Nicholas Latifi,6,Canadian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Williams,20,98.443,17,102.497,0,0.0,21
+7795,Daniel Ricciardo,3,Australian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Renault,12,96.406,7,100.926,0,119.0,5
+7796,Esteban Ocon,31,French,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Renault,11,96.35900000000001,9,102.894,0,62.0,12
+7797,Sebastian Vettel,5,German,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Ferrari,13,96.631,14,101.475,0,33.0,13
+7798,Charles Leclerc,16,Monegasque,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Ferrari,9,95.881,13,101.908,0,98.0,8
+7799,Kimi Räikkönen,7,Finnish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Alfa Romeo,16,97.555,12,102.148,0,4.0,16
+7800,Antonio Giovinazzi,99,Italian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Alfa Romeo,14,97.075,16,101.675,0,4.0,17
+7801,Max Verstappen,33,Dutch,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Red Bull,1,95.24600000000001,1,100.958,2,214.0,3
+7802,Alexander Albon,23,Thai,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Red Bull,5,95.571,4,101.227,0,105.0,7
+7803,Kevin Magnussen,20,Danish,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Haas F1 Team,17,97.863,18,101.999,0,1.0,20
+7804,Pietro Fittipaldi,51,Brazilian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Haas F1 Team,19,98.173,19,101.707,0,0.0,23
+7805,Pierre Gasly,10,French,2020,Abu Dhabi Grand Prix,2020-12-13,1047,AlphaTauri,10,96.24199999999999,8,102.47399999999999,1,75.0,10
+7806,Daniil Kvyat,26,Russian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,AlphaTauri,7,95.963,11,102.70400000000001,0,32.0,14
+7807,Sergio Pérez,11,Mexican,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Racing Point,15,96.03399999999999,,103.263,1,125.0,4
+7808,Lance Stroll,18,Canadian,2020,Abu Dhabi Grand Prix,2020-12-13,1047,Racing Point,8,96.04599999999999,10,101.866,0,75.0,11
+7809,Nick Heidfeld,,German,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,11,85.504,10,88.283,0,0.0,10
+7810,Robert Kubica,88,Polish,2009,Australian Grand Prix,2009-03-29,1,BMW Sauber,4,85.152,14,87.988,0,0.0,14
+7811,Nico Rosberg,6,German,2009,Australian Grand Prix,2009-03-29,1,Williams,5,85.123,6,87.706,0,3.0,6
+7812,Fernando Alonso,14,Spanish,2009,Australian Grand Prix,2009-03-29,1,Renault,12,85.605,5,88.712,0,4.0,5
+7813,Kimi Räikkönen,7,Finnish,2009,Australian Grand Prix,2009-03-29,1,Ferrari,9,85.38,15,88.488,0,0.0,15
+7814,Sébastien Bourdais,,French,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,20,86.964,8,89.82300000000001,0,1.0,8
+7815,Sébastien Buemi,,Swiss,2009,Australian Grand Prix,2009-03-29,1,Toro Rosso,16,86.503,7,89.23,0,2.0,7
+7816,Timo Glock,,German,2009,Australian Grand Prix,2009-03-29,1,Toyota,6,85.281,4,88.416,0,5.0,4
+7817,Jarno Trulli,,Italian,2009,Australian Grand Prix,2009-03-29,1,Toyota,8,85.265,3,88.916,0,6.0,3
+7818,Mark Webber,,Australian,2009,Australian Grand Prix,2009-03-29,1,Red Bull,10,85.241,12,88.508,0,0.0,12
+7819,Sebastian Vettel,5,German,2009,Australian Grand Prix,2009-03-29,1,Red Bull,3,85.121,13,88.14,0,0.0,13
+7820,Adrian Sutil,99,German,2009,Australian Grand Prix,2009-03-29,1,Force India,19,86.742,9,88.943,0,0.0,9
+7821,Giancarlo Fisichella,,Italian,2009,Australian Grand Prix,2009-03-29,1,Force India,18,86.67699999999999,11,89.005,0,0.0,11
+7822,Jenson Button,22,British,2009,Australian Grand Prix,2009-03-29,1,Brawn,1,84.855,1,88.02,1,10.0,1
+7823,Rubens Barrichello,,Brazilian,2009,Australian Grand Prix,2009-03-29,1,Brawn,2,84.783,2,89.066,0,8.0,2
+7824,Ralf Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Williams,11,92.22,3,,0,4.0,3
+7825,Nick Heidfeld,,German,2000,Australian Grand Prix,2000-03-12,158,Prost,15,93.024,9,,0,0.0,9
+7826,Marc Gené,,Spanish,2000,Australian Grand Prix,2000-03-12,158,Minardi,18,93.261,8,,0,0.0,8
+7827,Rubens Barrichello,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,Ferrari,4,91.102,2,,0,6.0,2
+7828,Michael Schumacher,,German,2000,Australian Grand Prix,2000-03-12,158,Ferrari,3,91.075,1,,1,10.0,1
+7829,Jacques Villeneuve,,Canadian,2000,Australian Grand Prix,2000-03-12,158,BAR,8,91.968,4,,0,3.0,4
+7830,Ricardo Zonta,,Brazilian,2000,Australian Grand Prix,2000-03-12,158,BAR,16,93.11699999999999,6,,0,1.0,6
+7831,Giancarlo Fisichella,,Italian,2000,Australian Grand Prix,2000-03-12,158,Benetton,9,91.992,5,,0,2.0,5
+7832,Alexander Wurz,,Austrian,2000,Australian Grand Prix,2000-03-12,158,Benetton,14,92.775,7,,0,0.0,7
+7833,Ralf Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Williams,8,92.691,3,,0,4.0,3
+7834,Heinz-Harald Frentzen,,German,1999,Australian Grand Prix,1999-03-07,175,Jordan,5,92.27600000000001,2,,0,6.0,2
+7835,Michael Schumacher,,German,1999,Australian Grand Prix,1999-03-07,175,Ferrari,3,91.781,8,,0,0.0,8
+7836,Eddie Irvine,,British,1999,Australian Grand Prix,1999-03-07,175,Ferrari,6,92.289,1,,1,10.0,1
+7837,Giancarlo Fisichella,,Italian,1999,Australian Grand Prix,1999-03-07,175,Benetton,7,92.53999999999999,4,,0,3.0,4
+7838,Rubens Barrichello,,Brazilian,1999,Australian Grand Prix,1999-03-07,175,Stewart,4,92.148,5,,0,2.0,5
+7839,Pedro de la Rosa,,Spanish,1999,Australian Grand Prix,1999-03-07,175,Arrows,18,94.244,6,,0,1.0,6
+7840,Toranosuke Takagi,,Japanese,1999,Australian Grand Prix,1999-03-07,175,Arrows,17,94.182,7,,0,0.0,7

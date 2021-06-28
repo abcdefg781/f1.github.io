@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+print("test_function_mintime.py")
+
 drivers_df = pd.read_csv("./f1db_csv/drivers.csv").drop(columns = "url")
 lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv")
 results_df = pd.read_csv("./f1db_csv/results.csv")
