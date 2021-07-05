@@ -121,7 +121,7 @@ minlap_df = pd.read_csv("./f1db_csv/min_laps.csv")
 quali_form_df = pd.read_csv("./f1db_csv/quali_form.csv")
 quali_form_df['date'] = pd.to_datetime(quali_form_df['date'])
 #quali_form_df = driver_history_df.merge(minlap_df,on='raceId')
-driver_history_df.drop(columns='raceId',inplace=True)
+#driver_history_df.drop(columns='raceId',inplace=True)
 
 #rbf graph df
 #rbf_df = pd.read_csv("./rbf_csv/rbfoutput.csv",header=None)
@@ -163,9 +163,28 @@ def create_driver_table(driver_name_1):
 	driver_1_table = driver_1_table.drop(driver_1_table.columns[0:4], axis=1)
 	return driver_1_table
 
+def driver_history_comparison(driver_name):
+    driver_table = driver_history_df[driver_history_df.driverName == driver_name]
+    driver_table = driver_table.sort_values("date", ascending = False)
+    driver_table.drop(['number','nationality','Unnamed: 0'],axis=1, inplace=True)
+    return driver_table
+
+def getYearComparison(driver1_df,driver2_df,year):
+    driver1_df_year = driver1_df[driver1_df['year']==year]
+    driver2_df_year = driver2_df[driver2_df['year']==year]
+    merged_df = driver1_df_year.merge(driver2_df_year,on='raceId',how='inner')
+    #merged_df = pd.concat([driver1_df_year,driver2_df_year],axis=0,ignore_index=True)
+    merged_df.sort_values('raceId',inplace=True)
+    
+    merged_df['qualigap'] = merged_df['minQualifyingTime_x']-merged_df['minQualifyingTime_y']
+    merged_df['minqualitime'] = merged_df[['minQualifyingTime_x','minQualifyingTime_y']].min(axis=1)
+    merged_df['qualigap_percent'] = 100*merged_df['qualigap']/merged_df['minqualitime']
+    return merged_df
+
+
 class dataContainer:
 	def __init__(self):
-		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Styrian Grand Prix")
+		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Austrian Grand Prix")
 		self.driver_history_table = create_driver_table("Lewis Hamilton")
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
 		
@@ -792,7 +811,7 @@ app.layout = dbc.Container(
 								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
 							),
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Styrian Grand Prix',clearable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Austrian Grand Prix',clearable=False)
 							)
 						]),
 						dbc.Row([
@@ -850,6 +869,33 @@ app.layout = dbc.Container(
 						html.P("Select one driver to view their history. It is possible to search the dropdown menu"),
 						dcc.Dropdown(className='div-for-dropdown',id='all_drivers', clearable=False,value='Lewis Hamilton'),    
 						html.Div(id='my-table')
+				]),
+				dbc.Tab(label = "Driver Comparison", tab_id="drivercomparison", children = [
+						html.Br(),
+						html.P("Select two drivers to view their compared statistics. It is possible to search the dropdown menu"),
+						dbc.Row([
+							dbc.Col([
+						dcc.Dropdown(className='div-for-dropdown',id='all_drivers_2', clearable=False,value='Lewis Hamilton')]),
+							dbc.Col([  
+						dcc.Dropdown(className='div-for-dropdown',id='all_drivers_3', clearable=False,value='Max Verstappen')])]),
+						dbc.Row([
+						dbc.Col([   
+						dcc.Graph(className='div-for-charts',id='drivercomparisongraph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
+						]),
+						dbc.Col([
+						dcc.Graph(className='div-for-charts',id='drivercomparisongraph2',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
+						])]),
+						html.Br(),
+						html.P("Select a year for detailed comparison"),
+						dbc.Row([
+							dbc.Col([dcc.Dropdown(className='div-for-dropdown',id='comparison_year', clearable=False,value='2021')]),
+							dbc.Col([]),
+							dbc.Col([]),
+							dbc.Col([])]),
+						html.Br(),
+						dcc.Graph(className='div-for-charts',id='drivercomparisongraph3',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
+						html.Br(),
+						dcc.Graph(className='div-for-charts',id='drivercomparisongraph4',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
 				]),
 				dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
 						dcc.Markdown('''
@@ -1083,6 +1129,7 @@ def update_delta_graph(deltaType,year,race_name):
 def update_driver_history(driver_name_1):
 	output = []
 	dataContainer.driver_history_table = create_driver_table(driver_name_1)
+	dataContainer.driver_history_table.drop('raceId',axis=1,inplace=True)
 	for i in range(len(dataContainer.driver_history_table.year.unique())): 
 		year = dataContainer.driver_history_table.year.unique()[i]
 		driver_table_year = dataContainer.driver_history_table[dataContainer.driver_history_table.year==year]
@@ -1128,6 +1175,130 @@ def update_driver_history(driver_name_1):
 	driver_names = drivers_sorted.driverName.unique()
 	all_drivers = [{'label': i, 'value': i} for i in driver_names]
 	return output, all_drivers
+
+@app.callback(
+	[Output(component_id='drivercomparisongraph', component_property='figure'),Output(component_id='drivercomparisongraph2', component_property='figure'),Output(component_id='drivercomparisongraph3', component_property='figure'),Output(component_id='drivercomparisongraph4', component_property='figure'),Output(component_id='all_drivers_2', component_property='options'),Output(component_id='all_drivers_3', component_property='options'),Output(component_id='comparison_year', component_property='options')],
+	[Input(component_id='all_drivers_2', component_property='value'),Input(component_id='all_drivers_3', component_property='value'),Input(component_id='comparison_year', component_property='value')]
+)
+def update_driver_comparison(driver_name_1,driver_name_2,year):
+
+	driver1_df = driver_history_comparison(driver_name_1)
+	driver2_df = driver_history_comparison(driver_name_2)
+
+	#get season ending data for each driver
+	#unique years
+	driver1_df_byyear = [y for x,y in driver1_df.groupby('year',as_index=False)]
+	driver2_df_byyear = [y for x,y in driver2_df.groupby('year',as_index=False)]
+
+	driver1_standings = []
+	driver1_points = []
+	driver1_years = []
+	driver2_standings = []
+	driver2_points = []
+	driver2_years = []
+
+	for i in range(len(driver1_df_byyear)):
+		driver1_df_year = driver1_df_byyear[i].sort_values(by='date',ascending=False)
+		driver1_years.append(driver1_df_year['year'].iloc[0])
+		driver1_points.append(driver1_df_year['points'].iloc[0])
+		driver1_standings.append(driver1_df_year['driverStanding'].iloc[0])
+
+	for i in range(len(driver2_df_byyear)):
+		driver2_df_year = driver2_df_byyear[i].sort_values(by='date',ascending=False)
+		driver2_years.append(driver2_df_year['year'].iloc[0])
+		driver2_points.append(driver2_df_year['points'].iloc[0])
+		driver2_standings.append(driver2_df_year['driverStanding'].iloc[0])
+
+
+
+
+	drivers_sorted = driver_history_df.sort_values("driverName")
+	driver_names = drivers_sorted.driverName.unique()
+	all_drivers = [{'label': i, 'value': i} for i in driver_names]
+
+	fig = go.Figure()
+	line = go.Scatter(x=driver1_years,y=driver1_standings,mode='lines+markers',name=driver_name_1,line=go.scatter.Line(color='orangered'))
+	line2 = go.Scatter(x=driver2_years,y=driver2_standings,mode='lines+markers',name=driver_name_2,line=go.scatter.Line(color='cornflowerblue'))
+	fig.add_trace(line)
+	fig.add_trace(line2)
+
+	fig.update_layout(yaxis_range=[0.9,max([max(driver2_standings),max(driver1_standings)])])
+
+	fig.update_layout(plot_bgcolor="#323130",
+			paper_bgcolor="#323130",font=dict(color="white"),
+			xaxis_title="Year",
+			yaxis_title="Driver Championship Position",
+			showlegend=True,
+			hovermode='x unified',
+			margin = dict(l=20,r=20,t=20,b=20)
+
+			)
+
+	fig2 = go.Figure()
+	line = go.Scatter(x=driver1_years,y=driver1_points,mode='lines+markers',name=driver_name_1,line=go.scatter.Line(color='orangered'))
+	line2 = go.Scatter(x=driver2_years,y=driver2_points,mode='lines+markers',name=driver_name_2,line=go.scatter.Line(color='cornflowerblue'))
+	fig2.add_trace(line)
+	fig2.add_trace(line2)
+
+
+	fig2.update_layout(plot_bgcolor="#323130",
+			paper_bgcolor="#323130",font=dict(color="white"),
+			xaxis_title="Year",
+			yaxis_title="Driver Championship Points",
+			showlegend=True,
+			hovermode='x unified',
+			margin = dict(l=20,r=20,t=20,b=20)
+
+			)
+
+	overlapping_years = list(set(driver1_years).intersection(set(driver2_years)))
+	overlapping_years.sort(reverse=True)
+	overlapping_years_object = [{'label': i, 'value': i} for i in overlapping_years]
+
+	merged_df = getYearComparison(driver1_df,driver2_df,year).sort_values('date_x')
+	merged_df['hovertext'] = [0]*len(merged_df['qualigap'])
+	for i in range(len(merged_df['qualigap'])):
+		gap = merged_df['qualigap'][i]
+		if gap > 0:
+			merged_df['hovertext'][i] = driver_name_2+" is ahead of "+driver_name_1+" by "+"{:.3f}".format(gap)+" s"
+		elif gap<0:
+			merged_df['hovertext'][i] = driver_name_1+" is ahead of "+driver_name_2+" by "+"{:.3f}".format(-gap)+" s"
+		else:
+			merged_df['hovertext'][i] = "Drivers have equal time"
+	fig3 = go.Figure()
+	line = go.Scatter(x=merged_df['name_x'],y=merged_df['qualigap'],mode='lines+markers',name='Qualification gap',line=go.scatter.Line(color='orangered'),customdata=merged_df['hovertext'],hovertemplate=
+			'<br>%{customdata}')
+	yaxis_title = "Gap from "+driver_name_2+" to "+driver_name_1
+	fig3.add_trace(line)
+
+	fig3.update_layout(plot_bgcolor="#323130",
+			paper_bgcolor="#323130",font=dict(color="white"),
+			xaxis_title="Race",
+			yaxis_title=yaxis_title,
+			showlegend=True,
+			hovermode='x unified',
+			margin = dict(l=20,r=20,t=20,b=20)
+
+			)
+
+	fig4 = go.Figure()
+	line = go.Scatter(x=merged_df['name_x'],y=merged_df['racePosition_x'],mode='lines+markers',name=driver_name_1,line=go.scatter.Line(color='orangered'))
+	line2 = go.Scatter(x=merged_df['name_x'],y=merged_df['racePosition_y'],mode='lines+markers',name=driver_name_2,line=go.scatter.Line(color='cornflowerblue'))
+	fig4.add_trace(line)
+	fig4.add_trace(line2)
+
+	fig4.update_layout(plot_bgcolor="#323130",
+			paper_bgcolor="#323130",font=dict(color="white"),
+			xaxis_title="Race",
+			yaxis_title="Final Race Position",
+			showlegend=True,
+			hovermode='x unified',
+			margin = dict(l=20,r=20,t=20,b=20)
+
+			)
+
+
+	return fig,fig2,fig3,fig4,all_drivers,all_drivers,overlapping_years_object
 
 @app.callback(
 	Output(component_id='qualiFormGraph', component_property='figure'),
