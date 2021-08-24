@@ -17,3 +17,6 @@ rbf_csv/yt_portimao_extended.csv
 rbf_csv/.DS_Store
 .DS_Store
 clcd.py
+*.pyc
+*.pyc
+.DS_Store

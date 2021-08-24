@@ -1,3 +1,4 @@
+from os import stat
 import time
 
 # import matplotlib as mpl
@@ -188,7 +189,7 @@ class dataContainer:
 		self.driver_history_table = create_driver_table("Lewis Hamilton")
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
 		
-		self.num_functions = 3
+		self.num_functions = 5
 		self.updateTrack(tracks.Bahrain_short)
 	
 		self.prevTrace = 0
@@ -200,30 +201,30 @@ class dataContainer:
 		self.flipY = False
 
 		if track == tracks.Bahrain_short:
-			sfile = "./rbf_csv/s_bahrain_short.csv"
-			ytfile = "./rbf_csv/yt_bahrain_short.csv"
-			xtfile = "./rbf_csv/xt_bahrain_short.csv"
+			sfile = "./rbf_csv/s_Bahrain_short.csv"
+			ytfile = "./rbf_csv/yt_Bahrain_short.csv"
+			xtfile = "./rbf_csv/xt_Bahrain_short.csv"
 			initial_direction = np.array([-1,0])
 			self.trackWidth = 14
 			trackname='bahrain_short'
 
 		elif track == tracks.Bahrain:
-			sfile = "./rbf_csv/s_bahrain.csv"
-			ytfile = "./rbf_csv/yt_bahrain.csv"
-			xtfile = "./rbf_csv/xt_bahrain.csv"
+			sfile = "./rbf_csv/s_Bahrain.csv"
+			ytfile = "./rbf_csv/yt_Bahrain.csv"
+			xtfile = "./rbf_csv/xt_Bahrain.csv"
 			initial_direction = np.array([-1,0])
 			self.trackWidth = 14
 			trackname='bahrain'
 		elif track == tracks.Barcelona:
-			sfile = "./rbf_csv/s_barcelona.csv"
-			ytfile = "./rbf_csv/yt_barcelona.csv"
-			xtfile = "./rbf_csv/xt_barcelona.csv"
+			sfile = "./rbf_csv/s_Barcelona.csv"
+			ytfile = "./rbf_csv/yt_Barcelona.csv"
+			xtfile = "./rbf_csv/xt_Barcelona.csv"
 			self.trackWidth = 10
 			trackname='barcelona'
 		elif track == tracks.AbuDhabi:
-			sfile = "./rbf_csv/s_abudhabi.csv"
-			ytfile = "./rbf_csv/yt_abudhabi.csv"
-			xtfile = "./rbf_csv/xt_abudhabi.csv"
+			sfile = "./rbf_csv/s_AbuDhabi.csv"
+			ytfile = "./rbf_csv/yt_AbuDhabi.csv"
+			xtfile = "./rbf_csv/xt_AbuDhabi.csv"
 
 			self.trackWidth = 14
 			initial_direction = np.array([0,-1])
@@ -231,9 +232,9 @@ class dataContainer:
 			trackname='abudhabi'
 
 		elif track == tracks.Portimao:
-			sfile = "./rbf_csv/s_portimao.csv"
-			ytfile = "./rbf_csv/yt_portimao.csv"
-			xtfile = "./rbf_csv/xt_portimao.csv"
+			sfile = "./rbf_csv/s_Portimao.csv"
+			ytfile = "./rbf_csv/yt_Portimao.csv"
+			xtfile = "./rbf_csv/xt_Portimao.csv"
 
 			self.trackWidth = 14
 			initial_direction = np.array([-1,0])
@@ -292,7 +293,7 @@ class dataContainer:
 
 		V = yt[:,0:self.num_nodes]
 		self.trackColorScale = [np.amin(V)-1,np.amax(V)+1]
-		self.trackDeltaColorScale = [-20,20]
+		self.trackDeltaColorScale = [-0.,70]
 		# self.s = s_df.iloc[0].to_numpy()
 		self.s = s_df[0]
 
@@ -567,7 +568,7 @@ class dataContainer:
 		x = x/normalizefactors
 		# self.y = self.sm.predict(np.atleast_2d(x))[0]
 		self.y = self.sm.getGuess(x)
-		self.laptime = self.y[self.num_nodes*2-1]
+		self.laptime = self.y[-1]
 
 	def plotTraceGraph(self,state):
 		s = self.s
@@ -575,9 +576,13 @@ class dataContainer:
 		if state == 0:
 			ylabel = 'Velocity (km/h)'
 		elif state == 1:
-			ylabel = 'Time (s)'
-		else:
 			ylabel = 'Distance from centerline (m)'
+		elif state == 2:
+			ylabel = 'Longitudinal acceleration (g)'
+		elif state == 3:
+			ylabel = 'Lateral acceleration (g)'
+		else:
+			ylabel = "Lap time (s)"
 		
 		num_nodes = self.num_nodes
 
@@ -588,6 +593,8 @@ class dataContainer:
 			y = self.yt[i,num_nodes*(state):num_nodes*(state+1)]
 			if state==0:
 				y = y*3.6
+			elif (state == 2 or state==3):
+				y = y/9.8
 			line = go.Scatter(x=s,y=y,opacity=0.2,line=dict(color='royalblue', width=1),hoverinfo='skip')
 			fig.add_trace(line)
 
@@ -608,6 +615,8 @@ class dataContainer:
 		y = self.y[num_nodes*(state):num_nodes*(state+1)]
 		if state==0:
 			y = y*3.6
+		elif (state == 2 or state==3):
+			y = y/9.8
 
 		line = go.Scatter(x=s,y=y,mode='lines',line=dict(color='deepskyblue', width=4),name=ylabel)
 		fig.add_trace(line)
@@ -628,24 +637,53 @@ class dataContainer:
 		
 		return fig
 
-	def plotTrackGraph(self,absolute):
+	def plotTrackGraph(self,absolute,state_index):
 		y = self.y
 		num_nodes = self.num_nodes
-		func_index = 2
+		func_index = 1
 		n = y[num_nodes*(func_index):num_nodes*(func_index+1)]
-		func_index = 0
-		V = y[num_nodes*(func_index):num_nodes*(func_index+1)]
-		V = V*3.6
-		baselineV = self.baseliney[num_nodes*(func_index):num_nodes*(func_index+1)]
-		baselineV = baselineV*3.6
+		func_index = state_index
+		state = y[num_nodes*(func_index):num_nodes*(func_index+1)]
+		state_all = self.yt[:,num_nodes*(func_index):num_nodes*(func_index+1)]
+		colormap = "turbo"
+		
+		self.trackDeltaColorScale = [5,-5]
+		self.trackColorScale = np.array([np.amin(state_all),np.amax(state_all)])
+
+		if (state_index == 0):
+			state = state*3.6
+			self.trackColorScale = self.trackColorScale*3.6
+			self.trackDeltaColorScale = [-70,70]
+			colorlabel = "Velocity (km/h)"
+		elif (state_index == 2 or state_index == 3):
+			state = state/9.8
+			
+			self.trackColorScale = self.trackColorScale/9.8
+			if (state_index == 2):
+				colorlabel = "Longitudinal acceleration (g)"
+				self.trackDeltaColorScale = [-2,2]
+			else:
+				colorlabel = "Lateral acceleration (g)"
+				self.trackDeltaColorScale = [-3,3]
+		elif (state_index == 1):
+			colorlabel = "Distance from centerline (m)"
+		else:
+			colorlabel = "Time (s)"
+
+		baselinestate = self.baseliney[num_nodes*(func_index):num_nodes*(func_index+1)]
+		if (state_index == 0):
+			baselinestate = baselinestate*3.6
+		elif (state_index == 2 or state_index == 3):
+			baselinestate = baselinestate/9.8
+
 		# if xaxisrange is not None:
 		# 	markersize = np.maximum(15-((xaxisrange[1]-xaxisrange[0])*0.01),self.dx/400)
 		# else:
 		markersize = self.dx/400
 		if absolute==0:
-			line_array = self.plotTrackWithData(n,V,markersize=markersize,colormap='rainbow')
+			line_array = self.plotTrackWithData(n,state,colorlabel,markersize=markersize,colormap=colormap)
 		else:
-			line_array = self.plotTrackWithData(n,V,baselineV,markersize=markersize,colormap='rainbow')
+			line_array = self.plotTrackWithData(n,state,colorlabel,baselinestate,markersize=markersize,colormap=colormap)
 
 		n1 = self.trackWidth/2 * np.ones(len(self.finespline[0]))
 		n2 = -self.trackWidth/2 * np.ones(len(self.finespline[0]))
@@ -694,7 +732,7 @@ class dataContainer:
 
 		return fig
 
-	def plotTrackWithData(self,n,state,baselinestate=None,markersize=4,colormap='rainbow'):
+	def plotTrackWithData(self,n,state,colorlabel,baselinestate=None,markersize=4,colormap='rainbow'):
 		s = self.s
 		finespline = np.array(self.finespline)
 		s_final = self.trackLength
@@ -757,26 +795,35 @@ class dataContainer:
 			
 			#line_array.append(go.Scatter(x=[point[0],prevpoint[0]],y=[point[1],prevpoint[1]],line=dict(color=color,width=1),hoverinfo='skip',mode='lines'))
 		if baselinestate is not None:
-			cmax = self.trackDeltaColorScale[1]*3.6
-			cmin = self.trackDeltaColorScale[0]*3.6
+			cmax = self.trackDeltaColorScale[1]
+			cmin = self.trackDeltaColorScale[0]
 		else:
-			cmax = self.trackColorScale[1]*3.6
-			cmin = self.trackColorScale[0]*3.6
+			cmax = self.trackColorScale[1]
+			cmin = self.trackColorScale[0]
 
 		if self.flipX == True:
 			displacedSpline[0] = -displacedSpline[0]
 		if self.flipY == True:
 			displacedSpline[1] = -displacedSpline[1]
 
+		colorlabelParts = colorlabel.split(" ")
+		colorlabelName = " ".join(colorlabelParts[:-1])
+		colorlabelUnit = colorlabelParts[-1]
+
+		if baselinestate is not None:
+			colorlabelName = "Relative "+colorlabelName.lower()
+			colorlabel = "Relative "+colorlabel.lower()
+
+		
 		line_array.append(go.Scatter(x=displacedSpline[0],y=displacedSpline[1],marker=dict(
 			size=markersize,
 			cmax=cmax,
 			cmin=cmin,
 			color=interp_state_array,
-			colorbar=dict(title="Velocity (km/h)"),
+			colorbar=dict(title=colorlabel),
 			colorscale=colormap),
 			customdata=np.vstack((interp_state_array,s_new)).T,
-			hovertemplate = 'Velocity: %{customdata[0]: .2f} km/h<br>Distance: %{customdata[1]:.2f} m<extra></extra>',
+			hovertemplate = colorlabelName+': %{customdata[0]: .2f} '+colorlabelUnit[1:-1]+'<br>Distance: %{customdata[1]:.2f} m<extra></extra>',
 			mode='markers'))
 		
 		return line_array
@@ -969,7 +1016,7 @@ app.layout = dbc.Container(
 				]),
 				dbc.Tab(label="Lap simulation",tab_id="lapsimulation",children= [
 					html.Br(),
-					html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
+					html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization problem of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
 					html.P('A telemetry plot is displayed below, with a choice of which data trace to display. The semi-transparent lines represent all the entries in the DOE. Below that graph, the optimal racing line of the vehicle is shown, colored by the velocity. The user can choose between the absolute velocity, and a velocity relative to a vehicle with mid-range design variables. Currently various tracks are available for evaluation, with more to be added in the future.'),
 					html.Br(),
 					html.P('Choose the track:'),
@@ -1004,7 +1051,7 @@ app.layout = dbc.Container(
 					dbc.Row([
 						dbc.Col([
 							html.P('Select a data trace to display:'),
-							dcc.Dropdown(id='traceradio',options=[{'label':'Velocity','value':0},{'label':'Time','value':1},{'label':'Distance from centerline','value':2}],value=0)
+							dcc.Dropdown(id='traceradio',options=[{'label':'Velocity','value':0},{'label':'Distance from centerline','value':1},{'label':'Longitudinal acceleration','value':2},{'label':'Lateral acceleration','value':3},{'label':'Lap time','value':4}],value=0)
 						]),
 						dbc.Col([
 							html.P('Select relative/absolute data for the track plot:'),
@@ -1400,8 +1447,10 @@ def update_track_graph(val1,val2,val3,absolute,radioval,track):
 	elif track == 4:
 		selectedTrack = tracks.Portimao
 
+	trackUpdated = False
 	if selectedTrack != dataContainer.track:
 		dataContainer.updateTrack(selectedTrack)
+		trackUpdated = True
 	#str1 = 'Center of pressure (front): '+str(np.round(val1,3))+' m'
 	str1 = 'Maximum power: '+str(np.round(val1,3))+' W'
 	str2 = 'Lift coefficient (ClA): '+str(np.round(val2,3))
@@ -1419,13 +1468,13 @@ def update_track_graph(val1,val2,val3,absolute,radioval,track):
 	#keys = ['xaxis.range[0]','xaxis.range[1]','yaxis.range[0]','yaxis.range[1]']
 	
 	#checking if we changed the telemetry trace. If we did we shouldn't take the time to update the track plot
-	if traceChanged == False:
+	# if traceChanged == False:
 		# if relayoutData is not None and keys[0] in relayoutData:
 		# 	xaxisrange = [relayoutData[keys[0]],relayoutData[keys[1]]]
 		# 	yaxisrange = [relayoutData[keys[2]],relayoutData[keys[3]]]
 		# 	dataContainer.trackfig = dataContainer.plotTrackGraph(absolute,xaxisrange,yaxisrange)
 		# else:
-		dataContainer.trackfig = dataContainer.plotTrackGraph(absolute)
+	dataContainer.trackfig = dataContainer.plotTrackGraph(absolute,radioval)
 
 	laptimestring = 'Lap time: '+str(np.round(dataContainer.laptime,3))+' s'
 
