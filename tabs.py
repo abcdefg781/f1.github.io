@@ -1,4 +1,4 @@
-from os import stat
+# from os import rename, stat
 import time
 
 # import matplotlib as mpl
@@ -85,7 +85,8 @@ app.index_string = """<!DOCTYPE html>
 # Import all the data
 
 drivers_df = pd.read_csv("./f1db_csv/drivers.csv").drop(columns = "url")
-lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv",usecols=["raceId", "driverId", "lap", "milliseconds"])
+lap_times_df = pd.read_csv("./f1db_csv/lap_times.csv",usecols=["raceId", "driverId", "lap", "milliseconds","position"])
+lap_times_df.rename(columns={"position":"lapPosition"},inplace=True)
 results_df = pd.read_csv("./f1db_csv/results.csv")
 constructors_df = pd.read_csv("./f1db_csv/constructors.csv")
 races_df = pd.read_csv("./f1db_csv/races.csv")
@@ -93,6 +94,7 @@ races_df.sort_values(by=['year','raceId'],inplace=True,ascending=False)
 driver_history_df = pd.read_csv("./f1db_csv/driver_history.csv")
 constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 standings_df = pd.read_csv("./f1db_csv/driver_standings.csv").drop(columns=['wins','position','positionText'])
+standings_df2 = pd.read_csv("./f1db_csv/driver_standings.csv")
 raw_predictions_df = pd.read_csv("./predictions/ei_2020_predictions.csv").iloc[:, 1:]
 # pr_predictions_df = pd.read_csv("./predictions/it_2020_pr_predictions.csv").iloc[:, 1:]
 
@@ -124,12 +126,9 @@ quali_form_df['date'] = pd.to_datetime(quali_form_df['date'])
 #quali_form_df = driver_history_df.merge(minlap_df,on='raceId')
 #driver_history_df.drop(columns='raceId',inplace=True)
 
-#rbf graph df
-#rbf_df = pd.read_csv("./rbf_csv/rbfoutput.csv",header=None)
-#s_df = pd.read_csv("./rbf_csv/s_bahrain.csv",header=None).to_numpy()
-#yt = pd.read_csv("./rbf_csv/yt_bahrain.csv",header=None).to_numpy()
-#xt = pd.read_csv("./rbf_csv/xt_bahrain.csv",header=None).to_numpy()
-
+# colors df 2
+colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
+colors_df.rename(columns={"name":"constructorName"},inplace=True)
 
 
 #slider values
@@ -185,7 +184,7 @@ def getYearComparison(driver1_df,driver2_df,year):
 
 class dataContainer:
 	def __init__(self):
-		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Hungarian Grand Prix")
+		self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Russian Grand Prix")
 		self.driver_history_table = create_driver_table("Lewis Hamilton")
 		self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
 		
@@ -827,6 +826,49 @@ class dataContainer:
 			mode='markers'))
 		
 		return line_array
+	
+	def plotYearViolin(self,year):
+		races_season = races_df[races_df["year"]==year]
+		raceid_list = races_season["raceId"]
+
+		#filter out lap times of the selected races
+		laptimes_df = lap_times_df[lap_times_df['raceId'].isin(raceid_list)]
+		driver_history_race = driver_history_df[driver_history_df['raceId'].isin(raceid_list)]
+		driver_history_race = pd.merge(driver_history_race,colors_df,on="constructorName")
+		
+		max_raceid = laptimes_df["raceId"].unique().max()
+		race_standings = standings_df2[standings_df['raceId']==max_raceid]
+
+		drivers = pd.DataFrame(laptimes_df["driverId"].unique(),columns=["driverId"])
+		drivers = pd.merge(drivers,race_standings,on="driverId")
+		drivers.sort_values('position',inplace=True)
+
+		fig = go.Figure()
+		for driver in drivers["driverId"]:
+			driver_entry = drivers_df[drivers_df["driverId"]==driver]
+			driver_name = driver_entry['driverName']
+			driver_name = driver_name.tolist()[0]
+			driver_laptimes_season = laptimes_df[laptimes_df["driverId"]==driver]
+			drivers_races_season = driver_history_race[driver_history_race["driverName"]==driver_name]
+			max_raceid = drivers_races_season["raceId"].max()
+			color = drivers_races_season[drivers_races_season["raceId"]==max_raceid]["color"]
+			color = color.tolist()[0]
+			driver_laptimes_season.sort_values('lapPosition',inplace=True)
+			violin = go.Violin(y=driver_laptimes_season["lapPosition"],bandwidth=0.5,points=False,scalemode="width",scalegroup="group",meanline_visible=True,opacity=0.8,hoveron="violins",x0=driver_name,name=driver_name,line_color='black',fillcolor=color)
+			fig.add_trace(violin)
+		fig.update_yaxes(type='category')
+		fig.update_yaxes(categoryorder='array', categoryarray= list(range(1,laptimes_df['lapPosition'].max(),1)))
+		fig.update_traces(spanmode="hard",line_width=1)
+		fig.update_layout(
+			yaxis= dict(tickmode='linear',tick0=1,dtick=1)
+		)
+		fig.update_layout(plot_bgcolor="#323130",
+					paper_bgcolor="#323130",font=dict(color="white"),
+					yaxis_title="Position",
+					title='Driver position for each lap',
+					margin = dict(l=20,r=20,t=40,b=20)
+					)
+		return fig
 
 
 #dataContainer object creation
@@ -848,7 +890,9 @@ app.layout = dbc.Container(
 						html.Br(),
 						html.P("Welcome to formulae.one. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
 						dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
-						dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}},style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
+						dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}},style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'}),
+						html.Br(),
+						dcc.Graph(className='div-for-charts',id='lap_violin',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}},style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
 					]),
 				dbc.Tab(label="Race Analysis", tab_id="raceanalysis", children = [
 						html.Br(),
@@ -858,7 +902,7 @@ app.layout = dbc.Container(
 								dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
 							),
 							dbc.Col(
-								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Hungarian Grand Prix',clearable=False)
+								dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Russian Grand Prix',clearable=False)
 							)
 						]),
 						dbc.Row([
@@ -1356,11 +1400,11 @@ def update_form_graph(chart_switch,quali_range):
 	return fig
 
 @app.callback(
-	Output(component_id='standings_graph',component_property='figure'),
+	[Output(component_id='standings_graph',component_property='figure'),Output(component_id='lap_violin',component_property='figure')],
 	[Input(component_id='standings_year', component_property='value')]
 )
 def update_standings_graph(year):
-	return dataContainer.plotStandingsGraph(year)
+	return [dataContainer.plotStandingsGraph(year),dataContainer.plotYearViolin(year)]
 
 # @app.callback(
 # 	Output(component_id='submit_message', component_property='children'),
