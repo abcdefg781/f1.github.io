@@ -185,7 +185,7 @@ def getYearComparison(driver1_df,driver2_df,year):
 
 class dataContainer:
     def __init__(self):
-        self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Russian Grand Prix")
+        self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Abu Dhabi Grand Prix")
         self.driver_history_table = create_driver_table("Lewis Hamilton")
         self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
         
@@ -903,7 +903,7 @@ app.layout = dbc.Container(
                                 dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
                             ),
                             dbc.Col(
-                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Russian Grand Prix',clearable=False)
+                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Abu Dhabi Grand Prix',clearable=False)
                             )
                         ]),
                         dbc.Row([
@@ -1077,19 +1077,19 @@ app.layout = dbc.Container(
                         dbc.Col([
                             html.Div(children=[
                                 html.Div(id='slider1text'),
-                                dcc.Slider(id='slider1',min=lbounds[0],max=ubounds[0],step=ubounds[0]/100,value=(ubounds[0]+lbounds[0])/2)
+                                dcc.Slider(id='slider1',min=lbounds[0],max=ubounds[0],step=ubounds[0]/100,value=(ubounds[0]+lbounds[0])/2, marks=None)
                             ])
                         ]),
                         dbc.Col([
                             html.Div(children=[
                                 html.Div(id='slider2text'),
-                                dcc.Slider(id='slider2',min=lbounds[1],max=ubounds[1],step=ubounds[1]/100,value=(ubounds[1]+lbounds[1])/2)
+                                dcc.Slider(id='slider2',min=lbounds[1],max=ubounds[1],step=ubounds[1]/100,value=(ubounds[1]+lbounds[1])/2, marks=None)
                             ])
                         ]),
                         dbc.Col([
                             html.Div(children=[
                                 html.Div(id='slider3text'),
-                                dcc.Slider(id='slider3',min=lbounds[2],max=ubounds[2],step=ubounds[2]/100,value=(ubounds[2]+lbounds[2])/2)
+                                dcc.Slider(id='slider3',min=lbounds[2],max=ubounds[2],step=ubounds[2]/100,value=(ubounds[2]+lbounds[2])/2, marks=None)
                             ])
                         ])
                     ]),
