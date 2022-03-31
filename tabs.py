@@ -46,6 +46,11 @@ from Track import Track
 import tracks
 import os
 
+from timple.timedelta import strftimedelta
+import fastf1
+import fastf1.plotting
+from fastf1.core import Laps
+
 
 BS = "https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css"
 app = dash.Dash(__name__, external_stylesheets = [dbc.themes.BOOTSTRAP])
@@ -81,6 +86,9 @@ app.index_string = """<!DOCTYPE html>
     </body>
 </html>"""
 
+####
+
+
 ################################################################
 # Import data and Functions
 # Import all the data
@@ -97,6 +105,25 @@ constructor_colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 standings_df = pd.read_csv("./f1db_csv/driver_standings.csv").drop(columns=['wins','position','positionText'])
 standings_df2 = pd.read_csv("./f1db_csv/driver_standings.csv")
 raw_predictions_df = pd.read_csv("./predictions/ei_2020_predictions.csv").iloc[:, 1:]
+
+last_race_with_results = np.amax(results_df["raceId"].unique())
+last_race_with_results_info = races_df[races_df["raceId"] == last_race_with_results]
+last_race_with_results_name = last_race_with_results_info["name"].iloc[0]
+last_race_with_results_round = last_race_with_results_info["round"].iloc[0]
+last_race_with_results_year = last_race_with_results_info["year"].iloc[0]
+
+#FastF1 configuration
+fastf1.Cache.enable_cache('./ff1cache')  # replace with your cache directory
+ff1_race = fastf1.get_session(last_race_with_results_year, last_race_with_results_round, 'R')
+ff1_laps = ff1_race.load_laps(False)
+ff1_results = ff1_race.results
+ff1_drivers_np = []
+for entry in ff1_results:
+    driver = entry["Driver"]
+    fullname = driver["givenName"] + " " + driver["familyName"]
+    ff1_drivers_np.append([driver["code"],fullname])
+ff1_drivers_df = pd.DataFrame(ff1_drivers_np,columns=['Driver','driverName'])
+
 # pr_predictions_df = pd.read_csv("./predictions/it_2020_pr_predictions.csv").iloc[:, 1:]
 
 # Clean some names and create new variables
@@ -131,6 +158,7 @@ quali_form_df['date'] = pd.to_datetime(quali_form_df['date'])
 colors_df = pd.read_csv("./f1db_csv/constructors_colors.csv")
 colors_df.rename(columns={"name":"constructorName"},inplace=True)
 
+ff1_laps = pd.merge(ff1_laps,ff1_drivers_df,how="inner",on="Driver")
 
 #slider values
 lbounds = np.array([600000,2.0,0.8])
@@ -185,7 +213,7 @@ def getYearComparison(driver1_df,driver2_df,year):
 
 class dataContainer:
     def __init__(self):
-        self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(2021, "Abu Dhabi Grand Prix")
+        self.race_table,self.year_races,self.color_palette,self.colored_df = create_race_table(last_race_with_results_year,last_race_with_results_name)
         self.driver_history_table = create_driver_table("Lewis Hamilton")
         self.driver_yr_history_table = create_driver_table("Lewis Hamilton")
         
@@ -871,6 +899,141 @@ class dataContainer:
                     )
         return fig
 
+    def plotPitStopGraph(self):
+        laptime_vs_tire = ff1_laps[["Driver","PitOutTime","PitInTime"]]
+
+        grouped_by_driver = [y for x,y in laptime_vs_tire.groupby("Driver",as_index=False)]
+        fig = go.Figure()
+        all_pitstops = []
+        for driver in grouped_by_driver:
+            driverName = driver.iloc[0]["Driver"]
+            driver["PitInTime"] = driver["PitInTime"].shift(1)
+            
+            driver.dropna(inplace=True,subset=["PitInTime","PitOutTime"])
+            
+            driver["TotalPitTime"] = (driver["PitOutTime"]-driver["PitInTime"])/np.timedelta64(1, 's')
+            if len(driver["TotalPitTime"]) > 0:
+                s = go.Scatter(x = driver["TotalPitTime"],y = [driverName]*len(driver["TotalPitTime"]),name=driverName,mode='markers', marker_line_width = 2, marker_size = 10)
+                fig.add_trace(s)
+                for time in driver["TotalPitTime"].to_numpy():
+                    all_pitstops.append(time)
+
+        mean_pitstop = np.mean(all_pitstops)
+        iqr = np.subtract(*np.percentile(all_pitstops, [75, 25]))
+        lower_q = np.percentile(all_pitstops, 25) - 1.5*iqr
+        upper_q = np.percentile(all_pitstops, 75) + 1.5*iqr
+
+        #fig.update_xaxes(range=[lower_q,upper_q])
+        fig.update_yaxes(categoryorder='category ascending',autorange="reversed")
+
+
+        fig.update_layout(plot_bgcolor="#323130",
+            paper_bgcolor="#323130",font=dict(color="white"),
+            xaxis_title="Total pit time (s)",
+            margin = dict(l=20,r=20,t=40,b=20),
+            showlegend=False
+        )
+
+        #boxplot for pitstops
+        fig2 = go.Figure()
+        box = go.Box(x=all_pitstops, name = "All pitstops")
+        fig2.add_trace(box)
+        #fig2.update_xaxes(range=[lower_q,upper_q])
+        fig2.update_yaxes(showticklabels=False)
+
+        fig2.update_layout(plot_bgcolor="#323130",
+            paper_bgcolor="#323130",font=dict(color="white"),
+            xaxis_title="Total pit time (s)",
+            margin = dict(l=20,r=20,t=40,b=20),
+            showlegend=False
+        )
+
+        return fig, fig2, mean_pitstop
+
+    def plotStintGraph(self,driver,filter):
+        laptime_vs_tire = ff1_laps[["LapNumber","LapTime", "Compound", "TyreLife", "Driver", "Stint"]]
+        
+        laptime_vs_tire = laptime_vs_tire[laptime_vs_tire["Driver"] == driver]
+        laptime_vs_tire.dropna(0,inplace=True,subset=["LapTime"])
+
+        grouped_laptime_vs_tire = [y for x,y in laptime_vs_tire.groupby("Stint",as_index=False)]
+        fig = go.Figure()
+        for group in grouped_laptime_vs_tire:
+            stint = group.iloc[0]["Stint"].astype(int)
+            compound = group.iloc[0]["Compound"]
+
+            group["LapTimeSeconds"] = (group["LapTime"] / np.timedelta64(1, 's'))
+            #remove outlap and inlap
+            filter_group = group.copy(True)
+            filter_group.drop(filter_group.tail(1).index,inplace=True) # drop last n rows       
+            filter_group.drop(filter_group.head(1).index,inplace=True) # drop first n rows
+
+            laptimes = filter_group["LapTimeSeconds"].to_numpy()
+            average_laptime = np.median(laptimes)
+            maximum_laptime = 1.07*average_laptime
+            
+            filter_group = filter_group[filter_group["LapTimeSeconds"]<=maximum_laptime]
+            
+            laptimes = filter_group["LapTimeSeconds"].to_numpy()
+            lapnumbers = filter_group["LapNumber"].to_numpy()
+
+            z = np.polynomial.polynomial.polyfit(lapnumbers, laptimes, 2)
+            z2 = np.flip(z)
+            p = np.poly1d(z2)
+            if (compound == "SOFT"):
+                color = "Red"
+            elif compound == "MEDIUM":
+                color = "Yellow"
+            elif compound == "HARD":
+                color = "White"
+            else:
+                color = "Green"
+
+            
+
+            x = np.arange(lapnumbers[0],lapnumbers[-1]+1)
+            px = p(x)
+            poly = go.Scatter(x=x,y=px,mode='lines',line_color="cornflowerblue",showlegend=False, name="Stint " + str(stint) +" fit", legendgroup=str(stint))
+            # plt.plot(x, p(x),"--", color= "blue",label="Polynomial fit")
+
+            if not filter:
+                laptimes = group["LapTimeSeconds"].to_numpy()
+                lapnumbers = group["LapNumber"].to_numpy()
+            # plt.plot(lapnumbers, laptimes, 'o', label = compound, color = color, mec="black")
+            stint = go.Scatter(x=lapnumbers,y=laptimes,mode='markers', marker_line_width = 2, marker_size = 10, marker_color = color, name="Stint " + str(stint)+": "+compound, legendgroup = str(stint))
+            fig.add_trace(poly)
+            fig.add_trace(stint)
+            
+        
+        
+        for group in grouped_laptime_vs_tire:
+        #    ylim = ax.get_ylim()
+            lapnumbers = group["LapNumber"].to_numpy()
+            fig.add_vline(x=lapnumbers[-1]+0.5,line_dash = "dash", line_color="white", line_width = 3)
+        
+         #   ax.axvline(lapnumbers[-1]+0.5,0,1,color="black", linewidth = 1)
+
+        #hand, labl = ax.get_legend_handles_labels()
+        #handout=[]
+        #lablout=[]
+        #for h,l in zip(hand,labl):
+        #if l not in lablout:
+        #        lablout.append(l)
+        #        handout.append(h)
+        #plt.legend(handout, lablout)
+        #plt.xlabel("Lap")
+        #plt.ylabel("Lap time (s)")
+        #plt.show()
+        fig.update_layout(plot_bgcolor="#323130",
+            paper_bgcolor="#323130",font=dict(color="white"),
+            yaxis_title="Lap time (s)",
+            xaxis_title="Lap",
+            margin = dict(l=20,r=20,t=40,b=20)
+        )
+
+        return fig
+
+
 
 #dataContainer object creation
 dataContainer = dataContainer()
@@ -890,20 +1053,50 @@ app.layout = dbc.Container(
                 dbc.Tab(label="Home", tab_id="home", children = [
                         html.Br(),
                         html.P("Welcome to formulae.one. The graph below shows the race for the driver's championship. Various analyses are available in the other tabs"),
-                        dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
+                        dcc.Dropdown(className='div-for-dropdown',id='standings_year',value=last_race_with_results_year,clearable=False,options=[{'label': i, 'value': i} for i in races_df['year'].unique()]),
                         dcc.Graph(className='div-for-charts',id='standings_graph',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}},style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'}),
                         html.Br(),
                         dcc.Graph(className='div-for-charts',id='lap_violin',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}},style={'width':'100%','height':'70vh','display':'flex','flex-direction':'column'})
                     ]),
+                dbc.Tab(label="Strategy Dashboard", tab_id="latestrace", children = [
+                    html.Br(),
+                    html.P("Telemetry and strategy dashboard for the latest F1 race: " + str(last_race_with_results_year)+ " " + last_race_with_results_name),
+                    html.Br(),
+                    dbc.Row([
+                        dbc.Col([
+                    html.P("Choose driver:"),
+                    dcc.Dropdown(className='div-for-dropdown',id='stint_driver',value=ff1_drivers_df.iloc[0]["Driver"],clearable=False,options=[{'label': row["driverName"], 'value': row["Driver"]} for i,row in ff1_drivers_df.iterrows()]),
+                        ]),
+                    dbc.Col([
+                    html.P("Filter out outlaps/inlaps/slow laps: "),
+                    dcc.Dropdown(className='div-for-dropdown',id='filter_telem',value=1,clearable=False,options=[{'label': 'True', 'value': 1},{'label': 'False', 'value': 0}]),
+                    ])]),
+                    dcc.Graph(className='div-for-charts',id='stint_analysis',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}}),
+                    html.Br(),
+                    dbc.Row([
+                        dbc.Col([
+                        dcc.Graph(className='div-for-charts',id='pitstop',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
+                        ]),
+                        dbc.Col([
+                            dcc.Graph(className='div-for-charts',id='pitstop_boxplot',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
+                        ])
+                    ]),
+                    html.Br(),
+                    # dbc.Row([
+                    #     dbc.Col([
+                    #         dcc.Dropdown(className='div-for-dropdown',id='telem_lap',value=1,clearable=False)
+                    #     ]), dbc.Col([])
+                    # ])
+                ]),
                 dbc.Tab(label="Race Analysis", tab_id="raceanalysis", children = [
                         html.Br(),
                         html.P('Select a year and race to view all charts on this page based on that race. The graph directly below shows the lap times in seconds for each driver as the race progresses. Slower lap times often indicate pit lane stops, safety cars, or incidents and drivers dropping out. These can be filtered out using the selection below.'),
                         dbc.Row([
                             dbc.Col(
-                                dcc.Dropdown(className='div-for-dropdown',id='year',value=2021,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
+                                dcc.Dropdown(className='div-for-dropdown',id='year',value=last_race_with_results_year,clearable=False,options=[{'label': i, 'value': i} for i in range(races_df['year'].max(),1995,-1)])
                             ),
                             dbc.Col(
-                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value='Abu Dhabi Grand Prix',clearable=False)
+                                dcc.Dropdown(className='div-for-dropdown',id='race_name',value=last_race_with_results_name,clearable=False)
                             )
                         ]),
                         dbc.Row([
@@ -989,76 +1182,76 @@ app.layout = dbc.Container(
                         html.Br(),
                         dcc.Graph(className='div-for-charts',id='drivercomparisongraph4',config={'toImageButtonOptions':{'scale':1,'height':800,'width':1700}})
                 ]),
-                dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
-                        dcc.Markdown('''
-                            ## Predictions for the 2020 Eifel Grand Prix   
-                            The predictive model is updated every week after qualifying and before the race. The model uses an XGBoost algorithm to predict driver finishing position based on their qualifying performance, performance from previous races, driver and constructor standing, and weather.
-                        '''),
-                        # html.Br(),
-                        # dcc.Markdown('''
-                        #     *Predictions Based on Raw Data*  
-                        #     The model based on "raw" data, or the original variables from the F1 Ergast Data, predict the average lap time in a race for each driver based on current conditions such as weather and constructor, qualifying results, and results from the previous race. Because the raw data model relies so heavily on data from the race occuring right before it, instances where drivers DNF tend to perform poorly in the model.
-                        # '''),
-                        html.Br(),
-                        html.Div(children = [
-                            dash_table.DataTable(
-                            id = "raw_preds",
-                            columns=[{"name": i, "id": i} for i in raw_predictions_df.columns],
-                            data=raw_predictions_df.to_dict("rows"),
-                            style_table={'maxWidth': '100%'},
-                            style_header={'backgroundColor': 'rgb(30, 30, 30)', 
-                                #'whiteSpace': 'normal',
-                                'height': 'auto',
-                                #'width' : '20px'
-                            },
-                            style_cell={
-                                'backgroundColor': 'rgb(50, 50, 50)',
-                                'color': 'white',
-                                #'width' : '20px'
-                            },
-                            style_cell_conditional=[{
-                                'textAlign': 'center'
-                            }],
-                            style_as_list_view=True,
-                            ),
-                        ],
-                        style = {'width': '40%', 'margin' : 'auto'}
-                        ),  
-                        # html.Br(),
-                        # dcc.Markdown('''
-                        #     *Predictions with Feature Engineering*  
-                        #     For the model with "processed" data, the qualifying results and fastest lap times were turned into ratios based on the driver with pole position for that race, and the driver with the fastest lap time in the previous race. A rolling average was then created from these ratios for the previous races on the season in order to "reduce the punishment" to drivers who did not perform well in the race occuring right before the one being predicted.
-                        # '''),
-                        # html.Br(),
-                        # html.Div(children = [
-                        #     dash_table.DataTable(
-                        #     id = "pr_preds",
-                        #     columns=[{"name": i, "id": i} for i in pr_predictions_df.columns],
-                        #     data=pr_predictions_df.to_dict("rows"),
-                        #     style_table={'maxWidth': '100%'},
-                        #     style_header={'backgroundColor': 'rgb(30, 30, 30)', 
-                        #         #'whiteSpace': 'normal',
-                        #         'height': 'auto',
-                        #         #'width' : '20px'
-                        #     },
-                        #     style_cell={
-                        #         'backgroundColor': 'rgb(50, 50, 50)',
-                        #         'color': 'white',
-                        #         #'width' : '20px'
-                        #     },
-                        #     style_cell_conditional=[{
-                        #         'textAlign': 'center'
-                        #     }],
-                        #     style_as_list_view=True,
-                        #     ),
-                        # ],
-                        # style = {'width': '40%', 'margin' : 'auto'}
-                        # ),
-                        # html.Br(),
-                        # dcc.Markdown('''
-                        #     There is a discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
-                        # '''),   
-                ]),
+                # dbc.Tab(label = "Race Predictions", tab_id="predictions", children =[
+                #         dcc.Markdown('''
+                #             ## Predictions for the 2020 Eifel Grand Prix   
+                #             The predictive model is updated every week after qualifying and before the race. The model uses an XGBoost algorithm to predict driver finishing position based on their qualifying performance, performance from previous races, driver and constructor standing, and weather.
+                #         '''),
+                #         # html.Br(),
+                #         # dcc.Markdown('''
+                #         #     *Predictions Based on Raw Data*  
+                #         #     The model based on "raw" data, or the original variables from the F1 Ergast Data, predict the average lap time in a race for each driver based on current conditions such as weather and constructor, qualifying results, and results from the previous race. Because the raw data model relies so heavily on data from the race occuring right before it, instances where drivers DNF tend to perform poorly in the model.
+                #         # '''),
+                #         html.Br(),
+                #         html.Div(children = [
+                #             dash_table.DataTable(
+                #             id = "raw_preds",
+                #             columns=[{"name": i, "id": i} for i in raw_predictions_df.columns],
+                #             data=raw_predictions_df.to_dict("rows"),
+                #             style_table={'maxWidth': '100%'},
+                #             style_header={'backgroundColor': 'rgb(30, 30, 30)', 
+                #                 #'whiteSpace': 'normal',
+                #                 'height': 'auto',
+                #                 #'width' : '20px'
+                #             },
+                #             style_cell={
+                #                 'backgroundColor': 'rgb(50, 50, 50)',
+                #                 'color': 'white',
+                #                 #'width' : '20px'
+                #             },
+                #             style_cell_conditional=[{
+                #                 'textAlign': 'center'
+                #             }],
+                #             style_as_list_view=True,
+                #             ),
+                #         ],
+                #         style = {'width': '40%', 'margin' : 'auto'}
+                #         ),  
+                #         # html.Br(),
+                #         # dcc.Markdown('''
+                #         #     *Predictions with Feature Engineering*  
+                #         #     For the model with "processed" data, the qualifying results and fastest lap times were turned into ratios based on the driver with pole position for that race, and the driver with the fastest lap time in the previous race. A rolling average was then created from these ratios for the previous races on the season in order to "reduce the punishment" to drivers who did not perform well in the race occuring right before the one being predicted.
+                #         # '''),
+                #         # html.Br(),
+                #         # html.Div(children = [
+                #         #     dash_table.DataTable(
+                #         #     id = "pr_preds",
+                #         #     columns=[{"name": i, "id": i} for i in pr_predictions_df.columns],
+                #         #     data=pr_predictions_df.to_dict("rows"),
+                #         #     style_table={'maxWidth': '100%'},
+                #         #     style_header={'backgroundColor': 'rgb(30, 30, 30)', 
+                #         #         #'whiteSpace': 'normal',
+                #         #         'height': 'auto',
+                #         #         #'width' : '20px'
+                #         #     },
+                #         #     style_cell={
+                #         #         'backgroundColor': 'rgb(50, 50, 50)',
+                #         #         'color': 'white',
+                #         #         #'width' : '20px'
+                #         #     },
+                #         #     style_cell_conditional=[{
+                #         #         'textAlign': 'center'
+                #         #     }],
+                #         #     style_as_list_view=True,
+                #         #     ),
+                #         # ],
+                #         # style = {'width': '40%', 'margin' : 'auto'}
+                #         # ),
+                #         # html.Br(),
+                #         # dcc.Markdown('''
+                #         #     There is a discrepancy between the two models shown here, and further investigation still needs to be done into the feature engineering model and process to determine how the variables are being weighted to determine race order. Because the model with feature engineered variables uses averages of historical data, though, it could potentially perform better as the season goes on.
+                #         # '''),   
+                # ]),
                 dbc.Tab(label="Lap simulation",tab_id="lapsimulation",children= [
                     html.Br(),
                     html.P('This section examines the effect of key racecar parameters on the performance over a lap. This is implemented through formulating a trajectory optimization problem of a 3-DOF vehicle model. This optimal control problem (OCP) is transcribed to a nonlinear programming problem (NLP) through OpenMDAO Dymos (open-source). The NLP is solved with the open-source IPOPT solver. A design of experiments (DOE) is constructed with parameters such as the maximum engine power and vehicle lift and drag coefficients. The DOE is evaluated and fed into a radial basis function surrogate model. This model allows for the continous manipulation of each of the design variables.'),
@@ -1406,6 +1599,14 @@ def update_form_graph(chart_switch,quali_range):
 )
 def update_standings_graph(year):
     return [dataContainer.plotStandingsGraph(year),dataContainer.plotYearViolin(year)]
+
+@app.callback(
+    [Output(component_id='stint_analysis', component_property='figure'),Output(component_id='pitstop', component_property='figure'),Output(component_id='pitstop_boxplot', component_property='figure')],
+    [Input(component_id='stint_driver', component_property='value'),Input(component_id='filter_telem', component_property='value')]
+)
+def update_stint_graph(driver,filter):
+    fig, fig2, mean_pitstop = dataContainer.plotPitStopGraph()
+    return [dataContainer.plotStintGraph(driver,filter), fig, fig2]
 
 # @app.callback(
 #   Output(component_id='submit_message', component_property='children'),
